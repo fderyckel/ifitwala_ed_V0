@@ -37,7 +37,7 @@ cur_frm.cscript.change_abbr = function() {
 		if(!args) return;
 		frappe.show_alert(__("Update in progress. It might take a while."));
 		return frappe.call({
-			method: "ifitwala_ed.school_settings.doctype.school.school.enqueue_replace_abbr",
+			method: "ifitwala_dev.school_settings.doctype.school.school.enqueue_replace_abbr",
 			args: {
 				"school": cur_frm.doc.name,
 				"old": cur_frm.doc.abbr,

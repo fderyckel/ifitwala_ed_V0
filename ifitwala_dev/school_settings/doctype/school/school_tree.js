@@ -1,7 +1,7 @@
 frappe.treeview_settings["School"] = {
 	ignore_fields:["parent_school"],
-	get_tree_nodes: 'ifitwala_ed.school_settings.doctype.school.school.get_children',
-	add_tree_node: 'ifitwala_ed.school_settings.doctype.school.school.add_node',
+	get_tree_nodes: 'ifitwala_dev.school_settings.doctype.school.school.get_children',
+	add_tree_node: 'ifitwala_dev.school_settings.doctype.school.school.add_node',
 	filters: [
 		{
 			fieldname: "school",

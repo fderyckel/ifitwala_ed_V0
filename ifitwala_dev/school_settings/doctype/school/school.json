@@ -1,22 +1,93 @@
 {
- "creation": "2020-09-12 21:31:03.360347",
+ "autoname": "field:school_name",
+ "creation": "2020-08-24 22:12:25.883259",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "school_name"
+  "school_name",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_school",
+  "abbr",
+  "school_logo",
+  "change_abbr"
  ],
  "fields": [
   {
    "fieldname": "school_name",
    "fieldtype": "Data",
-   "label": "school_name"
+   "label": "School Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "School",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "parent_school",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Parent School",
+   "options": "School"
+  },
+  {
+   "fieldname": "abbr",
+   "fieldtype": "Data",
+   "label": "School Abbreviation"
+  },
+  {
+   "fieldname": "school_logo",
+   "fieldtype": "Attach Image",
+   "label": "School Logo"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal && in_list(frappe.user_roles, \"System Manager\")",
+   "fieldname": "change_abbr",
+   "fieldtype": "Button",
+   "label": "Change Abbreviation"
   }
  ],
- "modified": "2020-09-12 21:31:03.360347",
+ "image_field": "school_logo",
+ "is_tree": 1,
+ "modified": "2020-08-27 19:58:32.081335",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",
+ "nsm_parent_field": "parent_school",
  "owner": "Administrator",
  "permissions": [
   {
@@ -30,9 +101,29 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "School IT",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

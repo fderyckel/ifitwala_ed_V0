@@ -50,12 +50,12 @@ class School(NestedSet):
 		NestedSet.validate_if_child_exists(self)
 		frappe.utils.nestedset.update_nsm(self)
 		
-	def validate_parent_company(self):
-		if self.parent_company:
-			is_group = frappe.get_value('Company', self.parent_company, 'is_group')
+	def validate_parent_school(self):
+		if self.parent_school:
+			is_group = frappe.get_value('School', self.parent_school, 'is_group')
 
 			if not is_group:
-				frappe.throw(_("Parent Company must be a group company"))
+				frappe.throw(_("Parent School must be a group company"))
 		
 @frappe.whitelist()
 def enqueue_replace_abbr(school, old, new):

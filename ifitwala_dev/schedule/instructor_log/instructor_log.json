@@ -1,0 +1,50 @@
+{
+ "creation": "2020-08-24 15:55:39.365665",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "academic_year",
+  "academic_term",
+  "designation",
+  "other_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Academic Year"
+  },
+  {
+   "fieldname": "academic_term",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Academic Term"
+  },
+  {
+   "fieldname": "other_details",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Other Details"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Designation",
+   "options": "Designation"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-09-11 08:19:19.355750",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Instructor Log",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

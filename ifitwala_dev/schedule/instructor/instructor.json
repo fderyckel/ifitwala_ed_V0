@@ -1,0 +1,129 @@
+{
+ "allow_import": 1,
+ "autoname": "INS-.YYYY.-.###",
+ "creation": "2020-08-24 16:00:46.804782",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "instructor_name",
+  "email",
+  "mobile_phone",
+  "log_details",
+  "instructor_log",
+  "image"
+ ],
+ "fields": [
+  {
+   "fetch_from": "employee.full_name",
+   "fieldname": "instructor_name",
+   "fieldtype": "Data",
+   "ignore_user_permissions": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Instructor Name",
+   "unique": 1
+  },
+  {
+   "fetch_from": "employee.professional_email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fetch_from": "employee.mobile_phone",
+   "fieldname": "mobile_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mobile Phone"
+  },
+  {
+   "fieldname": "log_details",
+   "fieldtype": "Section Break",
+   "label": "Instructor Log"
+  },
+  {
+   "fieldname": "instructor_log",
+   "fieldtype": "Table",
+   "label": "Instructor Log",
+   "options": "Instructor Log"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "image"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1,
+   "unique": 1
+  }
+ ],
+ "image_field": "image",
+ "modified": "2020-09-11 09:22:28.055521",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Instructor",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "instructor_name",
+ "track_changes": 1
+}

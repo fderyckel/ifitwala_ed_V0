@@ -1,0 +1,256 @@
+{
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "GRD-.YYYY.-.#####",
+ "creation": "2020-08-12 18:39:26.641091",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "salutation",
+  "first_name",
+  "last_name",
+  "email",
+  "mobile_phone",
+  "image",
+  "user",
+  "column_break_7",
+  "address",
+  "home_phone",
+  "address_name_1",
+  "address_name_2",
+  "zipcode",
+  "town",
+  "country",
+  "others_section",
+  "students",
+  "work_contacts_section",
+  "work_place",
+  "column_break_20",
+  "designation",
+  "work_email",
+  "work_phone",
+  "full_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "address.phone",
+   "fieldname": "home_phone",
+   "fieldtype": "Read Only",
+   "label": "Home Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Personal Email"
+  },
+  {
+   "fieldname": "work_place",
+   "fieldtype": "Text",
+   "label": "Work Place"
+  },
+  {
+   "fieldname": "mobile_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile Phone"
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fetch_from": "address.pincode",
+   "fieldname": "zipcode",
+   "fieldtype": "Read Only",
+   "label": "Zipcode "
+  },
+  {
+   "fetch_from": "address.city",
+   "fieldname": "town",
+   "fieldtype": "Read Only",
+   "label": "Town"
+  },
+  {
+   "fetch_from": "address.country",
+   "fieldname": "country",
+   "fieldtype": "Read Only",
+   "label": "Country"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_phone",
+   "fieldtype": "Data",
+   "label": "Work Phone"
+  },
+  {
+   "fieldname": "work_contacts_section",
+   "fieldtype": "Section Break",
+   "label": "Work Contacts"
+  },
+  {
+   "fieldname": "others_section",
+   "fieldtype": "Section Break",
+   "label": "Guardian of"
+  },
+  {
+   "fieldname": "work_email",
+   "fieldtype": "Data",
+   "label": "Work Email"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "address.address_line1",
+   "fieldname": "address_name_1",
+   "fieldtype": "Read Only",
+   "label": "Address Name 1"
+  },
+  {
+   "fetch_from": "address.address_line2",
+   "fieldname": "address_name_2",
+   "fieldtype": "Read Only",
+   "label": "Address Name 2"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User ID",
+   "options": "User"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Address Name",
+   "options": "Address"
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "Table",
+   "label": "Students",
+   "options": "Guardian Student",
+   "read_only": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Full  Name"
+  }
+ ],
+ "image_field": "image",
+ "modified": "2020-09-07 19:13:03.942720",
+ "modified_by": "Administrator",
+ "module": "Students",
+ "name": "Guardian",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admission Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Counselor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Nurse",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "first_name, last_name, email, mobile_phone",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "full_name",
+ "track_changes": 1
+}

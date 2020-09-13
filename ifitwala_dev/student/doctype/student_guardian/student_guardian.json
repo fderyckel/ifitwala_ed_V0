@@ -1,0 +1,65 @@
+{
+ "creation": "2020-08-19 21:41:51.241090",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "guardian",
+  "guardian_name",
+  "relation",
+  "email",
+  "mobile_phone"
+ ],
+ "fields": [
+  {
+   "fieldname": "guardian",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Guardian",
+   "options": "Guardian",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "guardian.full_name",
+   "fieldname": "guardian_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "relation",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relation",
+   "options": "Mother\nFather\nStepmother\nStepfather\nGrandfather\nGrandmother\nOther",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "guardian.email",
+   "fieldname": "email",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Email"
+  },
+  {
+   "fetch_from": "guardian.mobile_phone",
+   "fieldname": "mobile_phone",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Mobile Phone"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-09-07 20:45:28.524382",
+ "modified_by": "Administrator",
+ "module": "Students",
+ "name": "Student Guardian",
+ "owner": "f.deryckel@gmail.com",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

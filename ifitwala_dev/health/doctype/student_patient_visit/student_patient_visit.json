@@ -1,0 +1,257 @@
+{
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "autoname": "PAV-.YYYY.-.#####",
+ "creation": "2020-09-07 15:05:58.766704",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "student_patient",
+  "student_name",
+  "gender",
+  "column_break_4",
+  "visit_time",
+  "date_of_birth",
+  "student_age",
+  "blood_group",
+  "vitals_section",
+  "body_temperature",
+  "bp_systolic",
+  "bp_diastolic",
+  "bp",
+  "heart_rate__pulse",
+  "column_break_12",
+  "respiratory_rate",
+  "tongue",
+  "abdomen",
+  "refexes",
+  "section_break_17",
+  "height",
+  "weight",
+  "bmi",
+  "column_break_21",
+  "note",
+  "care_administered_section",
+  "treatment",
+  "amended_from",
+  "photo"
+ ],
+ "fields": [
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_age",
+   "fieldtype": "Data",
+   "label": "Student Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_patient",
+   "fieldtype": "Link",
+   "label": "Student Patient",
+   "options": "Student Patient"
+  },
+  {
+   "fieldname": "vitals_section",
+   "fieldtype": "Section Break",
+   "label": "Vitals"
+  },
+  {
+   "fieldname": "body_temperature",
+   "fieldtype": "Data",
+   "label": "Body Temperature"
+  },
+  {
+   "fieldname": "heart_rate__pulse",
+   "fieldtype": "Data",
+   "label": "Heart Rate / Pulse"
+  },
+  {
+   "fieldname": "respiratory_rate",
+   "fieldtype": "Data",
+   "label": "Respiratory Rate"
+  },
+  {
+   "fieldname": "tongue",
+   "fieldtype": "Select",
+   "label": "Tongue",
+   "options": "\nCoated\nVery Coated\nNormal\nFurry\nCuts"
+  },
+  {
+   "fieldname": "abdomen",
+   "fieldtype": "Select",
+   "label": "Abdomen",
+   "options": "\nNormal\nBloated\nFull\nFluid\nConstipated"
+  },
+  {
+   "fieldname": "refexes",
+   "fieldtype": "Select",
+   "label": "Refexes",
+   "options": "\nNormal\nHyper\nVery Hyper\nOne Sided"
+  },
+  {
+   "fieldname": "bp_systolic",
+   "fieldtype": "Data",
+   "label": "Blood Pressure (systolic)"
+  },
+  {
+   "fieldname": "bp_diastolic",
+   "fieldtype": "Data",
+   "label": "Blood Pressure (diastolic)"
+  },
+  {
+   "fieldname": "bp",
+   "fieldtype": "Data",
+   "label": "Blood pressure",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Data",
+   "label": "Height"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "bmi",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "BMI",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Patient Visit",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "care_administered_section",
+   "fieldtype": "Section Break",
+   "label": "Care Administered"
+  },
+  {
+   "fieldname": "treatment",
+   "fieldtype": "Text Editor",
+   "label": "Treatment"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "visit_time",
+   "fieldtype": "Time",
+   "label": "Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "blood_group",
+   "fieldtype": "Read Only",
+   "label": "Blood Group"
+  },
+  {
+   "fetch_from": "student.photo",
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "photo"
+  }
+ ],
+ "image_field": "photo",
+ "is_submittable": 1,
+ "modified": "2020-09-09 20:13:55.569531",
+ "modified_by": "Administrator",
+ "module": "Health",
+ "name": "Student Patient Visit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Nurse",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "student_name",
+ "track_changes": 1
+}

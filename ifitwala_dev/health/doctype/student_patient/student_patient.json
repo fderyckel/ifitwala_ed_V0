@@ -1,0 +1,378 @@
+{
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "PAT-.YYYY.-.#####",
+ "creation": "2020-09-07 13:04:05.102052",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "student",
+  "gender",
+  "blood_group",
+  "column_break_3",
+  "student_name",
+  "date_of_birth",
+  "student_age",
+  "patient_relations_section",
+  "section_break_7",
+  "allergies",
+  "food_allergies",
+  "insect_bites",
+  "column_break_11",
+  "medication_allergies",
+  "others",
+  "section_break_14",
+  "asthma",
+  "bladder__bowel_problems",
+  "diabetes",
+  "headache_migraine",
+  "high_blood_pressure",
+  "seizures",
+  "column_break_20",
+  "bone_joints_scoliosis",
+  "blood_disorder_info",
+  "fainting_spells",
+  "hearing_problems",
+  "recurrent_ear_infections",
+  "speech_problem",
+  "column_break_27",
+  "birth_defect",
+  "dental_problems",
+  "g6pd",
+  "heart_problems",
+  "recurrent_nose_bleeding",
+  "vision_problem",
+  "diet_data_section",
+  "diet_requirements",
+  "medical_history_section",
+  "medical_surgeries__hospitalizations",
+  "others_section",
+  "other_medical_information",
+  "vaccination_data_section",
+  "vaccinations",
+  "photo",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "label": "Student",
+   "options": "Student"
+  },
+  {
+   "fetch_from": "student.title",
+   "fieldname": "student_name",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Student Name"
+  },
+  {
+   "fetch_from": "student.gender",
+   "fieldname": "gender",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Gender"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Blood Group",
+   "options": "\nA Positive\nA Negative\nAB Positive\nAB Negative\nB Positive\nB Negative\nO Positive\nO Negative"
+  },
+  {
+   "fieldname": "patient_relations_section",
+   "fieldtype": "Section Break",
+   "label": "Patient Relations"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Allergies"
+  },
+  {
+   "depends_on": "eval: doc.allergies==\"1\"",
+   "description": "Provide more details about the type of food allergies",
+   "fieldname": "food_allergies",
+   "fieldtype": "Small Text",
+   "label": "Food Allergies"
+  },
+  {
+   "depends_on": "eval: doc.allergies==\"1\"",
+   "description": "Provide more details about the type of insect allergies",
+   "fieldname": "insect_bites",
+   "fieldtype": "Small Text",
+   "label": "Insect Bites"
+  },
+  {
+   "depends_on": "eval: doc.allergies==\"1\"",
+   "description": "Provide more details about any other type of allergies",
+   "fieldname": "others",
+   "fieldtype": "Small Text",
+   "label": "Others"
+  },
+  {
+   "description": "Provide more information on the type of blood disorder",
+   "fieldname": "blood_disorder_info",
+   "fieldtype": "Small Text",
+   "label": "Blood Disorder Info"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "fainting_spells",
+   "fieldtype": "Small Text",
+   "label": "Fainting Spells"
+  },
+  {
+   "fieldname": "g6pd",
+   "fieldtype": "Small Text",
+   "label": "G6PD"
+  },
+  {
+   "fieldname": "hearing_problems",
+   "fieldtype": "Small Text",
+   "label": "Hearing Problems"
+  },
+  {
+   "fieldname": "high_blood_pressure",
+   "fieldtype": "Small Text",
+   "label": "Low/High Blood Pressure"
+  },
+  {
+   "description": "Add info about last seizures.",
+   "fieldname": "seizures",
+   "fieldtype": "Small Text",
+   "label": "Seizures"
+  },
+  {
+   "fieldname": "asthma",
+   "fieldtype": "Small Text",
+   "label": "Asthma"
+  },
+  {
+   "fieldname": "bone_joints_scoliosis",
+   "fieldtype": "Small Text",
+   "label": "Bone Joints Scoliosis"
+  },
+  {
+   "fieldname": "dental_problems",
+   "fieldtype": "Small Text",
+   "label": "Dental Problems"
+  },
+  {
+   "fieldname": "recurrent_ear_infections",
+   "fieldtype": "Small Text",
+   "label": "Recurrent Ear infections"
+  },
+  {
+   "fieldname": "headache_migraine",
+   "fieldtype": "Small Text",
+   "label": "Headache / Migraine"
+  },
+  {
+   "fieldname": "speech_problem",
+   "fieldtype": "Small Text",
+   "label": "Speech Problem"
+  },
+  {
+   "fieldname": "vision_problem",
+   "fieldtype": "Small Text",
+   "label": "Vision Problems"
+  },
+  {
+   "fieldname": "birth_defect",
+   "fieldtype": "Small Text",
+   "label": "Birth Defect"
+  },
+  {
+   "fieldname": "bladder__bowel_problems",
+   "fieldtype": "Small Text",
+   "label": "Bladder / Bowel Problems"
+  },
+  {
+   "fieldname": "diabetes",
+   "fieldtype": "Small Text",
+   "label": "Diabetes"
+  },
+  {
+   "fieldname": "heart_problems",
+   "fieldtype": "Small Text",
+   "label": "Heart Problems"
+  },
+  {
+   "fieldname": "recurrent_nose_bleeding",
+   "fieldtype": "Small Text",
+   "label": "Recurrent Nose Bleeding"
+  },
+  {
+   "fieldname": "diet_data_section",
+   "fieldtype": "Section Break",
+   "label": "Other Data"
+  },
+  {
+   "fieldname": "diet_requirements",
+   "fieldtype": "Small Text",
+   "label": "Diet Requirements"
+  },
+  {
+   "description": "Sections for relevant past medical history.",
+   "fieldname": "medical_history_section",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Any relevant past hospitalization, surgeries",
+   "fieldname": "medical_surgeries__hospitalizations",
+   "fieldtype": "Text",
+   "label": "Medical Surgeries / Hospitalizations"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.allergies == \"1\"",
+   "fieldname": "medication_allergies",
+   "fieldtype": "Small Text",
+   "label": "Medication Allergies"
+  },
+  {
+   "default": "0",
+   "fieldname": "allergies",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Any allergies"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "others_section",
+   "fieldtype": "Section Break",
+   "label": "Others"
+  },
+  {
+   "fieldname": "other_medical_information",
+   "fieldtype": "Text Editor",
+   "label": "Other Medical Information"
+  },
+  {
+   "fieldname": "vaccinations",
+   "fieldtype": "Table",
+   "label": "Vaccinations",
+   "options": "Student Patient Vaccination"
+  },
+  {
+   "fieldname": "vaccination_data_section",
+   "fieldtype": "Section Break",
+   "label": "Vaccination Data"
+  },
+  {
+   "fetch_from": "student.photo",
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "photo",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Read Only",
+   "label": "Date Of Birth"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "Active\nDisabled"
+  },
+  {
+   "fieldname": "student_age",
+   "fieldtype": "Data",
+   "label": "Student Age",
+   "read_only": 1
+  }
+ ],
+ "image_field": "photo",
+ "modified": "2020-09-09 20:11:52.597946",
+ "modified_by": "Administrator",
+ "module": "Health",
+ "name": "Student Patient",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Nurse",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admission Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "student_name",
+ "track_changes": 1
+}

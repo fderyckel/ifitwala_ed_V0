@@ -2,25 +2,25 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
 
-app_name = "ifitwala_dev"
-app_title = "Ifitwala Dev"
-app_publisher = "flipo"
-app_description = "sms"
+app_name = "ifitwala_ed"
+app_title = "Ifitwala Ed"
+app_publisher = "ifitwala"
+app_description = "manage student data"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "fderyckel@gmail.com"
+app_email = "f.deryckel@gmail.com"
 app_license = "MIT"
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/ifitwala_dev/css/ifitwala_dev.css"
-# app_include_js = "/assets/ifitwala_dev/js/ifitwala_dev.js"
+# app_include_css = "/assets/ifitwala_ed/css/ifitwala_ed.css"
+# app_include_js = "/assets/ifitwala_ed/js/ifitwala_ed.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/ifitwala_dev/css/ifitwala_dev.css"
-# web_include_js = "/assets/ifitwala_dev/js/ifitwala_dev.js"
+# web_include_css = "/assets/ifitwala_ed/css/ifitwala_ed.css"
+# web_include_js = "/assets/ifitwala_ed/js/ifitwala_ed.js"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
@@ -43,7 +43,7 @@ app_license = "MIT"
 # }
 
 # Website user home page (by function)
-# get_website_user_home_page = "ifitwala_dev.utils.get_home_page"
+# get_website_user_home_page = "ifitwala_ed.utils.get_home_page"
 
 # Generators
 # ----------
@@ -54,14 +54,14 @@ app_license = "MIT"
 # Installation
 # ------------
 
-# before_install = "ifitwala_dev.install.before_install"
-# after_install = "ifitwala_dev.install.after_install"
+# before_install = "ifitwala_ed.install.before_install"
+# after_install = "ifitwala_ed.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "ifitwala_dev.notifications.get_notification_config"
+# notification_config = "ifitwala_ed.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -75,6 +75,10 @@ app_license = "MIT"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
+default_roles = [
+	{'role': 'Student', 'doctype':'Student', 'email_field': 'student_email'},
+]
+
 # Document Events
 # ---------------
 # Hook on document methods and events
@@ -87,43 +91,50 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+
+	"User": {
+		"after_insert": "frappe.contacts.doctype.contact.contact.update_contact"
+	}
+}
+
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
 # 	"all": [
-# 		"ifitwala_dev.tasks.all"
+# 		"ifitwala_ed.tasks.all"
 # 	],
 # 	"daily": [
-# 		"ifitwala_dev.tasks.daily"
+# 		"ifitwala_ed.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"ifitwala_dev.tasks.hourly"
+# 		"ifitwala_ed.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"ifitwala_dev.tasks.weekly"
+# 		"ifitwala_ed.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"ifitwala_dev.tasks.monthly"
+# 		"ifitwala_ed.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "ifitwala_dev.install.before_tests"
+# before_tests = "ifitwala_ed.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "ifitwala_dev.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "ifitwala_ed.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "ifitwala_dev.task.get_dashboard_data"
+# 	"Task": "ifitwala_ed.task.get_dashboard_data"
 # }
 

@@ -1,2 +1,5 @@
 Ifitwala Dev
 School Settings
+Student
+Health
+Schedule

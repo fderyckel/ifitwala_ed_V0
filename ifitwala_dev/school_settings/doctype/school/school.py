@@ -98,15 +98,19 @@ def get_children(doctype, parent=None, school=None, is_root=False):
 	if parent is None or parent == "All Schools":
 		parent = ""
 
-	return frappe.db.sql(""" 
-		select 
-			name as value, 
-			is_group as expandable 
-		from 
-			`tab{doctype}` comp 
-		where 
-			ifnull(parent_school, "")="{parent}" 
-			""".format(doctype = frappe.db.escape(doctype), parent=frappe.db.escape(parent)), as_dict=1)
+	return frappe.db.sql("""
+		select
+			name as value,
+			is_group as expandable
+		from
+			`tab{doctype}` comp
+		where
+			ifnull(parent_school, "")={parent}
+		""".format(
+			doctype=doctype,
+			parent=frappe.db.escape(parent)
+		), as_dict=1)
+
 
 @frappe.whitelist()
 def add_node():

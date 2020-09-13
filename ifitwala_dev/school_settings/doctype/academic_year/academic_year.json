@@ -1,0 +1,86 @@
+{
+ "allow_import": 1,
+ "autoname": "field:academic_year_name",
+ "creation": "2020-08-16 12:58:26.087693",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "academic_year_name",
+  "year_start_date",
+  "year_end_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "academic_year_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Academic Year Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "year_start_date",
+   "fieldtype": "Date",
+   "label": "Year Start Date"
+  },
+  {
+   "fieldname": "year_end_date",
+   "fieldtype": "Date",
+   "label": "Year End Date"
+  }
+ ],
+ "modified": "2020-08-27 19:57:41.444623",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "Academic Year",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "School IT",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,4 +1,6 @@
 {
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:school_name",
  "creation": "2020-08-24 22:12:25.883259",
  "doctype": "DocType",
@@ -19,7 +21,8 @@
   {
    "fieldname": "school_name",
    "fieldtype": "Data",
-   "label": "School Name",
+   "label": "School",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -49,10 +52,9 @@
   },
   {
    "fieldname": "old_parent",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "hidden": 1,
    "label": "Old Parent",
-   "options": "School",
    "print_hide": 1,
    "read_only": 1
   },
@@ -67,7 +69,8 @@
   {
    "fieldname": "abbr",
    "fieldtype": "Data",
-   "label": "School Abbreviation"
+   "label": "School Abbreviation",
+   "reqd": 1
   },
   {
    "fieldname": "school_logo",
@@ -83,7 +86,7 @@
  ],
  "image_field": "school_logo",
  "is_tree": 1,
- "modified": "2020-08-27 19:58:32.081335",
+ "modified": "2020-09-12 22:04:40.293991",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",
@@ -124,6 +127,7 @@
    "share": 1
   }
  ],
+ "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

@@ -1,0 +1,385 @@
+{
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "HR-EMP-.#####",
+ "creation": "2020-08-24 08:19:58.050791",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_info_section",
+  "salutation",
+  "first_name",
+  "middle_name",
+  "last_name",
+  "gender",
+  "full_name",
+  "preferred_name",
+  "column_break_10",
+  "professional_email",
+  "mobile_phone",
+  "personal_email",
+  "date_of_birth",
+  "image",
+  "user_id",
+  "create_user",
+  "create_user_permission",
+  "data_19",
+  "current_address",
+  "home_phone",
+  "address_line_1",
+  "address_line_2",
+  "zipcode",
+  "town__city",
+  "column_break_21",
+  "permanent_address",
+  "emergency_contact_person",
+  "professional_section",
+  "date_of_joining",
+  "status",
+  "column_break_28",
+  "school",
+  "reports_to",
+  "section_break_30",
+  "internal_work_history",
+  "exit_section",
+  "notice_date",
+  "relieving_date",
+  "column_break_35",
+  "exit_interview_date",
+  "exit_interview",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_info_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Info"
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "\nFemale\nMale\nPrefer not to say\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mobile Phone"
+  },
+  {
+   "fieldname": "personal_email",
+   "fieldtype": "Data",
+   "label": "Personal email"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "professional_email",
+   "fieldtype": "Data",
+   "label": "Professional email"
+  },
+  {
+   "fieldname": "home_phone",
+   "fieldtype": "Data",
+   "label": "Home Phone"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "zipcode",
+   "fieldtype": "Data",
+   "label": "Zipcode"
+  },
+  {
+   "fieldname": "town__city",
+   "fieldtype": "Data",
+   "label": "Town / City"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_19",
+   "fieldtype": "Section Break",
+   "label": "Addresses"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "image"
+  },
+  {
+   "fieldname": "current_address",
+   "fieldtype": "Link",
+   "label": "Current Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "permanent_address",
+   "fieldtype": "Link",
+   "label": "Permanent Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "preferred_name",
+   "fieldtype": "Data",
+   "label": "Preferred Name"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "reqd": 1
+  },
+  {
+   "fieldname": "professional_section",
+   "fieldtype": "Section Break",
+   "label": "Professional"
+  },
+  {
+   "fieldname": "reports_to",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Reports To",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "lft",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "rgt",
+   "read_only": 1
+  },
+  {
+   "fieldname": "internal_work_history",
+   "fieldtype": "Table",
+   "label": "Internal Work History",
+   "options": "Employee Internal Work History"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nTemporary Leave\nLeft",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_30",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "exit_section",
+   "fieldtype": "Section Break",
+   "label": "Exit"
+  },
+  {
+   "fieldname": "notice_date",
+   "fieldtype": "Date",
+   "label": "Notice Date"
+  },
+  {
+   "fieldname": "relieving_date",
+   "fieldtype": "Date",
+   "label": "Relieving Date"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exit_interview_date",
+   "fieldtype": "Date",
+   "label": "Exit Interview Date"
+  },
+  {
+   "fieldname": "exit_interview",
+   "fieldtype": "Text",
+   "label": "Exit Interview"
+  },
+  {
+   "fieldname": "emergency_contact_person",
+   "fieldtype": "Text",
+   "label": "Emergency Contact Person"
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Link",
+   "label": "User ID",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:(!doc.user_id)",
+   "fieldname": "create_user",
+   "fieldtype": "Button",
+   "label": "Create User"
+  },
+  {
+   "default": "1",
+   "depends_on": "user_id",
+   "fieldname": "create_user_permission",
+   "fieldtype": "Check",
+   "label": "Create User Permission"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School",
+   "options": "School",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Old Parent"
+  }
+ ],
+ "image_field": "image",
+ "modified": "2020-09-11 21:25:15.061613",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Employee",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "full_name",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "full_name",
+ "track_changes": 1
+}

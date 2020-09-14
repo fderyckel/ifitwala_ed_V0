@@ -8,7 +8,12 @@
  ],
  "cards_label": "",
  "category": "Modules",
- "charts": [],
+ "charts": [
+  {
+   "chart_name": "Student Gender Ratio",
+   "label": "Student Gender Ratio"
+  }
+ ],
  "creation": "2020-09-13 23:34:22.525108",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
@@ -19,7 +24,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-09-13 23:36:53.490305",
+ "modified": "2020-09-14 13:25:07.972611",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

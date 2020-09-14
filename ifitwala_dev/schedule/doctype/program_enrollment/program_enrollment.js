@@ -39,6 +39,10 @@ frappe.ui.form.on('Program Enrollment', {
 	
 	}, 
 	
+	onload_post_render: function(frm) {
+		frm.get_field("courses").grid.set_multiple_add("course");
+	},
+	
 	program: function(frm) {
 		frm.events.get_courses(frm);
 	},

@@ -3,3 +3,4 @@ School Settings
 Student
 Health
 Schedule
+HR

@@ -1,0 +1,45 @@
+{
+ "creation": "2020-09-04 11:45:23.684126",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "student",
+  "student_name",
+  "student_cohort"
+ ],
+ "fields": [
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student"
+  },
+  {
+   "fetch_from": "student.title",
+   "fieldname": "student_name",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Student Name"
+  },
+  {
+   "fieldname": "student_cohort",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Cohort",
+   "options": "Student Cohort"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-09-04 12:19:01.249486",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Program Enrollment Tool Student",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,179 @@
+{
+ "allow_copy": 1,
+ "creation": "2020-09-04 10:45:06.621408",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "get_students_from",
+  "program",
+  "student_cohort",
+  "column_break_4",
+  "academic_year",
+  "academic_term",
+  "section_break_7",
+  "get_students",
+  "students",
+  "new_enrollment_details_section",
+  "new_program",
+  "new_student_cohort",
+  "enroll_students",
+  "column_break_12",
+  "new_academic_year",
+  "new_academic_term",
+  "new_enrollment_date"
+ ],
+ "fields": [
+  {
+   "default": "Program Enrollment",
+   "fieldname": "get_students_from",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Get Students From",
+   "options": "\nProgram Enrollment\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_cohort",
+   "fieldtype": "Link",
+   "label": "Student Cohort",
+   "options": "Student Cohort"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Academic Term",
+   "options": "Academic Term"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "get_students",
+   "fieldtype": "Button",
+   "label": "Get Students"
+  },
+  {
+   "fieldname": "new_enrollment_details_section",
+   "fieldtype": "Section Break",
+   "label": "New Enrollment Details"
+  },
+  {
+   "fieldname": "new_program",
+   "fieldtype": "Link",
+   "label": "New Program",
+   "options": "Program"
+  },
+  {
+   "description": "Only if this has not been set already. ",
+   "fieldname": "new_student_cohort",
+   "fieldtype": "Link",
+   "label": "New Student Cohort",
+   "options": "Student Cohort"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "new_academic_term",
+   "fieldtype": "Link",
+   "label": "New Academic Term",
+   "options": "Academic Term"
+  },
+  {
+   "fieldname": "new_academic_year",
+   "fieldtype": "Link",
+   "label": "New Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "enroll_students",
+   "fieldtype": "Button",
+   "label": "Enroll Students"
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "Table",
+   "label": "Students",
+   "options": "Program Enrollment Tool Student"
+  },
+  {
+   "description": "Indicate the date of the first day for this new enrollment. By default, it will be the first day of the indicated academic year.  ",
+   "fieldname": "new_enrollment_date",
+   "fieldtype": "Date",
+   "label": "New Enrollment Date"
+  }
+ ],
+ "hide_toolbar": 1,
+ "issingle": 1,
+ "modified": "2020-09-05 14:37:49.247041",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Program Enrollment Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "School IT",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Counselor",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

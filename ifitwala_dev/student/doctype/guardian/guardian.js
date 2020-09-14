@@ -6,7 +6,7 @@ frappe.ui.form.on('Guardian', {
 		if(!frm.doc.user && !frm.is_new()) {
 			frm.add_custom_button(__("Create and Invite as User"), function() {
 				return frappe.call({
-					method: "ifitwala_ed.student.doctype.guardian.guardian.invite_guardian",
+					method: "ifitwala_dev.student.doctype.guardian.guardian.invite_guardian",
 					args: {
 						guardian: frm.doc.name
 					},

@@ -61,7 +61,6 @@
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",
- "nsm_parent_field": "parent_department",
  "owner": "Administrator",
  "permissions": [
   {

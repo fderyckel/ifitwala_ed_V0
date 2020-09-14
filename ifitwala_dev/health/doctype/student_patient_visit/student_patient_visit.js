@@ -18,7 +18,7 @@ frappe.ui.form.on('Student Patient Visit', {
 		  
 	set_student_info: function(frm) { 
 		frappe.call({
-			method: 'ifitwala_ed.health.doctype.student_patient.student_patient.get_student_detail',
+			method: 'ifitwala_dev.health.doctype.student_patient.student_patient.get_student_detail',
 			args: {
 				student_patient: frm.doc.student_patient
 			},

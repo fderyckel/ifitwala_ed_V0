@@ -1,0 +1,115 @@
+{
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2020-08-24 16:08:03.340598",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "school",
+  "school_abbreviation",
+  "department_name",
+  "title",
+  "department_lead",
+  "lead_full_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "unique": 1
+  },
+  {
+   "fieldname": "department_lead",
+   "fieldtype": "Link",
+   "label": "Department Lead",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.full_name",
+   "fieldname": "lead_full_name",
+   "fieldtype": "Read Only",
+   "label": "Lead Full Name"
+  },
+  {
+   "fetch_from": "school.abbr",
+   "fieldname": "school_abbreviation",
+   "fieldtype": "Data",
+   "label": "School Abbreviation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "department_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Department Name",
+   "reqd": 1
+  }
+ ],
+ "icon": "fa fa-sitemap",
+ "modified": "2020-08-26 12:42:32.501907",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "Department",
+ "nsm_parent_field": "parent_department",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

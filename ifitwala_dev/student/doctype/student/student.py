@@ -54,6 +54,7 @@ class Student(Document):
 				"first_name": self.first_name, 
 				"last_name": self.last_name, 
 				"email": self.student_email, 
+				"username": self.student_email, 
 				"gender": self.gender, 
 				"language": self.first_language, 
 				"send_welcome_email": 1, 

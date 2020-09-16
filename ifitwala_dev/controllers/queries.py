@@ -8,7 +8,7 @@ from frappe.desk.reportview import get_match_cond, get_filters_cond
 from frappe.utils import nowdate, getdate
 from collections import defaultdict
 from frappe.utils import unique
-import ifitwala_ed
+import ifitwala_dev
 
 # searches for active employees
 @frappe.whitelist()

@@ -36,3 +36,16 @@ frappe.ui.form.on('Student Guardian', {
 		};
 	}
 });
+
+// in student sibling child table, do filter out already present siblings. 
+frappe.ui.form.on('Student Sibling', {
+	siblings_add: function(frm){
+		frm.fields_dict['siblings'].grid.get_field('student').get_query = function(doc){
+			let sibling_list = [frm.doc.name];
+			$.each(doc.siblings, function(idx, val){
+				if (val.student) sibling_list.push(val.student);
+			});
+			return { filters: [['Student', 'name', 'not in', sibling_list]] };
+		};
+	}
+});

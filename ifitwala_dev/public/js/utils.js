@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.provide("ifitwala_dev");
-frappe.provide("ifitwala_ed.utils");
+frappe.provide("ifitwala_dev.utils");
 
 
 $.extend(ifitwala_dev, {

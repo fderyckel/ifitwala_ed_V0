@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.provide("ifitwala_dev.hr");
-ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
+ifitwala_dev.hr.EmployeeController = frappe.ui.form.Controller.extend({
 	setup: function() {
 		this.frm.fields_dict.user_id.get_query = function(doc, cdt, cdn) {
 			return {

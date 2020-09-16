@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "creation": "2020-09-16 17:46:26.360597",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sibling_name",
+  "sibling_gender",
+  "sibling_date_of_birth",
+  "sibling_program"
+ ],
+ "fields": [
+  {
+   "fieldname": "sibling_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sibling Name",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sibling_name.gender",
+   "fieldname": "sibling_gender",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sibling Gender",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "sibling_name.date_of_birth",
+   "fieldname": "sibling_date_of_birth",
+   "fieldtype": "Date",
+   "label": "Sibling Date of Birth"
+  },
+  {
+   "fieldname": "sibling_program",
+   "fieldtype": "Data",
+   "label": "Sibling Program"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-09-16 17:51:50.913912",
+ "modified_by": "Administrator",
+ "module": "Student",
+ "name": "Student Sibling",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

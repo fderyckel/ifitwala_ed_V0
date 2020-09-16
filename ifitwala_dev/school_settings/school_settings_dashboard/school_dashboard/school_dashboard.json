@@ -1,0 +1,36 @@
+{
+ "cards": [
+  {
+   "card": "Total Enrolled Student"
+  },
+  {
+   "card": "Total Employee"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Student Gender Ratio",
+   "width": "Half"
+  },
+  {
+   "chart": "Employee Gender Ratio",
+   "width": "Half"
+  },
+  {
+   "chart": "Enrollment by Program",
+   "width": "Half"
+  }
+ ],
+ "creation": "2020-09-16 17:35:23.121565",
+ "dashboard_name": "School Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2020-09-16 17:41:45.456321",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "School Dashboard",
+ "owner": "Administrator"
+}

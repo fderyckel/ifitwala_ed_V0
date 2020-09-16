@@ -1,15 +1,16 @@
 {
  "cards": [
   {
-   "card": "Total Student"
-  },
-  {
-   "card": "Total Student"
+   "card": "Enrolled Student"
   }
  ],
  "charts": [
   {
    "chart": "Student Gender Ratio",
+   "width": "Half"
+  },
+  {
+   "chart": "Student Enrollment",
    "width": "Half"
   }
  ],
@@ -20,7 +21,7 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "modified": "2020-09-14 13:26:06.803687",
+ "modified": "2020-09-16 17:31:58.560103",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Students",

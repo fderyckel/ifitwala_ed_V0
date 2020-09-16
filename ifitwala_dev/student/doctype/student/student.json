@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "STU-.YYYY.-.#####",
  "creation": "2020-08-12 18:23:47.979935",
  "doctype": "DocType",
@@ -35,6 +36,7 @@
   "gardians_section",
   "student_guardian",
   "siblings_section",
+  "siblings",
   "title",
   "exit_section",
   "exit_date",
@@ -261,10 +263,17 @@
    "fieldtype": "Link",
    "label": "Cohort",
    "options": "Student Cohort"
+  },
+  {
+   "fieldname": "siblings",
+   "fieldtype": "Table",
+   "label": "Siblings",
+   "options": "Student Sibling"
   }
  ],
  "image_field": "photo",
- "modified": "2020-09-02 12:07:40.179561",
+ "links": [],
+ "modified": "2020-09-16 17:52:56.195515",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

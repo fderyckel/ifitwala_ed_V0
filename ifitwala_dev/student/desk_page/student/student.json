@@ -24,12 +24,19 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-09-14 13:25:07.972611",
+ "modified": "2020-09-16 17:12:32.815491",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 1,
- "shortcuts": []
+ "shortcuts": [
+  {
+   "doc_view": "Dashboard",
+   "label": "Student Dash",
+   "link_to": "Student",
+   "type": "DocType"
+  }
+ ]
 }

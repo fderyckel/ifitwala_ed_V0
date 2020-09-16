@@ -1,15 +1,15 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.provide("ifitwala_ed");
+frappe.provide("ifitwala_dev");
 frappe.provide("ifitwala_ed.utils");
 
 
-$.extend(ifitwala_ed, {
+$.extend(ifitwala_dev, {
 
 });
 
-$.extend(ifitwala_ed.utils, { 
+$.extend(ifitwala_dev.utils, { 
 	get_tree_options: function(option) {
 		              // get valid options for tree based on user permission & locals dict
 		              let unscrub_option = frappe.model.unscrub(option);

@@ -3,7 +3,7 @@
 
 
 frappe.treeview_settings['Employee'] = {
-	get_tree_nodes: "ifitwala_ed.hr.doctype.employee.employee.get_children",
+	get_tree_nodes: "ifitwala_dev.hr.doctype.employee.employee.get_children",
 	filters: [
 		{
 			fieldname: "school",

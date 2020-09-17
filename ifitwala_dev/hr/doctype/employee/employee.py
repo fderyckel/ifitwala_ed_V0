@@ -18,7 +18,7 @@ class Employee(NestedSet):
 	nsm_parent_field = 'reports_to'
 	
 	def autoname(self): 
-		self.employee_name = " ".join(filter(None, [self.first_name, self.last_name]))
+		self.employee_name = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
 		self.name = self.employee_name
 		self.employee = self.name
 		
@@ -26,8 +26,8 @@ class Employee(NestedSet):
 		from ifitwala_dev.controllers.status_updater import validate_status
 		validate_status(self.status, ["Active", "Temporary Leave", "Left"])
 		
-		self.employee = " ".join(filter(None, [self.first_name, self.last_name]))
-		self.employee_name = " ".join(filter(None, [self.first_name, self.last_name]))
+		self.employee = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
+		self.employee_name = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
 		self.validate_date() 
 		self.validate_email()
 		self.validate_status() 
@@ -225,3 +225,6 @@ def get_children(doctype, parent=None, school=None, is_root=False, is_tree=False
 		employee.expandable = 1 if is_expandable else 0
 
 	return employees
+
+def on_doctype_update():
+	frappe.db.add_index("Employee", ["lft", "rgt"])	

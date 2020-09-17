@@ -1,0 +1,208 @@
+{
+ "autoname": "field:student_group_name",
+ "creation": "2020-08-26 17:06:06.928454",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "academic_year",
+  "group_based_on",
+  "maximum_size",
+  "column_break_4",
+  "academic_term",
+  "student_group_name",
+  "program",
+  "cohort",
+  "course",
+  "disabled",
+  "section_break_10",
+  "get_students",
+  "students",
+  "instructors_section",
+  "instructors"
+ ],
+ "fields": [
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Academic Term",
+   "options": "Academic Term"
+  },
+  {
+   "fieldname": "student_group_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Group Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "group_based_on",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Group Based on",
+   "options": "\nCohort\nCourse\nActivity",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "Set 0 for no limit",
+   "fieldname": "maximum_size",
+   "fieldtype": "Int",
+   "label": "Maximum Size"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "fieldname": "cohort",
+   "fieldtype": "Link",
+   "label": "Cohort",
+   "options": "Student Cohort"
+  },
+  {
+   "depends_on": "eval:doc.group_based_on == 'Course'",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break",
+   "label": "Students"
+  },
+  {
+   "fieldname": "instructors_section",
+   "fieldtype": "Section Break",
+   "label": "Instructors"
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Table",
+   "label": "Instructors",
+   "options": "Student Group Instructor"
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "Table",
+   "label": "Students",
+   "options": "Student Group Student"
+  },
+  {
+   "fieldname": "get_students",
+   "fieldtype": "Button",
+   "label": "Get Students"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "modified": "2020-09-03 16:06:40.400110",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Student Group",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Nurse",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admission Officer",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "program, cohort, course",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

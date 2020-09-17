@@ -13,12 +13,15 @@ ifitwala_dev.hr.EmployeeController = frappe.ui.form.Controller.extend({
 		this.frm.fields_dict.reports_to.get_query = function(doc, cdt, cdn) {
 			return { query: "ifitwala_dev.controllers.queries.employee_query"} }
 	},
-
+	
+	// on the form, if Mr is selected as a salutation, then gender is male. If Ms is selected then gender is female. 
 	salutation: function() {
 		if(this.frm.doc.salutation) {
 			this.frm.set_value("gender", {
 				"Mr": "Male",
-				"Ms": "Female"
+				"Ms": "Female", 
+				"Master": "Male", 
+				"Mrs": "Female"
 			}[this.frm.doc.salutation]);
 		}
 	},

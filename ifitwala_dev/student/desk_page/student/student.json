@@ -24,7 +24,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-09-16 17:12:32.815491",
+ "modified": "2020-09-16 19:24:17.964347",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -35,6 +35,12 @@
   {
    "doc_view": "Dashboard",
    "label": "Student Dash",
+   "link_to": "Student",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Student List",
    "link_to": "Student",
    "type": "DocType"
   }

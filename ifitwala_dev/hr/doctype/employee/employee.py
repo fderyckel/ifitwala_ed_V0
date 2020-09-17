@@ -119,7 +119,7 @@ class Employee(NestedSet):
 			user.append_roles("Employee")
 
 		# copy details like Fullname, DOB and Image to User
-		if self.full_name and not (user.first_name and user.last_name):
+		if self.employee_name and not (user.first_name and user.last_name):
 			employee_name = self.employee_name.split(" ")
 			if len(employee_name) >= 3:
 				user.last_name = " ".join(employee_name[2:])
@@ -170,7 +170,7 @@ class Employee(NestedSet):
 def create_user(employee, user = None, email=None):
 	emp = frappe.get_doc("Employee", employee)
 
-	employee_name = emp.full_name.split(" ")
+	employee_name = emp.employee_name.split(" ")
 	middle_name = last_name = ""
 
 	if len(employee_name) >= 3:
@@ -186,7 +186,7 @@ def create_user(employee, user = None, email=None):
 
 	user = frappe.new_doc("User")
 	user.update({
-		"name": emp.full_name,
+		"name": emp.employee_name,
 		"email": emp.professional_email,
 		"enabled": 1,
 		"first_name": first_name,

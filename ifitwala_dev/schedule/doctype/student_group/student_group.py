@@ -97,11 +97,7 @@ def get_program_enrollment(academic_year, academic_term=None, program=None, coho
 		from 
 			`tabProgram Enrollment` pe {condition2}
 		where
-			pe.academic_year = %(academic_year)s  {condition1}  and docstatus=1
-		order by
-			pe.student_name asc
-		'''.format(condition1=condition1, condition2=condition2),
-                ({"academic_year": academic_year, "academic_term":academic_term, "program": program, "cohort": cohort, "course": course}), as_dict=1)
+			pe.academic_year = %(academic_year)s  {condition1} and docstatus=1'''.format(condition1=condition1, condition2=condition2), ({"academic_year": academic_year, "academic_term":academic_term, "program": program, "cohort": cohort, "course": course}), as_dict=1)
 
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs

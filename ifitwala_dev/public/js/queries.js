@@ -11,5 +11,6 @@ $.extend(ifitwala_dev.queries, {
 	employee: function() {
 		return { query: "erpnext.controllers.queries.employee_query" }
 	},
-         
+   
+});
          

@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from . import __version__ as app_version
 
 app_name = "ifitwala_dev"
-app_title = "Ifitwala Ed"
+app_title = "Ifitwala dev"
 app_publisher = "ifitwala"
 app_description = "manage student data"
 app_icon = "octicon octicon-file-directory"
@@ -61,7 +61,7 @@ app_license = "MIT"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "ifitwala_ed.notifications.get_notification_config"
+# notification_config = "ifitwala_dev.notifications.get_notification_config"
 
 # Permissions
 # -----------

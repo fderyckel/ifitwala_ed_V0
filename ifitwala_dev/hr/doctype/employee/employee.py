@@ -206,7 +206,7 @@ def get_children(doctype, parent=None, school=None, is_root=False, is_tree=False
 	if school and school != 'All Schools':
 		filters = [['school', '=', school]]
 
-	fields = ['name as value', 'full_name as title']
+	fields = ['name as value', 'employee_name as title']
 
 	if is_root:
 		parent = ''

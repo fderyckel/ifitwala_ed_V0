@@ -4,6 +4,16 @@
    "hidden": 0,
    "label": "Program & Enrollment",
    "links": "[\n    {\n        \"description\": \"Programs offered by the school.\",\n        \"label\": \"Program\",\n        \"name\": \"Program\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Courses offered by the school.\",\n        \"label\": \"Course\",\n        \"name\": \"Course\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Enrolling Students in a program\",\n        \"label\": \"Program Enrollment\",\n        \"name\": \"Program Enrollment\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Creating student cohort\",\n        \"label\": \"Student Cohort\",\n        \"name\": \"Student Cohort\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Tools",
+   "links": "[\n    {\n        \"description\": \"Tool to roll over program enrollment\",\n        \"label\": \"Program Enrollment Tool\",\n        \"name\": \"Program Enrollment Tool\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Student",
+   "links": "[\n    {\n        \"description\": \"Programs offered by the school.\",\n        \"label\": \"Program\",\n        \"name\": \"Program\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"To enroll Students into a program\",\n        \"label\": \"Program Enrollment\",\n        \"name\": \"Program Enrollment\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Enrolling Students in a program\",\n        \"label\": \"Student Group\",\n        \"name\": \"Student Group\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"To see enrolled course\",\n        \"label\": \"Program Enrollment Course\",\n        \"name\": \"Program Enrollment Course\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "Schedule",
@@ -19,12 +29,12 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Schedule",
- "modified": "2020-09-14 13:36:05.617992",
+ "modified": "2020-09-17 19:26:50.357179",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Schedule",
  "owner": "Administrator",
- "pin_to_bottom": 1,
- "pin_to_top": 0,
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
  "shortcuts": []
 }

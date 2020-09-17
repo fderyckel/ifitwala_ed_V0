@@ -29,6 +29,8 @@ class StudentGroup(Document):
 	
 	# Throwing message if more students than maximum size in the group
 	def validate_size(self): 
+		if cint(self.max_strength) < 0:
+			frappe.throw(_("Max number of student in this group cannot be negative."))
 		if self.maximum_size and len(self.students) > self.maximum_size: 
 			frappe.throw(_("You can only enroll {0} students in this group.").format(self.maximum_size))
 	

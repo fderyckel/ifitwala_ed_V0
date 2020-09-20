@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "creation": "2020-09-17 20:04:35.421482",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "group_based_on",
+  "course",
+  "student_cohort",
+  "student_group_name",
+  "course_name",
+  "maximum_size"
+ ],
+ "fields": [
+  {
+   "fieldname": "group_based_on",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Group Based on",
+   "options": "\nBatch\nCourse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "fieldname": "student_cohort",
+   "fieldtype": "Link",
+   "label": "Student Cohort",
+   "options": "Student Cohort"
+  },
+  {
+   "fieldname": "student_group_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Group Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "maximum_size",
+   "fieldtype": "Data",
+   "label": "Maximum Size"
+  },
+  {
+   "fetch_from": "course.course_name",
+   "fieldname": "course_name",
+   "fieldtype": "Read Only",
+   "label": "Course Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-09-17 20:17:51.423849",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Student Group Creation Tool Course",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

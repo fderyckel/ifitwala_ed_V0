@@ -19,6 +19,14 @@
   {
    "chart": "Enrollment by Program",
    "width": "Half"
+  },
+  {
+   "chart": "Course Wise Enrollment",
+   "width": "Full"
+  },
+  {
+   "chart": "Program Enrollments",
+   "width": "Half"
   }
  ],
  "creation": "2020-09-16 17:35:23.121565",
@@ -28,7 +36,7 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "modified": "2020-09-16 17:41:45.456321",
+ "modified": "2020-09-20 06:42:14.833181",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Dashboard",

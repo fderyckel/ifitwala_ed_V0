@@ -9,7 +9,7 @@ $.extend(ifitwala_dev.queries, {
 	 }, 
 	
 	employee: function() {
-		return { query: "erpnext.controllers.queries.employee_query" }
+		return { query: "ifitwala_dev.controllers.queries.employee_query" }
 	},
    
 });

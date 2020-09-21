@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2020-09-17 15:26:55.450906",
+ "modified": "2020-09-21 20:45:48.344929",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
@@ -21,7 +21,7 @@
  "pin_to_top": 1,
  "shortcuts": [
   {
-   "doc_view": "List",
+   "doc_view": "Tree",
    "label": "Employee",
    "link_to": "Employee",
    "type": "DocType"

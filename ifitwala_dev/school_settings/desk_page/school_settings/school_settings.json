@@ -19,7 +19,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2020-09-16 20:14:22.916345",
+ "modified": "2020-09-21 20:43:50.702305",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
@@ -38,6 +38,12 @@
    "label": "Academic Year",
    "link_to": "Academic Year",
    "type": "DocType"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "School Dashboard",
+   "link_to": "School Dashboard",
+   "type": "Dashboard"
   }
  ]
 }

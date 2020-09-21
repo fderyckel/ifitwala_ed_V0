@@ -56,6 +56,6 @@ def create_designations():
 		{"doctype": "Designation", "designation_name": "Principle"},
 		{"doctype": "Designation", "designation_name": "Assistant Principal"},
 		{"doctype": "Designation", "designation_name": "Nurse"},
-		{"doctype": "Designation", "designatio_name": "Teacher"}
+		{"doctype": "Designation", "designation_name": "Teacher"}
 	]
 	insert_record(data)

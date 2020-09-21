@@ -1,0 +1,6 @@
+{
+	"js/ifitwala_dev.min.js": [
+		"public/js/utils.js",
+		"public/js/queries.js"
+	]
+}

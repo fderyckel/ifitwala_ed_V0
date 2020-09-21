@@ -37,4 +37,12 @@ $.extend(ifitwala_dev.utils, {
 	},
           
 });
+
+frappe.form.link_formatters['Employee'] = function(value, doc) {
+	if(doc && doc.employee_name && doc.employee_name !== value) {
+		return value? value + ': ' + doc.employee_name: doc.employee_name;
+	} else {
+		return value;
+	}
+}
           

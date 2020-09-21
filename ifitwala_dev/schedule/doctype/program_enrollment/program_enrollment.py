@@ -8,7 +8,7 @@ from frappe import msgprint, _
 from frappe.model.document import Document
 from frappe.desk.reportview import get_match_cond, get_filters_cond
 from frappe.utils import comma_and
-from frappe.utils import getdate
+from frappe.utils import getdate, get_link_to_form
 
 class ProgramEnrollment(Document):
 	
@@ -24,9 +24,9 @@ class ProgramEnrollment(Document):
 			if term_dates.academic_year != self.academic_year: 
 				frappe.throw(_("The term does not belong to that academic year."))
 			if self.enrollment_date and getdate(term_dates.term_start_date) and getdate(self.enrollment_date) < getdate(term_dates.term_start_date): 
-				frappe.throw(_("The enrollment date for this program is before the start of the term.  Please revise the date or change the term."))
+				frappe.throw(_("The enrollment date for this program is before the start of the term.  Please revise the date or change the term {0}.").format(get_link_to_form("Academic Term", self.academic_term)))
 			if self.enrollment_date and getdate(term_dates.term_end_date) and getdate(self.enrollment_date) > getdate(term_dates.term_end_date): 
-				frappe.throw(_("The enrollment date for this program is after the end the term.  Pease revise the joining date or change the term."))
+				frappe.throw(_("The enrollment date for this program is after the end the term.  Pease revise the joining date or change the term {0}.").format(get_link_to_form("Academic Term", self.academic_term)))
 			
 	def on_submit(self): 
 		self.update_student_joining_date()

@@ -10,10 +10,12 @@ from ifitwala_dev.utils import insert_record
 def setup_education():
 	disable_desk_access_for_student_role(
 		
-	if frappe.db.exists("Academic Year", "2019-20"): return
+	if frappe.db.exists("Academic Year", "2019-20"): 
+		return
 	create_academic_sessions()
 		
-	if frappe.db.exists("Designation", "Director"): return
+	if frappe.db.exists("Designation", "Director"): 
+		return
 	create_designations()
 
 def disable_desk_access_for_student_role():

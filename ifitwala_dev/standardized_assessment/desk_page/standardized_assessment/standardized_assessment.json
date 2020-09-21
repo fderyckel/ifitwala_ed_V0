@@ -1,0 +1,23 @@
+{
+ "cards": [],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2020-09-21 13:08:11.024788",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Standardized Assessment",
+ "modified": "2020-09-21 13:08:11.024788",
+ "modified_by": "Administrator",
+ "module": "Standardized Assessment",
+ "name": "Standardized Assessment",
+ "owner": "Administrator",
+ "pin_to_bottom": 1,
+ "pin_to_top": 0,
+ "shortcuts": []
+}

@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include ifitwala_dev *.css
-recursive-include ifitwala_dev *.csv
-recursive-include ifitwala_dev *.html
-recursive-include ifitwala_dev *.ico
-recursive-include ifitwala_dev *.js
-recursive-include ifitwala_dev *.json
-recursive-include ifitwala_dev *.md
-recursive-include ifitwala_dev *.png
-recursive-include ifitwala_dev *.py
-recursive-include ifitwala_dev *.svg
-recursive-include ifitwala_dev *.txt
-recursive-exclude ifitwala_dev *.pyc
+recursive-include ifitwala_ed *.css
+recursive-include ifitwala_ed *.csv
+recursive-include ifitwala_ed *.html
+recursive-include ifitwala_ed *.ico
+recursive-include ifitwala_ed *.js
+recursive-include ifitwala_ed *.json
+recursive-include ifitwala_ed *.md
+recursive-include ifitwala_ed *.png
+recursive-include ifitwala_ed *.py
+recursive-include ifitwala_ed *.svg
+recursive-include ifitwala_ed *.txt
+recursive-exclude ifitwala_ed *.pyc

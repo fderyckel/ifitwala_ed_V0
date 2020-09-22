@@ -2,14 +2,14 @@
 // For license information, please see license.txt
 
 // searches for enabled users
-frappe.provide("ifitwala_dev.queries");
-$.extend(ifitwala_dev.queries, { 
+frappe.provide("ifitwala_ed.queries");
+$.extend(ifitwala_ed.queries, { 
          user: function() { 
 		 return { query: "frappe.core.doctype.user.user.user_query" };
 	 }, 
 	
 	employee: function() {
-		return { query: "ifitwala_dev.controllers.queries.employee_query" }
+		return { query: "ifitwala_ed.controllers.queries.employee_query" }
 	},
    
 });

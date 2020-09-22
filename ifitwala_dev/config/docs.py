@@ -2,8 +2,8 @@
 Configuration for docs
 """
 
-# source_link = "https://github.com/[org_name]/ifitwala_dev"
-# docs_base_url = "https://[org_name].github.io/ifitwala_dev"
+# source_link = "https://github.com/[org_name]/ifitwala_ed"
+# docs_base_url = "https://[org_name].github.io/ifitwala_ed"
 # headline = "App that does everything"
 # sub_heading = "Yes, you got that right the first time, everything"
 

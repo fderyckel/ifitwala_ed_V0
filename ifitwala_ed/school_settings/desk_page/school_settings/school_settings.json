@@ -3,7 +3,7 @@
   {
    "hidden": 0,
    "label": "School",
-   "links": "[\n    {\n        \"description\": \"School Organization.\",\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"School Setting\",\n        \"name\": \"School Setting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic year\",\n        \"label\": \"Academic Year\",\n        \"name\": \"Academic Year\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic terms\",\n        \"label\": \"Academic Term\",\n        \"name\": \"Academic Term\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"School Organization.\",\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"Education Setting\",\n        \"name\": \"Education Setting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic year\",\n        \"label\": \"Academic Year\",\n        \"name\": \"Academic Year\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic terms\",\n        \"label\": \"Academic Term\",\n        \"name\": \"Academic Term\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "category": "Modules",
@@ -19,7 +19,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2020-09-22 21:54:20.937227",
+ "modified": "2020-09-22 22:08:33.327572",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

@@ -61,7 +61,7 @@ app_license = "MIT"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "ifitwala_dev.notifications.get_notification_config"
+# notification_config = "ifitwala_ed.notifications.get_notification_config"
 
 # Permissions
 # -----------

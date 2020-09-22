@@ -55,7 +55,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "ifitwala_ed.install.before_install"
-# after_install = "ifitwala_ed.install.after_install"
+after_install = "ifitwala_ed.setup.setup_education"
 
 # Desk Notifications
 # ------------------

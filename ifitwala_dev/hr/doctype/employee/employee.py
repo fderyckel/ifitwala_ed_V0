@@ -23,7 +23,7 @@ class Employee(NestedSet):
 		self.employee = self.name
 		
 	def validate(self): 
-		from ifitwala_dev.controllers.status_updater import validate_status
+		from ifitwala_ed.controllers.status_updater import validate_status
 		validate_status(self.status, ["Active", "Temporary Leave", "Left"])
 		
 		self.employee = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))

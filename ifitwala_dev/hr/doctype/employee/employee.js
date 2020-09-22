@@ -1,7 +1,7 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.provide("ifitwala_dev.hr");
+frappe.provide("ifitwala_ed.hr");
 ifitwala_dev.hr.EmployeeController = frappe.ui.form.Controller.extend({
 	setup: function() {
 		this.frm.fields_dict.user_id.get_query = function(doc, cdt, cdn) {
@@ -11,7 +11,7 @@ ifitwala_dev.hr.EmployeeController = frappe.ui.form.Controller.extend({
 			}
 		}
 		this.frm.fields_dict.reports_to.get_query = function(doc, cdt, cdn) {
-			return { query: "ifitwala_dev.controllers.queries.employee_query"} }
+			return { query: "ifitwala_ed.controllers.queries.employee_query"} }
 	},
 	
 	// on the form, if Mr is selected as a salutation, then gender is male. If Ms is selected then gender is female. 
@@ -41,7 +41,7 @@ frappe.ui.form.on('Employee', {
 			frappe.throw(__("Please enter Professional Email"))
 		}
 		frappe.call({
-			method: "ifitwala_dev.hr.doctype.employee.employee.create_user",
+			method: "ifitwala_ed.hr.doctype.employee.employee.create_user",
 			args: { employee: frm.doc.name, email: frm.doc.professional_email },
 			callback: function(r)
 			{
@@ -51,4 +51,4 @@ frappe.ui.form.on('Employee', {
 	}
 });
 
-cur_frm.cscript = new ifitwala_dev.hr.EmployeeController({frm: cur_frm});
+cur_frm.cscript = new ifitwala_ed.hr.EmployeeController({frm: cur_frm});

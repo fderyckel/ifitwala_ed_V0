@@ -16,7 +16,7 @@ frappe.ui.form.on('Student Group', {
 		if (!frm.__islocal) {
 			frm.set_query("student", "students", function() {
 				return{
-					query: "ifitwala_dev.schedule.doctype.student_group.student_group.fetch_students",
+					query: "ifitwala_ed.schedule.doctype.student_group.student_group.fetch_students",
 					filters: {
 						'academic_year': frm.doc.academic_year,
 						'group_based_on': frm.doc.group_based_on,
@@ -64,7 +64,7 @@ frappe.ui.form.on('Student Group', {
 
 			if(frm.doc.academic_year) {
 				frappe.call({
-					method: "ifitwala_dev.schedule.doctype.student_group.student_group.get_students",
+					method: "ifitwala_ed.schedule.doctype.student_group.student_group.get_students",
 					args: {
 						"academic_year": frm.doc.academic_year,
 						"academic_term": frm.doc.academic_term,

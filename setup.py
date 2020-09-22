@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 with open('requirements.txt') as f:
 	install_requires = f.read().strip().split('\n')
 
-# get version from __version__ variable in ifitwala_dev/__init__.py
+# get version from __version__ variable in ifitwala_ed/__init__.py
 from ifitwala_ed import __version__ as version
 
 setup(

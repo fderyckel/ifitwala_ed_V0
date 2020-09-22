@@ -3,17 +3,17 @@
 
 
 frappe.treeview_settings['Employee'] = {
-	get_tree_nodes: "ifitwala_dev.hr.doctype.employee.employee.get_children",
+	get_tree_nodes: "ifitwala_ed.hr.doctype.employee.employee.get_children",
 	filters: [
 		{
 			fieldname: "school",
 			fieldtype:"Select",
-			options: ['All Schools'].concat(ifitwala_dev.utils.get_tree_options("school")),
+			options: ['All Schools'].concat(ifitwala_ed.utils.get_tree_options("school")),
 			label: __("Schools"),
-			default: ifitwala_dev.utils.get_tree_default("school")
+			default: ifitwala_ed.utils.get_tree_default("school")
 		}
 	],
-	breadcrumb: "Hr",
+	breadcrumb: "HR",
 	disable_add_node: true,
 	get_tree_root: false,
 	toolbar: [

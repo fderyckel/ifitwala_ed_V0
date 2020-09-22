@@ -60,7 +60,7 @@ class School(NestedSet):
 @frappe.whitelist()
 def enqueue_replace_abbr(school, old, new):
 	kwargs = dict(school=school, old=old, new=new)
-	frappe.enqueue('ifitwala_dev.school_settings.doctype.school.school.replace_abbr', **kwargs)
+	frappe.enqueue('ifitwala_ed.school_settings.doctype.school.school.replace_abbr', **kwargs)
 
 
 @frappe.whitelist()

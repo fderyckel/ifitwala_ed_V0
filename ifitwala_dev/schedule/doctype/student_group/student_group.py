@@ -7,7 +7,7 @@ import frappe
 from frappe import _
 from frappe.model.document import Document
 from frappe.utils import cint
-from ifitwala_dev.utils import validate_duplicate_student
+from ifitwala_ed.utils import validate_duplicate_student
 
 class StudentGroup(Document):
 	

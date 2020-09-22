@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
 
-app_name = "ifitwala_dev"
-app_title = "Ifitwala dev"
+app_name = "ifitwala_ed"
+app_title = "Ifitwala ed"
 app_publisher = "ifitwala"
 app_description = "manage student data"
 app_icon = "octicon octicon-file-directory"

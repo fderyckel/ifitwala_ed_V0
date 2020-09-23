@@ -30,7 +30,7 @@ class ProgramEnrollmentTool(Document):
 					from 
 						`tabProgram Enrollment` 
 					where 
-						program=%(program)s and academic_year=%(academic_year)s {0} {1} and docstatus != 2'''.format(condition1, condition2), self.as_dict(), as_dict = 1) 
+						program=%(program)s and academic_year=%(academic_year)s {0} {1} and docstatus=1'''.format(condition1, condition2), self.as_dict(), as_dict = 1) 
 				
 				# remove inactive students from students list. 
 				student_list = [d.student for d in students] 

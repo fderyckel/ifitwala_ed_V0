@@ -26,7 +26,8 @@ frappe.ui.form.on('Program Enrollment', {
 			});
 		}
 		
-		// To filter the students showing up in the student fields (will not show up students already enrolled for that year)
+		// To filter the students showing up in the student fields (will not show up students already enrolled for that year  or term)
+		// only  work if academic term or academic year have already been selected
 		frm.set_query('student', function() {
 			return{
 				query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_students',

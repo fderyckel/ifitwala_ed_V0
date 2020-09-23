@@ -83,7 +83,7 @@ class Student(Document):
 	
 	# will update user main info if the student info change
 	def update_student_user(self): 
-		user = frappe.get_doc({"doctype":"User", "username":self.student_email})
+		user = frappe.get_doc({"doctype":"User", "email":self.student_email})
 		user.flags.ignore_permissions = True 
 		user.first_name = self.first_name
 		user.last_name =self.last_name

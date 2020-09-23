@@ -22,7 +22,10 @@
   "hero_image",
   "column_break_6",
   "is_published",
-  "description"
+  "description",
+  "assessment_section",
+  "default_grading_scale",
+  "assessment_criteria"
  ],
  "fields": [
   {
@@ -112,11 +115,28 @@
    "fieldname": "exclude_from_transcript",
    "fieldtype": "Check",
    "label": "Exclude from Transcript"
+  },
+  {
+   "fieldname": "assessment_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment"
+  },
+  {
+   "fieldname": "default_grading_scale",
+   "fieldtype": "Link",
+   "label": "Default Grading Scale",
+   "options": "Grade Scale"
+  },
+  {
+   "fieldname": "assessment_criteria",
+   "fieldtype": "Table",
+   "label": "Assessment Criteria",
+   "options": "Course Assessment Criteria"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2020-09-16 20:39:40.089079",
+ "modified": "2020-09-23 22:03:26.491877",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

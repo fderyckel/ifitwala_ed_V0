@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "creation": "2020-09-23 21:48:12.391926",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "achievement_level",
+  "level_descriptor"
+ ],
+ "fields": [
+  {
+   "fieldname": "achievement_level",
+   "fieldtype": "Data",
+   "label": "Achievement Level",
+   "width": "2"
+  },
+  {
+   "fieldname": "level_descriptor",
+   "fieldtype": "Data",
+   "label": "Level Descriptor"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-09-23 21:48:12.391926",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Assessment Criteria Level",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

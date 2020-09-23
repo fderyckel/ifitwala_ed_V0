@@ -1,0 +1,40 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Assessment Settings",
+   "links": "[\n    {\n        \"description\": \"Assessments criteria used by the school.\",\n        \"label\": \"Assessment Criteria\",\n        \"name\": \"Assessment Criteria\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Grade scale and Grade boundaries set by the school.\",\n        \"label\": \"Grade Scale\",\n        \"name\": \"Grade Scale\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Enrolling Students in a program\",\n        \"label\": \"Program Enrollment\",\n        \"name\": \"Program Enrollment\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Creating student cohort\",\n        \"label\": \"Student Cohort\",\n        \"name\": \"Student Cohort\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Assessment",
+   "links": "[\n    {\n        \"description\": \"Tool to roll over program enrollment\",\n        \"label\": \"Program Enrollment Tool\",\n        \"name\": \"Program Enrollment Tool\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Standardized Assessment",
+   "links": "[\n    {\n        \"description\": \"Record of MAP Tests (as per NWEA).\",\n        \"label\": \"MAP Test\",\n        \"name\": \"MAP Test\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"To enroll Students into a program\",\n        \"label\": \"Program Enrollment\",\n        \"name\": \"Program Enrollment\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Enrolling Students in a program\",\n        \"label\": \"Student Group\",\n        \"name\": \"Student Group\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"To see enrolled course\",\n        \"label\": \"Program Enrollment Course\",\n        \"name\": \"Program Enrollment Course\",\n        \"type\": \"doctype\"\n    }\n]"
+  }
+ ],
+ "cards_label": "Schedule",
+ "category": "Modules",
+ "charts": [],
+ "creation": "2020-09-23 21:31:43.020498",
+ "developer_mode_only": 0,
+ "disable_user_customization": 1,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Assessment",
+ "modified": "2020-09-23 21:31:43.020498",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Assessment",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": []
+}

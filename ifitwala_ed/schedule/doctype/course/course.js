@@ -57,7 +57,7 @@ frappe.ui.form.on('Course', {
 let get_programs_without_course = function(course) {
 	return frappe.call({
 		type: 'GET',
-		method: 'erpnext.education.doctype.course.course.get_programs_without_course',
+		method: 'ifitwala_ed.schedule.doctype.course.course.get_programs_without_course',
 		args: {'course': course}
 	});
 }

@@ -4,7 +4,8 @@
 cur_frm.add_fetch("student", "title", "student_name");
 
 frappe.ui.form.on('Student Group', {
-	onload: function(frm) {
+	onload: function(frm) { 
+		// will filter the academic terms  based on the chosen academic year. 
 		frm.set_query("academic_term", function() {
 			return {
 				filters: {

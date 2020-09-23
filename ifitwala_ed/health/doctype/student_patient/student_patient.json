@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "PAT-.YYYY.-.#####",
@@ -11,6 +12,7 @@
   "gender",
   "blood_group",
   "column_break_3",
+  "preferred_name",
   "student_name",
   "date_of_birth",
   "student_age",
@@ -59,7 +61,8 @@
    "fieldname": "student",
    "fieldtype": "Link",
    "label": "Student",
-   "options": "Student"
+   "options": "Student",
+   "reqd": 1
   },
   {
    "fetch_from": "student.title",
@@ -308,10 +311,17 @@
    "fieldtype": "Data",
    "label": "Student Age",
    "read_only": 1
+  },
+  {
+   "fetch_from": "student.preferred_name",
+   "fieldname": "preferred_name",
+   "fieldtype": "Read Only",
+   "label": "Preferred Name"
   }
  ],
  "image_field": "photo",
- "modified": "2020-09-09 20:11:52.597946",
+ "links": [],
+ "modified": "2020-09-23 12:40:12.917772",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

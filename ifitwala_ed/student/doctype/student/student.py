@@ -47,7 +47,7 @@ class Student(Document):
 		self.create_student_patient()
 		
 	def on_update(self): 
-		self.update_student_user()
+		#self.update_student_user()
 		self.update_student_patient()
 	
 	# create student as website user
@@ -82,29 +82,28 @@ class Student(Document):
 
 	
 	# will update user main info if the student info change
-	def update_student_user(self): 
-		user = frappe.get_doc({"doctype":"User", "email":self.student_email})
-		user.flags.ignore_permissions = True 
-		user.first_name = self.first_name
-		user.last_name =self.last_name
-		if self.gender: 
-			user.gender = self.gender
-		if self.first_language: 
-			user.language = self.first_language
-		if self.photo:
-			if not user.user_image:
-				user.user_image = self.photo
-				try:
-					frappe.get_doc({
-						"doctype": "File",
-						"file_name": self.photo,
-						"attached_to_doctype": "User",
-						"attached_to_name": self.student_email
-					}).insert()
-				except frappe.DuplicateEntryError:  
-					pass
-
-		user.save()
+	#def update_student_user(self): 
+	#	user = frappe.get_doc({"doctype":"User", "email":self.student_email})
+	#	user.flags.ignore_permissions = True 
+	#	user.first_name = self.first_name
+	#	user.last_name =self.last_name
+	#	if self.gender: 
+	#		user.gender = self.gender
+	#	if self.first_language: 
+	#		user.language = self.first_language
+	#	if self.photo:
+	#		if not user.user_image:
+	#			user.user_image = self.photo
+	#			try:
+	#				frappe.get_doc({
+	#					"doctype": "File",
+	#					"file_name": self.photo,
+	#					"attached_to_doctype": "User",
+	#					"attached_to_name": self.student_email
+	#				}).insert()
+	#			except frappe.DuplicateEntryError:  
+	#				pass
+	#	user.save()
 		
 	# will update student_patient main info if the student info change
 	def update_student_patient(self): 

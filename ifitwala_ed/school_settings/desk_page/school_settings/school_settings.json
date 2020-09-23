@@ -2,8 +2,13 @@
  "cards": [
   {
    "hidden": 0,
-   "label": "School",
-   "links": "[\n    {\n        \"description\": \"School Organization.\",\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"Education Setting\",\n        \"name\": \"Education Setting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic year\",\n        \"label\": \"Academic Year\",\n        \"name\": \"Academic Year\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic terms\",\n        \"label\": \"Academic Term\",\n        \"name\": \"Academic Term\",\n        \"type\": \"doctype\"\n    }\n]"
+   "label": "Year & Terms",
+   "links": "[\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"Education Settings\",\n        \"name\": \"Education Settings\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic year\",\n        \"label\": \"Academic Year\",\n        \"name\": \"Academic Year\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic terms\",\n        \"label\": \"Academic Term\",\n        \"name\": \"Academic Term\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "School  & Departments",
+   "links": "[\n    {\n        \"description\": \"School Organization.\",\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"The various dpt. withing the school.\",\n        \"label\": \"Department\",\n        \"name\": \"Department\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "category": "Modules",
@@ -19,7 +24,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2020-09-22 22:08:33.327572",
+ "modified": "2020-09-23 10:14:08.226262",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

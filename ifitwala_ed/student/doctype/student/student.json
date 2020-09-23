@@ -251,7 +251,7 @@
    "label": "Additional Comments"
   },
   {
-   "description": "This is to be used as the username for the student to login ",
+   "description": "This is to be used as the username for the student to login.  If changed, you need to manually change the linked user.  ",
    "fieldname": "student_email",
    "fieldtype": "Data",
    "in_global_search": 1,
@@ -275,7 +275,7 @@
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-09-21 17:44:57.792880",
+ "modified": "2020-09-23 14:20:56.253202",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

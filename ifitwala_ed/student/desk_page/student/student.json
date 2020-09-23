@@ -4,6 +4,11 @@
    "hidden": 0,
    "label": "Student",
    "links": "[\n    {\n        \"description\": \"Demographics about Students.\",\n        \"label\": \"Student\",\n        \"name\": \"Student\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Demographics of guardians\",\n        \"label\": \"Guardian\",\n        \"name\": \"Guardian\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"To log any info about students\",\n        \"label\": \"Student Log\",\n        \"name\": \"Student Log\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Health",
+   "links": "[\n    {\n        \"description\": \"Health Info about Students.\",\n        \"label\": \"Student Patient\",\n        \"name\": \"Student Patient\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Visit of students to the health office\",\n        \"label\": \"Health Visit\",\n        \"name\": \"Student Patient Visit\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "",
@@ -24,7 +29,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-09-16 19:24:17.964347",
+ "modified": "2020-09-23 13:48:10.042624",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -33,13 +38,11 @@
  "pin_to_top": 1,
  "shortcuts": [
   {
-   "doc_view": "Dashboard",
    "label": "Student Dash",
    "link_to": "Student",
    "type": "DocType"
   },
   {
-   "doc_view": "List",
    "label": "Student List",
    "link_to": "Student",
    "type": "DocType"

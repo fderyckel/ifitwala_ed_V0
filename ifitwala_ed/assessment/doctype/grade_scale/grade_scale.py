@@ -21,7 +21,7 @@ class GradeScale(Document):
 			frappe.throw(_("Please define grade for 0.")) 
 			
 		if self.maximum_grade not in boundary_intervals: 
-			frappe.throw(_(You need to define your maximum grade of {0} in the boundary interval).format(self.maximum_grade))
+			frappe.throw(_("You need to define your maximum grade of {0} in the boundary interval.").format(self.maximum_grade))
 				
 	
 

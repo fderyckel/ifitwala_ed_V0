@@ -12,6 +12,7 @@ from ifitwala_ed.utils import validate_duplicate_student
 class StudentGroup(Document):
 	
 	def validate(self): 
+		self.validate_term()
 		self.validate_mandatory_fields()
 		self.validate_size()
 		self.validate_students() 

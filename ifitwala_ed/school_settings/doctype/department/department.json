@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:title",
@@ -7,12 +8,15 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "school",
-  "school_abbreviation",
   "department_name",
-  "title",
   "department_lead",
-  "lead_full_name"
+  "section_break_4",
+  "school",
+  "lead_full_name",
+  "title",
+  "school_abbreviation",
+  "department_members_section",
+  "members"
  ],
  "fields": [
   {
@@ -45,6 +49,7 @@
    "fetch_from": "school.abbr",
    "fieldname": "school_abbreviation",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "School Abbreviation",
    "read_only": 1
   },
@@ -54,10 +59,26 @@
    "in_list_view": 1,
    "label": "Department Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "department_members_section",
+   "fieldtype": "Section Break",
+   "label": "Department Members"
+  },
+  {
+   "fieldname": "members",
+   "fieldtype": "Table",
+   "label": "Members",
+   "options": "Department Member"
   }
  ],
  "icon": "fa fa-sitemap",
- "modified": "2020-08-26 12:42:32.501907",
+ "links": [],
+ "modified": "2020-09-24 21:29:33.722239",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

@@ -10,6 +10,7 @@
  "field_order": [
   "assessment_criteria",
   "maximum_mark",
+  "general_descriptor",
   "assessment_criteria_level_section",
   "levels"
  ],
@@ -37,11 +38,16 @@
    "fieldtype": "Table",
    "label": "Levels",
    "options": "Assessment Criteria Level"
+  },
+  {
+   "fieldname": "general_descriptor",
+   "fieldtype": "Text Editor",
+   "label": "General Descriptor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-23 21:49:49.605019",
+ "modified": "2020-09-24 13:23:48.462399",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Criteria",

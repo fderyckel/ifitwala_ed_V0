@@ -7,6 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "grade_scale_name",
+  "column_break_2",
+  "maximum_grade",
   "grading_boundaries_section",
   "boundaries",
   "data_4",
@@ -22,7 +24,7 @@
    "fieldname": "boundaries",
    "fieldtype": "Table",
    "label": "Boundaries",
-   "options": "Grade Boundaries Interval",
+   "options": "Grade Scale Interval",
    "reqd": 1
   },
   {
@@ -46,12 +48,21 @@
    "label": "Grade Scale Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maximum_grade",
+   "fieldtype": "Data",
+   "label": "Maximum Grade"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-23 21:39:01.205314",
+ "modified": "2020-09-24 15:28:52.147176",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Grade Scale",

@@ -11,7 +11,7 @@
  ],
  "fields": [
   {
-   "columns": 1,
+   "columns": 2,
    "fieldname": "grade_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -19,7 +19,7 @@
    "reqd": 1
   },
   {
-   "columns": 3,
+   "columns": 2,
    "fieldname": "boundary_interval",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -38,10 +38,10 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-09-23 21:39:18.589090",
+ "modified": "2020-09-24 13:47:24.257457",
  "modified_by": "Administrator",
  "module": "Assessment",
- "name": "Grade Boundaries Interval",
+ "name": "Grade Scale Interval",
  "owner": "Administrator",
  "permissions": [],
  "quick_entry": 1,

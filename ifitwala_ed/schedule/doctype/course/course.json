@@ -24,7 +24,7 @@
   "is_published",
   "description",
   "assessment_section",
-  "default_grading_scale",
+  "default_grade_scale",
   "assessment_criteria"
  ],
  "fields": [
@@ -122,21 +122,21 @@
    "label": "Assessment"
   },
   {
-   "fieldname": "default_grading_scale",
-   "fieldtype": "Link",
-   "label": "Default Grading Scale",
-   "options": "Grade Scale"
-  },
-  {
    "fieldname": "assessment_criteria",
    "fieldtype": "Table",
    "label": "Assessment Criteria",
    "options": "Course Assessment Criteria"
+  },
+  {
+   "fieldname": "default_grade_scale",
+   "fieldtype": "Link",
+   "label": "Default Grade Scale",
+   "options": "Grade Scale"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2020-09-23 22:03:26.491877",
+ "modified": "2020-09-24 15:51:17.466595",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

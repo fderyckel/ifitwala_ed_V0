@@ -18,7 +18,11 @@ class StudentGroup(Document):
 		self.validate_and_set_child_table_fields()
 		validate_duplicate_student(self.students)
 		
-	
+	def validate_term(self): 
+		term_year = frappe.get_doc("Academic Term", self.academic_term)
+		if self.academic_year != term_year.academic_year: 
+			frappe.throw(_("The term {0} does not belong to the academic year {1}.").format(self.academic_term, self.academic_year))
+		
 	def validate_mandatory_fields(self): 
 		if self.group_based_on == "Course" and not self.course: 
 			frappe.throw(_("Please select a course."))

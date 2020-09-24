@@ -7,7 +7,16 @@ frappe.ui.form.on('Course', {
 			frm.add_custom_button(__('Add to Programs'), function() {
 				frm.trigger('add_course_to_programs')
 			}, __('Action'));
-		}
+		}, 
+		
+		// to only suggest grade scale that are submitted (not cancel nor draft)
+		frm.set_query('default_grade_scale', function(){
+			return {
+				filters: {
+					docstatus: 1
+				}
+			}
+		});
 
 	}, 
 	

@@ -21,10 +21,10 @@
   {
    "columns": 2,
    "fieldname": "boundary_interval",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Boundary Interval",
-   "precision": "1",
+   "precision": "2",
    "reqd": 1
   },
   {
@@ -38,7 +38,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-09-24 13:47:24.257457",
+ "modified": "2020-09-24 16:15:17.640914",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Grade Scale Interval",

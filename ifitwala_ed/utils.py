@@ -57,7 +57,7 @@ def validate_duplicate_student(students):
 
 
 
-# get a list of all enrolled program for the current academic year. 
+# get a list of all enrolled program and or course for the current academic year. 
 def get_enrollment(master, document, student):
 	current_year = frappe.get_single("Education Settings").get("current_academic_year")
 	if master == 'program':

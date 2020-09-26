@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:program_name",
@@ -18,7 +19,8 @@
   "is_featured",
   "hero_image",
   "column_break_8",
-  "description"
+  "description",
+  "intro_video"
  ],
  "fields": [
   {
@@ -91,10 +93,17 @@
    "fieldname": "is_featured",
    "fieldtype": "Check",
    "label": "Is Featured"
+  },
+  {
+   "depends_on": "is_published",
+   "fieldname": "intro_video",
+   "fieldtype": "Data",
+   "label": "Intro Video"
   }
  ],
  "image_field": "hero_image",
- "modified": "2020-08-27 14:13:07.544521",
+ "links": [],
+ "modified": "2020-09-26 09:53:42.328445",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program",

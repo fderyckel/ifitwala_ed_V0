@@ -4,7 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from ifitwala_ed.utils import utils 
+import ifitwala_ed.utils as utils 
 
 no_cache = 1
 

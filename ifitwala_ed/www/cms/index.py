@@ -8,3 +8,8 @@ from ifitwala_ed.utils import utils
 
 no_cache = 1
 
+#always get context first for portal
+def get_context(context): 
+        
+  
+  

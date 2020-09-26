@@ -1,6 +1,6 @@
 {% macro program_card(program, has_access) %}
 <div class="col-sm-4 mb-4 text-left">
-	<a href="/lms/program?program={{ program.name }}" class="no-decoration no-underline">
+	<a href="/cms/program?program={{ program.name }}" class="no-decoration no-underline">
 	<div class="card h-100">
 		{% if program.hero_image %}
 		<div class="card-hero-img" style="background-image: url('{{ program.hero_image }}')"></div>

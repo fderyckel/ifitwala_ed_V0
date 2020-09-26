@@ -1,34 +1,21 @@
-{% macro program_card(program, has_access) %}
-<div class="col-sm-4 mb-4 text-left">
-	<a href="/cms/program?program={{ program.name }}" class="no-decoration no-underline">
-	<div class="card h-100">
-		{% if program.hero_image %}
-		<div class="card-hero-img" style="background-image: url('{{ program.hero_image }}')"></div>
-		{% else %}
-		<div class="card-image-wrapper text-center">
-			<div class="image-body"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
+
+{% macro hero(title, description, has_access, back) %}
+	<div class='container pb-5'>
+		<div class="mb-3">
+			<a href="{{ back.url }}" class="text-muted">
+				{{_('Back to')}} {{ _(back.name) }}
+			</a>
 		</div>
-		{% endif %}
-		<div class='card-body'>
-			<h5 class='card-title'>{{ program.program_name }}</h5>
-			<div class="text-muted">{{ program.description[:110] + '...' if program.description else '' }}</div>
-		</div>
-		{% if has_access or program.intro_video%}
-		<div class='card-footer'>
-			{% if has_access %} <span class="indicator green">{{_('Enrolled')}}</span>
-			{% elif program.intro_video %} <span><a href="{{ program.intro_video }}" target="blank">{{_('Watch Intro')}}</a></span>
+		<h1>{{ title }}</h1>
+		<p class='lead' style="max-width: 100%;">{{ description or ''}}</p>
+		<p class="mt-4">
+			{% if frappe.session.user == 'Guest' %}
+			<a id="signup" class="btn btn-primary btn-lg" href="/login#signup">{{_('Sign Up')}}</a>
+			{% elif not has_access %}
+			<button id="enroll" class="btn btn-primary btn-lg" onclick="enroll()" disabled>{{_('Enroll')}}</button>
 			{% endif %}
-		</div>
-		{% endif %}
+		</p>
 	</div>
-	</a>
-</div>
-{% endmacro %}
 
 
-{% macro null_card() %}
-<div class="col-sm-4 mb-4 text-left">
-	<div class="h-100 d-none d-sm-block" style="border: 1px solid rgba(209,216,221,0.5);border-radius: 0.25rem;background-color: rgb(250, 251, 252);">
-	</div>
-</div>
 {% endmacro %}

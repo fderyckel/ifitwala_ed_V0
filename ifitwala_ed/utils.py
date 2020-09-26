@@ -95,11 +95,12 @@ def get_current_student():
 
 # for CMS get a list of all enrolled program and or course for the current academic year. 
 def get_enrollment(master, document, student):
-	current_year = frappe.get_single("Education Settings").get("current_academic_year")
+	#current_year = frappe.get_single("Education Settings").get("current_academic_year")
 	if master == 'program':
-		enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1, 'academic_year':  current_year})
+		enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1})
+	#	enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1, 'academic_year':  current_year})
 	if master == 'course':
-		enrollments = frappe.get_all("Course Enrollment", filters={'student':student, 'course': document, 'academic_year':  current_year})
+	#	enrollments = frappe.get_all("Course Enrollment", filters={'student':student, 'course': document, 'academic_year':  current_year})
 
 	if enrollments:
 		return enrollments[0].name

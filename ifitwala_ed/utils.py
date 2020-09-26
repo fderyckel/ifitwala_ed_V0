@@ -88,7 +88,7 @@ def get_current_student():
 	if email in ('Administrator', 'Guest'):
 		return None
 	try:
-		student_id = frappe.get_all("Student", {"student_email_id": email}, ["name"])[0].name
+		student_id = frappe.get_all("Student", {"student_email": email}, ["name"])[0].name
 		return frappe.get_doc("Student", student_id)
 	except (IndexError, frappe.DoesNotExistError):
 		return None

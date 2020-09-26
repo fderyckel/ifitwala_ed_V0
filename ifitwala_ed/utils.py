@@ -57,12 +57,14 @@ def validate_duplicate_student(students):
 
 # to return a list of all programs that can be displayed on the portal. 
 def get_portal_programs(): 
-	published_programs = frappe.get_all("Program", filter = {"is_published", True}) 
+	published_programs = frappe.get_all("Program", filters = {"is_published": True}) 
 	if not published_programs: 
 		return None
-	program_list = [frappe.get_doc("Program", program) for program in published_programs] 
+	
+	program_list = [frappe.get_doc("program", program) for program in published_programs] 
 	portal_programs = [{"Program":program, 'has_access':allowed_program_access(program.name)} for program in program_list if allowed_program_access(program.name)]
 	
+	return portal_programs
 	
 
 # deciding if the current user is a student who has access to program or if it is a super-user

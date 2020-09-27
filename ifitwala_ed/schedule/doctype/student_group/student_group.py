@@ -54,7 +54,7 @@ class StudentGroup(Document):
 		roll_no_list = []
 		for d in self.students:
 			if not d.student_name:
-				d.student_name = frappe.db.get_value("Student", d.student, "title")
+				d.student_name = frappe.db.get_value("Student", d.student, "student_full_name")
 			if not d.group_roll_number:
 				max_roll_no += 1
 				d.group_roll_number = max_roll_no

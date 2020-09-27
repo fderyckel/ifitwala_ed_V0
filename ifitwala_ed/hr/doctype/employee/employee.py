@@ -132,19 +132,19 @@ class Employee(NestedSet):
 			user.birth_date = self.date_of_birth
 		if self.gender:
 			user.gender = self.gender
-		if self.image:
-			if not user.user_image:
-				user.user_image = self.image
-				try:
-					frappe.get_doc({
-						"doctype": "File",
-						"file_name": self.image,
-						"attached_to_doctype": "User",
-						"attached_to_name": self.user_id
-					}).insert()
-				except frappe.DuplicateEntryError:
-					# already exists
-					pass
+		#if self.image:
+		#	if not user.user_image:
+		#		user.user_image = self.image
+		#		try:
+		#			frappe.get_doc({
+		#				"doctype": "File",
+		#				"file_name": self.image,
+		#				"attached_to_doctype": "User",
+		#				"attached_to_name": self.user_id
+		#			}).insert()
+		#		except frappe.DuplicateEntryError:
+		#			# already exists
+		#			pass
 		user.save()
 		
 	def update_user_permissions(self):

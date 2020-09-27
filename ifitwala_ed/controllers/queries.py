@@ -21,11 +21,11 @@ def employee_query(doctype, txt, searchfield, start, page_len, filters):
 		where status = 'Active'
 			and docstatus < 2
 			and ({key} like %(txt)s
-				or full_name like %(txt)s)
+				or employee_name like %(txt)s)
 			{fcond} {mcond}
 		order by
 			if(locate(%(_txt)s, name), locate(%(_txt)s, name), 99999),
-			if(locate(%(_txt)s, full_name), locate(%(_txt)s, full_name), 99999),
+			if(locate(%(_txt)s, full_name), locate(%(_txt)s, employee_name), 99999),
 			idx desc,
 			name, full_name
 		limit %(start)s, %(page_len)s""".format(**{

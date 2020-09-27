@@ -30,7 +30,7 @@ class Guardian(Document):
     
     
     def validate(self): 
-        self.guardian_full_name = self.first_name + " " + self.last_name
+        self.guardian_full_name = self.guardian_first_name + " " + self.guardian_last_name
         self.students = []
             
 

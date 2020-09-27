@@ -89,9 +89,9 @@ class Student(Document):
 		user.first_name = self.student_first_name
 		user.last_name = self.student_last_name
 		user.full_name = self.student_full_name
-		if self.gender: 
+		if self.student_gender: 
 			user.gender = self.student_gender
-		if self.first_language: 
+		if self.student_first_language: 
 			user.language = self.student_first_language
 		#if self.photo:
 		#	if not user.user_image:

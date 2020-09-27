@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "autoname": "MAP-.YYYY.-.#####",
  "creation": "2020-08-27 15:17:15.459557",
@@ -99,8 +100,7 @@
   {
    "fieldname": "test_name",
    "fieldtype": "Data",
-   "label": "Test Name",
-   "options": "\n"
+   "label": "Test Name"
   },
   {
    "fieldname": "test_rit_score",
@@ -137,14 +137,14 @@
    "label": "Spring To Spring Observed Growth"
   },
   {
-   "fetch_from": "student.first_name",
+   "fetch_from": "student.student_first_name",
    "fieldname": "first_name",
    "fieldtype": "Data",
    "label": "First Name",
    "read_only": 1
   },
   {
-   "fetch_from": "student.last_name",
+   "fetch_from": "student.student_last_name",
    "fieldname": "last_name",
    "fieldtype": "Data",
    "label": "Last Name",
@@ -255,7 +255,8 @@
    "fieldtype": "Column Break"
   }
  ],
- "modified": "2020-08-27 19:32:02.077911",
+ "links": [],
+ "modified": "2020-09-27 19:53:16.121103",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",

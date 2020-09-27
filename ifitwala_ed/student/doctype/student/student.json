@@ -10,21 +10,21 @@
  "field_order": [
   "personal_info_section",
   "student_id",
-  "first_name",
-  "middle_name",
-  "last_name",
-  "preferred_name",
+  "student_first_name",
+  "student_middle_name",
+  "student_last_name",
+  "student_preferred_name",
   "student_email",
-  "first_language",
-  "second_language",
+  "student_first_language",
+  "student_second_language",
   "column_break_9",
-  "photo",
-  "date_of_birth",
-  "gender",
-  "mobile_number",
-  "joining_date",
-  "nationality",
-  "second_nationality",
+  "student_image",
+  "student_date_of_birth",
+  "student_gender",
+  "student_mobile_number",
+  "student_joining_date",
+  "student_nationality",
+  "student_second_nationality",
   "cohort",
   "section_break_14",
   "main_address",
@@ -41,9 +41,9 @@
   "siblings",
   "student_full_name",
   "exit_section",
-  "exit_date",
-  "exit_reason",
-  "leaving_certificate",
+  "student_exit_date",
+  "student_exit_reason",
+  "student_leaving_certificate",
   "enabled",
   "column_break_36",
   "additional_comments"
@@ -54,54 +54,6 @@
    "fieldtype": "Data",
    "label": "Student ID",
    "unique": 1
-  },
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "First Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Last Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "middle_name",
-   "fieldtype": "Data",
-   "label": "Middle Name"
-  },
-  {
-   "fieldname": "photo",
-   "fieldtype": "Attach Image",
-   "label": "Photo"
-  },
-  {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date of Birth"
-  },
-  {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "label": "Mobile Number"
-  },
-  {
-   "fieldname": "joining_date",
-   "fieldtype": "Date",
-   "label": "Joining Date"
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Gender",
-   "options": "Female\nMale\nOther"
   },
   {
    "default": "1",
@@ -146,16 +98,6 @@
    "label": "Siblings Details"
   },
   {
-   "fieldname": "preferred_name",
-   "fieldtype": "Data",
-   "label": "Preferred Name"
-  },
-  {
-   "fieldname": "nationality",
-   "fieldtype": "Data",
-   "label": "Nationality"
-  },
-  {
    "fetch_from": "main_address.address_line2",
    "fieldname": "address_line_2",
    "fieldtype": "Read Only",
@@ -188,23 +130,6 @@
    "label": "State / Province"
   },
   {
-   "fieldname": "first_language",
-   "fieldtype": "Link",
-   "label": "First Language",
-   "options": "Language"
-  },
-  {
-   "fieldname": "second_language",
-   "fieldtype": "Link",
-   "label": "Second Language",
-   "options": "Language"
-  },
-  {
-   "fieldname": "second_nationality",
-   "fieldtype": "Data",
-   "label": "Second Nationality"
-  },
-  {
    "fieldname": "column_break_25",
    "fieldtype": "Column Break"
   },
@@ -218,22 +143,6 @@
    "fieldname": "exit_section",
    "fieldtype": "Section Break",
    "label": "Exit"
-  },
-  {
-   "fieldname": "exit_date",
-   "fieldtype": "Date",
-   "label": "Exit Date"
-  },
-  {
-   "fieldname": "exit_reason",
-   "fieldtype": "Select",
-   "label": "Exit Reason",
-   "options": "\nGraduation\nMoving\nOther"
-  },
-  {
-   "fieldname": "leaving_certificate",
-   "fieldtype": "Data",
-   "label": "Leaving Certificate"
   },
   {
    "fieldname": "column_break_36",
@@ -271,11 +180,102 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Title"
+  },
+  {
+   "fieldname": "student_first_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "student_last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_preferred_name",
+   "fieldtype": "Data",
+   "label": "Preferred Name"
+  },
+  {
+   "fieldname": "student_first_language",
+   "fieldtype": "Link",
+   "label": "First Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "student_second_language",
+   "fieldtype": "Link",
+   "label": "Second Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "student_date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "student_gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "Female\nMale\nOther"
+  },
+  {
+   "fieldname": "student_mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "student_joining_date",
+   "fieldtype": "Date",
+   "label": "Joining Date"
+  },
+  {
+   "fieldname": "student_nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  },
+  {
+   "fieldname": "student_second_nationality",
+   "fieldtype": "Data",
+   "label": "Second Nationality"
+  },
+  {
+   "fieldname": "student_exit_date",
+   "fieldtype": "Date",
+   "label": "Exit Date"
+  },
+  {
+   "fieldname": "student_exit_reason",
+   "fieldtype": "Select",
+   "label": "Exit Reason",
+   "options": "\nGraduation\nMoving\nOther"
+  },
+  {
+   "fieldname": "student_leaving_certificate",
+   "fieldtype": "Data",
+   "label": "Leaving Certificate"
+  },
+  {
+   "fieldname": "student_image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
   }
  ],
- "image_field": "photo",
+ "image_field": "student_image",
  "links": [],
- "modified": "2020-09-27 17:34:29.889920",
+ "modified": "2020-09-27 18:58:14.199973",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

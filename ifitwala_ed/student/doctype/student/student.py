@@ -92,34 +92,20 @@ class Student(Document):
 			user.gender = self.gender
 		if self.first_language: 
 			user.language = self.first_language
-		if self.photo:
-			if not user.user_image:
-				user.user_image = self.photo
-				try:
-					frappe.get_doc({
-						"doctype": "File",
-						"file_name": self.photo,
-						"attached_to_doctype": "User",
-						"attached_to_name": self.student_email
-					}).insert()
-				except frappe.DuplicateEntryError:  
-					pass
-		user.save()
+		#if self.photo:
+		#	if not user.user_image:
+		#		user.user_image = self.photo
+		#		try:
+		#			frappe.get_doc({
+		#				"doctype": "File",
+		#				"file_name": self.photo,
+		#				"attached_to_doctype": "User",
+		#				"attached_to_name": self.student_email
+		#			}).insert()
+		#		except frappe.DuplicateEntryError:  
+		#			pass
+		#user.save()
 		
-	# will update student_patient main info if the student info change
-	#def update_student_patient(self): 
-	#	patient = frappe.get_doc({"doctype": "Student Patient", "student": self.name})
-	#	patient.flags.ignore_permissions = True 
-	#	patient.student_name = self.title
-	#	if self.preferred_name: 
-	#		patient.preferred_name =self.preferred_name
-	#	if self.gender: 
-	#		patient.gender = self.gender
-	#	if self.first_language: 
-	#		patient.language = self.first_language
-	#	if self.photo: 
-	#		patient.photo = self.photo
-	#	patient.save()
 	
 	def enroll_in_course(self, course_name, program_enrollment, enrollment_date):
 		try:

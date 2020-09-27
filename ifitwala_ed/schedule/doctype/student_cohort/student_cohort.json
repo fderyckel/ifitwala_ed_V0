@@ -1,4 +1,7 @@
 {
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:cohort_name",
  "creation": "2020-08-26 16:54:45.856014",
  "doctype": "DocType",
@@ -17,7 +20,8 @@
    "unique": 1
   }
  ],
- "modified": "2020-09-01 18:31:13.318055",
+ "links": [],
+ "modified": "2020-09-27 13:57:19.531429",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Cohort",

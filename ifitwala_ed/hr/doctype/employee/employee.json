@@ -118,26 +118,31 @@
    "label": "Professional email"
   },
   {
+   "fetch_from": "current_address.phone",
    "fieldname": "home_phone",
    "fieldtype": "Data",
    "label": "Home Phone"
   },
   {
+   "fetch_from": "current_address.address_line1",
    "fieldname": "address_line_1",
    "fieldtype": "Data",
    "label": "Address Line 1"
   },
   {
+   "fetch_from": "current_address.address_line2",
    "fieldname": "address_line_2",
    "fieldtype": "Data",
    "label": "Address Line 2"
   },
   {
+   "fetch_from": "current_address.pincode",
    "fieldname": "zipcode",
    "fieldtype": "Data",
    "label": "Zipcode"
   },
   {
+   "fetch_from": "current_address.city",
    "fieldname": "town__city",
    "fieldtype": "Data",
    "label": "Town / City"
@@ -315,7 +320,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2020-09-17 16:37:32.677650",
+ "modified": "2020-09-27 13:31:24.341730",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

@@ -12,9 +12,9 @@ from frappe.desk.form.linked_with import get_linked_doctypes
 class Student(Document):
 	
 	def validate(self): 
-            self.title = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
+            self.student_full_name = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
             
-            if frappe.get_value("Student", self.name, "title") != self.title: 
+            if frappe.get_value("Student", self.name, "student_full_name") != self.student_full_name: 
                     self.update_student_name_in_linked_doctype()
             
             if self.date_of_birth and getdate(self.date_of_birth) >= getdate(today()): 
@@ -35,12 +35,12 @@ class Student(Document):
 			if not meta.issingle:
 				if "student_name" in [f.fieldname for f in meta.fields]:
 					frappe.db.sql("""UPDATE `tab{0}` set student_name = %s where {1} = %s"""
-						 .format(d, linked_doctypes[d]["fieldname"][0]),(self.title, self.name))
+						 .format(d, linked_doctypes[d]["fieldname"][0]),(self.student_full_name, self.name))
 
 				if "child_doctype" in linked_doctypes[d].keys() and "student_name" in \
 					[f.fieldname for f in frappe.get_meta(linked_doctypes[d]["child_doctype"]).fields]:
 					frappe.db.sql("""UPDATE `tab{0}` set student_name = %s where {1} = %s"""
-						  .format(linked_doctypes[d]["child_doctype"], linked_doctypes[d]["fieldname"][0]),(self.title, self.name))
+						  .format(linked_doctypes[d]["child_doctype"], linked_doctypes[d]["fieldname"][0]),(self.student_full_name, self.name))
 	
 	def after_insert(self): 
 		self.create_student_user()
@@ -87,7 +87,7 @@ class Student(Document):
 		user.flags.ignore_permissions = True 
 		user.first_name = self.first_name
 		user.last_name = self.last_name
-		user.full_name = self.title
+		user.full_name = self.student_full_name
 		if self.gender: 
 			user.gender = self.gender
 		if self.first_language: 

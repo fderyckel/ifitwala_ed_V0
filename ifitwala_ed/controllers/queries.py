@@ -15,7 +15,7 @@ import ifitwala_ed
 @frappe.validate_and_sanitize_search_inputs
 def employee_query(doctype, txt, searchfield, start, page_len, filters):
 	conditions = []
-	fields = get_fields("Employee", ["name", "full_name"])
+	fields = get_fields("Employee", ["name", "employee_name"])
 
 	return frappe.db.sql("""select {fields} from `tabEmployee`
 		where status = 'Active'

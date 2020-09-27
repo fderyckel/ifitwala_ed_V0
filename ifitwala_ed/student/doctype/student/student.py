@@ -13,18 +13,18 @@ from frappe.desk.form.linked_with import get_linked_doctypes
 class Student(Document):
 	
 	def validate(self): 
-            self.student_full_name = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
+            self.student_full_name = " ".join(filter(None, [self.student_first_name, self.student_middle_name, self.student_last_name]))
             
             if frappe.get_value("Student", self.name, "student_full_name") != self.student_full_name: 
                     self.update_student_name_in_linked_doctype()
             
-            if self.date_of_birth and getdate(self.date_of_birth) >= getdate(today()): 
+            if self.student_date_of_birth and getdate(self.student_date_of_birth) >= getdate(today()): 
                     frappe.throw(_("Check again student's birth date.  It cannot be after today."))
             
-            if self.date_of_birth and getdate(self.date_of_birth) >= getdate(self.joining_date): 
+            if self.student_date_of_birth and getdate(self.student_date_of_birth) >= getdate(self.student_joining_date): 
                     frappe.throw(_("Check again student's birth date and or joining date. Birth date cannot be after joining date.")) 
                     
-            if self.joining_date and self.exit_date and getdate(self.joining_date) > getdate(self.exit_date): 
+            if self.student_joining_date and self.student_exit_date and getdate(self.student_joining_date) > getdate(self.student_exit_date): 
                     frappe.throw(_("Check again the exit date. The joining date has to be earlier than the exit date."))
 
             
@@ -56,12 +56,12 @@ class Student(Document):
 		if not frappe.db.exists("User", self.student_email): 
 			student_user = frappe.get_doc({
 				"doctype": "User", 
-				"first_name": self.first_name, 
-				"last_name": self.last_name, 
+				"first_name": self.student_first_name, 
+				"last_name": self.student_last_name, 
 				"email": self.student_email, 
 				"username": self.student_email, 
-				"gender": self.gender, 
-				"language": self.first_language, 
+				"gender": self.student_gender, 
+				"language": self.student_first_language, 
 				"send_welcome_email": 1, 
 				"user_type": "Website User"
 				})
@@ -73,7 +73,7 @@ class Student(Document):
 			
 	# Create student as patient 
 	def create_student_patient(self): 
-		if not frappe.db.exists("Student Patient", {"student_name": self.title}): 
+		if not frappe.db.exists("Student Patient", {"student_name": self.student_full_name}): 
 			student_patient = frappe.get_doc({
 				"doctype": "Student Patient", 
 				"student": self.name
@@ -86,13 +86,13 @@ class Student(Document):
 	def update_student_user(self): 
 		user = frappe.get_doc("User", self.student_email)
 		user.flags.ignore_permissions = True 
-		user.first_name = self.first_name
-		user.last_name = self.last_name
+		user.first_name = self.student_first_name
+		user.last_name = self.student_last_name
 		user.full_name = self.student_full_name
 		if self.gender: 
-			user.gender = self.gender
+			user.gender = self.student_gender
 		if self.first_language: 
-			user.language = self.first_language
+			user.language = self.student_first_language
 		#if self.photo:
 		#	if not user.user_image:
 		#		user.user_image = self.photo

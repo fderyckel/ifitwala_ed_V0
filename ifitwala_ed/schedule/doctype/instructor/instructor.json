@@ -16,7 +16,7 @@
  ],
  "fields": [
   {
-   "fetch_from": "employee.full_name",
+   "fetch_from": "employee.employee_name",
    "fieldname": "instructor_name",
    "fieldtype": "Data",
    "ignore_user_permissions": 1,

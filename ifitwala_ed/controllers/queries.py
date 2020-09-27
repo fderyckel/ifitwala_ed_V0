@@ -25,9 +25,9 @@ def employee_query(doctype, txt, searchfield, start, page_len, filters):
 			{fcond} {mcond}
 		order by
 			if(locate(%(_txt)s, name), locate(%(_txt)s, name), 99999),
-			if(locate(%(_txt)s, full_name), locate(%(_txt)s, employee_name), 99999),
+			if(locate(%(_txt)s, employee_name), locate(%(_txt)s, employee_name), 99999),
 			idx desc,
-			name, full_name
+			name, employee_name
 		limit %(start)s, %(page_len)s""".format(**{
 			'fields': ", ".join(fields),
 			'key': searchfield,

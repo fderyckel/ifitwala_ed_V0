@@ -15,7 +15,7 @@
   "middle_name",
   "last_name",
   "gender",
-  "employee_name",
+  "employee_full_name",
   "preferred_name",
   "column_break_10",
   "professional_email",
@@ -309,7 +309,7 @@
    "label": "Old Parent"
   },
   {
-   "fieldname": "employee_name",
+   "fieldname": "employee_full_name",
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
@@ -320,11 +320,10 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2020-09-27 13:31:24.341730",
+ "modified": "2020-09-27 17:31:32.454603",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
- "name_case": "Title Case",
  "owner": "Administrator",
  "permissions": [
   {
@@ -383,10 +382,10 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "employee_name",
+ "search_fields": "employee_full_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "employee_name",
+ "title_field": "employee_full_name",
  "track_changes": 1
 }

@@ -39,7 +39,7 @@
   "student_guardian",
   "siblings_section",
   "siblings",
-  "title",
+  "student_full_name",
   "exit_section",
   "exit_date",
   "exit_reason",
@@ -174,12 +174,6 @@
    "options": "Student Guardian"
   },
   {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Title"
-  },
-  {
    "fieldname": "main_address",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -271,11 +265,17 @@
    "fieldtype": "Table",
    "label": "Siblings",
    "options": "Student Sibling"
+  },
+  {
+   "fieldname": "student_full_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title"
   }
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-09-23 14:20:56.253202",
+ "modified": "2020-09-27 17:34:29.889920",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -363,9 +363,10 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "student_full_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "title",
+ "title_field": "student_full_name",
  "track_changes": 1
 }

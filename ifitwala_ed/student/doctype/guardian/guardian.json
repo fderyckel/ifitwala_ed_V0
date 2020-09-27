@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "GRD-.YYYY.-.#####",
@@ -30,7 +31,7 @@
   "designation",
   "work_email",
   "work_phone",
-  "full_name"
+  "guardian_full_name"
  ],
  "fields": [
   {
@@ -169,14 +170,15 @@
    "read_only": 1
   },
   {
-   "fieldname": "full_name",
+   "fieldname": "guardian_full_name",
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Full  Name"
   }
  ],
  "image_field": "image",
- "modified": "2020-09-07 19:13:03.942720",
+ "links": [],
+ "modified": "2020-09-27 17:11:08.651594",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",
@@ -251,6 +253,6 @@
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "full_name",
+ "title_field": "guardian_full_name",
  "track_changes": 1
 }

@@ -30,7 +30,7 @@ frappe.ui.form.on('Student Patient Visit', {
 				let values = {
 					'student_age': age,
 					'student_name':data.message.student_name,
-					'gender': data.message.gender,
+					'student_gender': data.message.gender,
 					'blood_group':data.message.blood_group
 				};
 				frm.set_value(values);

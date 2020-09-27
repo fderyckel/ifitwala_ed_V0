@@ -5,7 +5,7 @@ frappe.ui.form.on('Student', {
 	
 	setup: function(frm) {
 		frm.add_fetch('guardian', 'guardian_name', 'guardian_name');
-		frm.add_fetch('student', 'title', 'full_name');
+		frm.add_fetch('student', 'student_full_name', 'student_full_name');
 		frm.add_fetch('student', 'gender', 'gender');
 		frm.add_fetch('student', 'date_of_birth', 'date_of_birth');
 

@@ -194,9 +194,13 @@
    "reqd": 1
   },
   {
+   "fetch_from": "student_patient.gender",
    "fieldname": "gender",
    "fieldtype": "Data",
-   "label": "Gender"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "read_only": 1
   },
   {
    "fetch_from": "student_patient.blood_group",
@@ -215,7 +219,7 @@
  "image_field": "photo",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-27 19:18:44.251798",
+ "modified": "2020-09-27 20:24:58.286909",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient Visit",

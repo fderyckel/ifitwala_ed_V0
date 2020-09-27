@@ -104,7 +104,7 @@ class Student(Document):
 		#			}).insert()
 		#		except frappe.DuplicateEntryError:  
 		#			pass
-		#user.save()
+		user.save()
 		
 	
 	def enroll_in_course(self, course_name, program_enrollment, enrollment_date):

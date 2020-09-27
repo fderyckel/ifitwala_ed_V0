@@ -5,9 +5,10 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
-from frappe.utils import getdate, today 
+from frappe.utils import getdate, today, get_link_to_form 
 from frappe.model.document import Document
 from frappe.desk.form.linked_with import get_linked_doctypes
+
 
 class Student(Document):
 	
@@ -68,7 +69,7 @@ class Student(Document):
 			student_user.add_roles("Student")
 			student_user.save()
 			update_password_link = student_user.reset_password()
-			frappe.msgprint(_("User {0} has been created").format(self.student_email))
+			frappe.msgprint(_("User {0} has been created").format(get_link_to_form("User", self.student_email)))
 			
 	# Create student as patient 
 	def create_student_patient(self): 
@@ -78,7 +79,7 @@ class Student(Document):
 				"student": self.name
 				})
 			student_patient.save()
-			frappe.msgprint(_("Student Patient {0} linked to this student has been created").format(self.title))
+			frappe.msgprint(_("Student Patient {0} linked to this student has been created").format(self.student_full_name))
 
 	
 	# will update user main info if the student info change

@@ -2,5 +2,5 @@
 // For license information, please see license.txt
 
 frappe.listview_settings['Student'] = {
-	filters: [["enable","=", "1"]]
+	filters: [["enabled","=", "1"]]
 };

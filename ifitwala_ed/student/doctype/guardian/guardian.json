@@ -11,6 +11,7 @@
   "salutation",
   "guardian_first_name",
   "guardian_last_name",
+  "guardian_gender",
   "guardian_email",
   "guardian_mobile_phone",
   "guardian_image",
@@ -174,11 +175,17 @@
    "fieldname": "guardian_work_phone",
    "fieldtype": "Data",
    "label": "Work Phone"
+  },
+  {
+   "fieldname": "guardian_gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nFemale\nMale\nOther\nPrefer Not To Say"
   }
  ],
  "image_field": "guardian_image",
  "links": [],
- "modified": "2020-09-27 18:35:59.167838",
+ "modified": "2020-09-28 10:57:16.579980",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",

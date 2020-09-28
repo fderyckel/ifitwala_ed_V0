@@ -36,7 +36,7 @@
   "state_province",
   "country",
   "gardians_section",
-  "student_guardian",
+  "student_guardians",
   "siblings_section",
   "siblings",
   "student_full_name",
@@ -93,6 +93,7 @@
    "label": "Gardian Details"
   },
   {
+   "collapsible": 1,
    "fieldname": "siblings_section",
    "fieldtype": "Section Break",
    "label": "Siblings Details"
@@ -108,12 +109,6 @@
    "fieldname": "address_line_1",
    "fieldtype": "Read Only",
    "label": "Address Line 1"
-  },
-  {
-   "fieldname": "student_guardian",
-   "fieldtype": "Table",
-   "label": "Student Guardian",
-   "options": "Student Guardian"
   },
   {
    "fieldname": "main_address",
@@ -140,6 +135,7 @@
    "label": "Country"
   },
   {
+   "collapsible": 1,
    "fieldname": "exit_section",
    "fieldtype": "Section Break",
    "label": "Exit"
@@ -272,12 +268,18 @@
    "fieldtype": "Attach Image",
    "in_preview": 1,
    "label": "Image"
+  },
+  {
+   "fieldname": "student_guardians",
+   "fieldtype": "Table",
+   "label": "Student Guardian",
+   "options": "Student Guardian"
   }
  ],
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-27 20:51:40.717937",
+ "modified": "2020-09-28 11:53:49.140827",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

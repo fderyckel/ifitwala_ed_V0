@@ -4,11 +4,6 @@
 frappe.ui.form.on('Student', {
 	
 	setup: function(frm) {
-		frm.add_fetch('guardian', 'guardian_name', 'guardian_name');
-		frm.add_fetch('student', 'student_full_name', 'sibling_name');
-		frm.add_fetch('student', 'student_gender', 'sibling_gender');
-		frm.add_fetch('student', 'student_date_of_birth', 'sibling_date_of_birth');
-
 		frm.set_query('student', 'siblings', function(doc) {
 			return {
 				'filters': {

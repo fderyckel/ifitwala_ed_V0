@@ -23,7 +23,6 @@ frappe.ui.form.on('Student Guardian', {
 	guardians_add: function(frm){
 		frm.fields_dict['student_guardians'].grid.get_field('guardian').get_query = function(doc){
 			let guardian_list = [];
-			if(!doc.__islocal) guardian_list.push(doc.guardian);
 			$.each(doc.student_guardians, function(idx, val){
 				if (val.guardian) guardian_list.push(val.guardian);
 			});

@@ -270,12 +270,14 @@
   {
    "fieldname": "student_image",
    "fieldtype": "Attach Image",
+   "in_preview": 1,
    "label": "Image"
   }
  ],
  "image_field": "student_image",
+ "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-27 18:58:14.199973",
+ "modified": "2020-09-27 20:51:40.717937",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

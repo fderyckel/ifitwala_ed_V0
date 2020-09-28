@@ -106,6 +106,12 @@ class Student(Document):
 		#		except frappe.DuplicateEntryError:  
 		#			pass
 		user.save()
+	
+	def update_student_patient(self): 
+		patient = frappe.get_doc("Student Patient", self.name)
+		if self.enable == 0: 
+			patient.status = "Disabled" 
+		patient.save()
 		
 	
 	def enroll_in_course(self, course_name, program_enrollment, enrollment_date):

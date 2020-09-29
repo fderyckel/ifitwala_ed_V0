@@ -11,7 +11,7 @@ class StudentPatientVisit(Document):
 	def on_submit(self): 
 		self.create_student_log() 
 		
-	create_student_log(self): 
+	def create_student_log(self): 
 		student = frappe.db.get_value("Student Patient", self.student_patient,  "student")
 		term = frappe.get_single("Education Settings", "current_academic_term")
 		log_en = frappe.get_doc({ 

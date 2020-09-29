@@ -49,7 +49,7 @@ class Student(Document):
 		
 	def on_update(self): 
 		self.update_student_user()
-		#self.update_student_patient()
+		self.update_student_patient()
 	
 	# create student as website user
 	def create_student_user(self): 

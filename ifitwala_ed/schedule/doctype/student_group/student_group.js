@@ -1,7 +1,7 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-cur_frm.add_fetch("student", "title", "student_name");
+cur_frm.add_fetch("student", "student_full_name", "student_name");
 
 frappe.ui.form.on('Student Group', {
 	onload: function(frm) { 

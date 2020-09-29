@@ -145,6 +145,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "Leave a non-confidential note to inform faculty about the reasons for the student visit to the health centre. The note will create an automatic medical log entry for the student.",
    "fieldname": "note",
    "fieldtype": "Text",
    "label": "Note"
@@ -219,7 +220,7 @@
  "image_field": "photo",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-27 20:24:58.286909",
+ "modified": "2020-09-28 17:24:36.748989",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient Visit",

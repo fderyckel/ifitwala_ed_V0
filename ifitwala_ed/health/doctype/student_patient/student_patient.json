@@ -286,7 +286,7 @@
    "label": "Vaccination Data"
   },
   {
-   "fetch_from": "student.photo",
+   "fetch_from": "student.student_image",
    "fieldname": "photo",
    "fieldtype": "Attach Image",
    "hidden": 1,
@@ -322,7 +322,7 @@
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-09-27 18:59:02.324885",
+ "modified": "2020-09-28 17:17:17.362789",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

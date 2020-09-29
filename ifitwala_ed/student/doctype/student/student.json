@@ -153,8 +153,6 @@
    "description": "This is to be used as the username for the student to login.  If changed, you need to manually change the linked user.  ",
    "fieldname": "student_email",
    "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
    "label": "Student Email",
    "reqd": 1,
    "unique": 1
@@ -175,13 +173,15 @@
    "fieldname": "student_full_name",
    "fieldtype": "Data",
    "hidden": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
    "label": "Title"
   },
   {
    "fieldname": "student_first_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "First Name",
    "reqd": 1
   },
@@ -194,7 +194,7 @@
    "fieldname": "student_last_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Last Name",
    "reqd": 1
   },
@@ -218,6 +218,7 @@
   {
    "fieldname": "student_date_of_birth",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Date of Birth"
   },
   {
@@ -230,11 +231,13 @@
   {
    "fieldname": "student_mobile_number",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Mobile Number"
   },
   {
    "fieldname": "student_joining_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Joining Date"
   },
   {
@@ -266,6 +269,7 @@
   {
    "fieldname": "student_image",
    "fieldtype": "Attach Image",
+   "hidden": 1,
    "in_preview": 1,
    "label": "Image"
   },
@@ -279,7 +283,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-28 11:53:49.140827",
+ "modified": "2020-09-28 15:47:10.275411",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

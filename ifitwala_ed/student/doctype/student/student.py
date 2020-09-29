@@ -108,7 +108,7 @@ class Student(Document):
 		user.save()
 	
 	def update_student_patient(self): 
-		patient = frappe.get_value("Student Patient", {"student":self.name}, "name")
+		patient = frappe.db.get_value("Student Patient", {"student":self.name}, "name")
 		if self.enabled == 0: 
 			frappe.db.set_value("Student Patient", patient, "status", "Disabled")
 		else: 

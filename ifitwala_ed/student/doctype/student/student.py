@@ -112,7 +112,7 @@ class Student(Document):
 		if self.enabled == 0: 
 			frappe.db.set_value("Student Patient", patient, "status", "Disabled")
 		else: 
-			frappe.db.set_value("Student Patient", patient, "status", "Active")
+			frappe.db.set_value("Student Patient", patient, "status", "Disabled")
 		
 	
 	def enroll_in_course(self, course_name, program_enrollment, enrollment_date):

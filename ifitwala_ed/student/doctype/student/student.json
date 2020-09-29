@@ -201,6 +201,9 @@
   {
    "fieldname": "student_preferred_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Preferred Name"
   },
   {
@@ -283,7 +286,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-28 15:47:10.275411",
+ "modified": "2020-09-29 15:10:10.322333",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

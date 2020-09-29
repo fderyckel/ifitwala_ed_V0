@@ -68,9 +68,11 @@
   {
    "fetch_from": "student.student_full_name",
    "fieldname": "student_name",
-   "fieldtype": "Read Only",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Student Name"
+   "in_standard_filter": 1,
+   "label": "Student Name",
+   "read_only": 1
   },
   {
    "fetch_from": "student.student_gender",
@@ -291,6 +293,7 @@
    "fieldname": "photo",
    "fieldtype": "Attach Image",
    "hidden": 1,
+   "in_preview": 1,
    "label": "photo",
    "read_only": 1
   },
@@ -317,13 +320,15 @@
   {
    "fetch_from": "student.student_preferred_name",
    "fieldname": "preferred_name",
-   "fieldtype": "Read Only",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Preferred Name"
   }
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-09-29 20:47:32.955605",
+ "modified": "2020-09-29 21:11:24.191601",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

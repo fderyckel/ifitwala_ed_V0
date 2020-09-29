@@ -220,7 +220,7 @@
  "image_field": "photo",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-28 17:24:36.748989",
+ "modified": "2020-09-29 21:50:53.980882",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient Visit",
@@ -250,15 +250,13 @@
    "write": 1
   },
   {
-   "create": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Academic Admin",
-   "share": 1,
-   "write": 1
+   "share": 1
   }
  ],
  "quick_entry": 1,

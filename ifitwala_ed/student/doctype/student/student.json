@@ -160,6 +160,8 @@
   {
    "fieldname": "cohort",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Cohort",
    "options": "Student Cohort"
   },
@@ -174,7 +176,6 @@
    "fieldtype": "Data",
    "hidden": 1,
    "in_global_search": 1,
-   "in_list_view": 1,
    "label": "Title"
   },
   {
@@ -222,12 +223,16 @@
    "fieldname": "student_date_of_birth",
    "fieldtype": "Date",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Date of Birth"
   },
   {
    "fieldname": "student_gender",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Gender",
    "options": "Female\nMale\nOther"
   },
@@ -241,11 +246,16 @@
    "fieldname": "student_joining_date",
    "fieldtype": "Date",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Joining Date"
   },
   {
    "fieldname": "student_nationality",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Nationality"
   },
   {
@@ -286,7 +296,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-29 15:10:10.322333",
+ "modified": "2020-09-29 20:38:42.895118",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

@@ -108,10 +108,12 @@ class Student(Document):
 		user.save()
 	
 	def update_student_patient(self): 
-		patient = frappe.get_doc("Student Patient", self.name)
 		if self.enabled == 0: 
-			patient.status = "Disabled" 
-		patient.save()
+			patient = frappe.get_value("Student Patient", {"student":self.name}, ["name",  "status"], as_dict=1)
+			#patient = frappe.db.sql("select status from `tabStudent Patient`where student=%s", self.name)
+			frappe.db.set_value("Student Patient", patient.name, patient.status, "Disabled")
+			#patient.status = "Disabled" 
+			#patient.save()
 		
 	
 	def enroll_in_course(self, course_name, program_enrollment, enrollment_date):

@@ -21,8 +21,8 @@ class StudentPatientVisit(Document):
 			"date": self.date, 
 			"log_type": "Medical", 
 			"author_name": frappe.session.user, #This need to be changed to employee full name.
-			"log": " ".join(filter(None,["Today between,", self.time_of_arrival, "and", self.time_of_discharge, "the above student visit the health office. Readon: ", self.note]))
+			"log": " ".join(filter(None,["Today between,", self.time_of_arrival, "and", self.time_of_discharge, "the above student visit the health office. Reason: ", self.note]))
 		})
 		log_en.save()
-		#log.docstatus = 2
+		log_en.docstatus = 2
 		

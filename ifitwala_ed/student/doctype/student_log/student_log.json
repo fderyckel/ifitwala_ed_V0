@@ -51,7 +51,9 @@
   },
   {
    "fieldname": "date",
-   "fieldtype": "Datetime",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Date"
   },
   {
@@ -91,6 +93,8 @@
    "fieldname": "author",
    "fieldtype": "Link",
    "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Author",
    "options": "Employee"
   },
@@ -112,7 +116,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-29 22:19:08.576174",
+ "modified": "2020-09-30 20:38:09.068039",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student Log",

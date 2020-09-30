@@ -227,7 +227,7 @@
  "image_field": "photo",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-30 06:52:34.712065",
+ "modified": "2020-09-30 20:36:33.335816",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient Visit",
@@ -266,7 +266,6 @@
    "share": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "student_name",

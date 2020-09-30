@@ -13,7 +13,8 @@
   "student_name",
   "gender",
   "column_break_4",
-  "visit_time",
+  "time_of_arrival",
+  "time_of_discharge",
   "date_of_birth",
   "student_age",
   "blood_group",
@@ -189,12 +190,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "visit_time",
-   "fieldtype": "Time",
-   "label": "Time",
-   "reqd": 1
-  },
-  {
    "fetch_from": "student_patient.gender",
    "fieldname": "gender",
    "fieldtype": "Data",
@@ -215,12 +210,24 @@
    "fieldtype": "Attach Image",
    "hidden": 1,
    "label": "photo"
+  },
+  {
+   "fieldname": "time_of_arrival",
+   "fieldtype": "Time",
+   "label": "Time of Arrival",
+   "reqd": 1
+  },
+  {
+   "fieldname": "time_of_discharge",
+   "fieldtype": "Time",
+   "label": "Time of Discharge",
+   "reqd": 1
   }
  ],
  "image_field": "photo",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-29 21:50:53.980882",
+ "modified": "2020-09-30 06:52:34.712065",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient Visit",

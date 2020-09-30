@@ -23,6 +23,7 @@ class StudentPatientVisit(Document):
 			"author_name": frappe.session.user, #This need to be changed to employee full name.
 			"log": " ".join(filter(None,["Today between,", self.time_of_arrival, "and", self.time_of_discharge, "the above student visit the health office. Reason: ", self.note]))
 		})
-		#log_en.save()
+		log_en.save()
+		log_en.docstatus = 1
 		log_en.submit()
 		

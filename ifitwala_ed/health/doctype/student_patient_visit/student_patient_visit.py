@@ -13,7 +13,7 @@ class StudentPatientVisit(Document):
 		
 	def create_student_log(self): 
 		student = frappe.db.get_value("Student Patient", self.student_patient,  "student")
-		term = frappe.get_single("Education Settings", "current_academic_term")
+		term = frappe.get_single("Education Settings").get("current_academic_term")
 		log_en = frappe.get_doc({ 
 			"doctype": "Student Log", 
 			"student": student,  

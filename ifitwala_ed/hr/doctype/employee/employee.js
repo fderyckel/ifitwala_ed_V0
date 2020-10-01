@@ -16,13 +16,13 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 	
 	// on the form, if Mr is selected as a salutation, then gender is male. If Ms is selected then gender is female. 
 	salutation: function() {
-		if(this.frm.doc.salutation) {
-			this.frm.set_value("gender", {
+		if(this.frm.doc.employee_salutation) {
+			this.frm.set_value("employee_gender", {
 				"Mr": "Male",
 				"Ms": "Female", 
 				"Master": "Male", 
 				"Mrs": "Female"
-			}[this.frm.doc.salutation]);
+			}[this.frm.doc.employee_salutation]);
 		}
 	},
 

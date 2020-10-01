@@ -52,9 +52,9 @@ class Employee(NestedSet):
 	# call on validate. Broad check to make sure the email address has an appropriate format. 
 	def validate_email(self):
 		if self.employee_professional_email:
-			validate_email_address(self.professional_email, True)
+			validate_email_address(self.employee_professional_email, True)
 		if self.employee_personal_email:
-			validate_email_address(self.personal_email, True)
+			validate_email_address(self.employee_personal_email, True)
 		
 	# call on validate.  If status is set to left, then need to put relieving date. 
 	# also you can not be set as left if there are people reporting to you. 
@@ -80,7 +80,7 @@ class Employee(NestedSet):
 	def validate_user_details(self):
 		data = frappe.db.get_value('User', self.user_id, ['enabled', 'user_image'], as_dict=1)
 		if data.get("user_image"):
-			self.image = data.get("user_image")
+			self.employee_image = data.get("user_image")
 		self.validate_for_enabled_user_id(data.get("enabled", 0))
 		self.validate_duplicate_user_id()
 	
@@ -114,8 +114,8 @@ class Employee(NestedSet):
 			user.append_roles("Employee")
 
 		# copy details like Fullname, DOB and Image to User
-		if self.employee_name and not (user.first_name and user.last_name):
-			employee_name = self.employee_name.split(" ")
+		if self.employee_full_name and not (user.first_name and user.last_name):
+			employee_name = self.employee_full_name.split(" ")
 			if len(employee_name) >= 3:
 				user.last_name = " ".join(employee_name[2:])
 				user.middle_name = employee_name[1]
@@ -123,10 +123,10 @@ class Employee(NestedSet):
 				user.last_name = employee_name[1]
 			user.first_name = employee_name[0]
 
-		if self.date_of_birth:
-			user.birth_date = self.date_of_birth
-		if self.gender:
-			user.gender = self.gender
+		if self.employee_date_of_birth:
+			user.birth_date = self.employee_date_of_birth
+		if self.employee_gender:
+			user.gender = self.employee_gender
 		#if self.image:
 		#	if not user.user_image:
 		#		user.user_image = self.image
@@ -165,7 +165,7 @@ class Employee(NestedSet):
 def create_user(employee, user = None, email=None):
 	emp = frappe.get_doc("Employee", employee)
 
-	employee_name = emp.employee_name.split(" ")
+	employee_name = emp.employee_full_name.split(" ")
 	middle_name = last_name = ""
 
 	if len(employee_name) >= 3:
@@ -177,19 +177,19 @@ def create_user(employee, user = None, email=None):
 	first_name = employee_name[0]
 
 	if email:
-		emp.professional_email = email
+		emp.employee_professional_email = email
 
 	user = frappe.new_doc("User")
 	user.update({
-		"name": emp.employee_name,
-		"email": emp.professional_email,
+		"name": emp.employee_full_name,
+		"email": emp.employee_professional_email,
 		"enabled": 1,
 		"first_name": first_name,
 		"middle_name": middle_name,
 		"last_name": last_name,
-		"gender": emp.gender,
-		"birth_date": emp.date_of_birth,
-		"phone": emp.mobile_phone
+		"gender": emp.employee_gender,
+		"birth_date": emp.employee_date_of_birth,
+		"phone": emp.employee_mobile_phone
 	})
 	user.insert()
 	return user.name
@@ -201,7 +201,7 @@ def get_children(doctype, parent=None, school=None, is_root=False, is_tree=False
 	if school and school != 'All Schools':
 		filters = [['school', '=', school]]
 
-	fields = ['name as value', 'employee_name as title']
+	fields = ['name as value', 'employee_full_name as title']
 
 	if is_root:
 		parent = ''

@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
-from frappe.utils import getdate, today, get_link_to_form 
+from frappe.utils import getdate, today, get_link_to_form, validate_email_address 
 from frappe.model.document import Document
 from frappe.desk.form.linked_with import get_linked_doctypes
 
@@ -13,8 +13,9 @@ from frappe.desk.form.linked_with import get_linked_doctypes
 class Student(Document):
 	
 	def validate(self): 
-            self.student_full_name = " ".join(filter(None, [self.student_first_name, self.student_middle_name, self.student_last_name]))
-            
+		self.student_full_name = " ".join(filter(None, [self.student_first_name, self.student_middle_name, self.student_last_name])) 
+		self.validate_email()
+	
             if frappe.get_value("Student", self.name, "student_full_name") != self.student_full_name: 
                     self.update_student_name_in_linked_doctype()
             
@@ -29,6 +30,11 @@ class Student(Document):
 
             
     
+	def validate_email(self): 
+		if self.student_email:
+			validate_email_address(self.student_email, True)
+
+		
 	def update_student_name_in_linked_doctype(self):
 		linked_doctypes = get_linked_doctypes("Student")
 		for d in linked_doctypes:

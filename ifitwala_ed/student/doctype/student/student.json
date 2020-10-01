@@ -252,16 +252,18 @@
   },
   {
    "fieldname": "student_nationality",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Nationality"
+   "label": "Nationality",
+   "options": "Country"
   },
   {
    "fieldname": "student_second_nationality",
-   "fieldtype": "Data",
-   "label": "Second Nationality"
+   "fieldtype": "Link",
+   "label": "Second Nationality",
+   "options": "Country"
   },
   {
    "fieldname": "student_exit_date",
@@ -296,7 +298,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-29 20:38:42.895118",
+ "modified": "2020-09-30 20:57:25.509089",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

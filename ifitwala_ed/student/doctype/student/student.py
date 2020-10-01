@@ -14,20 +14,19 @@ class Student(Document):
 	
 	def validate(self): 
 		self.student_full_name = " ".join(filter(None, [self.student_first_name, self.student_middle_name, self.student_last_name])) 
-		self.validate_email()
-	
-            if frappe.get_value("Student", self.name, "student_full_name") != self.student_full_name: 
-                    self.update_student_name_in_linked_doctype()
-            
-            if self.student_date_of_birth and getdate(self.student_date_of_birth) >= getdate(today()): 
-                    frappe.throw(_("Check again student's birth date.  It cannot be after today."))
-            
-            if self.student_date_of_birth and getdate(self.student_date_of_birth) >= getdate(self.student_joining_date): 
-                    frappe.throw(_("Check again student's birth date and or joining date. Birth date cannot be after joining date.")) 
-                    
-            if self.student_joining_date and self.student_exit_date and getdate(self.student_joining_date) > getdate(self.student_exit_date): 
-                    frappe.throw(_("Check again the exit date. The joining date has to be earlier than the exit date."))
-
+		self.validate_email() 
+		
+		if frappe.get_value("Student", self.name, "student_full_name") != self.student_full_name: 
+			self.update_student_name_in_linked_doctype()
+		
+		if self.student_date_of_birth and getdate(self.student_date_of_birth) >= getdate(today()): 
+			frappe.throw(_("Check again student's birth date.  It cannot be after today."))  
+		
+		if self.student_date_of_birth and getdate(self.student_date_of_birth) >= getdate(self.student_joining_date): 
+			frappe.throw(_("Check again student's birth date and or joining date. Birth date cannot be after joining date.")) 
+			
+		if self.student_joining_date and self.student_exit_date and getdate(self.student_joining_date) > getdate(self.student_exit_date): 
+			frappe.throw(_("Check again the exit date. The joining date has to be earlier than the exit date."))
             
     
 	def validate_email(self): 

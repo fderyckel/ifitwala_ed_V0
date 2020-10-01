@@ -40,7 +40,7 @@
    "options": "Employee"
   },
   {
-   "fetch_from": "employee.employee_name",
+   "fetch_from": "employee.employee_full_name",
    "fieldname": "lead_full_name",
    "fieldtype": "Read Only",
    "label": "Lead Full Name"
@@ -78,7 +78,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-09-24 21:29:33.722239",
+ "modified": "2020-10-01 19:40:48.462238",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

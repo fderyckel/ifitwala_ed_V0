@@ -36,13 +36,13 @@ frappe.ui.form.on('Employee', {
 	}, 
 	
 	create_user: function(frm) {
-		if (!frm.doc.professional_email)
+		if (!frm.doc.employee_professional_email)
 		{
 			frappe.throw(__("Please enter Professional Email"))
 		}
 		frappe.call({
 			method: "ifitwala_ed.hr.doctype.employee.employee.create_user",
-			args: { employee: frm.doc.name, email: frm.doc.professional_email },
+			args: { employee: frm.doc.name, email: frm.doc.employee_professional_email },
 			callback: function(r)
 			{
 				frm.set_value("user_id", r.message)

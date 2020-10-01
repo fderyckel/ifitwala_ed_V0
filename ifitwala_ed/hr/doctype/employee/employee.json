@@ -19,10 +19,10 @@
   "employee_preferred_name",
   "nationality",
   "column_break_10",
-  "professional_email",
-  "mobile_phone",
-  "personal_email",
-  "date_of_birth",
+  "employee_professional_email",
+  "employee_mobile_phone",
+  "employee_personal_email",
+  "employee_date_of_birth",
   "employee_image",
   "user_id",
   "create_user",
@@ -63,25 +63,8 @@
    "label": "Personal Info"
   },
   {
-   "fieldname": "mobile_phone",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Mobile Phone"
-  },
-  {
-   "fieldname": "personal_email",
-   "fieldtype": "Data",
-   "label": "Personal email"
-  },
-  {
    "fieldname": "column_break_10",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "professional_email",
-   "fieldtype": "Data",
-   "label": "Professional email"
   },
   {
    "fetch_from": "current_address.phone",
@@ -133,12 +116,6 @@
    "fieldtype": "Link",
    "label": "Permanent Address",
    "options": "Address"
-  },
-  {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date of Birth",
-   "reqd": 1
   },
   {
    "fieldname": "date_of_joining",
@@ -323,13 +300,37 @@
    "fieldname": "nationality",
    "fieldtype": "Link",
    "label": "Nationality",
-   "options": "Country"
+   "options": "Country",
+   "reqd": 1
   },
   {
    "fieldname": "second_nationality",
    "fieldtype": "Link",
    "label": "Second Nationality",
    "options": "Country"
+  },
+  {
+   "fieldname": "employee_professional_email",
+   "fieldtype": "Data",
+   "label": "Professional email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_mobile_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mobile Phone"
+  },
+  {
+   "fieldname": "employee_personal_email",
+   "fieldtype": "Data",
+   "label": "Personal email"
+  },
+  {
+   "fieldname": "employee_date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
   }
  ],
  "image_field": "employee_image",
@@ -339,7 +340,7 @@
    "link_fieldname": "Employee"
   }
  ],
- "modified": "2020-10-01 12:26:23.306521",
+ "modified": "2020-10-01 12:47:28.327543",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

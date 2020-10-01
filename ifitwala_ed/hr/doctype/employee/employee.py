@@ -16,18 +16,13 @@ class EmployeeLeftValidationError(frappe.ValidationError): pass
 
 class Employee(NestedSet): 
 	nsm_parent_field = 'reports_to'
-	
-	def autoname(self): 
-		self.employee_name = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
-		self.name = self.employee_name
-		self.employee = self.name
 		
 	def validate(self): 
 		from ifitwala_ed.controllers.status_updater import validate_status
 		validate_status(self.status, ["Active", "Temporary Leave", "Left"])
 		
 		self.employee = " ".join(filter(None, [self.employee_first_name, self.employee_middle_name, self.employee_last_name]))
-		self.employee_name = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
+		self.employee_name = " ".join(filter(None, [self.employee_first_name, self.employee_middle_name, self.employee_last_name]))
 		self.validate_date() 
 		self.validate_email()
 		self.validate_status() 
@@ -49,16 +44,16 @@ class Employee(NestedSet):
 		
 	# call on validate.  Broad check to make sure birtdhdate, joining date are making sense. 
 	def validate_date(self):
-		if self.date_of_birth and getdate(self.date_of_birth) > getdate(today()):
+		if self.employee_date_of_birth and getdate(self.employee_date_of_birth) > getdate(today()):
 			frappe.throw(_("Date of Birth cannot be after today."))
-		if self.date_of_birth and self.date_of_joining and getdate(self.date_of_birth) >= getdate(self.date_of_joining):
+		if self.employee_date_of_birth and self.date_of_joining and getdate(self.employee_date_of_birth) >= getdate(self.date_of_joining):
 			frappe.throw(_("Date of Joining must be after Date of Birth"))
 	
 	# call on validate. Broad check to make sure the email address has an appropriate format. 
 	def validate_email(self):
-		if self.professional_email:
+		if self.employee_professional_email:
 			validate_email_address(self.professional_email, True)
-		if self.personal_email:
+		if self.employee_personal_email:
 			validate_email_address(self.personal_email, True)
 		
 	# call on validate.  If status is set to left, then need to put relieving date. 

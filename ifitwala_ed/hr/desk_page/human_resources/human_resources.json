@@ -6,6 +6,7 @@
    "links": "[\n    {\n        \"description\": \"Setting up School Employees\",\n        \"label\": \"Employee\",\n        \"name\": \"Emplopyee\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
+ "cards_label": "Employee Master",
  "category": "Modules",
  "charts": [],
  "creation": "2020-09-17 15:26:55.450906",
@@ -18,18 +19,12 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2020-09-23 11:40:48.963922",
+ "modified": "2020-10-01 12:27:11.638380",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 1,
- "shortcuts": [
-  {
-   "label": "Employee",
-   "link_to": "Employee",
-   "type": "DocType"
-  }
- ]
+ "shortcuts": []
 }

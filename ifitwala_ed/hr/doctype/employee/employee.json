@@ -10,22 +10,24 @@
  "engine": "InnoDB",
  "field_order": [
   "personal_info_section",
-  "salutation",
-  "first_name",
-  "middle_name",
-  "last_name",
-  "gender",
+  "employee_salutation",
+  "employee_first_name",
+  "employee_middle_name",
+  "employee_last_name",
+  "employee_gender",
   "employee_full_name",
-  "preferred_name",
+  "employee_preferred_name",
+  "nationality",
   "column_break_10",
   "professional_email",
   "mobile_phone",
   "personal_email",
   "date_of_birth",
-  "image",
+  "employee_image",
   "user_id",
   "create_user",
   "create_user_permission",
+  "second_nationality",
   "data_19",
   "current_address",
   "home_phone",
@@ -59,42 +61,6 @@
    "fieldname": "personal_info_section",
    "fieldtype": "Section Break",
    "label": "Personal Info"
-  },
-  {
-   "fieldname": "salutation",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Salutation",
-   "options": "Salutation"
-  },
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "First Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "middle_name",
-   "fieldtype": "Data",
-   "label": "Middle Name"
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Last Name"
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Gender",
-   "options": "\nFemale\nMale\nPrefer not to say\nOther",
-   "reqd": 1
   },
   {
    "fieldname": "mobile_phone",
@@ -153,11 +119,6 @@
    "label": "Addresses"
   },
   {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "image"
-  },
-  {
    "fieldname": "current_address",
    "fieldtype": "Link",
    "label": "Current Address",
@@ -172,11 +133,6 @@
    "fieldtype": "Link",
    "label": "Permanent Address",
    "options": "Address"
-  },
-  {
-   "fieldname": "preferred_name",
-   "fieldtype": "Data",
-   "label": "Preferred Name"
   },
   {
    "fieldname": "date_of_birth",
@@ -316,11 +272,74 @@
    "in_standard_filter": 1,
    "label": "Full Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "employee_salutation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "employee_first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "employee_last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "employee_gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "\nFemale\nMale\nPrefer not to say\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_preferred_name",
+   "fieldtype": "Data",
+   "label": "Preferred Name"
+  },
+  {
+   "fieldname": "employee_image",
+   "fieldtype": "Attach Image",
+   "label": "image"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "second_nationality",
+   "fieldtype": "Link",
+   "label": "Second Nationality",
+   "options": "Country"
   }
  ],
- "image_field": "image",
- "links": [],
- "modified": "2020-09-27 17:31:32.454603",
+ "image_field": "employee_image",
+ "links": [
+  {
+   "link_doctype": "Employee",
+   "link_fieldname": "Employee"
+  }
+ ],
+ "modified": "2020-10-01 12:26:23.306521",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

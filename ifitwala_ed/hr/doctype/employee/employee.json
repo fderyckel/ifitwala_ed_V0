@@ -54,7 +54,8 @@
   "exit_interview",
   "lft",
   "rgt",
-  "old_parent"
+  "old_parent",
+  "employee"
  ],
  "fields": [
   {
@@ -331,6 +332,15 @@
    "fieldname": "employee_date_of_birth",
    "fieldtype": "Date",
    "label": "Date of Birth"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Employee",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
  "image_field": "employee_image",
@@ -340,7 +350,7 @@
    "link_fieldname": "Employee"
   }
  ],
- "modified": "2020-10-01 12:47:28.327543",
+ "modified": "2020-10-01 20:01:31.446880",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

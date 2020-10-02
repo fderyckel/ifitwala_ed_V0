@@ -21,7 +21,7 @@ class Employee(NestedSet):
 		from ifitwala_ed.controllers.status_updater import validate_status
 		validate_status(self.status, ["Active", "Temporary Leave", "Left"])
 		
-		self.employee = " ".join(filter(None, [self.employee_first_name, self.employee_middle_name, self.employee_last_name]))
+		self.employee = self.name
 		self.employee_full_name = " ".join(filter(None, [self.employee_first_name, self.employee_middle_name, self.employee_last_name]))
 		self.validate_date() 
 		self.validate_email()

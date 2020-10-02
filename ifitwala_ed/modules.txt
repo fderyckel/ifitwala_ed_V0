@@ -5,3 +5,4 @@ Health
 Schedule
 HR
 Assessment
+Setup

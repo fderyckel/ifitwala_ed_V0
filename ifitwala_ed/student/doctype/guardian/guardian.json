@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "GRD-.YYYY.-.#####",
@@ -8,11 +9,12 @@
  "engine": "InnoDB",
  "field_order": [
   "salutation",
-  "first_name",
-  "last_name",
-  "email",
-  "mobile_phone",
-  "image",
+  "guardian_first_name",
+  "guardian_last_name",
+  "guardian_gender",
+  "guardian_email",
+  "guardian_mobile_phone",
+  "guardian_image",
   "user",
   "column_break_7",
   "address",
@@ -27,28 +29,12 @@
   "work_contacts_section",
   "work_place",
   "column_break_20",
-  "designation",
-  "work_email",
-  "work_phone",
-  "full_name"
+  "guardian_designation",
+  "guardian_work_email",
+  "guardian_work_phone",
+  "guardian_full_name"
  ],
  "fields": [
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "First Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Last Name",
-   "reqd": 1
-  },
   {
    "fetch_from": "address.phone",
    "fieldname": "home_phone",
@@ -56,22 +42,9 @@
    "label": "Home Phone"
   },
   {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Personal Email"
-  },
-  {
    "fieldname": "work_place",
    "fieldtype": "Text",
    "label": "Work Place"
-  },
-  {
-   "fieldname": "mobile_phone",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Mobile Phone"
   },
   {
    "fieldname": "salutation",
@@ -98,23 +71,8 @@
    "label": "Country"
   },
   {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "Image"
-  },
-  {
-   "fieldname": "designation",
-   "fieldtype": "Data",
-   "label": "Designation"
-  },
-  {
    "fieldname": "column_break_7",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "work_phone",
-   "fieldtype": "Data",
-   "label": "Work Phone"
   },
   {
    "fieldname": "work_contacts_section",
@@ -125,11 +83,6 @@
    "fieldname": "others_section",
    "fieldtype": "Section Break",
    "label": "Guardian of"
-  },
-  {
-   "fieldname": "work_email",
-   "fieldtype": "Data",
-   "label": "Work Email"
   },
   {
    "fieldname": "column_break_20",
@@ -169,14 +122,70 @@
    "read_only": 1
   },
   {
-   "fieldname": "full_name",
+   "fieldname": "guardian_full_name",
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Full  Name"
+  },
+  {
+   "fieldname": "guardian_first_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "guardian_last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "guardian_email",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Personal Email"
+  },
+  {
+   "fieldname": "guardian_mobile_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile Phone"
+  },
+  {
+   "fieldname": "guardian_image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "guardian_designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "guardian_work_email",
+   "fieldtype": "Data",
+   "label": "Work Email"
+  },
+  {
+   "fieldname": "guardian_work_phone",
+   "fieldtype": "Data",
+   "label": "Work Phone"
+  },
+  {
+   "fieldname": "guardian_gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nFemale\nMale\nOther\nPrefer Not To Say"
   }
  ],
- "image_field": "image",
- "modified": "2020-09-07 19:13:03.942720",
+ "image_field": "guardian_image",
+ "links": [],
+ "modified": "2020-09-28 10:57:16.579980",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",
@@ -247,10 +256,10 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "first_name, last_name, email, mobile_phone",
+ "search_fields": "guardian_first_name, guardian_last_name, guardian_email, guardian_mobile_phone",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "full_name",
+ "title_field": "guardian_full_name",
  "track_changes": 1
 }

@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "field:student_group_name",
  "creation": "2020-08-26 17:06:06.928454",
  "doctype": "DocType",
@@ -29,6 +30,7 @@
    "in_standard_filter": 1,
    "label": "Academic Year",
    "options": "Academic Year",
+   "reqd": 1,
    "set_only_once": 1
   },
   {
@@ -124,7 +126,8 @@
    "label": "Disabled"
   }
  ],
- "modified": "2020-09-03 16:06:40.400110",
+ "links": [],
+ "modified": "2020-09-24 20:13:23.644118",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

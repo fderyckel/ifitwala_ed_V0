@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_events_in_timeline": 1,
  "allow_import": 1,
  "autoname": "PAV-.YYYY.-.#####",
@@ -12,7 +13,8 @@
   "student_name",
   "gender",
   "column_break_4",
-  "visit_time",
+  "time_of_arrival",
+  "time_of_discharge",
   "date_of_birth",
   "student_age",
   "blood_group",
@@ -40,9 +42,11 @@
  ],
  "fields": [
   {
+   "fetch_from": "student_patient.student_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Student Name",
    "read_only": 1
   },
@@ -142,6 +146,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "Leave a non-confidential note to inform faculty about the reasons for the student visit to the health centre. The note will create an automatic medical log entry for the student.",
    "fieldname": "note",
    "fieldtype": "Text",
    "label": "Note"
@@ -178,22 +183,23 @@
    "label": "Treatment"
   },
   {
+   "fetch_from": "student_patient.date_of_birth",
    "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date of Birth"
+   "fieldtype": "Read Only",
+   "label": "Date of Birth",
+   "read_only": 1
   },
   {
-   "fieldname": "visit_time",
-   "fieldtype": "Time",
-   "label": "Time",
-   "reqd": 1
-  },
-  {
+   "fetch_from": "student_patient.gender",
    "fieldname": "gender",
    "fieldtype": "Data",
-   "label": "Gender"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "read_only": 1
   },
   {
+   "fetch_from": "student_patient.blood_group",
    "fieldname": "blood_group",
    "fieldtype": "Read Only",
    "label": "Blood Group"
@@ -204,11 +210,24 @@
    "fieldtype": "Attach Image",
    "hidden": 1,
    "label": "photo"
+  },
+  {
+   "fieldname": "time_of_arrival",
+   "fieldtype": "Time",
+   "label": "Time of Arrival",
+   "reqd": 1
+  },
+  {
+   "fieldname": "time_of_discharge",
+   "fieldtype": "Time",
+   "label": "Time of Discharge",
+   "reqd": 1
   }
  ],
  "image_field": "photo",
  "is_submittable": 1,
- "modified": "2020-09-09 20:13:55.569531",
+ "links": [],
+ "modified": "2020-09-30 20:36:33.335816",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient Visit",
@@ -238,18 +257,15 @@
    "write": 1
   },
   {
-   "create": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Academic Admin",
-   "share": 1,
-   "write": 1
+   "share": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "student_name",

@@ -4,7 +4,11 @@
 frappe.ui.form.on('Program', {
 	refresh: function(frm) {
 
-	}
+	},  
+	
+	onload_post_render: function(frm) {
+		frm.get_field('courses').grid.set_multiple_add('course');
+	},
 });
 
 // to filter out courses that have already been picked out in the program. 

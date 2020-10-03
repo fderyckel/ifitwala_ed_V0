@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "autoname": "INS-.YYYY.-.###",
  "creation": "2020-08-24 16:00:46.804782",
@@ -16,7 +17,7 @@
  ],
  "fields": [
   {
-   "fetch_from": "employee.full_name",
+   "fetch_from": "employee.employee_full_name",
    "fieldname": "instructor_name",
    "fieldtype": "Data",
    "ignore_user_permissions": 1,
@@ -27,13 +28,13 @@
    "unique": 1
   },
   {
-   "fetch_from": "employee.professional_email",
+   "fetch_from": "employee.employee_professional_email",
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email"
   },
   {
-   "fetch_from": "employee.mobile_phone",
+   "fetch_from": "employee.employee_mobile_phone",
    "fieldname": "mobile_phone",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -52,6 +53,7 @@
    "options": "Instructor Log"
   },
   {
+   "fetch_from": "employee.employee_image",
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "hidden": 1,
@@ -70,7 +72,8 @@
   }
  ],
  "image_field": "image",
- "modified": "2020-09-11 09:22:28.055521",
+ "links": [],
+ "modified": "2020-10-01 19:43:35.537171",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

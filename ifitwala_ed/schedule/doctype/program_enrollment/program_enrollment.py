@@ -15,7 +15,7 @@ class ProgramEnrollment(Document):
 	def validate(self): 
 		self.validate_duplication()
 		if not self.student_name: 
-			self.student_name = frappe.db.get_value("Student", self.student, "title")
+			self.student_name = frappe.db.get_value("Student", self.student, "student_full_name")
 		if not self.courses: 
 			self.extend("courses", self.get_courses()) 
 		
@@ -68,6 +68,7 @@ class ProgramEnrollment(Document):
 		
 
 
+# from JS. to filter out course that are only present in the program list of courses. 
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_program_courses(doctype, txt, searchfield, start, page_len, filters):
@@ -87,6 +88,7 @@ def get_program_courses(doctype, txt, searchfield, start, page_len, filters):
 					"program": filters['program']
 				})
 
+# from JS to filter out students that have already been enrolled for a given year and/or term
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_students(doctype, txt, searchfield, start, page_len, filters):

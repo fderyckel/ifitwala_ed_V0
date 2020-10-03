@@ -8,7 +8,7 @@
   {
    "hidden": 0,
    "label": "Tools",
-   "links": "[\n    {\n        \"description\": \"Tool to roll over program enrollment\",\n        \"label\": \"Program Enrollment Tool\",\n        \"name\": \"Program Enrollment Tool\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"Tool to roll over program enrollment\",\n        \"label\": \"Program Enrollment Tool\",\n        \"name\": \"Program Enrollment Tool\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"List of course enrollment (for checking)\",\n        \"label\": \"Course Enrollment\",\n        \"name\": \"Course Enrollment\",\n        \"type\": \"doctype\"\n    }\n]"
   },
   {
    "hidden": 0,
@@ -29,7 +29,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Schedule",
- "modified": "2020-09-17 19:26:50.357179",
+ "modified": "2020-09-25 23:16:04.219610",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Schedule",

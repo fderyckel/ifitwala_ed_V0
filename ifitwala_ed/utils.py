@@ -53,17 +53,59 @@ def validate_duplicate_student(students):
 		return None
 	
 
-def insert_record(records):
-	for r in records:
-		doc = frappe.new_doc(r.get("doctype"))
-		doc.update(r)
-		try:
-			doc.insert(ignore_permissions=True)
-		except frappe.DuplicateEntryError as e:
-			# pass DuplicateEntryError and continue
-			if e.args and e.args[0]==doc.doctype and e.args[1]==doc.name:
-				# make sure DuplicateEntryError is for the exact same doc and not a related doc
-				pass
-			else:
-				raise
+# CMS - Course Management
+
+# to return a list of all programs that can be displayed on the portal. 
+def get_portal_programs(): 
+	published_programs = frappe.get_all("Program", filters = {"is_published": True}) 
+	if not published_programs: 
+		return None
+	
+	program_list = [frappe.get_doc("program", program) for program in published_programs] 
+	portal_programs = [{"Program":program, 'has_access':allowed_program_access(program.name)} for program in program_list if allowed_program_access(program.name)]
+	
+	return portal_programs
+	
+
+# deciding if the current user is a student who has access to program or if it is a super-user
+def allowed_program_access(program, student=None):
+	if has_super_access():
+		return True
+	if not student:
+		student = get_current_student()
+	if student and get_enrollment('program', program, student.name):
+		return True
+	else:
+		return False
+
+# will display all programs and courses for users with certain roles.
+def has_super_access():
+	current_user = frappe.get_doc("User", frappe.session.user)
+	roles = set([role.role for role in current_user.roles])
+	return bool(roles & {"Administrator", "Instructor", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker", "School IT"}) 
+
+# to get the name of the student who is currently logged-in
+def get_current_student():
+	email = frappe.session.user
+	if email in ('Administrator', 'Guest'):
+		return None
+	try:
+		student_id = frappe.get_all("Student", {"student_email": email}, ["name"])[0].name
+		return frappe.get_doc("Student", student_id)
+	except (IndexError, frappe.DoesNotExistError):
+		return None
+
+# for CMS get a list of all enrolled program and or course for the current academic year. 
+def get_enrollment(master, document, student):
+	current_year = frappe.get_single("Education Settings").get("current_academic_year")
+	if master == 'program': 
+		enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1})
+	#enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1, 'academic_year':  current_year})
+	if master == 'course': 
+		enrollments = frappe.get_all("Course Enrollment", filters={'student':student, 'course': document, 'academic_year':  current_year})
+
+	if enrollments:
+		return enrollments[0].name
+	else:
+		return None
 

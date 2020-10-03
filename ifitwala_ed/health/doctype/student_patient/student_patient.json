@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "PAT-.YYYY.-.#####",
@@ -11,6 +12,7 @@
   "gender",
   "blood_group",
   "column_break_3",
+  "preferred_name",
   "student_name",
   "date_of_birth",
   "student_age",
@@ -59,21 +61,27 @@
    "fieldname": "student",
    "fieldtype": "Link",
    "label": "Student",
-   "options": "Student"
+   "options": "Student",
+   "reqd": 1,
+   "unique": 1
   },
   {
-   "fetch_from": "student.title",
+   "fetch_from": "student.student_full_name",
    "fieldname": "student_name",
-   "fieldtype": "Read Only",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Student Name"
+   "in_standard_filter": 1,
+   "label": "Student Name",
+   "read_only": 1
   },
   {
-   "fetch_from": "student.gender",
+   "fetch_from": "student.student_gender",
    "fieldname": "gender",
-   "fieldtype": "Read Only",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Gender"
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_3",
@@ -282,24 +290,28 @@
    "label": "Vaccination Data"
   },
   {
-   "fetch_from": "student.photo",
+   "fetch_from": "student.student_image",
    "fieldname": "photo",
    "fieldtype": "Attach Image",
    "hidden": 1,
+   "in_preview": 1,
    "label": "photo",
    "read_only": 1
   },
   {
-   "fetch_from": "student.date_of_birth",
+   "fetch_from": "student.student_date_of_birth",
    "fieldname": "date_of_birth",
-   "fieldtype": "Read Only",
-   "label": "Date Of Birth"
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date Of Birth",
+   "read_only": 1
   },
   {
    "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
-   "hidden": 1,
+   "in_list_view": 1,
    "label": "Status",
    "options": "Active\nDisabled"
   },
@@ -308,10 +320,19 @@
    "fieldtype": "Data",
    "label": "Student Age",
    "read_only": 1
+  },
+  {
+   "fetch_from": "student.student_preferred_name",
+   "fieldname": "preferred_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Preferred Name"
   }
  ],
  "image_field": "photo",
- "modified": "2020-09-09 20:11:52.597946",
+ "links": [],
+ "modified": "2020-10-03 07:37:29.725617",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

@@ -10,22 +10,24 @@
  "engine": "InnoDB",
  "field_order": [
   "personal_info_section",
-  "salutation",
-  "first_name",
-  "middle_name",
-  "last_name",
-  "gender",
-  "employee_name",
-  "preferred_name",
+  "employee_salutation",
+  "employee_first_name",
+  "employee_middle_name",
+  "employee_last_name",
+  "employee_gender",
+  "employee_full_name",
+  "employee_preferred_name",
+  "nationality",
   "column_break_10",
-  "professional_email",
-  "mobile_phone",
-  "personal_email",
-  "date_of_birth",
-  "image",
+  "employee_professional_email",
+  "employee_mobile_phone",
+  "employee_personal_email",
+  "employee_date_of_birth",
+  "employee_image",
   "user_id",
   "create_user",
   "create_user_permission",
+  "second_nationality",
   "data_19",
   "current_address",
   "home_phone",
@@ -52,7 +54,8 @@
   "exit_interview",
   "lft",
   "rgt",
-  "old_parent"
+  "old_parent",
+  "employee"
  ],
  "fields": [
   {
@@ -61,83 +64,35 @@
    "label": "Personal Info"
   },
   {
-   "fieldname": "salutation",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Salutation",
-   "options": "Salutation"
-  },
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "First Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "middle_name",
-   "fieldtype": "Data",
-   "label": "Middle Name"
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Last Name"
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Gender",
-   "options": "\nFemale\nMale\nPrefer not to say\nOther",
-   "reqd": 1
-  },
-  {
-   "fieldname": "mobile_phone",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Mobile Phone"
-  },
-  {
-   "fieldname": "personal_email",
-   "fieldtype": "Data",
-   "label": "Personal email"
-  },
-  {
    "fieldname": "column_break_10",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "professional_email",
-   "fieldtype": "Data",
-   "label": "Professional email"
-  },
-  {
+   "fetch_from": "current_address.phone",
    "fieldname": "home_phone",
    "fieldtype": "Data",
    "label": "Home Phone"
   },
   {
+   "fetch_from": "current_address.address_line1",
    "fieldname": "address_line_1",
    "fieldtype": "Data",
    "label": "Address Line 1"
   },
   {
+   "fetch_from": "current_address.address_line2",
    "fieldname": "address_line_2",
    "fieldtype": "Data",
    "label": "Address Line 2"
   },
   {
+   "fetch_from": "current_address.pincode",
    "fieldname": "zipcode",
    "fieldtype": "Data",
    "label": "Zipcode"
   },
   {
+   "fetch_from": "current_address.city",
    "fieldname": "town__city",
    "fieldtype": "Data",
    "label": "Town / City"
@@ -146,11 +101,6 @@
    "fieldname": "data_19",
    "fieldtype": "Section Break",
    "label": "Addresses"
-  },
-  {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "image"
   },
   {
    "fieldname": "current_address",
@@ -167,17 +117,6 @@
    "fieldtype": "Link",
    "label": "Permanent Address",
    "options": "Address"
-  },
-  {
-   "fieldname": "preferred_name",
-   "fieldtype": "Data",
-   "label": "Preferred Name"
-  },
-  {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date of Birth",
-   "reqd": 1
   },
   {
    "fieldname": "date_of_joining",
@@ -304,22 +243,117 @@
    "label": "Old Parent"
   },
   {
-   "fieldname": "employee_name",
+   "fieldname": "employee_full_name",
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Full Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "employee_salutation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "employee_first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "employee_last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "employee_gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "\nFemale\nMale\nPrefer not to say\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_preferred_name",
+   "fieldtype": "Data",
+   "label": "Preferred Name"
+  },
+  {
+   "fieldname": "employee_image",
+   "fieldtype": "Attach Image",
+   "label": "image"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "second_nationality",
+   "fieldtype": "Link",
+   "label": "Second Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "employee_professional_email",
+   "fieldtype": "Data",
+   "label": "Professional email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_mobile_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mobile Phone"
+  },
+  {
+   "fieldname": "employee_personal_email",
+   "fieldtype": "Data",
+   "label": "Personal email"
+  },
+  {
+   "fieldname": "employee_date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Employee",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
- "image_field": "image",
- "links": [],
- "modified": "2020-09-17 16:37:32.677650",
+ "image_field": "employee_image",
+ "links": [
+  {
+   "link_doctype": "Employee",
+   "link_fieldname": "Employee"
+  }
+ ],
+ "modified": "2020-10-01 20:01:31.446880",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
- "name_case": "Title Case",
  "owner": "Administrator",
  "permissions": [
   {
@@ -378,10 +412,10 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "employee_name",
+ "search_fields": "employee_full_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "employee_name",
+ "title_field": "employee_full_name",
  "track_changes": 1
 }

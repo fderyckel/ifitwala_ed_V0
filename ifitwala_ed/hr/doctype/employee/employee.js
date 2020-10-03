@@ -16,13 +16,13 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 	
 	// on the form, if Mr is selected as a salutation, then gender is male. If Ms is selected then gender is female. 
 	salutation: function() {
-		if(this.frm.doc.salutation) {
-			this.frm.set_value("gender", {
+		if(this.frm.doc.employee_salutation) {
+			this.frm.set_value("employee_gender", {
 				"Mr": "Male",
 				"Ms": "Female", 
 				"Master": "Male", 
 				"Mrs": "Female"
-			}[this.frm.doc.salutation]);
+			}[this.frm.doc.employee_salutation]);
 		}
 	},
 
@@ -36,13 +36,13 @@ frappe.ui.form.on('Employee', {
 	}, 
 	
 	create_user: function(frm) {
-		if (!frm.doc.professional_email)
+		if (!frm.doc.employee_professional_email)
 		{
 			frappe.throw(__("Please enter Professional Email"))
 		}
 		frappe.call({
 			method: "ifitwala_ed.hr.doctype.employee.employee.create_user",
-			args: { employee: frm.doc.name, email: frm.doc.professional_email },
+			args: { employee: frm.doc.name, email: frm.doc.employee_professional_email },
 			callback: function(r)
 			{
 				frm.set_value("user_id", r.message)

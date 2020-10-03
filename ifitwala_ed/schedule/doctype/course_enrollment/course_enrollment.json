@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "CE-.YYYY.-.#####",
  "creation": "2020-08-27 11:59:31.209446",
  "doctype": "DocType",
@@ -7,6 +8,8 @@
  "field_order": [
   "program_enrollment",
   "student",
+  "academic_year",
+  "column_break_4",
   "course",
   "enrollment_date",
   "status"
@@ -58,9 +61,23 @@
    "label": "Status",
    "options": "\nCurrent\nDone",
    "read_only": 1
+  },
+  {
+   "fetch_from": "program_enrollment.academic_year",
+   "fieldname": "academic_year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Academic Year",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
   }
  ],
- "modified": "2020-08-28 22:49:24.840375",
+ "links": [],
+ "modified": "2020-09-25 23:18:06.034235",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Enrollment",

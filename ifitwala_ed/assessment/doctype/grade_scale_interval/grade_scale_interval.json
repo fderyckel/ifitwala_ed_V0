@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "creation": "2020-09-23 19:17:29.973435",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "grade_code",
+  "boundary_interval",
+  "grade_descriptor"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "grade_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Grade Code",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "boundary_interval",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Boundary Interval",
+   "precision": "1"
+  },
+  {
+   "columns": 6,
+   "fieldname": "grade_descriptor",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Grade Descriptor"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-09-24 16:59:10.030242",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Grade Scale Interval",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -20,16 +20,17 @@ class Guardian(Document):
     ## to load studens from the database
     def load_students(self):
             self.students = [] 
+            ## Basically, we load the students name based on the gstudent guardian child table. 
             students = frappe.get_all("Student Guardian", filters = {"guardian":self.name}, fields = ["parent"]) 
             for student in students: 
                     self.append("students", {
                             "student":student.parent, 
-                            "student_name":frappe.db.get_value("Student", student.parent, "title")
+                            "student_name":frappe.db.get_value("Student", student.parent, "student_full_name")
                     })
     
     
     def validate(self): 
-        self.full_name = self.first_name + " " + self.last_name
+        self.guardian_full_name = self.guardian_first_name + " " + self.guardian_last_name
         self.students = []
             
 
@@ -37,20 +38,20 @@ class Guardian(Document):
 @frappe.whitelist()
 def invite_guardian(guardian): 
     guardian_doc = frappe.get_doc("Guardian", guardian)
-    if not guardian_doc.email: 
+    if not guardian_doc.guardian_email: 
         frappe.throw(_("Please add an email address and try again.")) 
     else: 
-        guardian_as_user = frappe.get_value('User', dict(email = guardian_doc.email))
+        guardian_as_user = frappe.get_value('User', dict(email = guardian_doc.guardian_email))
         if guardian_as_user: 
             # Using msgprint as we do not want to throw an exception.  Just informing the user already exist in the db. 
             frappe.msgprint(_("The user {0} already exists.").format(getlink("User", guardian_as_user)))
         else: 
             user = frappe.get_doc({
                 "doctype": "User", 
-                "first_name": guardian_doc.first_name, 
-                "last_name": guardian_doc.last_name, 
-                "email": guardian_doc.email, 
-                "mobile_no": guardian_doc.mobile_phone, 
+                "first_name": guardian_doc.guardian_first_name, 
+                "last_name": guardian_doc.guardian_last_name, 
+                "email": guardian_doc.guardian_email, 
+                "mobile_no": guardian_doc.guardian_mobile_phone, 
                 "user_type": "Website User", 
                 "send_welcome_email": 1
             }).insert(ignore_permissions = True)

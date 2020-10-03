@@ -77,10 +77,11 @@
   {
    "fetch_from": "student.student_gender",
    "fieldname": "gender",
-   "fieldtype": "Read Only",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Gender"
+   "label": "Gender",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_3",
@@ -300,8 +301,11 @@
   {
    "fetch_from": "student.student_date_of_birth",
    "fieldname": "date_of_birth",
-   "fieldtype": "Read Only",
-   "label": "Date Of Birth"
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date Of Birth",
+   "read_only": 1
   },
   {
    "default": "Active",
@@ -328,7 +332,7 @@
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-09-29 21:11:24.191601",
+ "modified": "2020-10-03 07:37:29.725617",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

@@ -5,9 +5,11 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
+from frappe import _
+
+STD_CRITERIA = ["total", "total score", "total grade", "maximum score", "score", "grade"]
 
 class AssessmentCriteria(Document):  
-	STD_CRITERIA = ["total", "total score", "total grade", "maximum score", "score", "grade"]
 	
 	def validate(self):
 		if self.assessment_criteria.lower() in STD_CRITERIA:

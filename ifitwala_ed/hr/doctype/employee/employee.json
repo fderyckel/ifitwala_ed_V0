@@ -295,6 +295,7 @@
   {
    "fieldname": "employee_image",
    "fieldtype": "Attach Image",
+   "hidden": 1,
    "label": "image"
   },
   {
@@ -347,10 +348,10 @@
  "links": [
   {
    "link_doctype": "Employee",
-   "link_fieldname": "Employee"
+   "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2020-10-01 20:01:31.446880",
+ "modified": "2020-10-03 08:38:04.126314",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

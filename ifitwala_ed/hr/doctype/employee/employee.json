@@ -121,6 +121,8 @@
   {
    "fieldname": "date_of_joining",
    "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Date of Joining",
    "reqd": 1
   },
@@ -229,6 +231,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_preview": 1,
    "in_standard_filter": 1,
    "label": "School",
    "options": "School",
@@ -255,6 +258,7 @@
    "fieldname": "employee_salutation",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Salutation",
    "options": "Salutation"
   },
@@ -276,7 +280,8 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Last Name"
+   "label": "Last Name",
+   "reqd": 1
   },
   {
    "fieldname": "employee_gender",
@@ -351,7 +356,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2020-10-03 08:38:04.126314",
+ "modified": "2020-10-04 05:36:37.025570",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

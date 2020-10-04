@@ -13,6 +13,7 @@ class Department(Document):
 		self.name = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
 	
 	def validate(self): 
+		# You cannot have 2 dpt. of the same within the same school. OK in 2 different school. 
 		self.validate_duplicate() 
 		self.title = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else "" 
 		found = [] 

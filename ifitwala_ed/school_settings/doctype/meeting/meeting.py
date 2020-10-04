@@ -12,6 +12,8 @@ class Meeting(Document):
 	
 	def validate(self): 
 		self.validate_attendees() 
+		if not self.attendees: 
+			self.extend("attendees", self.get_attendees()) 
 		
 	def validate_attendees(self): 
 		found = []
@@ -19,6 +21,9 @@ class Meeting(Document):
 			if attendee.attendee in found: 
 				frappe.throw(_("Attendee {0} entered twice.").format(attendee.attendee))
 			found.append(attendee.attendee)
+			
+	def get_attendees(self): 
+		return frappe.db.sql("""select employee from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)
 			
 			
 @frappe.whitelist()

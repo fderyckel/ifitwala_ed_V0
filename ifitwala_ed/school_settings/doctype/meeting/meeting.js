@@ -22,7 +22,7 @@ frappe.ui.form.on('Meeting', {
 	},
 	
 	get_attendees: function(frm) {
-		frm.set_value('attendee',[]);
+		frm.set_value('attendees',[]);
 		frappe.call({
 			method: 'get_attendees',
 			doc:frm.doc,
@@ -32,5 +32,18 @@ frappe.ui.form.on('Meeting', {
 				}
 			}
 		})
+	}
+});
+
+frappe.ui.form.on('Meeting Attendee', {
+	attendees_add: function(frm){
+		frm.fields_dict['attendees'].grid.get_field('attendee').get_query = function(doc){
+			var attendee_list = [];
+			if(!doc.__islocal) attendee_list.push(doc.name);
+			$.each(doc.attendees, function(idx, val){
+				if (val.attendee) attendee_list.push(val.attendee);
+			});
+			return { filters: [['Attendee', 'name', 'not in', attendee_list]] };
+		};
 	}
 });

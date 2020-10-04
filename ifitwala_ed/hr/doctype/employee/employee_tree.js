@@ -1,7 +1,6 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-
 frappe.treeview_settings['Employee'] = {
 	get_tree_nodes: "ifitwala_ed.hr.doctype.employee.employee.get_children",
 	filters: [

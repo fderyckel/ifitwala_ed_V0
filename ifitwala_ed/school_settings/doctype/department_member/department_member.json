@@ -12,6 +12,7 @@
  ],
  "fields": [
   {
+   "columns": 2,
    "fieldname": "employee",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -20,6 +21,7 @@
    "reqd": 1
   },
   {
+   "columns": 1,
    "fetch_from": "employee.employee_salutation",
    "fieldname": "salutation",
    "fieldtype": "Data",
@@ -28,6 +30,7 @@
    "read_only": 1
   },
   {
+   "columns": 4,
    "fetch_from": "employee.employee_full_name",
    "fieldname": "employee_name",
    "fieldtype": "Data",
@@ -35,6 +38,7 @@
    "label": "Employee Name"
   },
   {
+   "columns": 3,
    "fetch_from": "employee.employee_professional_email",
    "fieldname": "employee_email",
    "fieldtype": "Data",
@@ -46,7 +50,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-10-01 19:41:45.730948",
+ "modified": "2020-10-04 13:38:39.629615",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department Member",

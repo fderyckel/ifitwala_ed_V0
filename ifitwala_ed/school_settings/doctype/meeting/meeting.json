@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "autoname": "MTG-.YYYY.-.####",
  "creation": "2020-09-24 21:42:04.956651",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -17,7 +18,8 @@
   "attendees_section_section",
   "attendees",
   "minutes_section",
-  "minutes"
+  "minutes",
+  "title"
  ],
  "fields": [
   {
@@ -43,8 +45,10 @@
   },
   {
    "fieldname": "date",
-   "fieldtype": "Data",
-   "label": "Date"
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "from_time",
@@ -88,11 +92,16 @@
    "fieldtype": "Table",
    "label": "Attendees",
    "options": "Meeting Attendee"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-24 22:06:38.862617",
+ "modified": "2020-10-04 13:25:45.116803",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",
@@ -149,5 +158,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "meeting_name",
  "track_changes": 1
 }

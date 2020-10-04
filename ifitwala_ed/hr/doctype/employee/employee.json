@@ -250,6 +250,7 @@
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
+   "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Full Name",
    "read_only": 1
@@ -356,7 +357,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2020-10-04 05:36:37.025570",
+ "modified": "2020-10-04 07:16:26.059972",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

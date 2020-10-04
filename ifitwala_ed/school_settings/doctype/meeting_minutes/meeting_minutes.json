@@ -42,12 +42,16 @@
   {
    "fieldname": "assigned_to",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Assigned To",
    "options": "User"
   },
   {
    "fieldname": "completed_by",
    "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Completed by"
   },
   {
@@ -58,7 +62,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-09-24 21:59:55.849634",
+ "modified": "2020-10-04 21:20:33.455925",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting Minutes",

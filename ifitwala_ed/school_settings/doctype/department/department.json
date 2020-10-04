@@ -37,13 +37,11 @@
   {
    "fieldname": "department_lead",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Department Lead",
    "options": "Employee"
   },
   {
-   "fetch_from": "employee.employee_full_name",
+   "fetch_from": "department_lead.employee_full_name",
    "fieldname": "lead_full_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -85,7 +83,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-10-04 07:15:16.933532",
+ "modified": "2020-10-04 20:29:14.768579",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

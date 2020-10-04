@@ -10,15 +10,16 @@
  ],
  "fields": [
   {
+   "columns": 1,
    "fieldname": "estimated_time",
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Estimated Time"
   },
   {
+   "columns": 9,
    "fieldname": "agenda_item",
    "fieldtype": "Text Editor",
-   "in_list_view": 1,
    "label": "Agenda Item",
    "reqd": 1
   }
@@ -26,7 +27,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-09-24 21:41:47.299546",
+ "modified": "2020-10-04 21:19:53.849518",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting Agenda",

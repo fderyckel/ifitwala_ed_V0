@@ -9,7 +9,7 @@ frappe.ui.form.on('Meeting', {
 				return{
 					query: "ifitwala_ed.school_settings.doctype.meeting.meeting.get_department_members",
 					filters: {
-						'program': frm.doc.department
+						'department': frm.doc.department
 					}
 				}
 			});

@@ -19,6 +19,7 @@ class Department(Document):
 		for member in self.members: 
 			if member.employee in found: 
 				frappe.throw(_("You have already added the employee {0} to the Department. Please remove it.").format(member.employee))
+			found.append(member.employee)
 	
 	def validate_duplicate(self): 
     		dpt = frappe.db.sql("""select name from `tabDepartment` where school= %s and department_name= %s and docstatus<2 and name != %s""", (self.school, self.department_name, self.name))

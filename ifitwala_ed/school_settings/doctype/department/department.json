@@ -15,7 +15,7 @@
   "lead_full_name",
   "school_abbreviation",
   "department_members_section",
-  "employees",
+  "members",
   "title"
  ],
  "fields": [
@@ -75,7 +75,7 @@
    "label": "Department Members"
   },
   {
-   "fieldname": "employees",
+   "fieldname": "members",
    "fieldtype": "Table",
    "label": "Members",
    "options": "Department Member"
@@ -83,7 +83,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-10-05 12:23:13.442156",
+ "modified": "2020-10-05 12:36:25.360931",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

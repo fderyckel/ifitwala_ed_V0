@@ -27,18 +27,7 @@ frappe.query_reports["MAP Test Report 1"] = {
 			"label": __("Student"),
 			"fieldtype": "Link", 
 			"options": "Student"
-		},
-		{ 
-			"fieldname":"math_rit",
-			"label": __("Math RIT"),
-			"fieldtype": "Int"
-		},
-		{ 
-			"fieldname":"math_ile",
-			"label": __("Math Percentile"),
-			"fieldtype": "int"
-		},
-		
+		}
 
 	]
 };

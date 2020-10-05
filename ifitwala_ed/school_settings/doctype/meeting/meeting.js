@@ -9,7 +9,7 @@ frappe.ui.form.on('Meeting', {
 	},
 	
 	get_attendees: function(frm) {
-		frm.set_value('attendees',[]);
+		frm.set_value('members',[]);
 		frappe.call({
 			method: 'get_attendees',
 			doc:frm.doc,

@@ -16,7 +16,7 @@
   "agenda_section_section",
   "agenda",
   "attendees_section_section",
-  "attendees",
+  "employees",
   "minutes_section",
   "minutes",
   "title"
@@ -88,20 +88,20 @@
    "options": "Meeting Minutes"
   },
   {
-   "fieldname": "attendees",
-   "fieldtype": "Table",
-   "label": "Attendees",
-   "options": "Meeting Attendee"
-  },
-  {
    "fieldname": "title",
    "fieldtype": "Data",
    "label": "Title"
+  },
+  {
+   "fieldname": "employees",
+   "fieldtype": "Table",
+   "label": "Attendees",
+   "options": "Meeting Attendee"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-04 13:25:45.116803",
+ "modified": "2020-10-05 12:22:48.168795",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",

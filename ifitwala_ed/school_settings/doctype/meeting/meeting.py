@@ -23,19 +23,19 @@ class Meeting(Document):
 			found.append(attendee.attendee)
 			
 	def get_attendees(self): 
-		return frappe.db.sql("""select employee from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)
+		return frappe.db.sql("""select member from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)
 			
 			
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_department_members(doctype, txt, searchfield, start, page_len, filters):
 	if filters.get('department'):
-		return frappe.db.sql("""select employee, employee_name from `tabDepartment Member`
+		return frappe.db.sql("""select member, member_name from `tabDepartment Member`
 			where  parent = %(department)s and members like %(txt)s {match_cond}
 			order by
-				if(locate(%(_txt)s, employee), locate(%(_txt)s, employee), 99999),
+				if(locate(%(_txt)s, member), locate(%(_txt)s, member), 99999),
 				idx desc,
-				`tabDepartment Member`.employee asc
+				`tabDepartment Member`.member asc
 			limit {start}, {page_len}""".format(
 				match_cond=get_match_cond(doctype),
 				start=start,

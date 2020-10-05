@@ -16,7 +16,7 @@ frappe.ui.form.on('Department Member', {
 			$.each(doc.members, function(idx, val){
 				if (val.member) employee_list.push(val.member);
 			});
-			return { filters: [['Employee', 'name', 'not in', employee_list]] };
+			return { filters: [['Member', 'name', 'not in', employee_list]] };
 		};
 	}
 });

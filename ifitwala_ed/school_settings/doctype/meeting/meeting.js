@@ -15,7 +15,7 @@ frappe.ui.form.on('Meeting', {
 			doc:frm.doc,
 			callback: function(r) {
 				if(r.message) {
-					frm.set_value('attendees', r.message);
+					frm.set_value('members', r.message);
 				}
 			}
 		})

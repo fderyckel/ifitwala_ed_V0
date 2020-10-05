@@ -43,7 +43,7 @@ frappe.ui.form.on('Meeting Attendee', {
 			$.each(doc.attendees, function(idx, val){
 				if (val.attendee) attendee_list.push(val.attendee);
 			});
-			return { filters: [['Attendee', 'name', 'not in', attendee_list]] };
+			return { filters: [['Employee', 'name', 'not in', attendee_list]] };
 		};
 	}
 });

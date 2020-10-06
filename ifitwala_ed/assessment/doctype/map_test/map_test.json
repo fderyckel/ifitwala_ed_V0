@@ -15,6 +15,7 @@
   "student",
   "last_name",
   "academic_term",
+  "program",
   "title",
   "map_info_section",
   "discipline",
@@ -111,7 +112,7 @@
   },
   {
    "fieldname": "test_percentile",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Test Percentile",
    "length": 2
@@ -253,10 +254,16 @@
   {
    "fieldname": "column_break_5",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program"
   }
  ],
  "links": [],
- "modified": "2020-09-27 19:53:16.121103",
+ "modified": "2020-10-05 20:22:09.665718",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",

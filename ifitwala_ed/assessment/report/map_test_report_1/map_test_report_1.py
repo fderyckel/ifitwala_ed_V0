@@ -22,9 +22,9 @@ def get_data(filters = None):
 			SELECT student, student_name, program, test_percentile, test_rit_score, test_date, discipline
 			FROM `tabMAP Test`
 			WHERE
-					docstatus = 0
+					docstatus = 0 %s
 			ORDER BY
-					test_date, discipline, test_rit_score""",  as_dict=1)
+					test_date, discipline, test_rit_score""" % (conditions),  as_dict=1)
 
 	for test in map_results:
 		data.append({
@@ -36,6 +36,7 @@ def get_data(filters = None):
 				'test_percentile': test.test_percentile,
 				'test_date': test.test_date
 		})
+		
 	return data
 
 

@@ -44,8 +44,8 @@ def get_data(filters = None):
 def get_columns(filters=None):
 	columns = [
 			{
-			"label": _('Academic Year'),
-			"fieldname": 'academic_year',
+			"label": _("Academic Year"),
+			"fieldname": "academic_year",
 			"fieldtype": "Link",
 			"options": "Academic Year",
 			"width": 150
@@ -54,7 +54,7 @@ def get_columns(filters=None):
 			"label": _("Academic Term"),
 			"fieldname": "academic_term",
 			"fieldtype": "Link",
-			"options': 'Academic Term",
+			"options": "Academic Term",
 			"width": 150
 		},
 		{

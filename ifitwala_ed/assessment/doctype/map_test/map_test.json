@@ -9,13 +9,12 @@
  "field_order": [
   "generic_info_section",
   "school_name",
-  "first_name",
+  "student",
   "academic_year",
   "column_break_5",
-  "student",
-  "last_name",
-  "academic_term",
   "program",
+  "student_name",
+  "academic_term",
   "title",
   "map_info_section",
   "discipline",
@@ -138,20 +137,6 @@
    "label": "Spring To Spring Observed Growth"
   },
   {
-   "fetch_from": "student.student_first_name",
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "label": "First Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student.student_last_name",
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "label": "Last Name",
-   "read_only": 1
-  },
-  {
    "fieldname": "map_info_section",
    "fieldtype": "Section Break",
    "label": "MAP Info"
@@ -260,10 +245,18 @@
    "fieldtype": "Link",
    "label": "Program",
    "options": "Program"
+  },
+  {
+   "fetch_from": "student.student_full_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "read_only": 1
   }
  ],
  "links": [],
- "modified": "2020-10-05 20:22:09.665718",
+ "modified": "2020-10-07 09:44:33.477040",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",

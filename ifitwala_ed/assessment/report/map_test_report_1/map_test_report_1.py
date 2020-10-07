@@ -17,12 +17,12 @@ def execute(filters=None):
 
 
 def get_data(filters = None):
-	data = [] 
+	data = []
 
 	conditions = get_filter_conditions(filters)
 
 	map_results = frappe.db.sql("""
-			SELECT student, student_name, program, test_percentile, test_rit_score, test_date, discipline, academic_year
+			SELECT student, student_name, program, test_percentile, test_rit_score, test_date, discipline
 			FROM `tabMAP Test`
 			WHERE
 					docstatus = 1 %s
@@ -32,7 +32,6 @@ def get_data(filters = None):
 	for test in map_results:
 		data.append({
 				'student': test.student,
-				'academic_year': test.academic_year,
 				'discipline': test.discipline,
 				'student_name': test.student_name,
 				'program': test.program,

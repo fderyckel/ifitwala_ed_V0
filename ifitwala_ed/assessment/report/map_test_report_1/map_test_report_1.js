@@ -5,10 +5,9 @@
 frappe.query_reports["MAP Test Report 1"] = {
 	"filters": [
 		{
-			"fieldname":"from_year",
-			"label": __("From Academic Year"),
-			"fieldtype": "Link",
-			"options": "Academic Year",
+			"fieldname":"start_date",
+			"label": __("Start Date"),
+			"fieldtype": "Date",
 			"reqd": 1
 		},
 		{

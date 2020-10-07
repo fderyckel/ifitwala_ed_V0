@@ -15,7 +15,7 @@ def execute(filters=None):
 	data = get_data(filters)
 	columns = get_columns(filters)
 
-	return columns, data,  chart
+	return columns, data, chart
 
 
 def get_data(filters = None):
@@ -27,7 +27,7 @@ def get_data(filters = None):
 			WHERE
 					docstatus = 1 %s
 			ORDER BY
-					test_date, test_name, test_rit_score""" % (conditions), as_dict=1)
+					test_date, discipline, test_rit_score""" % (conditions), as_dict=1)
 
 	for test in map_results:
 		data.append({
@@ -37,7 +37,8 @@ def get_data(filters = None):
 				'student_name': test.student_name,
 				'program': test.program,
 				'test_rit_score': test.test_rit_score,
-				'test_percentile': test.test_percentile
+				'test_percentile': test.test_percentile,
+				'test_date': test.test_date
 		})
 	return data
 
@@ -45,10 +46,9 @@ def get_data(filters = None):
 def get_columns(filters=None):
 	columns = [
 			{
-			"label": _("Academic Year"),
-			"fieldname": "academic_year",
-			"fieldtype": "Link",
-			"options": "Academic Year",
+			"label": _("Test Date"),
+			"fieldname": "test_date",
+			"fieldtype": "Date",
 			"width": 150
 			},
 		{
@@ -104,9 +104,7 @@ def get_columns(filters=None):
 def get_filter_conditions(filters):
 	conditions = ""
 
-	if filters.get("from_year"):
-		ay = filters.get("from_year")
-		ay_start_date = getdate(ay.year_start_date)
-		conditions += " and test_date > '%s'" % (ay_start_date)
+	if filters.get("start_date"):
+		conditions += " and test_date > '%s' " % (filters.get("start_date"))
 
 	return conditions

@@ -102,6 +102,7 @@ def get_columns(filters=None):
 
 
 def get_filter_conditions(filters):
+	data = [] 
 	conditions = ""
 
 	if filters.get("start_date"):

@@ -9,31 +9,19 @@ def execute(filters=None):
 	if not filters:
 		filters = {}
 
-	start_date = filters.get("from_year")
-	if start_date:
-		start_date = start_date.year_start_date
-
-	program = filters.get("program")
-
-
 	columns, data, chart = [], [], []
 
-	returned_value = get_formatted_results(args)
+	data = get_data(filters)
+	columns = get_columns(filters)
+
+	return columns, data,  chart
 
 
-
-	columns = get_columns()
-
-
-
-	return columns, data
-
-
-def get_formatted_results(args):
+def get_data(filters = None):
 	conditions = get_filter_conditions(filters)
 
 	map_results = frappe.db.sql('''
-			SELECT student, student_name, program, test_percentile, test_rit_score, test_date, discipline
+			SELECT student, student_name, program, test_percentile, test_rit_score, test_date, discipline, academic_year
 			FROM `tabMAP Test`
 			WHERE
 					docstatus = 1 %s
@@ -44,6 +32,8 @@ def get_formatted_results(args):
 	for test in map_results:
 		data.append({
 				'student': test.student,
+				'academic_year': test.academic_year,
+				'discipline': test.discipline, 
 				'student_name': test.student_name,
 				'program': test.program,
 				'test_rit_score': test.test_rit_score,
@@ -52,45 +42,45 @@ def get_formatted_results(args):
 	return data
 
 
-def get_columns():
+def get_columns(filters=None):
 	columns = [
 			{
 			"label": _('Academic Year'),
 			"fieldname": 'academic_year',
 			"fieldtype": "Link",
 			"options": "Academic Year",
-			"width": 100
+			"width": 150
 			},
 		{
 			"label': _('Academic Term"),
 			"fieldname": "academic_term",
 			"fieldtype": "Link",
 			"options': 'Academic Term",
-			"width": 100
+			"width": 150
 		},
 		{
 			"label": _("Program"),
 			"fieldname": "program",
 			"fieldtype": "Link",
 			"options": "Program",
-			"width": 100
+			"width": 150
 		},
 		{
 			"label": _("Student"),
 			"fieldname": "student",
 			"fieldtype": "Link",
 			"options": "Student",
-			"width": 100
+			"width": 150
 		},
 		{
 			"label": _("Student Name"),
 			"fieldname": "student_name",
 			"fieldtype": "Data",
-			"width": 100
+			"width": 200
 		},
 		{
-			"label": _("Student Name"),
-			"fieldname": "student_name",
+			"label": _("Discipline"),
+			"fieldname": "discipline",
 			"fieldtype": "Data",
 			"width": 200
 		},
@@ -117,6 +107,6 @@ def get_filter_conditions(filters):
 	if filters.get("from_year"):
 		ay = filters.get("from_year")
 		ay_start_date = ay.year_start_date
-		conditions += " and test_date > '%s'" % (ay) 
+		conditions += " and test_date > '%s'" % (ay)
 
 	return conditions

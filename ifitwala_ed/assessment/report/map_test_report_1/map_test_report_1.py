@@ -4,6 +4,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
+from frappe.utils import getdate
 
 def execute(filters=None):
 	if not filters:
@@ -105,7 +106,7 @@ def get_filter_conditions(filters):
 
 	if filters.get("from_year"):
 		ay = filters.get("from_year")
-		ay_start_date = ay.year_start_date
+		ay_start_date = getdate(ay.year_start_date)
 		conditions += " and test_date > '%s'" % (ay_start_date)
 
 	return conditions

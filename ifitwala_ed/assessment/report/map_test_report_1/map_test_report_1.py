@@ -51,7 +51,7 @@ def get_columns(filters=None):
 			"width": 150
 			},
 		{
-			"label': _('Academic Term"),
+			"label": _("Academic Term"),
 			"fieldname": "academic_term",
 			"fieldtype": "Link",
 			"options': 'Academic Term",

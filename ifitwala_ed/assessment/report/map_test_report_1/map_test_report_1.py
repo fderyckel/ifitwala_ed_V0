@@ -10,15 +10,15 @@ def execute(filters=None):
 	if not filters:
 		filters = {}
 
-	columns, data, chart = [], [], []
-
 	data = get_data(filters)
 	columns = get_columns(filters)
 
-	return columns, data, chart
+	return columns, data
 
 
 def get_data(filters = None):
+	data = [] 
+
 	conditions = get_filter_conditions(filters)
 
 	map_results = frappe.db.sql("""
@@ -102,7 +102,6 @@ def get_columns(filters=None):
 
 
 def get_filter_conditions(filters):
-	data = [] 
 	conditions = ""
 
 	if filters.get("start_date"):

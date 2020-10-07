@@ -36,23 +36,16 @@ def get_data(filters = None):
 				'test_percentile': test.test_percentile,
 				'test_date': test.test_date
 		})
-		
+
 	return data
 
 
 def get_columns(filters=None):
 	columns = [
-			{
+		{
 			"label": _("Test Date"),
 			"fieldname": "test_date",
 			"fieldtype": "Date",
-			"width": 150
-			},
-		{
-			"label": _("Academic Term"),
-			"fieldname": "academic_term",
-			"fieldtype": "Link",
-			"options": "Academic Term",
 			"width": 150
 		},
 		{
@@ -102,6 +95,6 @@ def get_filter_conditions(filters):
 	conditions = ""
 
 	if filters.get("start_date"):
-		conditions += " and test_date > '%s' " % (filters.get("start_date"))
+		conditions += " and test_date >= '%s' " % (filters.get("start_date"))
 
 	return conditions

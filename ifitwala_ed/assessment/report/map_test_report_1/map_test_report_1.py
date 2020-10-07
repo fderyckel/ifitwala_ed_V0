@@ -106,6 +106,6 @@ def get_filter_conditions(filters):
 	if filters.get("from_year"):
 		ay = filters.get("from_year")
 		ay_start_date = ay.year_start_date
-		conditions += " and test_date > '%s'" % (ay)
+		conditions += " and test_date > '%s'" % (ay_start_date)
 
 	return conditions

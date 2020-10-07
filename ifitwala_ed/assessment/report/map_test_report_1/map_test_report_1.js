@@ -3,29 +3,30 @@
 /* eslint-disable */
 
 frappe.query_reports["MAP Test Report 1"] = {
-	"filters": [ 
+	"filters": [
 		{
 			"fieldname":"from_year",
 			"label": __("From Academic Year"),
-			"fieldtype": "Link", 
-			"options": "Academic Year"
+			"fieldtype": "Link",
+			"options": "Academic Year",
+			"reqd": 1
 		},
 		{
 			"fieldname":"to_year",
 			"label": __("To Academic Year"),
-			"fieldtype": "Link", 
+			"fieldtype": "Link",
 			"options": "Academic Year"
 		},
 		{
 			"fieldname":"program",
 			"label": __("Program"),
-			"fieldtype": "Link", 
+			"fieldtype": "Link",
 			"options": "Academic Year"
 		},
 		{
 			"fieldname":"student",
 			"label": __("Student"),
-			"fieldtype": "Link", 
+			"fieldtype": "Link",
 			"options": "Student"
 		}
 

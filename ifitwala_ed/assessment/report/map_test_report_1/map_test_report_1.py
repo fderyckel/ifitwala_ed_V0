@@ -14,6 +14,11 @@ def execute(filters=None):
 
 	return columns, data
 
+def validate_filters(filters):
+	''' Validate if dates are properly set '''
+	if filters.start_date > filters.end_date:
+		frappe.throw(_("Start Date must be before End Date."))
+
 
 def get_data(filters = None):
 	data = []
@@ -96,5 +101,11 @@ def get_filter_conditions(filters):
 
 	if filters.get("start_date"):
 		conditions += " and test_date >= '%s' " % (filters.get("start_date"))
+
+	if filters.get("end_date"):
+		conditions += " and test_date <= '%s' " % (filters.get("end_date"))
+
+	if filters.get("program"):
+		conditions += " and program = '%s' " % (filters.get("program"))
 
 	return conditions

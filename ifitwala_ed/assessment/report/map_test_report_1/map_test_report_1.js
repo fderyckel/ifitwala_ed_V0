@@ -8,19 +8,27 @@ frappe.query_reports["MAP Test Report 1"] = {
 			"fieldname":"start_date",
 			"label": __("Start Date"),
 			"fieldtype": "Date",
+			"default": frappe.datetime.add_months(frappe.datetime.get_today(), -24),
 			"reqd": 1
 		},
 		{
-			"fieldname":"to_year",
-			"label": __("To Academic Year"),
-			"fieldtype": "Link",
-			"options": "Academic Year"
+			"fieldname":"end_date",
+			"label": __("End Date"),
+			"fieldtype": "Date",
+			"default": frappe.datetime.now_date(),
+		},
+		{
+			"fieldname": "discipline",
+			"label": __("Test Type"),
+			"fieldtype": "Select",
+			"options": "\nMathematics\nLanguage\nReading",
+			"reqd": 1
 		},
 		{
 			"fieldname":"program",
 			"label": __("Program"),
 			"fieldtype": "Link",
-			"options": "Academic Year"
+			"options": "Program"
 		},
 		{
 			"fieldname":"student",

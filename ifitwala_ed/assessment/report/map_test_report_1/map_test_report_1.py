@@ -51,14 +51,14 @@ def get_columns(filters=None):
 			"label": _("Test Date"),
 			"fieldname": "test_date",
 			"fieldtype": "Date",
-			"width": 150
+			"width": 100
 		},
 		{
 			"label": _("Program"),
 			"fieldname": "program",
 			"fieldtype": "Link",
 			"options": "Program",
-			"width": 150
+			"width": 100
 		},
 		{
 			"label": _("Student"),
@@ -71,25 +71,25 @@ def get_columns(filters=None):
 			"label": _("Student Name"),
 			"fieldname": "student_name",
 			"fieldtype": "Data",
-			"width": 200
+			"width": 150
 		},
 		{
 			"label": _("Discipline"),
 			"fieldname": "discipline",
 			"fieldtype": "Data",
-			"width": 200
+			"width": 150
 		},
 		{
 			"label": _("RIT Score"),
 			"fieldname": "test_rit_score",
 			"fieldtype": "Data",
-			"width": 100
+			"width": 80
 		},
 		{
 			"label": _("Percentile"),
 			"fieldname": "test_percentile",
 			"fieldtype": "Data",
-			"width": 100
+			"width": 80
 		}
 
 	]
@@ -105,7 +105,7 @@ def get_filter_conditions(filters):
 	if filters.get("end_date"):
 		conditions += " and test_date <= '%s' " % (filters.get("end_date"))
 
-	if filters.get("program"):
-		conditions += " and program = '%s' " % (filters.get("program"))
+	if filters.get("discpline"):
+		conditions += " and program = '%s' " % (filters.get("discpline"))
 
 	return conditions

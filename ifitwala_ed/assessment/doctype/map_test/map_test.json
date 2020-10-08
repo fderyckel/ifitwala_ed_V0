@@ -15,7 +15,6 @@
   "program",
   "student_name",
   "academic_term",
-  "title",
   "map_info_section",
   "discipline",
   "test_percentile",
@@ -74,12 +73,6 @@
    "label": "Test date"
   },
   {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "title"
-  },
-  {
    "fieldname": "school_name",
    "fieldtype": "Link",
    "label": "School Name",
@@ -94,8 +87,10 @@
    "fieldname": "discipline",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Discipline",
-   "options": "\nMathematics\nReading\nLanguage"
+   "options": "\nMathematics\nReading\nLanguage",
+   "reqd": 1
   },
   {
    "fieldname": "test_name",
@@ -251,12 +246,13 @@
    "fieldname": "student_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Student Name",
    "read_only": 1
   }
  ],
  "links": [],
- "modified": "2020-10-07 09:44:33.477040",
+ "modified": "2020-10-08 09:55:41.278639",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",
@@ -318,6 +314,5 @@
  "search_fields": "discipline, academic_year",
  "sort_field": "test_date",
  "sort_order": "DESC",
- "title_field": "title",
  "track_changes": 1
 }

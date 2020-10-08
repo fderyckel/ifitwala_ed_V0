@@ -24,7 +24,7 @@ def get_data(filters = None):
 	data = []
 	conditions = get_filter_conditions(filters)
 	map_results = frappe.db.sql("""
-			SELECT student, student_name, program, test_percentile, test_rit_score, test_date, discipline
+			SELECT student, student_name, program, test_percentile, test_rit_score, academic_term, test_date, discipline
 			FROM `tabMAP Test`
 			WHERE
 					docstatus = 0 %s
@@ -106,6 +106,9 @@ def get_filter_conditions(filters):
 		conditions += " and test_date <= '%s' " % (filters.get("end_date"))
 
 	if filters.get("discpline"):
-		conditions += " and program = '%s' " % (filters.get("discpline"))
+		conditions += " and discipline = '%s' " % (filters.get("discpline"))
+
+	if filters.get("program"):
+		conditions += " and program = '%s' " % (filters.get("program"))
 
 	return conditions

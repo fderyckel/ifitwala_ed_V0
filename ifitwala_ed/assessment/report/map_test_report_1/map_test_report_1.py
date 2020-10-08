@@ -105,8 +105,8 @@ def get_filter_conditions(filters):
 	if filters.get("end_date"):
 		conditions += " and test_date <= '%s' " % (filters.get("end_date"))
 
-	if filters.get("discpline"):
-		conditions += " and discipline = '%s' " % (filters.get("discpline"))
+	if filters.get("discipline"):
+		conditions += " and discipline = '%s' " % (filters.get("discipline"))
 
 	if filters.get("program"):
 		conditions += " and program = '%s' " % (filters.get("program"))

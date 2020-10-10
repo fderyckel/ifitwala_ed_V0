@@ -16,6 +16,12 @@ frappe.query_reports["MAP Test Student Growth"] = {
 			"label": __("Test Type"),
 			"fieldtype": "Select",
 			"options": "\nMathematics\nLanguage\nReading"
+		},
+		{
+			"fieldname": "result_type",
+			"label": __("Result Type"),
+			"fieldtype": "Select",
+			"options": "\nRIT Score\nPercentile"
 		}
 
 	]

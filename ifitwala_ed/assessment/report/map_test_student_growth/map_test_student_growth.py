@@ -11,8 +11,9 @@ def execute(filters=None):
 
 	columns = get_columns(filters)
 	data = get_data(filters)
+	chart = get_chart_data(data)
 
-	return columns, data
+	return columns, data, None, chart
 
 
 def get_columns(filters=None):
@@ -74,7 +75,7 @@ def get_data(filters = None):
 			WHERE
 					docstatus = 0 %s
 			ORDER BY
-					test_date DESC, discipline, test_rit_score""" % (conditions),  as_dict=1)
+					test_date, discipline, test_rit_score""" % (conditions),  as_dict=1)
 
 	for test in map_results:
 		data.append({
@@ -88,6 +89,38 @@ def get_data(filters = None):
 		})
 
 	return data
+
+def get_chart_data(data):
+	if not data:
+		return None
+
+	labels =  []
+	math = []
+	reading = []
+	language = []
+
+	for entry in data:
+		labels.append(entry.get("test_date"))
+		math.append(entry.get("test_percentile"))
+
+	labels = list(set(labels))
+
+	return {
+		"data": {
+			"labels": labels,
+			"datasets": [
+				{
+					"name": _("Math"),
+					"values": math
+				}
+			]
+		},
+		"type": "line"
+
+	}
+
+
+
 
 
 def get_filter_conditions(filters):

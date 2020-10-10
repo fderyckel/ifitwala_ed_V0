@@ -105,6 +105,8 @@ def get_chart_data(data):
 			math.append(entry.get("test_percentile"))
 		if entry.get("discipline") == "Reading":
 			reading.append(entry.get("test_percentile"))
+		if entry.get("discipline") == "Language":
+			language.append(entry.get("test_percentile"))
 
 	#labels = list(set(labels))
 
@@ -119,6 +121,10 @@ def get_chart_data(data):
 				{
 					"name": _("Reading"),
 					"values": reading
+				}, 
+				{
+					"name": _("Language"),
+					"values": language
 				}
 			]
 		},

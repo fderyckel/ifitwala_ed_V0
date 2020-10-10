@@ -85,7 +85,8 @@ def get_data(filters = None):
 				'program': test.program,
 				'test_rit_score': test.test_rit_score,
 				'test_percentile': test.test_percentile,
-				'test_date': test.test_date
+				'test_date': test.test_date,
+				'academic_term': test.academic_term
 		})
 
 	return data
@@ -121,7 +122,7 @@ def get_chart_data(data):
 				{
 					"name": _("Reading"),
 					"values": reading
-				}, 
+				},
 				{
 					"name": _("Language"),
 					"values": language

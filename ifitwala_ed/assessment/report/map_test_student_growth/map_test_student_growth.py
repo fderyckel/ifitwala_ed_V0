@@ -96,36 +96,21 @@ def get_chart_data(data):
 		return None
 
 	labels =  []
-	math = []
-	reading = []
-	language = []
+	percentile = []
 
 	for entry in data:
 		labels.append(entry.get("academic_term"))
-		if entry.get("discipline") == "Mathematics":
-			math.append(entry.get("test_percentile"))
-		if entry.get("discipline") == "Reading":
-			reading.append(entry.get("test_percentile"))
-		if entry.get("discipline") == "Language":
-			language.append(entry.get("test_percentile"))
+		percentile.append(entry.get("test_percentile"))
 
-	labels = list(set(labels))
+	#labels = list(set(labels))
 
 	return {
 		"data": {
 			"labels": labels,
 			"datasets": [
 				{
-					"name": _("Math"),
-					"values": math
-				},
-				{
-					"name": _("Reading"),
-					"values": reading
-				},
-				{
-					"name": _("Language"),
-					"values": language
+					"name": _("Test Percentile"),
+					"values": percentile
 				}
 			]
 		},

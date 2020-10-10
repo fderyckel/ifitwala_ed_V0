@@ -100,10 +100,13 @@ def get_chart_data(data):
 	language = []
 
 	for entry in data:
-		labels.append(entry.get("test_date"))
-		math.append(entry.get("test_percentile"))
+		labels.append(entry.get("academic_term"))
+		if entry.get("discipline") = "Mathematics":
+			math.append(entry.get("test_percentile"))
+		if entry.get("discipline") = "Reading":
+			reading.append(entry.get("test_percentile"))
 
-	labels = list(set(labels))
+	#labels = list(set(labels))
 
 	return {
 		"data": {
@@ -112,6 +115,10 @@ def get_chart_data(data):
 				{
 					"name": _("Math"),
 					"values": math
+				},
+				{
+					"name": _("Reading"),
+					"values": reading
 				}
 			]
 		},

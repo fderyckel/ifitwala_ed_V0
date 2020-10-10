@@ -109,7 +109,7 @@ def get_chart_data(data):
 		if entry.get("discipline") == "Language":
 			language.append(entry.get("test_percentile"))
 
-	#labels = list(set(labels))
+	labels = list(set(labels))
 
 	return {
 		"data": {

@@ -101,9 +101,9 @@ def get_chart_data(data):
 
 	for entry in data:
 		labels.append(entry.get("academic_term"))
-		if entry.get("discipline") = "Mathematics":
+		if entry.get("discipline") == "Mathematics":
 			math.append(entry.get("test_percentile"))
-		if entry.get("discipline") = "Reading":
+		if entry.get("discipline") == "Reading":
 			reading.append(entry.get("test_percentile"))
 
 	#labels = list(set(labels))

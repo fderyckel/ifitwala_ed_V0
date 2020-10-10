@@ -29,7 +29,7 @@ def get_data(filters = None):
 			WHERE
 					docstatus = 0 %s
 			ORDER BY
-					test_date, discipline, test_rit_score""" % (conditions),  as_dict=1)
+					test_date DESC, discipline, test_rit_score""" % (conditions),  as_dict=1)
 
 	for test in map_results:
 		data.append({

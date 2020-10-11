@@ -27,6 +27,8 @@ class ProgramEnrollment(Document):
 			if self.enrollment_date and getdate(term_dates.term_end_date) and getdate(self.enrollment_date) > getdate(term_dates.term_end_date):
 				frappe.throw(_("The enrollment date for this program is after the end the term.  Pease revise the joining date or change the term {0}.").format(get_link_to_form("Academic Term", self.academic_term)))
 
+		self.validate_duplicate_course()
+
 	def on_submit(self):
 		self.update_student_joining_date()
 		self.create_course_enrollment()
@@ -47,6 +49,13 @@ class ProgramEnrollment(Document):
 	# If a student is in a program and that program has required courses (non elective), then these courses are loaded automatically.
 	def get_courses(self):
 		return frappe.db.sql("""select course from `tabProgram Course` where parent = %s and required = 1""", (self.program), as_dict=1)
+
+	def validate_duplicate_course(self):
+		found = []
+		for course in self.courses:
+			if course.course in found:
+				frappe.throw(_("Course {0} entered twice.").format(course.course))
+				found.append(course.course)
 
 	# This will update the joining date on the student doctype in function of the joining date of the program.
 	def update_student_joining_date(self):

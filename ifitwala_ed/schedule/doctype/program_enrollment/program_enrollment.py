@@ -12,6 +12,7 @@ from frappe.utils import getdate, get_link_to_form
 class ProgramEnrollment(Document):
 
 	def validate(self):
+		self.validate_duplicate_course()
 		self.validate_duplication()
 		if not self.student_name:
 			self.student_name = frappe.db.get_value("Student", self.student, "student_full_name")
@@ -26,8 +27,6 @@ class ProgramEnrollment(Document):
 				frappe.throw(_("The enrollment date for this program is before the start of the term.  Please revise the date or change the term {0}.").format(get_link_to_form("Academic Term", self.academic_term)))
 			if self.enrollment_date and getdate(term_dates.term_end_date) and getdate(self.enrollment_date) > getdate(term_dates.term_end_date):
 				frappe.throw(_("The enrollment date for this program is after the end the term.  Pease revise the joining date or change the term {0}.").format(get_link_to_form("Academic Term", self.academic_term)))
-
-		self.validate_duplicate_course()
 
 	def on_submit(self):
 		self.update_student_joining_date()

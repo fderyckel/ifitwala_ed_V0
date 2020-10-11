@@ -26,9 +26,9 @@ class MAPTest(Document):
 
 	def validate_duplicate(self):
 		map_test =  frappe.get_all("MAP Test", filters = {
-			"student" = self.student,
-			"academic_term" = self.academic_term,
-			"discipline" = self.discipline
+			"student": self.student,
+			"academic_term": self.academic_term,
+			"discipline": self.discipline
 		})  
 		if  map_test:
 			frappe.throw(_("There is already a MAP test submitted for this student and this term and this subject."))

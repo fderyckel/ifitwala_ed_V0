@@ -54,7 +54,8 @@ class ProgramEnrollment(Document):
 		for course in self.courses:
 			if course.course in found:
 				frappe.throw(_("Course {0} entered twice.").format(course.course))
-			found.append(course.course)
+			else:
+				found.append(course.course)
 
 	# This will update the joining date on the student doctype in function of the joining date of the program.
 	def update_student_joining_date(self):

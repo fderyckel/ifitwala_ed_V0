@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["MAP Test Student Growth II"] = {
+frappe.query_reports["MAP Test Student Growth  II"] = {
 	"filters": [
 		{
 			"fieldname":"student",

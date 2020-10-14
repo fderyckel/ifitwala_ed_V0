@@ -98,7 +98,7 @@ def get_chart_data(data):
 	labels =  []
 	math = []
 	reading = []
-	langauge = []
+	language = []
 
 	for entry in data:
 		if entry.get("academic_term") not in labels:

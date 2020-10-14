@@ -133,9 +133,6 @@ def get_chart_data(data):
 	}
 
 
-
-
-
 def get_filter_conditions(filters):
 	conditions = ""
 

@@ -5,7 +5,6 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
-from frappe.utils.nestedset import NestedSet
 from frappe.utils import getdate
 from frappe import _ 
 from frappe.utils import getdate, validate_email_address, today, add_years, format_datetime, cstr
@@ -14,8 +13,7 @@ from frappe.permissions import add_user_permission, remove_user_permission, set_
 class EmployeeUserDisabledError(frappe.ValidationError): pass
 class EmployeeLeftValidationError(frappe.ValidationError): pass
 
-class Employee(NestedSet): 
-	nsm_parent_field = 'reports_to'
+class Employee(Document): 
 		
 	def validate(self): 
 		from ifitwala_ed.controllers.status_updater import validate_status
@@ -35,7 +33,6 @@ class Employee(NestedSet):
 				remove_user_permission("Employee", self.name, existing_user_id)
 	
 	def on_update(self):
-		self.update_nsm_model()
 		if self.user_id:
 			self.update_user()
 			self.update_user_permissions()
@@ -193,33 +190,3 @@ def create_user(employee, user = None, email=None):
 	})
 	user.insert()
 	return user.name
-
-@frappe.whitelist()
-def get_children(doctype, parent=None, school=None, is_root=False, is_tree=False):
-
-	filters = []
-	if school and school != 'All Schools':
-		filters = [['school', '=', school]]
-
-	fields = ['name as value', 'employee_full_name as title']
-
-	if is_root:
-		parent = ''
-	if parent and school and parent!=school:
-		filters.append(['reports_to', '=', parent])
-	else:
-		filters.append(['reports_to', '=', ''])
-
-	employees = frappe.get_list(doctype, fields=fields,
-		filters=filters, order_by='name')
-
-	for employee in employees:
-		is_expandable = frappe.get_all(doctype, filters=[
-			['reports_to', '=', employee.get('value')]
-		])
-		employee.expandable = 1 if is_expandable else 0
-
-	return employees
-
-def on_doctype_update():
-	frappe.db.add_index("Employee", ["lft", "rgt"])	

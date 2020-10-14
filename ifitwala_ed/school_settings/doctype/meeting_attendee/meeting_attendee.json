@@ -12,18 +12,11 @@
  ],
  "fields": [
   {
-   "fieldname": "attendee",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Attendee",
-   "options": "Employee",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "employee.employee_full_name",
+   "fetch_from": "attendee.employee_full_name",
    "fieldname": "full_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Full Name",
    "read_only": 1
   },
@@ -40,12 +33,20 @@
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Attended"
+  },
+  {
+   "fieldname": "attendee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Attendee",
+   "options": "Employee",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-10-01 12:38:46.190862",
+ "modified": "2020-10-05 12:31:26.691596",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting Attendee",

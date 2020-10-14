@@ -76,6 +76,7 @@
   },
   {
    "fetch_from": "student.student_gender",
+   "fetch_if_empty": 1,
    "fieldname": "gender",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -323,6 +324,7 @@
   },
   {
    "fetch_from": "student.student_preferred_name",
+   "fetch_if_empty": 1,
    "fieldname": "preferred_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -332,7 +334,7 @@
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-10-03 07:37:29.725617",
+ "modified": "2020-10-03 08:07:32.785873",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

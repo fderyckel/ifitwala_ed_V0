@@ -9,7 +9,17 @@ from frappe import _
 from frappe.model.document import Document
 
 class Course(Document):
-	pass
+	def validate(self): 
+		self.validate_sum_weighting
+		
+	def validate_sum_weighting(self): 
+		if self.assessment_criteria: 
+			total_weight = 0
+			for criteria in assessment_criteria: 
+				total_weight += assessment_criteria.criteria_weighting or 0
+			if total_weight != 100: 
+				frappe.throw(_("The sum of the Criteria Weighting should be 100%.  Please adjust and try to save again."))
+		
 
 @frappe.whitelist()
 def add_course_to_programs(course, programs, mandatory=False):

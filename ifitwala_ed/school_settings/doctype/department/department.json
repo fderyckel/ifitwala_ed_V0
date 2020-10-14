@@ -13,15 +13,16 @@
   "section_break_4",
   "school",
   "lead_full_name",
-  "title",
   "school_abbreviation",
   "department_members_section",
-  "members"
+  "members",
+  "title"
  ],
  "fields": [
   {
    "fieldname": "school",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "School",
    "options": "School",
    "reqd": 1
@@ -40,10 +41,12 @@
    "options": "Employee"
   },
   {
-   "fetch_from": "employee.employee_full_name",
+   "fetch_from": "department_lead.employee_full_name",
    "fieldname": "lead_full_name",
-   "fieldtype": "Read Only",
-   "label": "Lead Full Name"
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lead Full Name",
+   "read_only": 1
   },
   {
    "fetch_from": "school.abbr",
@@ -56,13 +59,15 @@
   {
    "fieldname": "department_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Department Name",
    "reqd": 1
   },
   {
    "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "department_members_section",
@@ -78,7 +83,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-10-01 19:40:48.462238",
+ "modified": "2020-10-05 12:36:25.360931",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

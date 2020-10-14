@@ -9,13 +9,12 @@
  "field_order": [
   "generic_info_section",
   "school_name",
-  "first_name",
+  "student",
   "academic_year",
   "column_break_5",
-  "student",
-  "last_name",
+  "program",
+  "student_name",
   "academic_term",
-  "title",
   "map_info_section",
   "discipline",
   "test_percentile",
@@ -74,12 +73,6 @@
    "label": "Test date"
   },
   {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "title"
-  },
-  {
    "fieldname": "school_name",
    "fieldtype": "Link",
    "label": "School Name",
@@ -94,8 +87,10 @@
    "fieldname": "discipline",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Discipline",
-   "options": "\nMathematics\nReading\nLanguage"
+   "options": "\nMathematics\nReading\nLanguage",
+   "reqd": 1
   },
   {
    "fieldname": "test_name",
@@ -111,7 +106,7 @@
   },
   {
    "fieldname": "test_percentile",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Test Percentile",
    "length": 2
@@ -135,20 +130,6 @@
    "fieldname": "spring_to_spring_observed_growth",
    "fieldtype": "Data",
    "label": "Spring To Spring Observed Growth"
-  },
-  {
-   "fetch_from": "student.student_first_name",
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "label": "First Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student.student_last_name",
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "label": "Last Name",
-   "read_only": 1
   },
   {
    "fieldname": "map_info_section",
@@ -253,10 +234,25 @@
   {
    "fieldname": "column_break_5",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "fetch_from": "student.student_full_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Student Name",
+   "read_only": 1
   }
  ],
  "links": [],
- "modified": "2020-09-27 19:53:16.121103",
+ "modified": "2020-10-10 14:03:19.633997",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",
@@ -318,6 +314,5 @@
  "search_fields": "discipline, academic_year",
  "sort_field": "test_date",
  "sort_order": "DESC",
- "title_field": "title",
  "track_changes": 1
 }

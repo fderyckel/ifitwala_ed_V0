@@ -3,7 +3,7 @@
 
 
 frappe.ui.form.on('Student Patient', {
-	onload: function(frm) {
+	onload(frm) {
 		cur_frm.add_fetch('student', 'student_gender', 'gender');
 		cur_frm.add_fetch('student', 'student_date_of_birth', 'date_of_birth');
 		cur_frm.add_fetch('student', 'student_preferred_name', 'preferred_name');

@@ -2,10 +2,10 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Program Enrollment', {
-	
-	onload: function(frm, cdt, cdn){
-		
-		// to filter academic terms that matches the given academic year.   
+
+	onload: function(frm) {
+
+		// to filter academic terms that matches the given academic year.
 		frm.set_query('academic_term', function(){
 			return{
 				'filters':{
@@ -13,11 +13,11 @@ frappe.ui.form.on('Program Enrollment', {
 				}
 			};
 		});
-		
-		// once program field is set, call the function get_program_course in the python file to set up the mandatory courses
+
+		// once program field is set, call the function get_program_course in the python file to get the list of all the courses in that program
 		if (frm.doc.program) {
-			frm.set_query('course', 'courses', function(doc, cdt, cdn) {
-				return{
+			frm.set_query('course', 'courses', function() {
+				return {
 					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
 					filters: {
 						'program': frm.doc.program
@@ -25,11 +25,11 @@ frappe.ui.form.on('Program Enrollment', {
 				}
 			});
 		}
-		
+
 		// To filter the students showing up in the student fields (will not show up students already enrolled for that year  or term)
 		// only  work if academic term or academic year have already been selected
 		frm.set_query('student', function() {
-			return{
+			return {
 				query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_students',
 				filters: {
 					'academic_year': frm.doc.academic_year,
@@ -37,17 +37,17 @@ frappe.ui.form.on('Program Enrollment', {
 				}
 			}
 		});
-	
-	}, 
-	
+
+	},
+
 	onload_post_render: function(frm) {
 		frm.get_field('courses').grid.set_multiple_add('course');
 	},
-	
+
 	program: function(frm) {
 		frm.events.get_courses(frm);
 	},
-	
+
 	get_courses: function(frm) {
 		frm.set_value('courses',[]);
 		frappe.call({
@@ -62,7 +62,7 @@ frappe.ui.form.on('Program Enrollment', {
 	}
 });
 
-// So that course does not appear again in the list if they have already been selected. 
+// So that course does not appear again in the list if they have already been selected.
 frappe.ui.form.on('Program Enrollment Course', {
 	courses_add: function(frm){
 		frm.fields_dict['courses'].grid.get_field('course').get_query = function(doc) {

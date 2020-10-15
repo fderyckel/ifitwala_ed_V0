@@ -13,7 +13,7 @@
   "total_holidays",
   "add_weekly_holidays_section",
   "weekly_off",
-  "data_8",
+  "get_weekly_off_dates",
   "section_break_9",
   "holidays",
   "clear_table",
@@ -66,11 +66,6 @@
    "print_hide": 1
   },
   {
-   "fieldname": "data_8",
-   "fieldtype": "Button",
-   "label": "Add to holidays"
-  },
-  {
    "fieldname": "section_break_9",
    "fieldtype": "Section Break"
   },
@@ -91,13 +86,20 @@
   },
   {
    "fieldname": "clear_table",
-   "fieldtype": "Data",
-   "label": "Clear Table"
+   "fieldtype": "Button",
+   "label": "Clear Table",
+   "options": "clear_table"
+  },
+  {
+   "fieldname": "get_weekly_off_dates",
+   "fieldtype": "Button",
+   "label": "Add to holidays",
+   "options": "get_weekly_off_dates"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-14 17:25:41.953747",
+ "modified": "2020-10-15 21:19:43.226350",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",

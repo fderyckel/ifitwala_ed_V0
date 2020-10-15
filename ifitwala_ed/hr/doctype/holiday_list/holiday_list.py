@@ -22,7 +22,7 @@ class HolidayList(Document):
 		if getdate(self.from_date) > getdate(self.to_date):
 			frappe.throw(_("From Date cannot be after To Date. Please adjust the date."))
 
-		for day in self.get(holiay):
+		for day in self.get("holidays"):
 			if not (getdate(self.from_date) <= getdate(day.holiday_date) <= getdate(self.to_date)):
 				frappe.throw(_("The holiday on {0} should be between From Date and To Date.").format(day.holiday_date))
 

@@ -24,7 +24,6 @@ class StudentPatientVisit(Document):
 			"log": " ".join(filter(None,["Today between,", self.time_of_arrival, "and", self.time_of_discharge, "the above student visit the health office. Reason: ", self.note])), 
 			"docstatus": 1
 		})
-		#log_en.save()
-		#log_en.docstatus = 1
+		log_en.save()
 		log_en.submit()
 		

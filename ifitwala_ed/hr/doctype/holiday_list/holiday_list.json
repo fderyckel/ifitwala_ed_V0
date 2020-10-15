@@ -1,0 +1,155 @@
+{
+ "actions": [],
+ "autoname": "field:holiday_list_name",
+ "creation": "2020-10-14 17:19:25.042786",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "holiday_list_name",
+  "from_date",
+  "to_date",
+  "column_break_4",
+  "total_holidays",
+  "add_weekly_holidays_section",
+  "weekly_off",
+  "data_8",
+  "section_break_9",
+  "holidays",
+  "clear_table",
+  "section_break_12",
+  "color"
+ ],
+ "fields": [
+  {
+   "fieldname": "holiday_list_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Holiday List Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_holidays",
+   "fieldtype": "Int",
+   "label": "Total holidays"
+  },
+  {
+   "fieldname": "add_weekly_holidays_section",
+   "fieldtype": "Section Break",
+   "label": "Add Weekly Holidays"
+  },
+  {
+   "fieldname": "weekly_off",
+   "fieldtype": "Select",
+   "label": "Weekly off",
+   "no_copy": 1,
+   "options": "\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "data_8",
+   "fieldtype": "Button",
+   "label": "Add to holidays"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "holidays",
+   "fieldtype": "Table",
+   "label": "Holidays",
+   "options": "Holiday"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "fieldname": "clear_table",
+   "fieldtype": "Data",
+   "label": "Clear Table"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-10-14 17:25:41.953747",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Holiday List",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "School IT",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

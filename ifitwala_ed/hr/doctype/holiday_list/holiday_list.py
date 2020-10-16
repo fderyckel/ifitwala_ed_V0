@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
-from frappe.utils import getdate, today, formatdate
+from frappe.utils import getdate, today, formatdate, cint
 from frappe.model.document import Document
 
 class HolidayList(Document):
@@ -17,6 +17,17 @@ class HolidayList(Document):
 	def get_weekly_off_dates(self):
 		self.validate_values()
 		date_list = self.get_weekly_off_dates_list(self.from_date, self.to_date)
+		last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
+		for i, d in enumerate(date_list):
+			ch = self.append("holidays", {})
+			ch.description = self.weekly_off
+			ch.holiday_date = d
+			ch.weekly_off = 1
+			ch.idx = last_idx + i + 1
+
+	# logic for the button "clear_table"
+	def clear_table(self):
+		self.set("holidays", [])
 
 	def validate_days(self):
 		if getdate(self.from_date) > getdate(self.to_date):
@@ -50,6 +61,3 @@ class HolidayList(Document):
 			reference_date += timedelta(days = 7)
 
 		return  date_list
-
-	def clear_table(self):
-		self.set("holidays", [])

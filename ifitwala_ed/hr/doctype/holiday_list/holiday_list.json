@@ -50,7 +50,9 @@
   {
    "fieldname": "total_holidays",
    "fieldtype": "Int",
-   "label": "Total holidays"
+   "in_list_view": 1,
+   "label": "Total holidays",
+   "read_only": 1
   },
   {
    "fieldname": "add_weekly_holidays_section",
@@ -99,7 +101,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-15 21:29:25.213817",
+ "modified": "2020-10-16 12:55:08.905784",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",
@@ -150,7 +152,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

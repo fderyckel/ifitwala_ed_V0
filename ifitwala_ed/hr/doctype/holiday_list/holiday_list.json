@@ -38,7 +38,7 @@
   },
   {
    "fieldname": "to_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "in_list_view": 1,
    "label": "To Date",
    "reqd": 1
@@ -99,7 +99,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-15 21:19:43.226350",
+ "modified": "2020-10-15 21:29:25.213817",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",

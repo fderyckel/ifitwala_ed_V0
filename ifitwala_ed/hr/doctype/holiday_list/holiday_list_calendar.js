@@ -1,7 +1,7 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.views.calendar["Holidays List"] = {
+frappe.views.calendar["Holiday List"] = {
   field_map:{
     "start": "holiday_date",
     "end": "holiday_date",

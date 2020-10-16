@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+import json
 from frappe import _
 from frappe.utils import getdate, today, formatdate, cint
 from frappe.model.document import Document
@@ -61,3 +62,26 @@ class HolidayList(Document):
 			reference_date += timedelta(days = 7)
 
 		return  date_list
+
+
+@frappe.whitelist()
+def get_events(start, end, filters=None):
+	"""Returns events for Gantt / Calendar view rendering.
+	:param start: Start date-time.
+	:param end: End date-time.
+	:param filters: Filters (JSON).
+	"""
+	if filters:
+		filters = json.loads(filters)
+	else:
+		filters = []
+
+	if start:
+		filters.append(['Holiday', 'holiday_date', '>', getdate(start)])
+	if end:
+		filters.append(['Holiday', 'holiday_date', '<', getdate(end)])
+
+	return frappe.get_list('Holiday List',
+		fields=['name', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday List`.color'],
+		filters = filters,
+		update={"allDay": 1})

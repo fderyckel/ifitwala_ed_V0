@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
-from frappe.utils import getdate, today
+from frappe.utils import getdate, today, formatdate
 from frappe.model.document import Document
 
 class HolidayList(Document):
@@ -24,7 +24,7 @@ class HolidayList(Document):
 
 		for day in self.get("holidays"):
 			if not (getdate(self.from_date) <= getdate(day.holiday_date) <= getdate(self.to_date)):
-				frappe.throw(_("The holiday on {0} should be between From Date and To Date.").format(day.holiday_date))
+				frappe.throw(_("The holiday on {0} should be between From Date and To Date.").format(formatdate(day.holiday_date)))
 
 	def validate_values(self):
 		if not self.weekly_off:

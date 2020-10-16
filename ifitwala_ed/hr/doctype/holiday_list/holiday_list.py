@@ -42,7 +42,7 @@ class HolidayList(Document):
 
 		weekday = getattr(calendar, (self.weekly_off).upper())
 		reference_date = start_date + relativedelta.relativedelta(weekday = weekday)
-		existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get(holidays)]
+		existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
 
 		while reference_date <= end_date:
 			if reference_date not in existing_date_list:

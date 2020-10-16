@@ -4,8 +4,6 @@
 
 from __future__ import unicode_literals
 import frappe
-import dateutils
-import datetime 
 from frappe import _
 from frappe.utils import getdate, today
 from frappe.model.document import Document
@@ -35,7 +33,7 @@ class HolidayList(Document):
 	def get_weekly_off_dates_list(self, start_date, end_date):
 		start_date, end_date = getdate(start_date), getdate(end_date)
 
-		from dateutils import relativedelta
+		from dateutil import relativedelta
 		from datetime import timedelta
 		import calendar
 

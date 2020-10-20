@@ -1,5 +1,7 @@
 {
  "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:holiday_list_name",
  "creation": "2020-10-14 17:19:25.042786",
  "doctype": "DocType",
@@ -101,7 +103,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-16 12:55:08.905784",
+ "modified": "2020-10-17 09:19:23.147961",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",
@@ -152,6 +154,7 @@
    "write": 1
   }
  ],
+ "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

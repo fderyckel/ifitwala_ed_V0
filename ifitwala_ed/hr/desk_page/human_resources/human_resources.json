@@ -3,7 +3,7 @@
   {
    "hidden": 0,
    "label": "HR Master",
-   "links": "[\n    {\n        \"description\": \"Setting up School Employees\",\n        \"label\": \"Employee\",\n        \"name\": \"Emplopyee\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"Employee Master.\",\n        \"label\": \"Employee\",\n        \"name\": \"Employee\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Employee Designation\",\n        \"label\": \"Designation\",\n        \"name\": \"Designation\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "Employee Master",
@@ -19,7 +19,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2020-10-04 07:39:27.886372",
+ "modified": "2020-10-20 16:50:20.442821",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
@@ -29,7 +29,6 @@
  "shortcuts": [
   {
    "color": "Grey",
-   "doc_view": "List",
    "label": "Employee List",
    "link_to": "Employee",
    "type": "DocType"

@@ -29,7 +29,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-09-23 13:48:10.042624",
+ "modified": "2020-10-21 19:39:53.929250",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -43,8 +43,11 @@
    "type": "DocType"
   },
   {
-   "label": "Student List",
+   "color": "#cef6d1",
+   "format": "{} Enabled",
+   "label": "Student",
    "link_to": "Student",
+   "stats_filter": "{\"enabled\":\"1\"}",
    "type": "DocType"
   }
  ]

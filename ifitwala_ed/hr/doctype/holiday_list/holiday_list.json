@@ -1,5 +1,7 @@
 {
  "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:holiday_list_name",
  "creation": "2020-10-14 17:19:25.042786",
  "doctype": "DocType",
@@ -13,7 +15,7 @@
   "total_holidays",
   "add_weekly_holidays_section",
   "weekly_off",
-  "data_8",
+  "get_weekly_off_dates",
   "section_break_9",
   "holidays",
   "clear_table",
@@ -38,7 +40,7 @@
   },
   {
    "fieldname": "to_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "in_list_view": 1,
    "label": "To Date",
    "reqd": 1
@@ -50,7 +52,9 @@
   {
    "fieldname": "total_holidays",
    "fieldtype": "Int",
-   "label": "Total holidays"
+   "in_list_view": 1,
+   "label": "Total holidays",
+   "read_only": 1
   },
   {
    "fieldname": "add_weekly_holidays_section",
@@ -64,11 +68,6 @@
    "no_copy": 1,
    "options": "\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
    "print_hide": 1
-  },
-  {
-   "fieldname": "data_8",
-   "fieldtype": "Button",
-   "label": "Add to holidays"
   },
   {
    "fieldname": "section_break_9",
@@ -91,13 +90,20 @@
   },
   {
    "fieldname": "clear_table",
-   "fieldtype": "Data",
-   "label": "Clear Table"
+   "fieldtype": "Button",
+   "label": "Clear Table",
+   "options": "clear_table"
+  },
+  {
+   "fieldname": "get_weekly_off_dates",
+   "fieldtype": "Button",
+   "label": "Add to holidays",
+   "options": "get_weekly_off_dates"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-14 17:25:41.953747",
+ "modified": "2020-10-17 09:19:23.147961",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",
@@ -148,7 +154,7 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
+ "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

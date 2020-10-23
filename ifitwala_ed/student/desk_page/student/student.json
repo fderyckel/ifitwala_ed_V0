@@ -13,12 +13,7 @@
  ],
  "cards_label": "",
  "category": "Modules",
- "charts": [
-  {
-   "chart_name": "Student Gender Ratio",
-   "label": "Student Gender Ratio"
-  }
- ],
+ "charts": [],
  "creation": "2020-09-13 23:34:22.525108",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
@@ -29,7 +24,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-10-21 19:39:53.929250",
+ "modified": "2020-10-23 15:10:31.068933",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -38,16 +33,24 @@
  "pin_to_top": 1,
  "shortcuts": [
   {
-   "label": "Student Dash",
+   "doc_view": "Dashboard",
+   "label": "Student Dashboard",
    "link_to": "Student",
    "type": "DocType"
   },
   {
-   "color": "#cef6d1",
+   "color": "Green",
    "format": "{} Enabled",
    "label": "Student",
    "link_to": "Student",
    "stats_filter": "{\"enabled\":\"1\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Student Log",
+   "link_to": "Student Log",
    "type": "DocType"
   }
  ]

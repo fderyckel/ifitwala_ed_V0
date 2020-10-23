@@ -59,6 +59,8 @@
   {
    "fieldname": "student_patient",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Student Patient",
    "options": "Student Patient"
   },
@@ -186,6 +188,8 @@
    "fetch_from": "student_patient.date_of_birth",
    "fieldname": "date_of_birth",
    "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Date of Birth",
    "read_only": 1
   },
@@ -205,7 +209,7 @@
    "label": "Blood Group"
   },
   {
-   "fetch_from": "student.photo",
+   "fetch_from": "student_patient.photo",
    "fieldname": "photo",
    "fieldtype": "Attach Image",
    "hidden": 1,
@@ -227,7 +231,7 @@
  "image_field": "photo",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-30 20:36:33.335816",
+ "modified": "2020-10-23 10:30:35.186900",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient Visit",

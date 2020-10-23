@@ -25,13 +25,17 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Instructor Name",
+   "read_only": 1,
    "unique": 1
   },
   {
    "fetch_from": "employee.employee_professional_email",
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Email",
+   "read_only": 1
   },
   {
    "fetch_from": "employee.employee_mobile_phone",
@@ -57,7 +61,8 @@
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "hidden": 1,
-   "label": "image"
+   "label": "image",
+   "read_only": 1
   },
   {
    "fieldname": "employee",
@@ -73,7 +78,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2020-10-01 19:43:35.537171",
+ "modified": "2020-10-23 15:16:06.291676",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

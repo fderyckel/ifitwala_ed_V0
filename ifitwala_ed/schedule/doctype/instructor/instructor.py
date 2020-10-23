@@ -10,7 +10,7 @@ from frappe.model.document import Document
 class Instructor(Document):
 
 	def validate(self):
-		self.validate_dupicate_employee()
+		self.validate_duplicate_employee()
 
 	def validate_duplicate_employee(self):
 		if self.employee and frappe.db.get_value("Instructor", {'employee': self.employee, 'name': ['!=', self.name]}, 'name'):

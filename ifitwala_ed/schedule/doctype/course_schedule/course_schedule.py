@@ -31,7 +31,7 @@ class CourseSchedule(Document):
 		ac_term = frappe.db.get_value("Student Group", self.student_group, "academic_term")
 		academic_term = frappe.get_doc("Academic Term", ac_term)
 		if not (getdate(academic_term.term_start_date) <= getdate(self.schedule_date) <= getdate(academic_term.term_end_date)):
-			frappe.throw(_("The schedule date {0} does not belong to the academic term {1} selected for that student group.").format(formatdate(schedule_date), academic_term))
+			frappe.throw(_("The schedule date {0} does not belong to the academic term {1} selected for that student group.").format(formatdate(schedule_date), academic_term.name))
 
 	def validate_overlap(self):
 		"""Validates overlap for Student Group, Instructor, Room"""

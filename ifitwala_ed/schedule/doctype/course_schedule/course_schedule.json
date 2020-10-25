@@ -100,7 +100,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-23 15:48:43.692729",
+ "modified": "2020-10-23 18:26:15.686204",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",
@@ -122,5 +122,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "title",
  "track_changes": 1
 }

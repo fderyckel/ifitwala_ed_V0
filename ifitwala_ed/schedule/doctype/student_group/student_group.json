@@ -1,5 +1,7 @@
 {
  "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:student_group_name",
  "creation": "2020-08-26 17:06:06.928454",
  "doctype": "DocType",
@@ -45,6 +47,7 @@
    "fieldname": "student_group_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Student Group Name",
    "reqd": 1,
    "unique": 1
@@ -127,7 +130,7 @@
   }
  ],
  "links": [],
- "modified": "2020-09-24 20:13:23.644118",
+ "modified": "2020-10-23 19:43:12.777541",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

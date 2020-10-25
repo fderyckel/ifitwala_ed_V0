@@ -25,7 +25,6 @@ class CourseSchedule(Document):
 	def set_title(self):
 		self.title = self.course + " by " + (self.instructor_name if self.instructor_name else self.instructor)
 
-
 	def validate_date(self):
 		if self.from_time > self.to_time:
 			frappe.throw(_("Start time is after End Time. Adjust your start and end time."))
@@ -43,3 +42,22 @@ class CourseSchedule(Document):
 
 		validate_overlap_for(self, "Course Schedule", "Room")
 		validate_overlap_for(self, "Course Schedule", "Instructor")
+
+
+
+@frappe.whitelist()
+def get_course_schedule_events(start, end, filters=None):
+
+	from frappe.desk.calendar import get_event_conditions
+	conditions = get_event_conditions("Course Schedule", filters)
+
+	data = frappe.db.sql(""" SELECT name, course, color, 
+					timestamp(schedule_date, from_time) as from_datetime,
+					timestamp(schedule_date, to_time) as to_datetime,
+					room, student_group, 0 as 'all_day'
+			FROM `tabCourse Schedule`
+			WHERE ( schedule_date between %(start)s and %(end)s )
+			{conditions}""".format(conditions = conditions), {
+					"start":start,
+					"end": end}, as_dict=True, update={"all_day": 0})
+	return data

@@ -10,35 +10,36 @@ from frappe.utils import cint
 from ifitwala_ed.utils import validate_duplicate_student
 
 class StudentGroup(Document):
-	
-	def validate(self): 
+
+	def validate(self):
 		self.validate_term()
 		self.validate_mandatory_fields()
 		self.validate_size()
-		self.validate_students() 
+		self.validate_students()
 		self.validate_and_set_child_table_fields()
 		validate_duplicate_student(self.students)
-		
-	def validate_term(self): 
+
+	def validate_term(self):
 		term_year = frappe.get_doc("Academic Term", self.academic_term)
-		if self.academic_year != term_year.academic_year: 
+		if self.academic_year != term_year.academic_year:
 			frappe.throw(_("The term {0} does not belong to the academic year {1}.").format(self.academic_term, self.academic_year))
-		
-	def validate_mandatory_fields(self): 
-		if self.group_based_on == "Course" and not self.course: 
+
+	def validate_mandatory_fields(self):
+		if self.group_based_on == "Course" and not self.course:
 			frappe.throw(_("Please select a course."))
 		if self.group_based_on == "Course" and (not self.program and self.cohort):
 			frappe.throw(_("Please select a Program"))
 		if self.group_based_on == "Cohort" and not self.program:
 			frappe.throw(_("Please select a Program"))
-	
+
 	# Throwing message if more students than maximum size in the group
-	def validate_size(self): 
+	def validate_size(self):
 		if cint(self.maximum_size) < 0:
 			frappe.throw(_("Max number of student in this group cannot be negative."))
-		if self.maximum_size and len(self.students) > self.maximum_size: 
+		if self.maximum_size and len(self.students) > self.maximum_size:
 			frappe.throw(_("You can only enroll {0} students in this group.").format(self.maximum_size))
-	
+
+	# you should not be able to make a group that include inactive students. 
 	# this is to ensure students are still active students (aka not graduated or not transferred, etc.)
 	def validate_students(self):
 		program_enrollment = get_program_enrollment(self.academic_year, self.academic_term, self.program, self.cohort, self.course)
@@ -46,9 +47,9 @@ class StudentGroup(Document):
 		for d in self.students:
 			if not frappe.db.get_value("Student", d.student, "enabled") and d.active and not self.disabled:
 				frappe.throw(_("{0} - {1} is inactive student".format(d.group_roll_number, d.student_name)))
-		
+
 	# to input the roll number field in child table
-	def validate_and_set_child_table_fields(self): 
+	def validate_and_set_child_table_fields(self):
 		roll_numbers = [d.group_roll_number for d in self.students if d.group_roll_number]
 		max_roll_no = max(roll_numbers) if roll_numbers else 0
 		roll_no_list = []
@@ -83,7 +84,7 @@ def get_students(academic_year, group_based_on, academic_term=None, program=None
 
 
 def get_program_enrollment(academic_year, academic_term=None, program=None, cohort=None, course=None):
-	
+
 	condition1 = " "
 	condition2 = " "
 	if academic_term:
@@ -129,5 +130,3 @@ def fetch_students(doctype, txt, searchfield, start, page_len, filters):
 			order by idx desc, name
 			limit %s, %s""".format(searchfield),
 			tuple(["%%%s%%" % txt, "%%%s%%" % txt, start, page_len]))
-
-

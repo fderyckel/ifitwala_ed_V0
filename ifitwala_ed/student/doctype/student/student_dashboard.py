@@ -15,7 +15,7 @@ def get_data():
 			},
 			{
 				'label': _('Student Activity'),
-				'items': ['Student Log', 'Student Group', 'Student Patient Visit']
+				'items': ['Student Log', 'Student Group']
 			},
 			{
 				'label': _('Assessment'),

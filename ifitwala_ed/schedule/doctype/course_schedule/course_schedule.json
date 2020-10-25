@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "CSCH-.YYYY.-.######",
  "creation": "2020-10-23 15:44:33.566829",
  "doctype": "DocType",
@@ -18,6 +19,8 @@
   "column_break_10",
   "from_time",
   "to_time",
+  "instructors_section",
+  "instructors",
   "title"
  ],
  "fields": [
@@ -34,6 +37,7 @@
   {
    "fieldname": "instructor",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Instructor",
    "options": "Instructor",
    "reqd": 1
@@ -51,6 +55,7 @@
   {
    "fieldname": "course",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Course",
    "options": "Course",
    "reqd": 1
@@ -67,13 +72,17 @@
   {
    "fieldname": "schedule_date",
    "fieldtype": "Date",
-   "label": "Schedule Date"
+   "label": "Schedule Date",
+   "reqd": 1
   },
   {
    "fieldname": "room",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Room",
-   "options": "Room"
+   "options": "Room",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_10",
@@ -96,11 +105,22 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Title"
+  },
+  {
+   "fieldname": "instructors_section",
+   "fieldtype": "Section Break",
+   "label": "Instructors"
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Table",
+   "label": "Instructors",
+   "options": "Course Schedule Instructor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-23 18:26:15.686204",
+ "modified": "2020-10-25 11:52:10.507348",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",
@@ -117,6 +137,36 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
   }
  ],
  "quick_entry": 1,

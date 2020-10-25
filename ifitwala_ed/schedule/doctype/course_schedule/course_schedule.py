@@ -14,6 +14,7 @@ class CourseSchedule(Document):
 		self.validate_course()
 		self.set_title()
 		self.validate_date()
+		self.validate_overlap()
 
 	# set up the course field if it is based on a course.
 	def validate_course(self):
@@ -28,6 +29,17 @@ class CourseSchedule(Document):
 	def validate_date(self):
 		if self.from_time > self.to_time:
 			frappe.throw(_("Start time is after End Time. Adjust your start and end time."))
-		academic_term = frappe.db.get_value("Student Group", self.student_group, "academic_term")
+		ac_term = frappe.db.get_value("Student Group", self.student_group, "academic_term")
+		academic_term = frappe.get_doc("Academic Term", ac_term)
 		if not (getdate(academic_term.term_start_date) <= getdate(self.schedule_date) <= getdate(academic_term.term_end_date)):
 			frappe.throw(_("The schedule date {0} does not belong to the academic term {1} selected for that student group.").format(formatdate(schedule_date), academic_term))
+
+	def validate_overlap(self):
+		"""Validates overlap for Student Group, Instructor, Room"""
+		from ifitwala_ed.utils import validate_overlap_for
+
+		if self.student_group:
+			validate_overlap_for(self, "Course Schedule", "Student Group")
+
+		validate_overlap_for(self, "Course Schedule", "Room")
+		validate_overlap_for(self, "Course Schedule", "Instructor")

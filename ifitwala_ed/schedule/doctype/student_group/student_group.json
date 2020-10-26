@@ -45,12 +45,12 @@
    "options": "Academic Term"
   },
   {
+   "description": "You can leave this blank and it will create the name automatically using the course name, program and academic term. ",
    "fieldname": "student_group_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Student Group Name",
-   "reqd": 1,
    "unique": 1
   },
   {
@@ -136,7 +136,7 @@
   }
  ],
  "links": [],
- "modified": "2020-10-26 13:41:54.656081",
+ "modified": "2020-10-26 14:26:09.388587",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

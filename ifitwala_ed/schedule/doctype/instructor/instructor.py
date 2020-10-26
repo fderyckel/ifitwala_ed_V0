@@ -25,11 +25,7 @@ class Instructor(Document):
 	def load_groups(self):
 		self.instructor_log = []
 		groups = frappe.get_all("Student Group Instructor", filters = {"instructor":self.name}, fields = ["parent"])
-        for group in groups:
+		for group in groups:
 			yo = frappe.get_doc("Student Group", group.parent)
-        	self.append("instructor_log", {
-                        "academic_year":yo.academic_year,
-						"academic_term":yo.academic_term,
-						"designation":yo.designation,
-						"student_group":yo.name,
-						"course":yo.course})
+			self.append("instructor_log", {"academic_year":yo.academic_year, "academic_term":yo.academic_term,
+						"designation":yo.designation, "student_group":yo.name, "course":yo.course})

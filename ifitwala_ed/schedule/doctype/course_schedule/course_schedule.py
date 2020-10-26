@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
-from frappe.utils import getdate, formatdate
+from frappe.utils import getdate, formatdate, get_link_to_form
 from frappe.model.document import Document
 
 class CourseSchedule(Document):
@@ -29,11 +29,12 @@ class CourseSchedule(Document):
 
 	def validate_date(self):
 		if self.from_time > self.to_time:
-			frappe.throw(_("Start time is after End Time. Adjust your start and end time."))
+			frappe.throw(_("Start time is after End Time. Adjust your start and end time."), title=_("Change the times"))
 		ac_term = frappe.db.get_value("Student Group", self.student_group, "academic_term")
 		academic_term = frappe.get_doc("Academic Term", ac_term)
 		if not (getdate(academic_term.term_start_date) <= getdate(self.schedule_date) <= getdate(academic_term.term_end_date)):
-			frappe.throw(_("The schedule date {0} does not belong to the academic term {1} selected for that student group.").format(formatdate(self.schedule_date), academic_term.name))
+			frappe.throw(_("The schedule date {0} does not belong to the academic term {1} selected for that student group.").format(
+					formatdate(self.schedule_date), get_link_to_form("Academic Term", academic_term.name)), title=_("Change Schedule Date"))
 
 	def validate_overlap(self):
 		"""Validates overlap for Student Group, Instructor, Room"""
@@ -47,7 +48,6 @@ class CourseSchedule(Document):
 
 	def get_instructors(self):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
-
 
 
 @frappe.whitelist()

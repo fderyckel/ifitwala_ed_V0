@@ -14,11 +14,10 @@
   {
    "fetch_from": "attendee.employee_full_name",
    "fieldname": "full_name",
-   "fieldtype": "Data",
+   "fieldtype": "Read Only",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Full Name",
-   "read_only": 1
+   "label": "Full Name"
   },
   {
    "default": "0",
@@ -46,7 +45,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-10-05 12:31:26.691596",
+ "modified": "2020-10-26 13:52:14.327151",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting Attendee",

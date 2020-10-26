@@ -40,13 +40,13 @@ class CourseSchedule(Document):
 		from ifitwala_ed.utils import validate_overlap_for
 
 		if self.student_group:
-			validate_overlap_for(self, "Course Schedule", "Student Group")
+			validate_overlap_for(self, "Course Schedule", "student_group")
 
-		validate_overlap_for(self, "Course Schedule", "Room")
-		validate_overlap_for(self, "Course Schedule", "Instructor")
+		validate_overlap_for(self, "Course Schedule", "room")
+		validate_overlap_for(self, "Course Schedule", "instructor")
 
 	def get_instructors(self):
-		return frappe.db.sql("""select instructor from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1) 
+		return frappe.db.sql("""select instructor from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 
 

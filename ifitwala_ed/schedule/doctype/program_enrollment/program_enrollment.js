@@ -62,7 +62,7 @@ frappe.ui.form.on('Program Enrollment', {
 	}
 });
 
-// So that course does not appear again in the list if they have already been selected.
+// So that a course does not appear again in the list if it has already been selected.
 frappe.ui.form.on('Program Enrollment Course', {
 	courses_add: function(frm){
 		frm.fields_dict['courses'].grid.get_field('course').get_query = function(doc) {

@@ -42,7 +42,7 @@ def get_overlap_for(doc, doctype, fieldname, value=None):
 	return existing[0] if existing else None
 
 def validate_duplicate_student(students):
-	unique_students= []
+	unique_students = []
 	for stud in students:
 		if stud.student in unique_students:
 			frappe.throw(_("Student {0} - {1} appears Multiple times in row {2} & {3}")
@@ -51,21 +51,21 @@ def validate_duplicate_student(students):
 			unique_students.append(stud.student)
 
 		return None
-	
+
 
 # CMS - Course Management
 
-# to return a list of all programs that can be displayed on the portal. 
-def get_portal_programs(): 
-	published_programs = frappe.get_all("Program", filters = {"is_published": True}) 
-	if not published_programs: 
+# to return a list of all programs that can be displayed on the portal.
+def get_portal_programs():
+	published_programs = frappe.get_all("Program", filters = {"is_published": True})
+	if not published_programs:
 		return None
-	
-	program_list = [frappe.get_doc("program", program) for program in published_programs] 
+
+	program_list = [frappe.get_doc("program", program) for program in published_programs]
 	portal_programs = [{"Program":program, 'has_access':allowed_program_access(program.name)} for program in program_list if allowed_program_access(program.name)]
-	
+
 	return portal_programs
-	
+
 
 # deciding if the current user is a student who has access to program or if it is a super-user
 def allowed_program_access(program, student=None):
@@ -82,7 +82,7 @@ def allowed_program_access(program, student=None):
 def has_super_access():
 	current_user = frappe.get_doc("User", frappe.session.user)
 	roles = set([role.role for role in current_user.roles])
-	return bool(roles & {"Administrator", "Instructor", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker", "School IT"}) 
+	return bool(roles & {"Administrator", "Instructor", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker", "School IT"})
 
 # to get the name of the student who is currently logged-in
 def get_current_student():
@@ -95,17 +95,16 @@ def get_current_student():
 	except (IndexError, frappe.DoesNotExistError):
 		return None
 
-# for CMS get a list of all enrolled program and or course for the current academic year. 
+# for CMS get a list of all enrolled program and or course for the current academic year.
 def get_enrollment(master, document, student):
 	current_year = frappe.get_single("Education Settings").get("current_academic_year")
-	if master == 'program': 
+	if master == 'program':
 		enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1})
 	#enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1, 'academic_year':  current_year})
-	if master == 'course': 
+	if master == 'course':
 		enrollments = frappe.get_all("Course Enrollment", filters={'student':student, 'course': document, 'academic_year':  current_year})
 
 	if enrollments:
 		return enrollments[0].name
 	else:
 		return None
-

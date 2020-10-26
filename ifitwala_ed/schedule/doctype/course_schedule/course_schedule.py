@@ -15,6 +15,8 @@ class CourseSchedule(Document):
 		self.set_title()
 		self.validate_date()
 		self.validate_overlap()
+		if not self.instructors:
+			self.extend("instructors", self.get_instructors())
 
 	# set up the course field if it is based on a course.
 	def validate_course(self):
@@ -42,6 +44,9 @@ class CourseSchedule(Document):
 
 		validate_overlap_for(self, "Course Schedule", "Room")
 		validate_overlap_for(self, "Course Schedule", "Instructor")
+
+	def get_instructors(self):
+		return frappe.db.sql("""select instructor from `tabStudent Group Instructor` where where parent = %s""", (self.student_group), as_dict=1)
 
 
 

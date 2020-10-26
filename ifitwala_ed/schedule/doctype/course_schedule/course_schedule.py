@@ -46,7 +46,7 @@ class CourseSchedule(Document):
 		validate_overlap_for(self, "Course Schedule", "instructor")
 
 	def get_instructors(self):
-		return frappe.db.sql("""select instructor from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
+		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 
 

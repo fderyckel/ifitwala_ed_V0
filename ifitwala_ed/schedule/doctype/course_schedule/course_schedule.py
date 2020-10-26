@@ -29,7 +29,7 @@ class CourseSchedule(Document):
 
 	def validate_date(self):
 		if self.from_time > self.to_time:
-			frappe.throw(_("Start time is after End Time. Adjust your start and end time."), title=_("Change the times"))
+			frappe.throw(_("Start time is after End Time. Adjust your start and/or your end time."), title=_("Change the times"))
 		ac_term = frappe.db.get_value("Student Group", self.student_group, "academic_term")
 		academic_term = frappe.get_doc("Academic Term", ac_term)
 		if not (getdate(academic_term.term_start_date) <= getdate(self.schedule_date) <= getdate(academic_term.term_end_date)):

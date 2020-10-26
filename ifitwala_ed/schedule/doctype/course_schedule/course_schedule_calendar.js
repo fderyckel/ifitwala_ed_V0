@@ -11,7 +11,7 @@ frappe.views.calendar['Course Schedule'] = {
   },
   gantt: false,
   order_by: 'schedule_date',
-  get_events_method: 'ifitwala_ed.schedule.doctype.course_schedule.get_course_schedule_events',
+  get_events_method: 'ifitwala_ed.schedule.doctype.course_schedule.course_schedule.get_course_schedule_events',
   filters: [
     {
       "fieldtype": "Link",
@@ -38,5 +38,5 @@ frappe.views.calendar['Course Schedule'] = {
       "label": __("Room")
     }
   ]
-    
+
 }

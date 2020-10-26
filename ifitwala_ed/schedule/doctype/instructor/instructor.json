@@ -54,7 +54,8 @@
    "fieldname": "instructor_log",
    "fieldtype": "Table",
    "label": "Instructor Log",
-   "options": "Instructor Log"
+   "options": "Instructor Log",
+   "read_only": 1
   },
   {
    "fetch_from": "employee.employee_image",
@@ -78,7 +79,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2020-10-23 15:16:06.291676",
+ "modified": "2020-10-26 22:31:30.989335",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

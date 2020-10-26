@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2020-08-24 15:55:39.365665",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -7,20 +8,25 @@
   "academic_year",
   "academic_term",
   "designation",
+  "student_group",
+  "course",
+  "program",
   "other_details"
  ],
  "fields": [
   {
    "fieldname": "academic_year",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Academic Year"
+   "label": "Academic Year",
+   "options": "Academic Year"
   },
   {
    "fieldname": "academic_term",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Academic Term"
+   "label": "Academic Term",
+   "options": "Academic Term"
   },
   {
    "fieldname": "other_details",
@@ -34,10 +40,29 @@
    "in_list_view": 1,
    "label": "Designation",
    "options": "Designation"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "fieldname": "student_group",
+   "fieldtype": "Link",
+   "label": "Student Group",
+   "options": "Student Group"
   }
  ],
  "istable": 1,
- "modified": "2020-09-11 08:19:19.355750",
+ "links": [],
+ "modified": "2020-10-26 19:36:53.501451",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor Log",

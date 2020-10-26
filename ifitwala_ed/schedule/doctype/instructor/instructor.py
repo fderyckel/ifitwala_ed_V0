@@ -15,6 +15,7 @@ class Instructor(Document):
 		self.load_groups()
 
 	def validate(self):
+		self.instructor_log = []
 		self.validate_duplicate_employee()
 
 	def validate_duplicate_employee(self):

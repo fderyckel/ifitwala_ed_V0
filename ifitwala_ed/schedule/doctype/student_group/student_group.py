@@ -18,6 +18,8 @@ class StudentGroup(Document):
 		self.validate_students()
 		self.validate_and_set_child_table_fields()
 		validate_duplicate_student(self.students)
+		if not self.student_group_name:
+			self.student_group_name = self.course + "/" + self.program + "/" + self.academic_term
 
 	def validate_term(self):
 		term_year = frappe.get_doc("Academic Term", self.academic_term)
@@ -39,7 +41,7 @@ class StudentGroup(Document):
 		if self.maximum_size and len(self.students) > self.maximum_size:
 			frappe.throw(_("You can only enroll {0} students in this group.").format(self.maximum_size))
 
-	# you should not be able to make a group that include inactive students. 
+	# you should not be able to make a group that include inactive students.
 	# this is to ensure students are still active students (aka not graduated or not transferred, etc.)
 	def validate_students(self):
 		program_enrollment = get_program_enrollment(self.academic_year, self.academic_term, self.program, self.cohort, self.course)

@@ -9,9 +9,30 @@ from frappe.model.document import Document
 
 class Instructor(Document):
 
+	def __setup__(self):
+		self.onload()
+
+	def onload(self):
+		self.load_groups()
+
 	def validate(self):
 		self.validate_duplicate_employee()
 
 	def validate_duplicate_employee(self):
 		if self.employee and frappe.db.get_value("Instructor", {'employee': self.employee, 'name': ['!=', self.name]}, 'name'):
 			frappe.throw(_("Employee ID is linked with another instructor."))
+
+	## to load studens from the database
+    def load_groups(self):
+            self.instructor_log = []
+            ## Basically, we load the students name based on the gstudent guardian child table.
+            groups = frappe.get_all("Student Group Instructor", filters = {"instructor":self.name}, fields = ["parent"])
+            for group in groups:
+					yo = frappe.get_doc("Student Group", group.parent)
+                    self.append("instructor_log", {
+                            "academic_year":yo.academic_year,
+							"academic_term":yo.academic_term,
+							"designation": yo.designation,
+							"student_group": yo.name,
+							"course": yo.course
+                    })

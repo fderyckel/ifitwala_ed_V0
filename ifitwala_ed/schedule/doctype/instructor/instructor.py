@@ -8,7 +8,6 @@ from frappe import _
 from frappe.model.document import Document
 
 class Instructor(Document):
-
 	def __setup__(self):
 		self.onload()
 
@@ -22,9 +21,10 @@ class Instructor(Document):
 		if self.employee and frappe.db.get_value("Instructor", {'employee': self.employee, 'name': ['!=', self.name]}, 'name'):
 			frappe.throw(_("Employee ID is linked with another instructor."))
 
-    def load_groups(self):
+
+	def load_groups(self):
 		self.instructor_log = []
-        groups = frappe.get_all("Student Group Instructor", filters = {"instructor":self.name}, fields = ["parent"])
+		groups = frappe.get_all("Student Group Instructor", filters = {"instructor":self.name}, fields = ["parent"])
         for group in groups:
 			yo = frappe.get_doc("Student Group", group.parent)
         	self.append("instructor_log", {
@@ -32,5 +32,4 @@ class Instructor(Document):
 						"academic_term":yo.academic_term,
 						"designation":yo.designation,
 						"student_group":yo.name,
-						"course":yo.course
-            })
+						"course":yo.course})

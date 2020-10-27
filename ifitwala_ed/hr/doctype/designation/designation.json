@@ -1,4 +1,7 @@
 {
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:designation_name",
  "creation": "2020-09-09 20:56:27.340513",
  "doctype": "DocType",
@@ -29,7 +32,8 @@
    "label": "Job Description"
   }
  ],
- "modified": "2020-09-09 20:59:01.619978",
+ "links": [],
+ "modified": "2020-10-27 07:32:46.102931",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Designation",

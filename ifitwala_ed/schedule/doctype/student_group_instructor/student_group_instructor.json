@@ -29,13 +29,14 @@
   {
    "fieldname": "designation",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Designation",
    "options": "Designation"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-10-26 19:34:59.559375",
+ "modified": "2020-10-27 07:31:12.238549",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group Instructor",

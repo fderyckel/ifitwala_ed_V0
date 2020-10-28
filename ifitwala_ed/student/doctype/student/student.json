@@ -71,6 +71,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_14",
    "fieldtype": "Section Break",
    "label": "Home Address"
@@ -298,7 +299,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-30 20:57:25.509089",
+ "modified": "2020-10-28 09:06:08.103462",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

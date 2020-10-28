@@ -9,6 +9,11 @@
    "hidden": 0,
    "label": "Health",
    "links": "[\n    {\n        \"description\": \"Health Info about Students.\",\n        \"label\": \"Student Patient\",\n        \"name\": \"Student Patient\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Visit of students to the health office\",\n        \"label\": \"Health Visit\",\n        \"name\": \"Student Patient Visit\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Attendance",
+   "links": "[\n    {\n        \"description\": \"Taking attendance for a single student.\",\n        \"label\": \"Student Attendance\",\n        \"name\": \"Student Attendance\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Planning Student Leave\",\n        \"label\": \"Student Leave Application\",\n        \"name\": \"Student Leave Application\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "",
@@ -24,7 +29,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-10-23 15:10:31.068933",
+ "modified": "2020-10-28 13:51:22.472603",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

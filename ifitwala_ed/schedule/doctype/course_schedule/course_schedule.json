@@ -76,6 +76,9 @@
   {
    "fieldname": "schedule_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Schedule Date",
    "reqd": 1
   },
@@ -126,7 +129,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-26 12:56:57.753825",
+ "modified": "2020-10-28 12:49:18.784146",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",

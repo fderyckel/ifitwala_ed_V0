@@ -6,3 +6,4 @@ Schedule
 HR
 Assessment
 Asset
+Setup

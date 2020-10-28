@@ -18,7 +18,7 @@
   {
    "hidden": 0,
    "label": "School Settings",
-   "links": "[\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"Education Settings\",\n        \"name\": \"Education Settings\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the log type\",\n        \"label\": \"Student Log Type\",\n        \"name\": \"Student Log Type\",\n        \"type\": \"doctype\"\n    } \n]"
+   "links": "[\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"Education Settings\",\n        \"name\": \"Education Settings\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the log type\",\n        \"label\": \"Student Log Type\",\n        \"name\": \"Student Log Type\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the attendance codes\",\n        \"label\": \"Student Attendance Code\",\n        \"name\": \"Student Attendance Code\",\n        \"type\": \"doctype\"\n    } \n]"
   }
  ],
  "category": "Modules",
@@ -34,7 +34,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2020-10-21 19:42:34.931044",
+ "modified": "2020-10-28 13:48:26.201010",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

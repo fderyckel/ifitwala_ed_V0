@@ -22,6 +22,10 @@ def setup_education():
 		return
 	create_log_type()
 
+	if frappe.db.exists("Student Attendance Code", "Present"):
+		return
+	create_attendance_code()
+
 def disable_desk_access_for_student_role():
 	try:
 		student_role = frappe.get_doc("Role", "Student")
@@ -60,7 +64,8 @@ def create_designations():
 		{"doctype": "Designation", "designation_name": "Principle"},
 		{"doctype": "Designation", "designation_name": "Assistant Principal"},
 		{"doctype": "Designation", "designation_name": "Nurse"},
-		{"doctype": "Designation", "designation_name": "Teacher"}
+		{"doctype": "Designation", "designation_name": "Teacher"},
+		{"doctype": "Designation", "designation_name": "Teacher Assistant"}
 	]
 	insert_record(data)
 
@@ -69,5 +74,16 @@ def create_log_type():
 			{"doctype": "Student Log Type", "log_type": "Behaviour"},
 			{"doctype": "Student Log Type", "log_type": "Academic"},
 			{"doctype": "Student Log Type", "log_type": "Medical"},
+	]
+	insert_record(data)
+
+def create_attendance_code():
+	data = [
+			{"doctype": "Student Attendance Code", "attendance_code": "Present"},
+			{"doctype": "Student Attendance Code", "attendance_code": "Absent"},
+			{"doctype": "Student Attendance Code", "attendance_code": "Tardy"},
+			{"doctype": "Student Attendance Code", "attendance_code": "Excused Absence"},
+			{"doctype": "Student Attendance Code", "attendance_code": "Field Trip"},
+			{"doctype": "Student Attendance Code", "attendance_code": "Excused Tardy"},
 	]
 	insert_record(data)

@@ -22,7 +22,6 @@ class Instructor(Document):
 		if self.employee and frappe.db.get_value("Instructor", {'employee': self.employee, 'name': ['!=', self.name]}, 'name'):
 			frappe.throw(_("Employee ID is linked with another instructor."))
 
-
 	def load_groups(self):
 		self.instructor_log = []
 		groups = frappe.get_all("Student Group Instructor", filters = {"instructor":self.name}, fields = ["parent", "designation"])

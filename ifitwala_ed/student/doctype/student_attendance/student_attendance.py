@@ -14,7 +14,9 @@ class StudentAttendance(Document):
 	def validate(self):
 		self.set_date()
 		self.validate_date()
+		self.set_student_group()
 		self.validate_student()
+		self.validate_duplicate()
 
 	def set_date(self):
 		if self.course_schedule:
@@ -36,3 +38,18 @@ class StudentAttendance(Document):
 		student_group_students = [d.student for d in get_student_group_students(self.student_group)]
 		if student_group and self.student not in student_group_students:
 			frappe.throw(_("Student {0}: {1} does not belong to student group {2}").format(get_link_to_form(self.student), self.student_name, get_link_to_form(self.student_group)))
+
+	def set_student_group(self):
+		if self.course_schedule:
+			self.student_group = frappe.get_value("Course Schedule", self.course_schedule, "student_group")
+
+	def validate_duplicate(self):
+		attendance_record = frappe.db.exists("Student Attendance", {
+					"student": self.student,
+					"course_schedule": self.course_schedule,
+					"docstatus": ("!=", 2),
+					"name": ("!=", self.name)
+		})
+		if attendance_record:
+			record = frappe.get_link_to_form("Student Attendance", attendance_record)
+			frappe.throw(_("Student attendance {0} shows that attendance has already been taken for this student {1}").format(record, frappe.bold(self.student)), title=_("Duplicate entry"))

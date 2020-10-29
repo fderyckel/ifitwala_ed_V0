@@ -8,9 +8,10 @@
  "engine": "InnoDB",
  "field_order": [
   "employee",
-  "instructor_name",
   "email",
-  "mobile_phone",
+  "column_break_3",
+  "instructor_name",
+  "school",
   "log_details",
   "instructor_log",
   "image"
@@ -36,14 +37,6 @@
    "in_standard_filter": 1,
    "label": "Email",
    "read_only": 1
-  },
-  {
-   "fetch_from": "employee.employee_mobile_phone",
-   "fieldname": "mobile_phone",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Mobile Phone"
   },
   {
    "fieldname": "log_details",
@@ -75,11 +68,22 @@
    "options": "Employee",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fetch_from": "employee.school",
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2020-10-26 22:31:30.989335",
+ "modified": "2020-10-29 09:16:32.581346",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

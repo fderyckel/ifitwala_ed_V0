@@ -52,7 +52,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Course Schedule",
-   "options": "Course Schedule"
+   "options": "Course Schedule",
+   "reqd": 1
   },
   {
    "fieldname": "date",
@@ -87,7 +88,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-10-28 13:23:23.610920",
+ "modified": "2020-10-29 10:28:49.756363",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student Attendance",

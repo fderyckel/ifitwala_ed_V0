@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
-from frappe.utils import getdate, get_link_to_form
+from frappe.utils import getdate, get_link_to_form, today
 from frappe.model.document import Document
 from ifitwala_ed.ifitwala_ed.api import get_student_group_students
 

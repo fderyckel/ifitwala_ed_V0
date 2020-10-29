@@ -1,7 +1,7 @@
 {% extends "templates/base.html" %}
 {% block title %}{{ education_settings.cms_title }}{% endblock %}
 {% from "www/cms/macros/card.html" import program_card %}
-{% from "www/cms/macros/card.html" import null_card %} 
+{% from "www/cms/macros/card.html" import null_card %}
 
 {% block head_include %}
 	<meta name="description" content="{{ education_settings.description }}" />
@@ -45,7 +45,7 @@
 		<p class='lead'>{{ education_settings.description }}</p>
 		<p class="mt-4">
 			{% if frappe.session.user == 'Guest' %}
-				<a class="btn btn-primary btn-lg" href="'/login#signup'">{{_('Sign Up')}}</a>
+				<a class="btn btn-primary btn-lg" href="/login#signup">{{_('Sign Up')}}</a>
 			{% endif %}
 		</p>
 	</div>

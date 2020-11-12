@@ -62,7 +62,7 @@ def get_portal_programs():
 		return None
 
 	program_list = [frappe.get_doc("program", program) for program in published_programs]
-	portal_programs = [{"Program":program, 'has_access':allowed_program_access(program.name)} for program in program_list if allowed_program_access(program.name)]
+	portal_programs = [{"program":program, 'has_access':allowed_program_access(program.name)} for program in program_list if allowed_program_access(program.name)]
 
 	return portal_programs
 

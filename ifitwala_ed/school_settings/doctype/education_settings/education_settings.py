@@ -10,7 +10,8 @@ from frappe.model.document import Document
 education_keydict = {
 	# "key in defaults": "key in Global Defaults"
 	"academic_year": "current_academic_year",
-	"academic_term": "current_academic_term"
+	"academic_term": "current_academic_term",
+	"validate_course": "validate_course"
 }
 
 class EducationSettings(Document):
@@ -24,4 +25,6 @@ class EducationSettings(Document):
 
 	def get_defaults(self):
 		return frappe.defaults.get_defaults()
-	
+
+def update_website_context(context):
+	context["cms_enabled"] = frappe.get_doc("Education Settings").enable_cms

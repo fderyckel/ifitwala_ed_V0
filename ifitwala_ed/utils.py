@@ -66,7 +66,6 @@ def get_portal_programs():
 
 	return portal_programs
 
-
 # deciding if the current user is a student who has access to program or if it is a super-user
 def allowed_program_access(program, student=None):
 	if has_super_access():
@@ -78,11 +77,13 @@ def allowed_program_access(program, student=None):
 	else:
 		return False
 
+
 # will display all programs and courses for users with certain roles.
 def has_super_access():
 	current_user = frappe.get_doc("User", frappe.session.user)
 	roles = set([role.role for role in current_user.roles])
 	return bool(roles & {"Administrator", "Instructor", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker", "School IT"})
+
 
 # to get the name of the student who is currently logged-in
 def get_current_student():

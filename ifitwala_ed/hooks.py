@@ -34,6 +34,8 @@ doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 # Home Pages
 # ----------
 
+update_website_context  = ["ifitwala_ed.school_settings.doctype.education_settings.education_settings.update_website_context"]
+
 # application home page (will override Website Settings)
 # home_page = "login"
 

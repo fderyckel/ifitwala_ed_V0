@@ -25,5 +25,5 @@ def get_context(context):
 def get_program(program_name):
     try:
         return frappe.get_doc("Program", program_name)
-    except frappe DoesNotExistError:
+    except frappe.DoesNotExistError:
         frappe.throw(_("Program {0} does not exist").format(program_name))

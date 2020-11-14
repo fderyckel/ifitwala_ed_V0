@@ -68,15 +68,14 @@ def get_portal_programs():
 
 # deciding if the current user is a student who has access to program or if it is a super-user
 def allowed_program_access(program, student=None):
-	return True
-	#if has_super_access():
-	#	return True
-	#if not student:
-	#	student = get_current_student()
-	#if student and get_enrollment('program', program, student.name):
-	#	return True
-	#else:
-		#return False
+	if has_super_access():
+		return True
+	if not student:
+		student = get_current_student()
+	if student and get_enrollment('program', program, student.name):
+		return True
+	else:
+		return False
 
 
 # will display all programs and courses for users with certain roles.

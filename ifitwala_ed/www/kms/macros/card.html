@@ -13,12 +13,11 @@
 			<h5 class='card-title'>{{ program.program_name }}</h5>
 			<div class="text-muted">{{ program.description[:110] + '...' if program.description else '' }}</div>
 		</div>
-		{% if has_access or program.intro_video%}
+
 		<div class='card-footer'>
-			{% if has_access %} <span class="indicator green">{{_('Enrolled')}}</span>
-			{% endif %}
+			<span class="indicator green">{{_('Enrolled')}}</span>
 		</div>
-		{% endif %}
+
 	</div>
 	</a>
 </div>

@@ -11,11 +11,8 @@
 		<p class="mt-4">
 			{% if frappe.session.user == 'Guest' %}
 			<a id="signup" class="btn btn-primary btn-lg" href="/login#signup">{{_('Sign Up')}}</a>
-			{% elif not has_access %}
-			<button id="enroll" class="btn btn-primary btn-lg" onclick="enroll()" disabled>{{_('Enroll')}}</button>
 			{% endif %}
 		</p>
 	</div>
-
 
 {% endmacro %}

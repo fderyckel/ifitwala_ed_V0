@@ -6,13 +6,14 @@ from __future__ import unicode_literals
 import frappe
 import json
 from frappe import _
-from frappe.utils import getdate, today, formatdate, cint
+from frappe.utils import getdate, today, formatdate, cint, date_diff
 from frappe.model.document import Document
 
 class HolidayList(Document):
 	def validate(self):
 		self.validate_days()
 		self.total_holidays = len(self.holidays)
+		self.total_working_days = date_diff(to_date, from_date) - self.total_holidays
 
 	#logic for the button (with button id name)
 	def get_weekly_off_dates(self):

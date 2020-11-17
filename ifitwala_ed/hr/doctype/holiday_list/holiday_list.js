@@ -5,7 +5,8 @@ frappe.ui.form.on('Holiday List', {
 	refresh: function(frm) {
     if(frm.doc.holidays) {
       frm.set_value('total_holidays', frm.doc.holidays.length);
-    }
+			var time_diff = frappe.datetime.get_day_diff(frm.doc.to_date, frm.doc.from_date);
+			frm.set_value('total_working_days', time_diff - frm.doc.holidays.length)
 	},
 
   from_date: function(frm) {

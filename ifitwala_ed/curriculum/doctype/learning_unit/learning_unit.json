@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "autoname": "LU-.YYYY.-.####",
+ "creation": "2020-11-14 09:50:40.751561",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "course",
+  "start_date",
+  "column_break_3",
+  "program",
+  "end_date",
+  "section_break_6",
+  "unit_name",
+  "unit_summary",
+  "essential_questions",
+  "learning_outcomes"
+ ],
+ "fields": [
+  {
+   "fieldname": "unit_name",
+   "fieldtype": "Data",
+   "label": "Unit  Name"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Data",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Data",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "fieldname": "essential_questions",
+   "fieldtype": "Table",
+   "label": "Essential Questions",
+   "options": "Essential Question"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "unit_summary",
+   "fieldtype": "Text Editor",
+   "label": "Unit Summary"
+  },
+  {
+   "fieldname": "learning_outcomes",
+   "fieldtype": "Text Editor",
+   "label": "Learning Outcomes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-11-15 20:06:35.054252",
+ "modified_by": "Administrator",
+ "module": "Curriculum",
+ "name": "Learning Unit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "unit_name",
+ "track_changes": 1
+}

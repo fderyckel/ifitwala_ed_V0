@@ -4,6 +4,11 @@
    "hidden": 0,
    "label": "HR Master",
    "links": "[\n    {\n        \"description\": \"Employee Master.\",\n        \"label\": \"Employee\",\n        \"name\": \"Employee\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Employee Designation\",\n        \"label\": \"Designation\",\n        \"name\": \"Designation\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Calendar",
+   "links": "[\n    {\n        \"description\": \"Holiday Lost\",\n        \"label\": \"Holiday List\",\n        \"name\": \"Holiday List\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Employee Designation\",\n        \"label\": \"Designation\",\n        \"name\": \"Designation\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "Employee Master",
@@ -19,7 +24,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2020-10-20 16:50:20.442821",
+ "modified": "2020-11-16 14:42:18.596217",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
@@ -29,6 +34,7 @@
  "shortcuts": [
   {
    "color": "Grey",
+   "doc_view": "List",
    "label": "Employee List",
    "link_to": "Employee",
    "type": "DocType"

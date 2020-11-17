@@ -10,8 +10,9 @@
  "field_order": [
   "holiday_list_name",
   "from_date",
-  "to_date",
+  "school",
   "column_break_4",
+  "to_date",
   "total_holidays",
   "add_weekly_holidays_section",
   "weekly_off",
@@ -99,11 +100,19 @@
    "fieldtype": "Button",
    "label": "Add to holidays",
    "options": "get_weekly_off_dates"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School",
+   "options": "School"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-17 09:19:23.147961",
+ "modified": "2020-11-17 15:50:27.174740",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",
@@ -152,6 +161,24 @@
    "role": "HR User",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
   }
  ],
  "show_name_in_global_search": 1,

@@ -53,3 +53,7 @@ class StudentAttendance(Document):
 		if attendance_record:
 			record = frappe.get_link_to_form("Student Attendance", attendance_record)
 			frappe.throw(_("Student attendance {0} shows that attendance has already been taken for this student {1}").format(record, frappe.bold(self.student)), title=_("Duplicate entry"))
+
+
+def get_holiday_list(school=None):
+	return

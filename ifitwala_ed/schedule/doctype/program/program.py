@@ -10,7 +10,7 @@ class Program(Document):
 	def validate(self):
 		self.validate_duplicate_course()
 
-	validate_duplicate_course(self):
+	def validate_duplicate_course(self):
 		found = []
 		for course in self.courses:
 			if course.course in found:

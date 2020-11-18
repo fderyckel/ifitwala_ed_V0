@@ -27,6 +27,17 @@ class HolidayList(Document):
 			ch.weekly_off = 1
 			ch.idx = last_idx + i + 1
 
+	def get_long_break_dates(self):
+		self.validate_break_values()
+		date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)
+		last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
+			for i, d in enumerate(date_list):
+				ch = self.append("holidays", {})
+				ch.description = self.break_description if self.break_description else "Break"
+				ch.holiday_date = d
+				#ch.weekly_off = 1
+				ch.idx = last_idx + i + 1
+
 	# logic for the button "clear_table"
 	def clear_table(self):
 		self.set("holidays", [])
@@ -61,6 +72,33 @@ class HolidayList(Document):
 			if reference_date not in existing_date_list:
 				date_list.append(reference_date)
 			reference_date += timedelta(days = 7)
+
+		return  date_list
+
+	def validate_break_values(self):
+		if not self.start_of_break and not self.end_of_break:
+			frappe.throw(_("Please select first the start and end of your break."))
+		if getdate(self.start_of_break) > getdate(self.end_of_break):
+			frappe.throw(_("The start of the break cannot be after its end. Adjust the dates."))
+		if getdate(self.start_of_break) < getdate(self.from_date) or getdate(self.start_of_break) > getdate(self.to_date) or getdate(self.end_of_break) < getdate(self.from_date) or getdate(self.end_of_break) > getdate(self.to_date):
+			frappe.throw(_("The start and end of the break have to be within the start and end of the calendar."))
+
+	def get_long_break_dates_list(self, start_date, end_date):
+		start_date, end_date = getdate(start_date), getdate(end_date)
+
+		from dateutil import relativedelta
+		from datetime import timedelta
+		import calendar
+
+		date_list = []
+		existing_date_list = []
+		reference_date = start_date
+		existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
+
+		while reference_date <= end_date:
+			if reference_date not in existing_date_list:
+				date_list.append(reference_date)
+			reference_date += timedelta(days = 1)
 
 		return  date_list
 

@@ -11,23 +11,23 @@
   "holiday_list_name",
   "from_date",
   "school",
+  "total_working_day",
   "column_break_4",
   "to_date",
+  "color",
   "total_holidays",
   "add_weekly_holidays_section",
   "weekly_off",
   "get_weekly_off_dates",
   "section_break_9",
   "holidays",
-  "clear_table",
-  "section_break_12",
-  "color"
+  "clear_table"
  ],
  "fields": [
   {
    "fieldname": "holiday_list_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Holiday List Name",
    "reqd": 1,
    "unique": 1
@@ -81,10 +81,6 @@
    "options": "Holiday"
   },
   {
-   "fieldname": "section_break_12",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "color",
    "fieldtype": "Color",
    "label": "Color"
@@ -104,15 +100,23 @@
   {
    "fieldname": "school",
    "fieldtype": "Link",
+   "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "School",
    "options": "School"
+  },
+  {
+   "fieldname": "total_working_day",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Working Day",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-17 15:50:27.174740",
+ "modified": "2020-11-17 16:04:03.123757",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",

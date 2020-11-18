@@ -3,8 +3,17 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-# import frappe
+import frappe
 from frappe.model.document import Document
 
 class Program(Document):
-	pass
+	def validate(self):
+		self.validate_duplicate_course():
+
+	validate_duplicate_course(self):
+		found = []
+		for course in self.courses:
+			if course.course in found:
+				frappe.throw(_("Course {0} is entered twice. Please remove one of them.").format(course.course))
+			else:
+				found.append(course.course)

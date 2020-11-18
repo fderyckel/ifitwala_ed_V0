@@ -6,10 +6,10 @@ frappe.ui.form.on('Holiday List', {
     if(frm.doc.holidays) {
       frm.set_value('total_holidays', frm.doc.holidays.length);
 		},
-		if(frm.doc.total_holidays){
-			var diff = frappe.datetime.get_day_diff(frappe.datetime.obj_to_str(frm.doc.to_date), frappe.datetime.obj_to_str(frm.doc.from_date));
-			frm.set_value('total_working_day', (diff - frm.doc.holidays.length));
-		}
+		//if(frm.doc.total_holidays){
+			//var diff = frappe.datetime.get_day_diff(frappe.datetime.obj_to_str(frm.doc.to_date), frappe.datetime.obj_to_str(frm.doc.from_date));
+			//frm.set_value('total_working_day', (diff - frm.doc.holidays.length));
+		//}
 	},
 
   from_date: function(frm) {

@@ -8,7 +8,7 @@ from frappe.model.document import Document
 
 class Program(Document):
 	def validate(self):
-		self.validate_duplicate_course():
+		self.validate_duplicate_course()
 
 	validate_duplicate_course(self):
 		found = []

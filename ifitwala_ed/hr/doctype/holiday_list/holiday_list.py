@@ -31,12 +31,12 @@ class HolidayList(Document):
 		self.validate_break_values()
 		date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)
 		last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
-			for i, d in enumerate(date_list):
-				ch = self.append("holidays", {})
-				ch.description = self.break_description if self.break_description else "Break"
-				ch.holiday_date = d
-				#ch.weekly_off = 1
-				ch.idx = last_idx + i + 1
+		for i, d in enumerate(date_list):
+			ch = self.append("holidays", {})
+			ch.description = self.break_description if self.break_description else "Break"
+			ch.holiday_date = d
+			#ch.weekly_off = 1
+			ch.idx = last_idx + i + 1
 
 	# logic for the button "clear_table"
 	def clear_table(self):

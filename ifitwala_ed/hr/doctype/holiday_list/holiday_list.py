@@ -73,7 +73,7 @@ class HolidayList(Document):
 				date_list.append(reference_date)
 			reference_date += timedelta(days = 7)
 
-		return  date_list
+		return date_list
 
 	def validate_break_values(self):
 		if not self.start_of_break and not self.end_of_break:
@@ -100,7 +100,7 @@ class HolidayList(Document):
 				date_list.append(reference_date)
 			reference_date += timedelta(days = 1)
 
-		return  date_list
+		return date_list
 
 
 @frappe.whitelist()

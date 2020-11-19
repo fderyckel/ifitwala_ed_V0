@@ -33,6 +33,7 @@
   {
    "fieldname": "holiday_list_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Holiday List Name",
    "reqd": 1,
@@ -152,7 +153,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-18 19:29:56.668008",
+ "modified": "2020-11-18 20:04:44.803101",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday List",

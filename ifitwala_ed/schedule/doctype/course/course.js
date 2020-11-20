@@ -20,22 +20,6 @@ frappe.ui.form.on('Course', {
 
 	},
 
-	// to filter out assessment criteria that have already been picked out in the course.
-	frappe.ui.form.on('Course Assessment Criteria', {
-		courses_add: function(frm){
-			frm.fields_dict['assessment_criteria'].grid.get_field('assessment_criteria').get_query = function(doc){
-				var criteria_list = [];
-				if(!doc.__islocal) criteria_list.push(doc.name);
-				$.each(doc.assessment_criteria, function(idx, val){
-					if (val.assessment_criteria) course_list.push(val.assessment_criteria);
-				});
-				return { filters: [['Assessment Criteria', 'name', 'not in', criteria_list]] };
-			};
-		}
-	});
-
-
-
 	add_course_to_programs: function(frm) {
 		get_programs_without_course(frm.doc.name).then(r => {
 			if (r.message.length) {
@@ -77,6 +61,20 @@ frappe.ui.form.on('Course', {
 		});
 	}
 
+});
+
+// to filter out assessment criteria that have already been picked out in the course.
+frappe.ui.form.on('Course Assessment Criteria', {
+	courses_add: function(frm){
+		frm.fields_dict['assessment_criteria'].grid.get_field('assessment_criteria').get_query = function(doc){
+			var criteria_list = [];
+			if(!doc.__islocal) criteria_list.push(doc.name);
+			$.each(doc.assessment_criteria, function(idx, val){
+				if (val.assessment_criteria) course_list.push(val.assessment_criteria);
+			});
+			return { filters: [['Assessment Criteria', 'name', 'not in', criteria_list]] };
+		};
+	}
 });
 
 let get_programs_without_course = function(course) {

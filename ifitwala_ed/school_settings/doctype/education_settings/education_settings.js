@@ -4,13 +4,13 @@
 frappe.ui.form.on('Education Settings', {
 
 	onload:  function(frm) {
-		frm.set_query('academic_term', function() {
+		frm.set_query('current_academic_term', function() {
 			return {
 				'filters':{
 					'academic_year': (frm.doc.academic_year)
 				}
 			};
-		}); 
+		});
 
 	},
 

@@ -33,4 +33,4 @@ class AcademicYear(Document):
     def validate_duplicate(self):
         year = frappe.db.sql("""select name from `tabAcademic Year` where school=%s and docstatus<2 and name!=%s""", (self.school, self.name))
         if year:
-            frappe.throw(_("An academic year with this name {0} and this school already exist.").format(get_link_to_form("Academic Year, self.name)), title=_("Duplicate Entry"))
+            frappe.throw(_("An academic year with this name {0} and this school already exist.").format(get_link_to_form("Academic Year", self.name)), title=_("Duplicate Entry"))

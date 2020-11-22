@@ -1,6 +1,8 @@
 {
+ "actions": [],
  "allow_import": 1,
- "autoname": "field:academic_year_name",
+ "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2020-08-16 12:58:26.087693",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -8,7 +10,10 @@
  "field_order": [
   "academic_year_name",
   "year_start_date",
-  "year_end_date"
+  "year_end_date",
+  "section_break_4",
+  "school",
+  "title"
  ],
  "fields": [
   {
@@ -16,21 +21,43 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Academic Year Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "year_start_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Year Start Date"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "year_end_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Year End Date"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "unique": 1
   }
  ],
- "modified": "2020-08-27 19:57:41.444623",
+ "links": [],
+ "modified": "2020-11-21 10:18:44.214295",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",
@@ -80,7 +107,7 @@
   }
  ],
  "quick_entry": 1,
- "sort_field": "modified",
- "sort_order": "DESC",
+ "sort_field": "year_start_date",
+ "sort_order": "ASC",
  "track_changes": 1
 }

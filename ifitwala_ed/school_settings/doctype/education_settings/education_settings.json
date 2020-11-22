@@ -7,7 +7,9 @@
  "field_order": [
   "current_academic_year",
   "current_academic_term",
+  "column_break_3",
   "attendance_freeze_date",
+  "default_school",
   "course_management_section",
   "enable_cms",
   "cms_title",
@@ -52,12 +54,22 @@
    "fieldname": "description",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_school",
+   "fieldtype": "Link",
+   "label": "Default School",
+   "options": "School"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-09-25 08:30:57.518030",
+ "modified": "2020-11-21 10:21:43.181210",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Education Settings",

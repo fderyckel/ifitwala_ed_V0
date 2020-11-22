@@ -54,7 +54,8 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_5",
@@ -116,7 +117,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-30 20:38:09.068039",
+ "modified": "2020-11-21 08:46:38.578344",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student Log",

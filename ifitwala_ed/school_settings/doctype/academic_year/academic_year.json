@@ -5,6 +5,7 @@
  "autoname": "field:title",
  "creation": "2020-08-16 12:58:26.087693",
  "doctype": "DocType",
+ "documentation": "http://ifitwala.com/docs/user/manual/en/education-settings/academic-year",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -57,7 +58,7 @@
   }
  ],
  "links": [],
- "modified": "2020-11-21 10:18:44.214295",
+ "modified": "2020-11-22 13:00:24.351954",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",
@@ -104,10 +105,29 @@
    "report": 1,
    "role": "Schedule Maker",
    "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
   }
  ],
  "quick_entry": 1,
  "sort_field": "year_start_date",
  "sort_order": "ASC",
+ "title_field": "title",
  "track_changes": 1
 }

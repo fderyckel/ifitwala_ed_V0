@@ -31,13 +31,17 @@
    "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "term_start_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Term Start Date"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "term_end_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Term End Date"
   },
   {
@@ -49,7 +53,7 @@
   }
  ],
  "links": [],
- "modified": "2020-11-22 12:55:36.614158",
+ "modified": "2020-11-23 19:28:37.611326",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

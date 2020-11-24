@@ -21,6 +21,7 @@
    "fieldname": "academic_year_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Academic Year Name",
    "reqd": 1
   },
@@ -58,7 +59,7 @@
   }
  ],
  "links": [],
- "modified": "2020-11-22 13:00:24.351954",
+ "modified": "2020-11-23 19:06:26.574405",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

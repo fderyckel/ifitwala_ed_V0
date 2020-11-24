@@ -7,9 +7,10 @@ frappe.views.calendar['Holiday List'] = {
     end: 'holiday_date',
     id:  'name',
     title: 'description',
-    allDay: 'all_day'
+    allDay: 'allDay'
   },
-  order_by: 'from_date',
+  order_by: 'from_date', 
+  gantt: true,
   get_events_method: 'ifitwala_ed.hr.doctype.holiday_list.holiday_list.get_events',
   filters: [
 		{

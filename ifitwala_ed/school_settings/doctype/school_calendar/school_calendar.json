@@ -1,0 +1,189 @@
+{
+ "actions": [],
+ "autoname": "field:title",
+ "creation": "2020-11-25 13:20:35.780507",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "calendar_name",
+  "academic_year",
+  "total_number_day",
+  "section_break_4",
+  "school",
+  "total_holiday_days",
+  "total_instructional_days",
+  "terms_section",
+  "terms",
+  "add_school_breaks_section",
+  "start_of_break",
+  "break_description",
+  "get_long_break_dates",
+  "column_break_14",
+  "end_of_break",
+  "breaks_color",
+  "add_weekends_section",
+  "weekly_off",
+  "get_weekly_off_dates",
+  "column_break_20",
+  "weekend_color",
+  "section_break_22",
+  "holidays",
+  "clear_table",
+  "title"
+ ],
+ "fields": [
+  {
+   "fieldname": "calendar_name",
+   "fieldtype": "Data",
+   "label": "Calendar Name"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Data",
+   "label": "Academic Year"
+  },
+  {
+   "fieldname": "total_number_day",
+   "fieldtype": "Int",
+   "label": "Total Number Day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Data",
+   "label": "School"
+  },
+  {
+   "fieldname": "total_holiday_days",
+   "fieldtype": "Int",
+   "label": "Total Holiday Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_instructional_days",
+   "fieldtype": "Data",
+   "label": "Total Instructional Days"
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Academic Terms"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Table",
+   "label": "Terms",
+   "options": "School Calendar Term"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "unique": 1
+  },
+  {
+   "fieldname": "add_school_breaks_section",
+   "fieldtype": "Section Break",
+   "label": "Add School Breaks"
+  },
+  {
+   "fieldname": "start_of_break",
+   "fieldtype": "Date",
+   "label": "Start of Break"
+  },
+  {
+   "fieldname": "end_of_break",
+   "fieldtype": "Date",
+   "label": "End of Break"
+  },
+  {
+   "fieldname": "break_description",
+   "fieldtype": "Data",
+   "label": "Break Description"
+  },
+  {
+   "fieldname": "get_long_break_dates",
+   "fieldtype": "Button",
+   "label": "Add to Holidays"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_weekends_section",
+   "fieldtype": "Section Break",
+   "label": "Add Weekends"
+  },
+  {
+   "fieldname": "clear_table",
+   "fieldtype": "Button",
+   "label": "Clear Table"
+  },
+  {
+   "fieldname": "holidays",
+   "fieldtype": "Table",
+   "label": "holidays",
+   "options": "Holiday"
+  },
+  {
+   "fieldname": "breaks_color",
+   "fieldtype": "Data",
+   "label": "Breaks Color"
+  },
+  {
+   "fieldname": "weekly_off",
+   "fieldtype": "Data",
+   "label": "Weekly Off"
+  },
+  {
+   "fieldname": "get_weekly_off_dates",
+   "fieldtype": "Button",
+   "label": "Add to Holidays"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weekend_color",
+   "fieldtype": "Data",
+   "label": "Weekend Color"
+  },
+  {
+   "fieldname": "section_break_22",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-11-25 14:23:23.646475",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "School Calendar",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

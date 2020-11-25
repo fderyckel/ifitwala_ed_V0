@@ -28,10 +28,6 @@ frappe.ui.form.on('School Calendar', {
         }
       }
     })
-  };
+  }
 
-
-	// refresh: function(frm) {
-
-	// }
 });

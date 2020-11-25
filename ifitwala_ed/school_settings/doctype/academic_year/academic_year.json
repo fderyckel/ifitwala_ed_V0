@@ -47,6 +47,9 @@
    "allow_in_quick_entry": 1,
    "fieldname": "school",
    "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "School",
    "options": "School"
   },
@@ -59,7 +62,7 @@
   }
  ],
  "links": [],
- "modified": "2020-11-23 19:06:26.574405",
+ "modified": "2020-11-25 14:51:45.980869",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",
@@ -128,7 +131,7 @@
  ],
  "quick_entry": 1,
  "sort_field": "year_start_date",
- "sort_order": "ASC",
+ "sort_order": "DESC",
  "title_field": "title",
  "track_changes": 1
 }

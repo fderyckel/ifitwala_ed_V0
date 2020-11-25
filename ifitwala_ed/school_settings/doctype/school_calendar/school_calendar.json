@@ -40,8 +40,9 @@
   },
   {
    "fieldname": "academic_year",
-   "fieldtype": "Data",
-   "label": "Academic Year"
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year"
   },
   {
    "fieldname": "total_number_day",
@@ -55,8 +56,9 @@
   },
   {
    "fieldname": "school",
-   "fieldtype": "Data",
-   "label": "School"
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
   },
   {
    "fieldname": "total_holiday_days",
@@ -78,7 +80,8 @@
    "fieldname": "terms",
    "fieldtype": "Table",
    "label": "Terms",
-   "options": "School Calendar Term"
+   "options": "School Calendar Term",
+   "read_only": 1
   },
   {
    "fieldname": "title",
@@ -163,7 +166,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-25 14:23:23.646475",
+ "modified": "2020-11-25 20:11:46.320771",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

@@ -16,7 +16,7 @@ class SchoolCalendar(Document):
 
 	def load_terms(self):
 		self.terms = []
-		terms = frappe.get_all("Academic Term", filters = {"academic_year": self.academic_year},
+		terms = frappe.get_all("Academic Term", filters = {"academic_year": '2020-21 (ISS)'},
 					fields=["name as term", "term_start_date as start", "term_end_date as end"])
 		for term in terms:
 			self.append("terms", {

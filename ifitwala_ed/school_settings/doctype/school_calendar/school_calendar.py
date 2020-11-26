@@ -21,7 +21,7 @@ class SchoolCalendar(Document):
 						filters = {'academic_year':self.academic_year})
 			for term in terms:
 				self.append("terms", {
-					"term": term.term, "start": term.start, "end": term.end 
+					"term": term.term, "start": term.start, "end": term.end
 					})
 
 

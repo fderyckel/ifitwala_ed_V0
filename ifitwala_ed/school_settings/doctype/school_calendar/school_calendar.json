@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "field:title",
+ "autoname": "field:calendar_name",
  "creation": "2020-11-25 13:20:35.780507",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -36,7 +36,10 @@
   {
    "fieldname": "calendar_name",
    "fieldtype": "Data",
-   "label": "Calendar Name"
+   "in_list_view": 1,
+   "label": "Calendar Name",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "academic_year",
@@ -166,7 +169,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-25 20:11:46.320771",
+ "modified": "2020-11-26 07:20:23.327092",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

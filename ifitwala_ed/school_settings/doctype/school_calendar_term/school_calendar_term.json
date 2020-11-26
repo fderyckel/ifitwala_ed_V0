@@ -6,27 +6,43 @@
  "engine": "InnoDB",
  "field_order": [
   "term",
-  "length_of_term"
+  "start",
+  "end",
+  "length"
  ],
  "fields": [
-  {
-   "fieldname": "length_of_term",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Length of Term"
-  },
   {
    "fieldname": "term",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Term",
-   "options": "Academic Term"
+   "options": "Academic Term",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start"
+  },
+  {
+   "fieldname": "end",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Length",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-11-25 13:54:33.785363",
+ "modified": "2020-11-26 07:23:48.928657",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar Term",

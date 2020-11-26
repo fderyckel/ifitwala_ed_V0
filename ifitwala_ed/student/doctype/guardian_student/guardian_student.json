@@ -7,10 +7,12 @@
  "field_order": [
   "student",
   "column_break_2",
-  "student_name"
+  "student_name",
+  "student_gender"
  ],
  "fields": [
   {
+   "columns": 2,
    "fieldname": "student",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -19,6 +21,7 @@
    "read_only": 1
   },
   {
+   "columns": 5,
    "fieldname": "student_name",
    "fieldtype": "Data",
    "in_global_search": 1,
@@ -28,11 +31,20 @@
   {
    "fieldname": "column_break_2",
    "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fetch_from": "student.student_gender",
+   "fieldname": "student_gender",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Gender",
+   "read_only": 1
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-10-26 19:55:17.957704",
+ "modified": "2020-11-26 07:54:59.025826",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian Student",

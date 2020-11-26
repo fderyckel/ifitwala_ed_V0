@@ -10,6 +10,7 @@
  "field_order": [
   "academic_year",
   "term_name",
+  "column_break_3",
   "term_start_date",
   "term_end_date",
   "title"
@@ -50,10 +51,14 @@
    "hidden": 1,
    "label": "Title",
    "unique": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   }
  ],
  "links": [],
- "modified": "2020-11-23 19:28:37.611326",
+ "modified": "2020-11-25 21:01:03.729671",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

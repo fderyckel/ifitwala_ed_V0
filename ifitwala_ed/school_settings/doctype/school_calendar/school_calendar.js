@@ -11,23 +11,6 @@ frappe.ui.form.on('School Calendar', {
         }
       }
     });
-  },
-
-  academic_year: function(frm) {
-    frm.events.get_terms(frm);
-  },
-
-  get_terms: function(frm) {
-    frm.set_value('terms', []);
-    frappe.call({
-      method: 'get_terms',
-      doc: frm.doc,
-      callback: function(r) {
-        if(r.message) {
-          frm.set_value('terms', r.message);
-        }
-      }
-    })
   }
 
 });

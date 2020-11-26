@@ -8,9 +8,22 @@ from frappe.model.document import Document
 
 class SchoolCalendar(Document):
 
-	def validate(self):
-		if not self.terms:
-			self.extend("terms", self.get_terms())
+	    def __setup__(self):
+			self.onload()
 
-	def get_terms(self):
-		return frappe.db.sql("""select name from `tabAcademic Term` where academic_year = %s""", (self.academic_year), as_dict=1)
+		def onload(self):
+			self.load_terms()
+
+		def load_terms(self):
+			self.terms = []
+			terms = frappe.get_all("Academic Term",
+						fields=["name as term", "term_start_date as start", "term_end_date as end"],
+						filters = {'academic_year':self.academic_year})
+			for term in terms:
+				self.append("terms", {
+					"term": term.term, "start": term.start, "end": term.end 
+					})
+
+
+		def validate(self):
+			self.terms = []

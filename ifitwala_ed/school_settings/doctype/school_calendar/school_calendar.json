@@ -140,7 +140,7 @@
   },
   {
    "fieldname": "breaks_color",
-   "fieldtype": "Data",
+   "fieldtype": "Color",
    "label": "Breaks Color"
   },
   {
@@ -159,7 +159,7 @@
   },
   {
    "fieldname": "weekend_color",
-   "fieldtype": "Data",
+   "fieldtype": "Color",
    "label": "Weekend Color"
   },
   {
@@ -169,7 +169,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-26 07:20:23.327092",
+ "modified": "2020-11-26 10:06:37.205098",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

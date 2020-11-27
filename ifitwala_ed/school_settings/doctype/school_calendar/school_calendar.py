@@ -12,18 +12,18 @@ class SchoolCalendar(Document):
 		self.onload()
 
 	def onload(self):
+		ay = frappe.get_value("Academic Year",self.academic_year) or ""
+		self.set_onload("academic_year", ay)
 		self.load_terms()
 
 	def load_terms(self):
 		self.terms = []
-		ay = frappe.get_value("Academic Year",self.academic_year)
-		terms = frappe.get_list("Academic Term", filters = {"academic_year": ay},
-					fields=["name as term", "term_start_date as start", "term_end_date as end"])
+		terms = frappe.get_list("Academic Term", filters = {"academic_year": ay}, fields=["name as term", "term_start_date as start", "term_end_date as end"]) 
 		for term in terms:
 			self.append("terms", {
 				"term": term.term,
 				"start": term.start,
-				"end": term.end, 
+				"end": term.end,
 				"length": 12
 				})
 

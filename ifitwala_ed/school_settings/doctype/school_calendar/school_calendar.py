@@ -26,7 +26,7 @@ class SchoolCalendar(Document):
 				"start": term.start,
 				"end": term.end,
 				"length": 12
-				})
+				}) 
 
 
 	def validate(self):

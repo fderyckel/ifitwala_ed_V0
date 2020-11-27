@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
-from frappe.utils import geT_link_to_form, getdate, formatdate, date_diff, cint
+from frappe.utils import get_link_to_form, getdate, formatdate, date_diff, cint
 from frappe.model.document import Document
 
 class SchoolCalendar(Document):

@@ -116,7 +116,8 @@
   {
    "fieldname": "get_long_break_dates",
    "fieldtype": "Button",
-   "label": "Add to Holidays"
+   "label": "Add to Holidays",
+   "options": "get_long_break_dates"
   },
   {
    "fieldname": "column_break_14",
@@ -130,7 +131,8 @@
   {
    "fieldname": "clear_table",
    "fieldtype": "Button",
-   "label": "Clear Table"
+   "label": "Clear Table",
+   "options": "clear_table"
   },
   {
    "fieldname": "holidays",
@@ -152,7 +154,8 @@
   {
    "fieldname": "get_weekly_off_dates",
    "fieldtype": "Button",
-   "label": "Add to Holidays"
+   "label": "Add to Holidays",
+   "options": "get_weekly_off_dates"
   },
   {
    "fieldname": "column_break_20",
@@ -170,7 +173,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-27 14:31:32.064939",
+ "modified": "2020-11-27 15:05:31.422276",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

@@ -14,8 +14,6 @@ class SchoolCalendar(Document):
 		self.onload()
 
 	def onload(self):
-		ay = frappe.get_value("Academic Year",self.academic_year) or ""
-		self.set_onload("academic_year", ay)
 		self.load_terms()
 
 	def load_terms(self):
@@ -37,7 +35,7 @@ class SchoolCalendar(Document):
 		self.total_holiday_days = len(self.holidays)
 		self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
 
-	def get_long_dates_break(self):
+	def get_long_break_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_break_dates()
 		date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)

@@ -18,8 +18,9 @@ class SchoolCalendar(Document):
 
 	def load_terms(self):
 		self.terms = []
-		ay = frappe.get_value("Academic Year",'2020-21 (ISS)') or ""
-		terms = frappe.get_list("Academic Term", filters = {"academic_year":ay}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
+		ay = frappe.get_value("Academic Year", self.academic_year) or ""
+		terms = frappe.get_list("Academic Term", filters = {"academic_year":ay},
+				fields=["name as term", "term_start_date as start", "term_end_date as end"])
 		for term in terms:
 			self.append("terms", {
 				"term": term.term,
@@ -65,6 +66,7 @@ class SchoolCalendar(Document):
 		self.set("holidays", [])
 
 	def validate_dates(self):
+		ay = frappe.get_doc("Academic Year", self.academic_year)
 		for day in self.get("holidays"):
 			if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
 				frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))

@@ -72,6 +72,7 @@ class SchoolCalendar(Document):
 				frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
 
 	def validate_break_dates(self):
+		ay = frappe.get_doc("Academic Year", self.academic_year)
 		if not self.start_of_break and not self.end_of_break:
 			frappe.throw(_("Please select first the start and end of your break."))
 		if getdate(self.start_of_break) > getdate(self.end_of_break):

@@ -88,7 +88,7 @@
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2020-11-24 20:13:29.032069",
+ "modified": "2020-11-28 08:47:03.135938",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",
@@ -125,7 +125,25 @@
    "print": 1,
    "read": 1,
    "report": 1,
+   "role": "Schedule Maker",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
    "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
    "share": 1
   },
   {
@@ -143,16 +161,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Schedule Maker",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Employee",
+   "role": "Curriculum Coordinator",
    "share": 1
   }
  ],

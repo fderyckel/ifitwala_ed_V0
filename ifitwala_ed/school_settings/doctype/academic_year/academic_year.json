@@ -62,7 +62,7 @@
   }
  ],
  "links": [],
- "modified": "2020-11-25 14:51:45.980869",
+ "modified": "2020-11-28 08:44:58.140978",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",
@@ -116,7 +116,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Student",
+   "role": "Instructor",
    "share": 1
   },
   {
@@ -125,7 +125,16 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Instructor",
+   "role": "Curriculum Coordinator",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
    "share": 1
   }
  ],

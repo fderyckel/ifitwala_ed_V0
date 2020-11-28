@@ -12,7 +12,7 @@
   "section_break_4",
   "school",
   "total_holiday_days",
-  "total_instructional_days",
+  "total_instruction_days",
   "terms_section",
   "terms",
   "add_school_breaks_section",
@@ -29,14 +29,14 @@
   "weekend_color",
   "section_break_22",
   "holidays",
-  "clear_table",
-  "title"
+  "clear_table"
  ],
  "fields": [
   {
    "fieldname": "calendar_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Calendar Name",
    "reqd": 1,
    "unique": 1
@@ -44,6 +44,9 @@
   {
    "fieldname": "academic_year",
    "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Academic Year",
    "options": "Academic Year"
   },
@@ -60,6 +63,8 @@
   {
    "fieldname": "school",
    "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
    "label": "School",
    "options": "School"
   },
@@ -68,11 +73,6 @@
    "fieldtype": "Int",
    "label": "Total Holiday Days",
    "read_only": 1
-  },
-  {
-   "fieldname": "total_instructional_days",
-   "fieldtype": "Data",
-   "label": "Total Instructional Days"
   },
   {
    "fieldname": "terms_section",
@@ -85,13 +85,6 @@
    "label": "Terms",
    "options": "School Calendar Term",
    "read_only": 1
-  },
-  {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Title",
-   "unique": 1
   },
   {
    "fieldname": "add_school_breaks_section",
@@ -169,11 +162,18 @@
   {
    "fieldname": "section_break_22",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_instruction_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Instruction Days",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-27 15:05:31.422276",
+ "modified": "2020-11-28 08:41:42.749461",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",
@@ -190,9 +190,65 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Nurse",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

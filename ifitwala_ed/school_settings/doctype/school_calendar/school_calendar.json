@@ -48,7 +48,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Academic Year",
-   "options": "Academic Year"
+   "options": "Academic Year",
+   "reqd": 1
   },
   {
    "fieldname": "total_number_day",
@@ -173,7 +174,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-28 08:41:42.749461",
+ "modified": "2020-11-29 15:37:38.269092",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

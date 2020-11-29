@@ -19,12 +19,11 @@ class SchoolCalendar(Document):
 
 	def get_terms(self):
 			self.terms = []
-			ay = frappe.get_doc("Academic Year", self.academic_year)
-			terms = frappe.get_list("Academic Term", filters = {"academic_year":ay}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
+			terms = frappe.get_list("Academic Term", filters = {"academic_year":self.academic_year}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
 			for term in terms:
 				self.append("terms", {
 					"term": term.term, "start": term.start, "end": term.end,
-					"length": date_diff(term.end - term.start)
+					"length": date_diff(term.end, term.start)
 				})
 			return terms
 
@@ -114,3 +113,4 @@ class SchoolCalendar(Document):
 			reference_date += timedelta(days = 7)
 
 		return date_list
+		

@@ -10,31 +10,29 @@ from frappe.model.document import Document
 
 class SchoolCalendar(Document):
 
-	def __setup__(self):
-		self.onload()
-
-	def onload(self):
-		self.load_terms()
-
-	def load_terms(self):
-		self.terms = []
-		ay = frappe.get_value("Academic Year", self.academic_year) or ""
-		terms = frappe.get_list("Academic Term", filters = {"academic_year":ay},
-				fields=["name as term", "term_start_date as start", "term_end_date as end"])
-		for term in terms:
-			self.append("terms", {
-				"term": term.term,
-				"start": term.start,
-				"end": term.end,
-				"length": 12
-				})
-
 	def validate(self):
-		self.terms = []
-		ay = frappe.get_doc("Academic Year", self.academic_year)
+		if not self.terms:
+			self.extend("terms", self.get_terms())
 		self.validate_dates()
 		self.total_holiday_days = len(self.holidays)
 		self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
+
+	def get_terms(self):
+			self.terms = []
+			ay = frappe.get_doc("Academic Year", self.academic_year)
+			terms = frappe.get_list("Academic Term", filters = {"academic_year":ay}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
+			for term in terms:
+				self.append("terms", {
+					"term": term.term, "start": term.start, "end": term.end,
+					"length": date_diff(term.end - term.start)
+				})
+			return terms
+
+	def validate_dates(self):
+		ay = frappe.get_doc("Academic Year", self.academic_year)
+		for day in self.get("holidays"):
+			if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
+				frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
 
 	def get_long_break_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
@@ -64,12 +62,6 @@ class SchoolCalendar(Document):
 	# logic for the button "clear_table"
 	def clear_table(self):
 		self.set("holidays", [])
-
-	def validate_dates(self):
-		ay = frappe.get_doc("Academic Year", self.academic_year)
-		for day in self.get("holidays"):
-			if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
-				frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
 
 	def validate_break_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)

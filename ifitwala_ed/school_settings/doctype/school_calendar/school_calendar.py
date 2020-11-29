@@ -13,6 +13,7 @@ class SchoolCalendar(Document):
 	def validate(self):
 		if not self.terms:
 			self.extend("terms", self.get_terms())
+		ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_dates()
 		self.total_holiday_days = len(self.holidays)
 		self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
@@ -113,4 +114,3 @@ class SchoolCalendar(Document):
 			reference_date += timedelta(days = 7)
 
 		return date_list
-		

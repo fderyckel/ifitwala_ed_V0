@@ -26,7 +26,6 @@ class SchoolCalendar(Document):
 					"term": term.term, "start": term.start, "end": term.end,
 					"length": date_diff(getdate(term.end), getdate(term.start))
 				})
-			return terms
 
 	def validate_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)

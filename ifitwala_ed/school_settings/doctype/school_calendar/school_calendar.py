@@ -70,7 +70,7 @@ class SchoolCalendar(Document):
 		if getdate(self.start_of_break) > getdate(self.end_of_break):
 			frappe.throw(_("The start of the break cannot be after its end. Adjust the dates."))
 		if not (getdate(ay.year_start_date) <= getdate(self.start_of_break) <= getdate(ay.year_end_date)) or not (getdate(ay.year_start_date) <= getdate(self.end_of_break) <= getdate(ay.year_end_date)):
-			frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
+			frappe.throw(_("The holiday called {0} should be within your academic year {1} dates.").format(self.break_description, get_link_to_form("Academic Year", self.academic_year)))
 
 	def get_long_break_dates_list(self, start_date, end_date):
 		start_date, end_date = getdate(start_date), getdate(end_date)

@@ -24,7 +24,7 @@ class SchoolCalendar(Document):
 			for term in terms:
 				self.append("terms", {
 					"term": term.term, "start": term.start, "end": term.end,
-					"length": date_diff(term.end, term.start)
+					"length": date_diff(getdate(term.end), getdate(term.start))
 				})
 			return terms
 

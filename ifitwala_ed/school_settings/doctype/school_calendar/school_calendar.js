@@ -4,13 +4,15 @@
 frappe.ui.form.on('School Calendar', {
   refresh: function(frm) {
 
-    frm.set_query('academic_year', function() {
-      return {
-        'filters': {
-          'school': (frm.doc.school)
+    if (frm.doc.school) {
+      frm.set_query('academic_year', function() {
+        return {
+          'filters': {
+            'school': (frm.doc.school)
+          }
         }
-      }
-    });
+      });
+    }
   },
 
   academic_year: function(frm) {

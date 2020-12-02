@@ -118,7 +118,7 @@ class SchoolCalendar(Document):
 
 
 @frappe.whitelist()
-def get_events(start, end, filter=None):
+def get_events(start, end, filters=None):
 	if filters:
 		filters = JSON.load(filters)
 	else:

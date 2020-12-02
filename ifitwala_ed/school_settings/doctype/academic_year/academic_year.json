@@ -11,9 +11,9 @@
  "field_order": [
   "academic_year_name",
   "year_start_date",
-  "year_end_date",
-  "section_break_4",
+  "column_break_3",
   "school",
+  "year_end_date",
   "title"
  ],
  "fields": [
@@ -40,10 +40,6 @@
    "label": "Year End Date"
   },
   {
-   "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
-  },
-  {
    "allow_in_quick_entry": 1,
    "fieldname": "school",
    "fieldtype": "Link",
@@ -59,10 +55,14 @@
    "hidden": 1,
    "label": "Title",
    "unique": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   }
  ],
  "links": [],
- "modified": "2020-11-28 08:44:58.140978",
+ "modified": "2020-12-02 18:02:17.080291",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

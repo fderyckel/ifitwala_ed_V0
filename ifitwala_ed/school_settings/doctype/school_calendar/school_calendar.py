@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+import json
 from frappe import _
 from frappe.utils import get_link_to_form, getdate, formatdate, date_diff, cint
 from frappe.model.document import Document
@@ -16,7 +17,7 @@ class SchoolCalendar(Document):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_dates()
 		self.total_holiday_days = len(self.holidays)
-		self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date) 
+		self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date)
 		self.total_instruction_days = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
 
 	def get_terms(self):
@@ -114,3 +115,21 @@ class SchoolCalendar(Document):
 			reference_date += timedelta(days = 7)
 
 		return date_list
+
+
+@frappe.whitelist()
+def get_events(start, end, filter=None):
+	if filters:
+		filters = JSON.load(filters)
+	else:
+		filters = []
+
+	if start:
+		filters.append(['Holiday', 'holiday_date', '>', getdate(start)])
+	if end:
+		filters.append(['Holiday', 'holiday_date', '<', getdate(end)])
+
+	return frappe.get_list('School Calendar',
+		fields=['name', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday`.color'],
+		filters = filters,
+		update={"allDay": 1})

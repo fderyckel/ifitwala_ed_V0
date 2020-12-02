@@ -120,7 +120,7 @@ class SchoolCalendar(Document):
 @frappe.whitelist()
 def get_events(start, end, filters=None):
 	if filters:
-		filters = JSON.load(filters)
+		filters = json.load(filters)
 	else:
 		filters = []
 

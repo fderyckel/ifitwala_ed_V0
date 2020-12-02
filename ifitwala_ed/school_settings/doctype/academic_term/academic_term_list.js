@@ -4,4 +4,4 @@
 frappe.listview_settings['Academic Year']: {
   add_fields: ['title', 'academic_year', 'term_start_date', 'term_end_date', 'term_name'],
   hide_name_column: true
-}
+}; 

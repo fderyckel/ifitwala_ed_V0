@@ -54,6 +54,7 @@
   {
    "fieldname": "total_number_day",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Total Number Day",
    "read_only": 1
   },
@@ -66,12 +67,14 @@
    "fieldtype": "Link",
    "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "School",
    "options": "School"
   },
   {
    "fieldname": "total_holiday_days",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Total Holiday Days",
    "read_only": 1
   },
@@ -174,7 +177,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-29 15:37:38.269092",
+ "modified": "2020-12-02 16:53:44.945632",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

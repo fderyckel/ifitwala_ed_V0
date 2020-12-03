@@ -10,7 +10,6 @@ frappe.views.calendar['School Calendar'] = {
     allDay: 'allDay',
     eventColor: 'color'
   },
-  order_by: 'from_date',
   get_events_method: 'ifitwala_ed.school_settings.doctype.school_calendar.school_calendar.get_events',
   filters: [
     {
@@ -20,4 +19,4 @@ frappe.views.calendar['School Calendar'] = {
       'label': __('Academic Year')
     }
   ]
-}; 
+};

@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.views.calendar['Holiday List'] = {
-  field_map:{
+  field_map: {
     start: 'holiday_date',
     end: 'holiday_date',
     id:  'name',

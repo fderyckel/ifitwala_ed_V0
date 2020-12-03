@@ -130,6 +130,6 @@ def get_events(start, end, filters=None):
 		filters.append(['Holiday', 'holiday_date', '<', getdate(end)])
 
 	return frappe.get_list('School Calendar',
-		fields=['name', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday`.color'],
+		fields=['name', 'academic_year', 'school', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday`.color'],
 		filters = filters,
 		update={"allDay": 1})

@@ -16,6 +16,18 @@ frappe.views.calendar['School Calendar'] = {
       'fieldname': 'school_calendar',
       'options': 'School Calendar',
       'label': __('School Calendar')
+    }, 
+    {
+      'fieldtype': 'Link',
+      'fieldname': 'academic_year',
+      'options': 'Academic Year',
+      'label': __('Academic Year')
+    },
+    {
+      'fieldtype': 'Link',
+      'fieldname': 'school',
+      'options': 'School',
+      'label': __('School')
     }
   ]
 };

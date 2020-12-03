@@ -10,18 +10,4 @@ frappe.views.calendar['School Calendar'] = {
     allDay: 'allDay'
   },
   get_events_method: 'ifitwala_ed.school_settings.doctype.school_calendar.school_calendar.get_events',
-  filters: [
-    {
-      'fieldtype': 'Link',
-      'fieldname': 'academic_year',
-      'options': 'Academic Year',
-      'label': __('Academic Year')
-    },
-    {
-      'fieldtype': 'Link',
-      'fieldname': 'school',
-      'options': 'School',
-      'label': __('School')
-    }
-  ]
 };

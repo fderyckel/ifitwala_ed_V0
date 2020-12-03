@@ -13,12 +13,6 @@ frappe.views.calendar['School Calendar'] = {
   order_by: 'from_date',
   get_events_method: 'ifitwala_ed.school_settings.doctype.school_calendar.school_calendar.get_events',
   filters: [
-		{
-			'fieldtype': 'Link',
-			'fieldname': 'school',
-			'options': 'School',
-			'label': __('School')
-		},
     {
       'fieldtype': 'Link',
       'fieldname': 'academic_year',

@@ -20,4 +20,4 @@ frappe.views.calendar['School Calendar'] = {
       'label': __('Academic Year')
     }
   ]
-}
+}; 

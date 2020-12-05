@@ -47,13 +47,15 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "School",
-   "options": "School"
+   "options": "School",
+   "reqd": 1
   },
   {
    "fieldname": "title",
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Title",
+   "print_hide": 1,
    "unique": 1
   },
   {
@@ -62,7 +64,7 @@
   }
  ],
  "links": [],
- "modified": "2020-12-02 18:02:17.080291",
+ "modified": "2020-12-05 07:04:30.529507",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

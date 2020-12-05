@@ -10,6 +10,7 @@
  "field_order": [
   "academic_year",
   "term_name",
+  "school",
   "column_break_3",
   "term_start_date",
   "term_end_date",
@@ -50,15 +51,24 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Title",
+   "print_hide": 1,
    "unique": 1
   },
   {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "academic_year.school",
+   "fieldname": "school",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School"
   }
  ],
  "links": [],
- "modified": "2020-11-28 08:44:48.714518",
+ "modified": "2020-12-05 07:03:22.332430",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

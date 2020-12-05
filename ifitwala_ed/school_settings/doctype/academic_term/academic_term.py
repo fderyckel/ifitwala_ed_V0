@@ -14,8 +14,7 @@ class AcademicTerm(Document):
         self.name = self.academic_year + " ({})".format(self.term_name) if self.term_name else ""
 
     def validate(self):
-        # first, we'll check that there are no other terms that are the same. Calling another method for that
-        # not done automatically as name of doc is created and can be changed
+        # first, we'll check that there are no other terms that are the same. 
         validate_duplicate(self)
 
         self.title = self.academic_year + " ({})".format(self.term_name) if self.term_name else ""

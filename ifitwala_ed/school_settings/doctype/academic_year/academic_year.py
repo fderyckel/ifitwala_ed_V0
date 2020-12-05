@@ -17,7 +17,6 @@ class AcademicYear(Document):
             sch_abbr = frappe.get_value("School", self.school, "abbr")
         self.name = self.academic_year_name + " ({})".format(sch_abbr) if self.school else ""
 
-
     def validate(self):
         self.validate_duplicate()
 
@@ -31,6 +30,6 @@ class AcademicYear(Document):
             frappe.throw(_("The start of the academic year has to be before the end of the acamic year."))
 
     def validate_duplicate(self):
-        year = frappe.db.sql("""select name from `tabAcademic Year` where school=%s and docstatus<2 and name!=%s""", (self.school, self.name))
+        year = frappe.db.sql("""select name from `tabAcademic Year` where school=%s and academic_year_name=%s and docstatus<2 and name!=%s""", (self.school, self.academic_year_name, self.name))
         if year:
             frappe.throw(_("An academic year with this name {0} and this school already exist.").format(get_link_to_form("Academic Year", self.name)), title=_("Duplicate Entry"))

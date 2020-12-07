@@ -4,5 +4,4 @@
 frappe.listview_settings['Student'] = {
 	filters: [["enabled","=", "1"]],
 	hide_name_column: true 
-	}
 };

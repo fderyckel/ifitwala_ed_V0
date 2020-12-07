@@ -61,4 +61,4 @@ def invite_guardian(guardian):
             user.save(ignore_permissions = True)
             update_password_link = user.reset_password()
             frappe.msgprint(_("User {0} created and welcomed with an email").format(getlink("User", user.name)))
-            return user.name, update_password_link
+            return user.name

@@ -3,12 +3,6 @@
 
 frappe.listview_settings['Student'] = {
 	filters: [["enabled","=", "1"]],
-	hide_name_column: true, 
-	get_indicator: function(doc) {
-		return [__(doc.student_gender), {
-            		"Male": "blue",
-            		"Other": "purple",
-            		"Female": "red"
-            		}[doc.student_gender]];
+	hide_name_column: true 
 	}
 };

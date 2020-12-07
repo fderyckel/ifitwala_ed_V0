@@ -2,7 +2,8 @@
 // For license information, please see license.txt
 
 frappe.listview_settings['Student'] = {
-	filters: [["enabled","=", "1"]], 
+	filters: [["enabled","=", "1"]],
+	hide_name_column: true, 
 	get_indicator: function(doc) {
 		return [__(doc.student_gender), {
             		"Male": "blue",

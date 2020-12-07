@@ -2,9 +2,8 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Academic Year', {
-	refresh: function(frm) {
-
-	},
+	//refresh: function(frm) {
+	// },
 
   year_start_date: function(frm) {
     if(frm.doc.year_start_date && !frm.doc.year_end_date) {

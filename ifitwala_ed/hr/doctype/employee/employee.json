@@ -28,6 +28,12 @@
   "create_user",
   "create_user_permission",
   "second_nationality",
+  "professional_section",
+  "date_of_joining",
+  "status",
+  "column_break_28",
+  "school",
+  "reports_to",
   "data_19",
   "current_address",
   "home_phone",
@@ -38,12 +44,6 @@
   "column_break_21",
   "permanent_address",
   "emergency_contact_person",
-  "professional_section",
-  "date_of_joining",
-  "status",
-  "column_break_28",
-  "school",
-  "reports_to",
   "section_break_30",
   "internal_work_history",
   "exit_section",
@@ -98,6 +98,7 @@
    "label": "Town / City"
   },
   {
+   "collapsible": 1,
    "fieldname": "data_19",
    "fieldtype": "Section Break",
    "label": "Addresses"
@@ -357,7 +358,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2020-10-04 07:16:26.059972",
+ "modified": "2020-12-05 09:15:41.292305",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

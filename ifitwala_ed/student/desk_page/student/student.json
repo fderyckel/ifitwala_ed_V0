@@ -29,7 +29,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-10-28 13:51:22.472603",
+ "modified": "2020-12-07 02:05:55.946211",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -45,6 +45,7 @@
   },
   {
    "color": "Green",
+   "doc_view": "List",
    "format": "{} Enabled",
    "label": "Student",
    "link_to": "Student",

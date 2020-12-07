@@ -55,6 +55,10 @@ def invite_guardian(guardian):
                 "mobile_no": guardian_doc.guardian_mobile_phone,
                 "user_type": "Website User",
                 "send_welcome_email": 1
-            }).insert(ignore_permissions = True)
+            })
+            user.flags.ignore_permissions = True
+            user.add_roles("Guardian")
+            user.save(ignore_permissions = True)
+            update_password_link = user.reset_password()
             frappe.msgprint(_("User {0} created and welcomed with an email").format(getlink("User", user.name)))
-            return user.name
+            return user.name, update_password_link

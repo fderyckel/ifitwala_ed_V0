@@ -9,6 +9,7 @@ from ifitwala_ed.school_settings.utils import insert_record
 
 def setup_education():
 	disable_desk_access_for_student_role()
+	disable_desk_access_for_guardian_role()
 
 	if frappe.db.exists("Academic Year", "2019-20"):
 		return
@@ -36,6 +37,16 @@ def disable_desk_access_for_student_role():
 	student_role.desk_access = 0
 	student_role.save()
 
+def disable_desk_access_for_guardian_role():
+	try:
+		guardian_role = frappe.get_doc("Role", "Guardian")
+	except frappe.DoesNotExistError:
+		create_guardian_role()
+		return
+		
+	guardian_role.desk_access = 0
+	guardian_role.save()
+
 def create_student_role():
 	student_role = frappe.get_doc({
 		"doctype": "Role",
@@ -43,6 +54,14 @@ def create_student_role():
 		"desk_access": 0
 	})
 	student_role.insert()
+
+def create_guardian_role():
+	guardian_role = frappe.get_doc({
+		"doctype": "Role",
+		"role_name": "Guardian",
+		"desk_access": 0
+	})
+	guardian_role.insert()
 
 def create_academic_sessions():
 	data = [

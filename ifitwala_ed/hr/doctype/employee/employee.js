@@ -47,4 +47,4 @@ frappe.ui.form.on('Employee', {
 		});
 	}
 });
-cur_frm.cscript = new erpnext.hr.EmployeeController({frm: cur_frm});
+cur_frm.cscript = new ifitwala_ed.hr.EmployeeController({frm: cur_frm});

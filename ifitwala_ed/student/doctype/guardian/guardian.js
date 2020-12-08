@@ -16,5 +16,13 @@ frappe.ui.form.on('Guardian', {
 				});
 			});
 		}
-	}
+	},
+	salutation: function() {
+		if(this.frm.doc.salutation) {
+			this.frm.set_value("gender", {
+				"Mr": "Male",
+				"Ms": "Female"
+			}[this.frm.doc.salutation]);
+		}
+	},
 });

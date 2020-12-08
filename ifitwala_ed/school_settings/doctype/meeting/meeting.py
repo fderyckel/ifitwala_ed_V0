@@ -11,9 +11,9 @@ from frappe import _
 class Meeting(Document):
 
 	def validate(self):
-		self.validate_attendees()
 		if not self.attendees:
 			self.extend("attendees", self.get_attendees())
+		self.validate_attendees()
 
 	def validate_attendees(self):
 		found = []

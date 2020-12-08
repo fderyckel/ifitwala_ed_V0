@@ -10,7 +10,7 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 				filters: {ignore_user_type: 1}
 			}
 		}
-		this.frm.field_dict.reports_to.get_query = function(doc, cdt, cdn) {
+		this.frm.fields_dict.reports_to.get_query = function(doc, cdt, cdn) {
 			return { query: 'ifitwala_ed.controllers.queries.employee_query'}
 		}
 	},

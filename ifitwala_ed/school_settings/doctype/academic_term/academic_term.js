@@ -7,7 +7,7 @@ frappe.ui.form.on('Academic Term', {
 
 	term_start_date: function(frm) {
 		if(frm.doc.term_start_date && !frm.doc.term_end_date) {
-			var a_year_from_start = frappe.datetime.add_months(frm.doc.term_start_date, 12);
+			var a_year_from_start = frappe.datetime.add_months(frm.doc.term_start_date, 4);
 			frm.set_value('term_end_date', frappe.datetime.add_days(a_year_from_start, - 1));
 		}
 	}

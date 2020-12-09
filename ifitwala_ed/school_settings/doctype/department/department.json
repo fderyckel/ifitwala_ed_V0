@@ -10,6 +10,7 @@
  "field_order": [
   "department_name",
   "department_lead",
+  "enabled",
   "section_break_4",
   "school",
   "lead_full_name",
@@ -52,10 +53,9 @@
   {
    "fetch_from": "school.abbr",
    "fieldname": "school_abbreviation",
-   "fieldtype": "Data",
+   "fieldtype": "Read Only",
    "hidden": 1,
-   "label": "School Abbreviation",
-   "read_only": 1
+   "label": "School Abbreviation"
   },
   {
    "fieldname": "department_name",
@@ -78,11 +78,17 @@
    "fieldtype": "Table",
    "label": "Members",
    "options": "Department Member"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-11-24 15:48:54.409191",
+ "modified": "2020-12-09 20:13:25.833269",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

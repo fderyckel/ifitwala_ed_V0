@@ -22,5 +22,5 @@ class Meeting(Document):
 				found.append(attendee.attendee)
 
 @frappe.whitelist()
-def get_employee(department):
+def get_attendees(department):
 	return frappe.get_doc("Department", department).members

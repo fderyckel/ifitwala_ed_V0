@@ -12,7 +12,7 @@ frappe.ui.form.on('Meeting', {
 		frm.trigger('department');
 	},
 	department: function(frm) {
-		if (frm.doc.department && !frm.doc.attendees) {
+		if (frm.doc.department && !frm.doc.docstatus && !frm.doc.attendees) {
 			frappe.call({
 				method: 'ifitwala_ed.school_settings.doctype.meeting.meeting.get_attendees',
 				args: {
@@ -24,7 +24,7 @@ frappe.ui.form.on('Meeting', {
 						$.each(r.message, function(i, d) {
 							var row = frappe.model.add_child(cur_frm.doc, 'Meeting Attendee', 'attendees');
 							row.attendee = d.attendee;
-							//row.full_name = d.full_name;
+							row.full_name = d.full_name;
 						});
 					}
 					refresh_field('attendees');

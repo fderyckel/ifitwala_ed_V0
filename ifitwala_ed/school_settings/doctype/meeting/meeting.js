@@ -5,6 +5,9 @@ frappe.ui.form.on('Meeting', {
 	onload: function(frm) {
 	 	frm.trigger('department');
 	},
+	refresh: function(frm) {
+		frm.trigger('department');
+	},
 	department: function(frm) {
 		frm.trigger('department');
 	},
@@ -16,12 +19,12 @@ frappe.ui.form.on('Meeting', {
 					'department': frm.doc.department
 				},
 				callback: function(r) {
-					frm.set_value('attendees' ,'');
+					frm.set_value('attendees','');
 					if (r.message) {
 						$.each(r.message, function(i, d) {
 							var row = frappe.model.add_child(cur_frm.doc, 'Meeting Attendee', 'attendees');
 							row.attendee = d.attendee;
-							row.full_name = d.full_name;
+							//row.full_name = d.full_name;
 						});
 					}
 					refresh_field('attendees');

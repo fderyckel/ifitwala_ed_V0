@@ -2,36 +2,23 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Meeting', {
-	onload: function(frm) {
-	 	frm.trigger('department');
-	},
-	refresh: function(frm) {
-		frm.trigger('department');
-	},
+
 	department: function(frm) {
-		frm.trigger('department');
-	},
-	department: function(frm) {
-		if (frm.doc.department && !frm.doc.docstatus && !frm.doc.attendees) {
-			frappe.call({
-				method: 'ifitwala_ed.school_settings.doctype.meeting.meeting.get_attendees',
-				args: {
-					'department': frm.doc.department
-				},
-				callback: function(r) {
-					frm.set_value('attendees','');
-					if (r.message) {
-						$.each(r.message, function(i, d) {
-							var row = frappe.model.add_child(cur_frm.doc, 'Meeting Attendee', 'attendees');
-							row.attendee = d.attendee;
-							row.full_name = d.full_name;
-						});
-					}
-					refresh_field('attendees');
-				}
-			});
-		}
-	}
+    frm.events.get_attendees(frm);
+  },
+
+  get_attendees: function(frm) {
+    frm.set_value('attendees',[]);
+    frappe.call({
+      method: 'get_attendees',
+      doc:frm.doc,
+      callback: function(r) {
+        if(r.message) {
+          frm.set_value('attendees', r.message);
+        }
+      }
+    })
+  }
  });
 
 frappe.ui.form.on('Meeting Attendee', {

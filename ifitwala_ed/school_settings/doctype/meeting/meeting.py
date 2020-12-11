@@ -10,6 +10,8 @@ from frappe import _
 class Meeting(Document):
 
 	def validate(self):
+		if not self.attendees:
+			self.extend("attendees", self.get_attendees())
 		self.validate_attendees()
 
 	def validate_attendees(self):
@@ -20,6 +22,5 @@ class Meeting(Document):
 			else:
 				found.append(attendee.attendee)
 
-@frappe.whitelist()
-def get_attendees(department):
-	return frappe.get_doc("Department", department).members
+	def get_attendees(self):
+		return frappe.db.sql("""select member as attendee from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)

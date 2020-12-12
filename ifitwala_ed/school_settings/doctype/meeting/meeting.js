@@ -3,6 +3,12 @@
 
 frappe.ui.form.on('Meeting', {
 
+	meeting_organizer: function(frm) {
+		if(!frm.doc.meeting_organizer) {
+			frm.set_value('meeting_organizer', frappe.session.user);
+		}
+	},
+
 	department: function(frm) {
     frm.events.get_attendees(frm);
   },

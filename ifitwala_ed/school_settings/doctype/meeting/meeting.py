@@ -23,4 +23,18 @@ class Meeting(Document):
 				found.append(attendee.attendee)
 
 	def get_attendees(self):
-		return frappe.db.sql("""select member as attendee from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)
+		return frappe.db.sql("""select member as attendee, member_name as full_name from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)
+
+
+	def sync_todos(self):
+		for minute in self.minutes:
+			if not minute.todo:
+				todo = frappe.get_doc({
+					"doctype": "ToDo",
+					"description": minute.discussion,
+					"reference_type": self.doctype,
+					"reference_name": self.name,
+					"owner": minute.assigned_to,
+					"assigned_by": self.meeting_organizer
+				})
+				todo.insert()

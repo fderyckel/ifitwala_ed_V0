@@ -49,11 +49,11 @@ class Meeting(Document):
 						"owner": minute.assigned_to,
 						"assigned_by": self.meeting_organizer
 						})
-						todo.insert()
-						minute.db_set("todo", todo.name, update_modified=False)
+					todo.insert()
+					minute.db_set("todo", todo.name, update_modified=False)
 
 				else:
-						todos_added.remove(minute.todo)
+					todos_added.remove(minute.todo)
 
 			else:
 				minute.db_set("todo", None, update_modified=False)

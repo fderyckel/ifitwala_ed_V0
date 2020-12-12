@@ -9,6 +9,7 @@
   "meeting_name",
   "status",
   "department",
+  "meeting_organizer",
   "column_break_4",
   "date",
   "from_time",
@@ -97,11 +98,17 @@
    "fieldtype": "Table",
    "label": "Attendees",
    "options": "Meeting Attendee"
+  },
+  {
+   "fieldname": "meeting_organizer",
+   "fieldtype": "Link",
+   "label": "Meeting Organizer",
+   "options": "User"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-05 14:01:48.493348",
+ "modified": "2020-12-12 18:06:58.701651",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",

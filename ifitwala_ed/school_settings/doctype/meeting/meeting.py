@@ -14,6 +14,9 @@ class Meeting(Document):
 			self.extend("attendees", self.get_attendees())
 		self.validate_attendees()
 
+	def on_update(self):
+		self.sync_todos()
+
 	def validate_attendees(self):
 		found = []
 		for attendee in self.attendees:
@@ -27,14 +30,35 @@ class Meeting(Document):
 
 
 	def sync_todos(self):
+		todos_added = [todo.name for todo in
+				frappe.get_all("ToDo",
+						filters = {
+									"reference_type": self.doctype,
+									"reference_name": self.name
+						})
+				]
+
 		for minute in self.minutes:
-			if not minute.todo:
-				todo = frappe.get_doc({
-					"doctype": "ToDo",
-					"description": minute.discussion,
-					"reference_type": self.doctype,
-					"reference_name": self.name,
-					"owner": minute.assigned_to,
-					"assigned_by": self.meeting_organizer
-				})
-				todo.insert()
+			if minute.assigned_to and minute.status=="Open":
+				if not minute.todo:
+					todo = frappe.get_doc({
+						"doctype": "ToDo",
+						"description": minute.discussion,
+						"reference_type": self.doctype,
+						"reference_name": self.name,
+						"owner": minute.assigned_to,
+						"assigned_by": self.meeting_organizer
+						})
+						todo.insert()
+						minute.db_set("todo", todo.name, update_modified=False)
+
+				else:
+						todos_added.remove(minute.todo)
+
+			else:
+				minute.db_set("todo", None, update_modified=False)
+
+		for todo in todos_added:
+			todo=frappe.get_doc("ToDo", todo)
+			todo.flags.from_meeting = True,
+			todo.delete()

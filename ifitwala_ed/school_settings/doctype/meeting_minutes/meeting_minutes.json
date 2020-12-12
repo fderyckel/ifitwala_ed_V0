@@ -12,7 +12,8 @@
   "section_break_5",
   "assigned_to",
   "column_break_7",
-  "completed_by"
+  "completed_by",
+  "todo"
  ],
  "fields": [
   {
@@ -57,12 +58,19 @@
   {
    "fieldname": "column_break_7",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "todo",
+   "fieldtype": "Link",
+   "label": "Todo",
+   "options": "ToDo",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-10-04 21:20:33.455925",
+ "modified": "2020-12-12 19:39:25.667759",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting Minutes",

@@ -47,7 +47,8 @@ class Meeting(Document):
 						"reference_type": self.doctype,
 						"reference_name": self.name,
 						"owner": minute.assigned_to,
-						"assigned_by": self.meeting_organizer
+						"assigned_by": self.meeting_organizer,
+						"date": minute.completed_by
 						})
 					todo.insert()
 					minute.db_set("todo", todo.name, update_modified=False)

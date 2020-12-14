@@ -43,7 +43,7 @@
    "print_hide": 1
   },
   {
-   "fetch_from": "department_lead.employee_full_name",
+   "fetch_from": "department_lead.full_name",
    "fieldname": "lead_full_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -88,7 +88,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-12-14 07:24:12.013398",
+ "modified": "2020-12-14 12:35:14.322554",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

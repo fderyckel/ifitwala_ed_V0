@@ -39,7 +39,7 @@
    "fieldname": "department_lead",
    "fieldtype": "Link",
    "label": "Department Lead",
-   "options": "Employee",
+   "options": "User",
    "print_hide": 1
   },
   {
@@ -88,7 +88,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-12-09 20:13:25.833269",
+ "modified": "2020-12-14 07:24:12.013398",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

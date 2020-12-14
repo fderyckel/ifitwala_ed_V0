@@ -108,7 +108,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-12 18:06:58.701651",
+ "modified": "2020-12-13 11:28:16.243361",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",
@@ -158,6 +158,17 @@
    "read": 1,
    "report": 1,
    "role": "Curriculum Coordinator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
    "share": 1,
    "write": 1
   }

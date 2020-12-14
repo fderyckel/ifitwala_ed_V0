@@ -2,13 +2,13 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Meeting', {
-	refresh: function(frm) {
+	setup: function(frm){
+		if (frm.doc.meeting_organizer == "" || frm.doc.meeting_organizer == null) {
+			frm.doc.meeting_organizer = frappe.session.user;
+		}
 	},
 
-	meeting_organizer: function(frm) {
-		if(frm.doc.department && !frm.doc.meeting_organizer) {
-			frm.set_value('meeting_organizer', frappe.session.user);
-		}
+	refresh: function(frm) {
 	},
 
 	department: function(frm) {
@@ -28,16 +28,4 @@ frappe.ui.form.on('Meeting', {
     })
   }
  });
-
-frappe.ui.form.on('Meeting Attendee', {
-	attendees_add: function(frm){
-		frm.fields_dict['attendees'].grid.get_field('attendee').get_query = function(doc){
-			var attendee_list = [];
-			if(!doc.__islocal) attendee_list.push(doc.name);
-			$.each(doc.attendees, function(idx, val){
-				if (val.attendee) attendee_list.push(val.attendee);
-			});
-			return { filters: [['User', 'name', 'not in', attendee_list]] };
-		};
-	}
-});
+ 

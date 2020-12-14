@@ -15,19 +15,19 @@ import ifitwala_ed
 @frappe.validate_and_sanitize_search_inputs
 def employee_query(doctype, txt, searchfield, start, page_len, filters):
 	conditions = []
-	fields = get_fields("Employee", ["name", "employee_name"])
+	fields = get_fields("Employee", ["name", "employee_full_name"])
 
 	return frappe.db.sql("""select {fields} from `tabEmployee`
 		where status = 'Active'
 			and docstatus < 2
 			and ({key} like %(txt)s
-				or employee_name like %(txt)s)
+				or employee_full_name like %(txt)s)
 			{fcond} {mcond}
 		order by
 			if(locate(%(_txt)s, name), locate(%(_txt)s, name), 99999),
-			if(locate(%(_txt)s, employee_name), locate(%(_txt)s, employee_name), 99999),
+			if(locate(%(_txt)s, employee_full_name), locate(%(_txt)s, employee_full_name), 99999),
 			idx desc,
-			name, employee_name
+			name, employee_full_name
 		limit %(start)s, %(page_len)s""".format(**{
 			'fields': ", ".join(fields),
 			'key': searchfield,

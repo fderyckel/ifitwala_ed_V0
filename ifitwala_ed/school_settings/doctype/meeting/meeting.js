@@ -4,7 +4,7 @@
 frappe.ui.form.on('Meeting', {
 	refresh: function(frm) {
 	},
-	
+
 	meeting_organizer: function(frm) {
 		if(frm.doc.department && !frm.doc.meeting_organizer) {
 			frm.set_value('meeting_organizer', frappe.session.user);
@@ -37,7 +37,7 @@ frappe.ui.form.on('Meeting Attendee', {
 			$.each(doc.attendees, function(idx, val){
 				if (val.attendee) attendee_list.push(val.attendee);
 			});
-			return { filters: [['Employee', 'name', 'not in', attendee_list]] };
+			return { filters: [['User', 'name', 'not in', attendee_list]] };
 		};
 	}
 });

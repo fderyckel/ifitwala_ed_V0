@@ -75,8 +75,8 @@ calendars = [ "Holiday List", "Course Schedule", "School Calendar"]
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 #
-# has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
+has_permission = {
+ 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.has_permission",
 # }
 
 default_roles = [

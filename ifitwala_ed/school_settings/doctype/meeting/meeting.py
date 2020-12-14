@@ -73,3 +73,13 @@ class Meeting(Document):
 			todo=frappe.get_doc("ToDo", todo)
 			todo.flags.from_meeting = True,
 			todo.delete()
+
+
+def has_permission(doc, user=None, permission_type=None):
+	attendees=frappe.get_all("Meeting Attendee", filters = {"parent": doc}, fields = ["attendee"])
+	attendee_list = [d.attendee for d in attendees]
+
+	if user in attendee_list:
+		return True
+
+	return False

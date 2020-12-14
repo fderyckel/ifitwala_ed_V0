@@ -2,9 +2,11 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Meeting', {
-
+	refresh: function(frm) {
+	},
+	
 	meeting_organizer: function(frm) {
-		if(!frm.doc.meeting_organizer) {
+		if(frm.doc.department && !frm.doc.meeting_organizer) {
 			frm.set_value('meeting_organizer', frappe.session.user);
 		}
 	},

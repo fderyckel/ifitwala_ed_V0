@@ -78,6 +78,7 @@ class Meeting(Document):
 def has_permission(doc, user=None, permission_type=None):
 	attendees=frappe.get_all("Meeting Attendee", filters = {"parent": doc}, fields = ["attendee"])
 	attendee_list = [d.attendee for d in attendees]
+	user = frappe.get_doc('User', frappe.session.user)
 
 	if user in attendee_list:
 		return True

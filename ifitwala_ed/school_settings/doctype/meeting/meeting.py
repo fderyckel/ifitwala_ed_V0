@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 from frappe import _
+from frappe.utils import today, getdate
 
 class Meeting(Document):
 
@@ -13,6 +14,8 @@ class Meeting(Document):
 		if not self.attendees:
 			self.extend("attendees", self.get_attendees())
 		self.validate_attendees()
+		self.validate_date()
+		self.validate_time()
 
 	def on_update(self):
 		self.sync_todos()
@@ -28,6 +31,13 @@ class Meeting(Document):
 	def get_attendees(self):
 		return frappe.db.sql("""select member as attendee, member_name as full_name from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)
 
+	def validate_date(self):
+		if getdate(self.date) < getdate(today()):
+			frappe.throw(_("The date {0} of the meeting has to be in the future. Please adjust the date.").format(self.date))
+
+	def validate_time(self):
+		if self.from_time >= self.to_time:
+			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.from_timme, self.to_time))
 
 	def sync_todos(self):
 		todos_added = [todo.name for todo in

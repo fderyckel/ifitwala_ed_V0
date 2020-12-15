@@ -76,11 +76,14 @@ class Meeting(Document):
 
 
 def meeting_has_permission(doc, user=None, permission_type=None):
-	attendees=frappe.get_all("Meeting Attendee", filters = {"parent": doc}, fields = ["attendee"])
+	attendees = frappe.get_all("Meeting Attendee", filters = {"parent": doc}, fields = ["attendee"])
 	attendee_list = [d.attendee for d in attendees]
-	user = frappe.get_doc('User', frappe.session.user)
+	#user = frappe.get_doc('User', frappe.session.user)
 
-	if permission_type == "read" and user in attendee_list:
+	if permission_type == "read" and (user in attendee_list):
 		return True
 
-	return False
+	if permission_type == "write" and doc.meeting_organizer == user:
+		return True
+
+	#return False

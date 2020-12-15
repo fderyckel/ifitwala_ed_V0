@@ -86,4 +86,4 @@ def meeting_has_permission(doc, user=None, permission_type=None):
 	if permission_type == "write" and doc.meeting_organizer == user:
 		return True
 
-	#return False
+	return False

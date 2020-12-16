@@ -71,9 +71,9 @@ calendars = [ "Holiday List", "Course Schedule", "School Calendar"]
 # -----------
 # Permissions evaluated in scripted ways
 
-#permission_query_conditions = {
-# 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.get_permission_query_conditions",
-#}
+permission_query_conditions = {
+ 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.get_permission_query_conditions",
+}
 #
 has_permission = {
  	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",

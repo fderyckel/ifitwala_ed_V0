@@ -111,7 +111,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-16 10:07:00.661353",
+ "modified": "2020-12-16 12:02:25.511494",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",
@@ -138,7 +138,6 @@
    "read": 1,
    "report": 1,
    "role": "Academic Admin",
-   "set_user_permissions": 1,
    "share": 1,
    "write": 1
   },
@@ -150,7 +149,6 @@
    "read": 1,
    "report": 1,
    "role": "Instructor",
-   "set_user_permissions": 1,
    "share": 1,
    "write": 1
   },
@@ -163,7 +161,6 @@
    "read": 1,
    "report": 1,
    "role": "Curriculum Coordinator",
-   "set_user_permissions": 1,
    "share": 1,
    "write": 1
   },
@@ -175,7 +172,6 @@
    "read": 1,
    "report": 1,
    "role": "Employee",
-   "set_user_permissions": 1,
    "share": 1,
    "write": 1
   }

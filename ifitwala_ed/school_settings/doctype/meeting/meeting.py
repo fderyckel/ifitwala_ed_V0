@@ -18,8 +18,6 @@ class Meeting(Document):
 		self.validate_date()
 		self.validate_time()
 
-
-
 	def on_update(self):
 		self.sync_todos()
 		self.update_attendee_permission()
@@ -85,5 +83,5 @@ class Meeting(Document):
 					'for_value': self.name,
 					'user': attendee.attendee
 			})
-			if employee_user_permission_exists: return
+			if attendee_user_permission_exists: return
 			add_user_permission("Meeting", self.name, attendee.attendee)

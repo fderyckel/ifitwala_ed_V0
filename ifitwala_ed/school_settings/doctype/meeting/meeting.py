@@ -20,7 +20,7 @@ class Meeting(Document):
 
 	def on_update(self):
 		self.sync_todos()
-		self.update_attendee_permission()
+		#self.update_attendee_permission()
 
 	def validate_attendees(self):
 		found = []
@@ -76,14 +76,30 @@ class Meeting(Document):
 			todo.flags.from_meeting = True,
 			todo.delete()
 
-	def update_attendee_permission(self):
-		#if not has_permission('User Permission', ptype='write', raise_exception=False): return
-		for attendee in self.attendees:
-			attendee_user_permission_exists = frappe.db.exists('User Permission', {
-					'allow': 'Meeting',
-					'for_value': self.name,
-					'user': attendee.attendee
-			})
-			if attendee_user_permission_exists: return
-			add_user_permission("Meeting", self.name, attendee.attendee)
-			set_user_permission_if_allowed("Meeting", self.name, attendee.attendee)
+
+
+def get_permission_query_conditions(user):
+	if not user: user = frappe.session.user
+	return """(`attendee`=%(user)s) """ % {
+			"user": frappe.db.escape(user),
+		}
+
+def meeting_has_permission(doc, user):
+	if user in [d.attendee for d in doc.attendees]:
+		return True
+	return False
+
+
+
+
+#	def update_attendee_permission(self):
+#		#if not has_permission('User Permission', ptype='write', raise_exception=False): return
+#		for attendee in self.attendees:
+#			attendee_user_permission_exists = frappe.db.exists('User Permission', {
+#					'allow': 'Meeting',
+#					'for_value': self.name,
+#					'user': attendee.attendee
+#			})
+#			if attendee_user_permission_exists: return
+#			add_user_permission("Meeting", self.name, attendee.attendee)
+#			set_user_permission_if_allowed("Meeting", self.name, attendee.attendee)

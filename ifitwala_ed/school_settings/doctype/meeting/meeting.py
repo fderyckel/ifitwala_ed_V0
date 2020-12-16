@@ -7,6 +7,7 @@ import frappe
 from frappe.model.document import Document
 from frappe import _
 from frappe.utils import today, getdate
+from frappe.permissions import add_user_permission, remove_user_permission, set_user_permission_if_allowed, has_permission
 
 class Meeting(Document):
 
@@ -17,8 +18,11 @@ class Meeting(Document):
 		self.validate_date()
 		self.validate_time()
 
+
+
 	def on_update(self):
 		self.sync_todos()
+		self.update_attendee_permission()
 
 	def validate_attendees(self):
 		found = []
@@ -74,16 +78,12 @@ class Meeting(Document):
 			todo.flags.from_meeting = True,
 			todo.delete()
 
-
-def meeting_has_permission(doc, user=None, permission_type=None):
-	attendees = frappe.get_all("Meeting Attendee", filters = {"parent": doc}, fields = ["attendee"])
-	attendee_list = [d.attendee for d in attendees]
-	#user = frappe.get_doc('User', frappe.session.user)
-
-	if permission_type == "read" and (user in attendee_list):
-		return True
-
-	if permission_type == "write" and doc.meeting_organizer == user:
-		return True
-
-	return False
+	def update_attendee_permission(self):
+		for attendee in self.attendees:
+			attendee_user_permission_exists = frappe.db.exists('User Permission', {
+					'allow': 'Meeting',
+					'for_value': self.name,
+					'user': attendee.attendee
+			})
+			if employee_user_permission_exists: return
+			add_user_permission("Meeting", self.name, attendee.attendee)

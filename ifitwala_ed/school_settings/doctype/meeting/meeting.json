@@ -108,7 +108,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-13 11:28:16.243361",
+ "modified": "2020-12-16 09:14:49.302878",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",
@@ -146,6 +146,7 @@
    "read": 1,
    "report": 1,
    "role": "Instructor",
+   "set_user_permissions": 1,
    "share": 1,
    "write": 1
   },
@@ -169,6 +170,7 @@
    "read": 1,
    "report": 1,
    "role": "Employee",
+   "set_user_permissions": 1,
    "share": 1,
    "write": 1
   }

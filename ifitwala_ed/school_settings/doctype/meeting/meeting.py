@@ -39,7 +39,7 @@ class Meeting(Document):
 
 	def validate_time(self):
 		if self.from_time >= self.to_time:
-			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.from_timme, self.to_time))
+			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.from_time, self.to_time))
 
 	def sync_todos(self):
 		todos_added = [todo.name for todo in
@@ -77,7 +77,7 @@ class Meeting(Document):
 			todo.delete()
 
 	def update_attendee_permission(self):
-		if not has_permission('User Permission', ptype='write', raise_exception=False): return
+		#if not has_permission('User Permission', ptype='write', raise_exception=False): return
 		for attendee in self.attendees:
 			attendee_user_permission_exists = frappe.db.exists('User Permission', {
 					'allow': 'Meeting',
@@ -85,5 +85,5 @@ class Meeting(Document):
 					'user': attendee.attendee
 			})
 			if attendee_user_permission_exists: return
-			add_user_permission("Meeting", self.name, attendee.attendee) 
+			add_user_permission("Meeting", self.name, attendee.attendee)
 			set_user_permission_if_allowed("Meeting", self.name, attendee.attendee)

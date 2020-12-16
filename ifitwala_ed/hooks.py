@@ -75,9 +75,9 @@ calendars = [ "Holiday List", "Course Schedule", "School Calendar"]
 # 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",
 # }
 #
-has_permission = {
- 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",
-}
+#has_permission = {
+# 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",
+#}
 
 default_roles = [
 	{'role': 'Student', 'doctype':'Student', 'email_field': 'student_email'},

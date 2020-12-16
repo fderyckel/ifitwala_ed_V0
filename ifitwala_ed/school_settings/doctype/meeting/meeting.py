@@ -77,6 +77,7 @@ class Meeting(Document):
 			todo.delete()
 
 	def update_attendee_permission(self):
+		if not has_permission('User Permission', ptype='write', raise_exception=False): return
 		for attendee in self.attendees:
 			attendee_user_permission_exists = frappe.db.exists('User Permission', {
 					'allow': 'Meeting',
@@ -84,4 +85,5 @@ class Meeting(Document):
 					'user': attendee.attendee
 			})
 			if attendee_user_permission_exists: return
-			add_user_permission("Meeting", self.name, attendee.attendee)
+			add_user_permission("Meeting", self.name, attendee.attendee) 
+			set_user_permission_if_allowed("Meeting", self.name, attendee.attendee)

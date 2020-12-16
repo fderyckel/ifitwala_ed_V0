@@ -78,11 +78,11 @@ class Meeting(Document):
 
 
 
-def get_permission_query_conditions(user):
-	if not user: user = frappe.session.user
-	return """(`attendees`=%(user)s) """ % {
-			"user": frappe.db.escape(user),
-		}
+#def get_permission_query_conditions(user):
+#	if not user: user = frappe.session.user
+#	return """(`attendees`=%(user)s) """ % {
+#			"user": frappe.db.escape(user),
+#		}
 
 def meeting_has_permission(doc, user):
 	if user in [d.attendee for d in doc.attendees]:

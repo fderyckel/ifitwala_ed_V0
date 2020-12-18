@@ -85,7 +85,10 @@ class Meeting(Document):
 #		}
 
 def meeting_has_permission(doc, user):
-	if user in [d.attendee for d in doc.attendees]:
+	if doc.is_new():
+		return True
+
+	if doc.owner == user or user in [d.attendee for d in doc.attendees]:
 		return True
 	return False
 

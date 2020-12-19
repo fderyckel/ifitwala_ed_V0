@@ -97,7 +97,7 @@ def update_minute_status(doc, method = None):
 	if doc.reference_type != "Meeting" or doc.flags.from_meeting:
 		return
 
-	if method = "on_trash" or doc.status = "Closed":
+	if method == "on_trash" or doc.status == "Closed":
 		meeting = frappe.get_doc(doc.reference_type, doc.reference_name)
 		for minute in meeting.minutes:
 			if minute.todo = doc.name:

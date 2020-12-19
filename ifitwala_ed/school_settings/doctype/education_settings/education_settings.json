@@ -10,6 +10,10 @@
   "column_break_3",
   "attendance_freeze_date",
   "default_school",
+  "meetings_section",
+  "default_todo_meeting_color",
+  "column_break_8",
+  "default_calendar_meeting_color",
   "course_management_section",
   "enable_cms",
   "cms_title",
@@ -34,6 +38,7 @@
    "label": "Attendance Freeze Date"
   },
   {
+   "collapsible": 1,
    "fieldname": "course_management_section",
    "fieldtype": "Section Break",
    "label": "Course Management"
@@ -64,12 +69,34 @@
    "fieldtype": "Link",
    "label": "Default School",
    "options": "School"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "meetings_section",
+   "fieldtype": "Section Break",
+   "label": "Meetings"
+  },
+  {
+   "description": "Default color when an assignment (todo) is created from a meeting. ",
+   "fieldname": "default_todo_meeting_color",
+   "fieldtype": "Color",
+   "label": "Default Todo Meeting Color"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Default color when a calendar event is created from a meeting. ",
+   "fieldname": "default_calendar_meeting_color",
+   "fieldtype": "Color",
+   "label": "Default Calendar Meeting Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-11-21 10:21:43.181210",
+ "modified": "2020-12-19 09:46:11.715937",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Education Settings",

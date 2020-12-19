@@ -99,7 +99,13 @@ doc_events = {
 
 	"User": {
 		"after_insert": "frappe.contacts.doctype.contact.contact.update_contact"
-	}
+	},
+
+    "ToDo": {
+        "on_update": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status"
+        "on_trash": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status"
+
+    }
 }
 
 # Scheduled Tasks

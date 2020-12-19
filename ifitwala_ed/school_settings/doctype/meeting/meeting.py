@@ -20,7 +20,6 @@ class Meeting(Document):
 
 	def on_update(self):
 		self.sync_todos()
-		#self.update_attendee_permission()
 
 	def validate_attendees(self):
 		found = []
@@ -63,13 +62,13 @@ class Meeting(Document):
 						"date": minute.completed_by
 						})
 					todo.insert()
-					minute.db_set("todo", todo.name, update_modified=False)
+					minute.db_set("todo", todo.name, update_modified = False)
 
 				else:
 					todos_added.remove(minute.todo)
 
 			else:
-				minute.db_set("todo", None, update_modified=False)
+				minute.db_set("todo", None, update_modified = False)
 
 		for todo in todos_added:
 			todo=frappe.get_doc("ToDo", todo)
@@ -94,6 +93,15 @@ def meeting_has_permission(doc, user):
 	return False
 
 
+def update_minute_status(doc, method = None):
+	if doc.reference_type != "Meeting" or doc.flags.from_meeting:
+		return
+
+	if method = "on_trash" or doc.status = "Closed":
+		meeting = frappe.get_doc(doc.reference_type, doc.reference_name)
+		for minute in meeting.minutes:
+			if minute.todo = doc.name:
+				minute.db_set("status", "Close", update_modified = False)
 
 
 #	def update_attendee_permission(self):

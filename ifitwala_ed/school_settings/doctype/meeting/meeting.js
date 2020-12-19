@@ -3,7 +3,7 @@
 
 frappe.ui.form.on('Meeting', {
 	setup: function(frm){
-		if (frm.doc.meeting_organizer == "" || frm.doc.meeting_organizer == null) {
+		if (frm.doc.meeting_organizer == "" | frm.doc.meeting_organizer == null) {
 			frm.doc.meeting_organizer = frappe.session.user;
 		}
 	},
@@ -28,4 +28,3 @@ frappe.ui.form.on('Meeting', {
     })
   }
  });
- 

@@ -4,9 +4,10 @@
 
 from __future__ import unicode_literals
 import frappe
+import datetime
 from frappe.model.document import Document
 from frappe import _
-from frappe.utils import today, getdate
+from frappe.utils import today, getdate, get_time, now_datetime, get_datetime
 from frappe.permissions import add_user_permission, remove_user_permission, set_user_permission_if_allowed, has_permission
 
 class Meeting(Document):
@@ -40,17 +41,29 @@ class Meeting(Document):
 		if self.from_time >= self.to_time:
 			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.from_time, self.to_time))
 
-	def sync_todos(self):
-		todos_added = [todo.name for todo in
-				frappe.get_all("ToDo",
-						filters = {
-									"reference_type": self.doctype,
-									"reference_name": self.name
-						})
-				]
+	def set_status(self):
+		endtime = datetime.datetime.combine(getdate(self.date), get_time(self.to_time))
+		starttime = datetime.datetime.combine(getdate(self.date), get_time(self.from_time))
+		if get_datetime(endtime) < get_datetime(now_datetime()):
+			self.status = "Completed"
+		elif get_datetime(starttime) <= get_datetime(now_datetime()) <= get_datetime(endtime):
+			self.status = "In Progress"
 
+	def sync_todos(self):
+		default_color = frappe.get_single("Education Settings")
 		for minute in self.minutes:
 			if minute.assigned_to and minute.status=="Open":
+				if minute.todo:
+					todo = frappe.get_doc({
+						"doctype": "ToDo",
+						"name": minute.todo,
+						"description": minute.discussion,
+						"owner": minute.assigned_to,
+						"assigned_by": self.meeting_organizer,
+						"date": minute.completed_by
+						})
+					todo.save()
+
 				if not minute.todo:
 					todo = frappe.get_doc({
 						"doctype": "ToDo",
@@ -59,21 +72,11 @@ class Meeting(Document):
 						"reference_name": self.name,
 						"owner": minute.assigned_to,
 						"assigned_by": self.meeting_organizer,
-						"date": minute.completed_by
+						"date": minute.completed_by,
+						"color": default_color.default_todo_meeting_color
 						})
 					todo.insert()
 					minute.db_set("todo", todo.name, update_modified = False)
-
-				else:
-					todos_added.remove(minute.todo)
-
-			else:
-				minute.db_set("todo", None, update_modified = False)
-
-		for todo in todos_added:
-			todo=frappe.get_doc("ToDo", todo)
-			todo.flags.from_meeting = True,
-			todo.delete()
 
 
 
@@ -102,6 +105,15 @@ def update_minute_status(doc, method = None):
 		for minute in meeting.minutes:
 			if minute.todo == doc.name:
 				minute.db_set("status", "Close", update_modified = False)
+
+def update_meeting_status():
+	# update the status of appointments daily
+	meetings = frappe.get_all('Meeting', {
+		'status': ('not in', ['Completed', 'Cancelled'])
+	}, as_dict=1)
+
+	for meeting in meetings:
+		frappe.get_doc('Meeting', meeting.name).set_status()
 
 
 #	def update_attendee_permission(self):

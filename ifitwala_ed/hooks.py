@@ -102,32 +102,31 @@ doc_events = {
 	},
 
     "ToDo": {
-        "on_update": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status", 
+        "on_update": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status",
         "on_trash": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status"
-
     }
 }
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"ifitwala_ed.tasks.all"
 # 	],
 # 	"daily": [
 # 		"ifitwala_ed.tasks.daily"
 # 	],
-# 	"hourly": [
-# 		"ifitwala_ed.tasks.hourly"
-# 	],
+	"hourly": [
+ 		"ifitwala_ed.school_settings.doctype.meeting.meeting.update_meeting_status"
+ 	]
 # 	"weekly": [
 # 		"ifitwala_ed.tasks.weekly"
 # 	]
 # 	"monthly": [
 # 		"ifitwala_ed.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------

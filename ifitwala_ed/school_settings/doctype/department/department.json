@@ -24,6 +24,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "School",
    "options": "School",
    "reqd": 1
@@ -83,12 +84,14 @@
    "default": "1",
    "fieldname": "enabled",
    "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Enabled"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-12-14 12:35:14.322554",
+ "modified": "2020-12-18 12:18:25.014962",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",
@@ -120,6 +123,18 @@
    "write": 1
   },
   {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
    "email": 1,
    "export": 1,
    "print": 1,
@@ -136,10 +151,28 @@
    "report": 1,
    "role": "HR User",
    "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1
   }
  ],
  "show_name_in_global_search": 1,
- "sort_field": "modified",
+ "sort_field": "department_name",
  "sort_order": "ASC",
  "track_changes": 1
 }

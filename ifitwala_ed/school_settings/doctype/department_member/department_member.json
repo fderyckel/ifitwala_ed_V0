@@ -7,12 +7,11 @@
  "field_order": [
   "member",
   "member_name",
-  "mobile",
-  "member_email"
+  "mobile"
  ],
  "fields": [
   {
-   "columns": 2,
+   "columns": 4,
    "fieldname": "member",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -21,24 +20,16 @@
    "reqd": 1
   },
   {
-   "columns": 4,
+   "columns": 3,
    "fetch_from": "member.full_name",
    "fieldname": "member_name",
    "fieldtype": "Read Only",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Member Name"
   },
   {
    "columns": 3,
-   "fetch_from": "member.email",
-   "fieldname": "member_email",
-   "fieldtype": "Read Only",
-   "in_list_view": 1,
-   "label": "Member Email",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
    "fetch_from": "member.mobile_no",
    "fieldname": "mobile",
    "fieldtype": "Read Only",
@@ -49,7 +40,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-12-14 12:22:21.776527",
+ "modified": "2020-12-18 12:14:44.025992",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department Member",

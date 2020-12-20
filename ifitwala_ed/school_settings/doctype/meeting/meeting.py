@@ -19,6 +19,10 @@ class Meeting(Document):
 		self.validate_date()
 		self.validate_time()
 
+	def after_insert(self):
+		if self.attendees:
+			self.create_calendar_events()
+
 	def on_update(self):
 		self.sync_todos()
 
@@ -41,13 +45,25 @@ class Meeting(Document):
 		if self.from_time >= self.to_time:
 			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.from_time, self.to_time))
 
-	def set_status(self):
-		endtime = datetime.datetime.combine(getdate(self.date), get_time(self.to_time))
-		starttime = datetime.datetime.combine(getdate(self.date), get_time(self.from_time))
-		if get_datetime(endtime) < get_datetime(now_datetime()):
-			self.status = "Completed"
-		elif get_datetime(starttime) <= get_datetime(now_datetime()) <= get_datetime(endtime):
-			self.status = "In Progress"
+	def create_calendar_events(self):
+		if self.calendar_event:
+			return
+		meeting_event = frappe.get_doc({
+			"doctype": "School Event",
+			"owner": self.meeting_organizer,
+			"subject": self.meeting_name,
+			"starts_on": datetime.datetime.combine(getdate(self.date), get_time(self.from_time)),
+			"ends_on": datetime.datetime.combine(getdate(self.date), get_time(self.to_time)),
+			"status": "Open",
+			"event_category": "Meeting",
+			"type": "Private",
+			"participants": []
+		})
+		for attendee in self.attendees:
+			meeting_event.append("participants", dict(user = attendee.attendee))
+		meeting_event.insert(ignore_permissions=True)
+		self.school_event = meeting_event.name
+		self.save(ignore_permissions=True)
 
 	def sync_todos(self):
 		default_color = frappe.get_single("Education Settings")
@@ -62,7 +78,7 @@ class Meeting(Document):
 						"assigned_by": self.meeting_organizer,
 						"date": minute.completed_by
 						})
-					todo.save()
+					todo.save(ignore_permissions = True)
 
 				if not minute.todo:
 					todo = frappe.get_doc({
@@ -78,6 +94,14 @@ class Meeting(Document):
 					todo.insert()
 					minute.db_set("todo", todo.name, update_modified = False)
 
+
+	def set_status(self):
+		endtime = datetime.datetime.combine(getdate(self.date), get_time(self.to_time))
+		starttime = datetime.datetime.combine(getdate(self.date), get_time(self.from_time))
+		if get_datetime(endtime) < get_datetime(now_datetime()):
+			self.status = "Completed"
+		elif get_datetime(starttime) <= get_datetime(now_datetime()) <= get_datetime(endtime):
+			self.status = "In Progress"
 
 
 def get_permission_query_conditions(user):

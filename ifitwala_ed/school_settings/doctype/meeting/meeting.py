@@ -46,7 +46,7 @@ class Meeting(Document):
 			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.from_time, self.to_time))
 
 	def create_calendar_events(self):
-		if self.calendar_event:
+		if self.school_event:
 			return
 		meeting_event = frappe.get_doc({
 			"doctype": "School Event",

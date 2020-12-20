@@ -84,14 +84,13 @@
    "default": "1",
    "fieldname": "enabled",
    "fieldtype": "Check",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Enabled"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-12-18 12:18:25.014962",
+ "modified": "2020-12-20 14:47:56.215233",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

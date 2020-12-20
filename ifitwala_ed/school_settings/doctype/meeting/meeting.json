@@ -23,7 +23,8 @@
   "attendees",
   "minutes_section",
   "minutes",
-  "title"
+  "title",
+  "school_event"
  ],
  "fields": [
   {
@@ -94,7 +95,9 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "hidden": 1,
+   "label": "Title",
+   "print_hide": 1
   },
   {
    "fieldname": "attendees",
@@ -107,11 +110,18 @@
    "fieldtype": "Link",
    "label": "Meeting Organizer",
    "options": "User"
+  },
+  {
+   "fieldname": "school_event",
+   "fieldtype": "Link",
+   "label": "School Event",
+   "options": "School Event",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-16 12:02:25.511494",
+ "modified": "2020-12-20 19:27:27.635021",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",

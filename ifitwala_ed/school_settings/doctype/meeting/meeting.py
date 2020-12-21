@@ -77,9 +77,9 @@ class Meeting(Document):
 						"name": minute.todo
 						})
 					if todo.description != minute.discussion:
-						todo.db_set("description", minute.discussion, notify=True)
+						todo.db_set("description", minute.discussion, notify=True, commit=True)
 					elif todo.date != minute.completed_by:
-						todo.db_set("date", minute.completed_by)
+						todo.db_set("date", minute.completed_by, commit=True)
 
 				if not minute.todo:
 					todo = frappe.get_doc({

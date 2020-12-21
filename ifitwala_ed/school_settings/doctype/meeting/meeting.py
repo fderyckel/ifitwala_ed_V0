@@ -19,12 +19,10 @@ class Meeting(Document):
 		self.validate_date()
 		self.validate_time()
 
-	def after_insert(self):
-		if self.attendees:
-			self.create_calendar_events()
-
 	def on_update(self):
 		self.sync_todos()
+		if self.attendees:
+			self.create_calendar_events()
 
 	def validate_attendees(self):
 		found = []

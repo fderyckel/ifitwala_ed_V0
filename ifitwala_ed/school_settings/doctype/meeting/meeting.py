@@ -70,12 +70,11 @@ class Meeting(Document):
 				if minute.todo:
 					todo = frappe.get_doc({
 						"doctype": "ToDo",
-						"name": minute.todo,
-						"description": minute.discussion,
-						"owner": minute.assigned_to,
-						"assigned_by": self.meeting_organizer,
-						"date": minute.completed_by
+						"name": minute.todo
 						})
+					todo.description = minute.discussion,
+					todo.assigned_by = self.meeting_organizer,
+					todo.date = minute.completed_by
 					todo.save(ignore_permissions = True)
 
 				if not minute.todo:

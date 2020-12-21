@@ -13,7 +13,7 @@
   {
    "hidden": 0,
    "label": "Collaboration",
-   "links": "[\n    {\n        \"description\": \"Meetings organized at school\",\n        \"label\": \"Meeting\",\n        \"name\": \"Meeting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Todo list\",\n        \"label\": \"Todo list\",\n        \"name\": \"ToDo\",\n        \"type\": \"doctype\"\n    }\n    \n]"
+   "links": "[\n    {\n        \"description\": \"Meetings organized at school\",\n        \"label\": \"Meeting\",\n        \"name\": \"Meeting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Todo list\",\n        \"label\": \"Todo list\",\n        \"name\": \"ToDo\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your School Event List\",\n        \"label\": \"School Events\",\n        \"name\": \"School Event\",\n        \"type\": \"doctype\"\n    }\n    \n]"
   },
   {
    "hidden": 0,
@@ -34,7 +34,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2020-12-20 14:55:53.217328",
+ "modified": "2020-12-21 15:23:53.752561",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

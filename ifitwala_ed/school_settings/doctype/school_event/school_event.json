@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "EVENT-.YYYY.=.#####",
+ "autoname": "EVENT-.YYYY.-.#####",
  "creation": "2020-12-20 17:01:16.495801",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -85,7 +85,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-20 19:30:06.774718",
+ "modified": "2020-12-20 21:06:39.612230",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Event",

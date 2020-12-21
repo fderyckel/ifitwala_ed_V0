@@ -19,10 +19,12 @@ class Meeting(Document):
 		self.validate_date()
 		self.validate_time()
 
-	def on_update(self):
-		self.sync_todos()
+	def after_insert(self):
 		if self.attendees:
 			self.create_calendar_events()
+
+	def on_update(self):
+		self.sync_todos()
 
 	def validate_attendees(self):
 		found = []
@@ -46,6 +48,7 @@ class Meeting(Document):
 	def create_calendar_events(self):
 		if self.school_event:
 			return
+		default_color = frappe.get_single("Education Settings")
 		meeting_event = frappe.get_doc({
 			"doctype": "School Event",
 			"owner": self.meeting_organizer,
@@ -54,7 +57,9 @@ class Meeting(Document):
 			"ends_on": datetime.datetime.combine(getdate(self.date), get_time(self.to_time)),
 			"status": "Open",
 			"event_category": "Meeting",
-			"type": "Private"
+			"event_type": "Private",
+			"color": default_color.default_calendar_meeting_color,
+			"participants":[dict(participant = self.meeting_organizer)]
 		})
 		for attendee in self.attendees:
 			meeting_event.append("participants", {"participant":attendee.attendee})
@@ -71,14 +76,15 @@ class Meeting(Document):
 						"doctype": "ToDo",
 						"name": minute.todo
 						})
-					todo.description = minute.discussion,
-					todo.assigned_by = self.meeting_organizer,
-					todo.date = minute.completed_by
-					todo.save(ignore_permissions = True)
+					if todo.description != minute.discussion:
+						todo.db_set("description", minute.discussion, notify=True)
+					elif todo.date != minute.completed_by:
+						todo.db_set("date", minute.completed_by)
 
 				if not minute.todo:
 					todo = frappe.get_doc({
 						"doctype": "ToDo",
+						"owner": self.meeting_organizer,
 						"description": minute.discussion,
 						"reference_type": self.doctype,
 						"reference_name": self.name,

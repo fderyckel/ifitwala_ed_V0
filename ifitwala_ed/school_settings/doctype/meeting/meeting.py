@@ -57,7 +57,7 @@ class Meeting(Document):
 			"type": "Private"
 		})
 		for attendee in self.attendees:
-			meeting_event.append("participants", {user = attendee.attendee})
+			meeting_event.append("participants", {"participant":attendee.attendee})
 		meeting_event.insert(ignore_permissions=True)
 		self.school_event = meeting_event.name
 		self.save(ignore_permissions=True)

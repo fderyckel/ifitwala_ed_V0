@@ -54,11 +54,10 @@ class Meeting(Document):
 			"ends_on": datetime.datetime.combine(getdate(self.date), get_time(self.to_time)),
 			"status": "Open",
 			"event_category": "Meeting",
-			"type": "Private",
-			"participants": []
+			"type": "Private"
 		})
 		for attendee in self.attendees:
-			meeting_event.append("participants", dict(user = attendee.attendee))
+			meeting_event.append("participants", {user = attendee.attendee})
 		meeting_event.insert(ignore_permissions=True)
 		self.school_event = meeting_event.name
 		self.save(ignore_permissions=True)

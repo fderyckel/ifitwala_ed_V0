@@ -10,7 +10,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "title",
+  "page_name",
   "route",
   "column_break_3",
   "academic_year",
@@ -21,15 +21,17 @@
   "column_break_9",
   "program_details",
   "section_break_11",
-  "introduction"
+  "introduction",
+  "title"
  ],
  "fields": [
   {
    "fieldname": "title",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Title",
-   "reqd": 1,
-   "unique": 1
+   "no_copy": 1,
+   "print_hide": 1
   },
   {
    "fieldname": "route",
@@ -99,12 +101,19 @@
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Published on Website"
+  },
+  {
+   "fieldname": "page_name",
+   "fieldtype": "Data",
+   "label": "Page Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "has_web_view": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2020-12-22 08:56:34.581470",
+ "modified": "2020-12-22 12:29:39.922497",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Student Admission",

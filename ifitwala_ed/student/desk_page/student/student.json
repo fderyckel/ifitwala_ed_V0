@@ -44,7 +44,7 @@
    "type": "DocType"
   },
   {
-   "color": "Green",
+   "color": "#cef6d1",
    "doc_view": "List",
    "format": "{} Enabled",
    "label": "Student",
@@ -53,8 +53,8 @@
    "type": "DocType"
   },
   {
-   "color": "Grey",
-   "doc_view": "",
+   "color": "#ffe8cd",
+   "doc_view": "List",
    "label": "Student Log",
    "link_to": "Student Log",
    "type": "DocType"

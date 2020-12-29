@@ -60,6 +60,7 @@
   {
    "fieldname": "student",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Student",
    "options": "Student",
    "reqd": 1,
@@ -335,7 +336,7 @@
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-10-23 09:58:36.717284",
+ "modified": "2020-12-27 07:26:58.355545",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

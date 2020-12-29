@@ -19,6 +19,7 @@
   "student_second_language",
   "column_break_9",
   "student_image",
+  "student_applicant",
   "student_date_of_birth",
   "student_gender",
   "student_mobile_number",
@@ -294,12 +295,18 @@
    "fieldtype": "Table",
    "label": "Student Guardian",
    "options": "Student Guardian"
+  },
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "label": "Student Applicant",
+   "options": "Student Applicant"
   }
  ],
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-28 09:06:08.103462",
+ "modified": "2020-12-27 07:30:43.546545",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -319,7 +326,6 @@
   },
   {
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -347,24 +353,6 @@
    "role": "Counselor",
    "share": 1,
    "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Student",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Nurse",
-   "share": 1
   },
   {
    "email": 1,

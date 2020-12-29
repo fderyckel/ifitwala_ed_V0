@@ -13,7 +13,7 @@
   "last_name",
   "program",
   "column_break_5",
-  "applicant_status",
+  "application_status",
   "application_date",
   "academic_year",
   "academic_term",
@@ -62,6 +62,8 @@
   {
    "fieldname": "program",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Program",
    "options": "Program"
   },
@@ -70,16 +72,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "applicant_status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Applicant Status",
-   "options": "\nApplied\nApproved\nRejected\nAdmitted"
-  },
-  {
    "fieldname": "academic_year",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Academic Year",
    "options": "Academic Year"
   },
@@ -228,13 +224,19 @@
    "fieldtype": "Table",
    "label": "Student Guardian",
    "options": "Student Guardian"
+  },
+  {
+   "fieldname": "application_status",
+   "fieldtype": "Select",
+   "label": "Application Status",
+   "options": "\nApplied\nApproved\nRejected\nAdmitted"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-12-29 12:11:20.602019",
+ "modified": "2020-12-29 12:23:29.751569",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Student Applicant",

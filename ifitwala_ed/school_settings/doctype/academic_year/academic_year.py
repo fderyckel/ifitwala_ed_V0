@@ -32,7 +32,7 @@ class AcademicYear(Document):
     def on_update(self):
         if self.year_start_date and self.year_end_date:
             events = frappe.get_list("School Event", filters =  {"reference_name":  self.name})
-            if not events: 
+            if not events:
                 self.create_calendar_events()
 
     def validate_duplicate(self):
@@ -62,7 +62,7 @@ class AcademicYear(Document):
         end_year = frappe.get_doc({
             "doctype": "School Event",
         	"owner": frappe.session.user,
-        	"subject": "Start of Academic Year",
+        	"subject": "End of Academic Year",
         	"starts_on": getdate(self.year_end_date),
         	"ends_on": getdate(self.year_end_date),
         	"status": "Closed",

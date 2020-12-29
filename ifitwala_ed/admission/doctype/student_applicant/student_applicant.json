@@ -194,7 +194,9 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "title"
+   "hidden": 1,
+   "label": "title",
+   "print_hide": 1
   },
   {
    "collapsible": 1,
@@ -236,7 +238,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-12-29 12:23:29.751569",
+ "modified": "2020-12-29 12:37:45.158528",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Student Applicant",

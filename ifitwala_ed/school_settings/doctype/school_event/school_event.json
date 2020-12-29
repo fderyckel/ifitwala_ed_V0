@@ -11,13 +11,18 @@
   "event_type",
   "color",
   "column_break_5",
+  "school",
   "starts_on",
   "ends_on",
   "all_day",
   "section_break_8",
   "description",
   "participants_section",
-  "participants"
+  "participants",
+  "references_section",
+  "reference_type",
+  "column_break_16",
+  "reference_name"
  ],
  "fields": [
   {
@@ -81,11 +86,40 @@
    "ignore_user_permissions": 1,
    "label": "Participants",
    "options": "School Event Participant"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "reference_type",
+   "fieldtype": "Link",
+   "label": "Reference Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Name",
+   "mandatory_depends_on": "reference_type",
+   "options": "reference_type"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-20 21:06:39.612230",
+ "modified": "2020-12-29 13:39:23.112342",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Event",

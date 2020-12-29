@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "STU-APP-.YYYY.-#####",
+ "autoname": "STU-APP-.YYYY.-.#####",
  "creation": "2020-12-22 14:45:00.131069",
  "doctype": "DocType",
  "document_type": "Document",
@@ -14,7 +14,7 @@
   "program",
   "column_break_5",
   "applicant_status",
-  "applicant_date",
+  "application_date",
   "academic_year",
   "academic_term",
   "student_admission",
@@ -36,8 +36,8 @@
   "column_break_26",
   "city",
   "state",
-  "guardian_details_section",
-  "guardians",
+  "guardians_section",
+  "student_guardian",
   "sibling_details_section",
   "siblings",
   "title",
@@ -72,17 +72,14 @@
   {
    "fieldname": "applicant_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Applicant Status",
    "options": "\nApplied\nApproved\nRejected\nAdmitted"
   },
   {
-   "fieldname": "applicant_date",
-   "fieldtype": "Date",
-   "label": "Applicant Date"
-  },
-  {
    "fieldname": "academic_year",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Academic Year",
    "options": "Academic Year"
   },
@@ -146,7 +143,8 @@
   {
    "fieldname": "student_email",
    "fieldtype": "Data",
-   "label": "Student Email"
+   "label": "Student Email",
+   "options": "Email"
   },
   {
    "fieldname": "student_mobile",
@@ -198,22 +196,12 @@
    "label": "State"
   },
   {
-   "fieldname": "guardian_details_section",
-   "fieldtype": "Section Break",
-   "label": "Guardian details"
-  },
-  {
-   "fieldname": "guardians",
-   "fieldtype": "Table",
-   "label": "Guardians",
-   "options": "Student Guardian"
-  },
-  {
    "fieldname": "title",
    "fieldtype": "Data",
    "label": "title"
   },
   {
+   "collapsible": 1,
    "fieldname": "sibling_details_section",
    "fieldtype": "Section Break",
    "label": "Sibling Details"
@@ -223,13 +211,30 @@
    "fieldtype": "Table",
    "label": "Siblings",
    "options": "Student Sibling"
+  },
+  {
+   "default": "Today",
+   "fieldname": "application_date",
+   "fieldtype": "Date",
+   "label": "Application Date"
+  },
+  {
+   "fieldname": "guardians_section",
+   "fieldtype": "Section Break",
+   "label": "Guardians"
+  },
+  {
+   "fieldname": "student_guardian",
+   "fieldtype": "Table",
+   "label": "Student Guardian",
+   "options": "Student Guardian"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-12-27 16:23:22.330332",
+ "modified": "2020-12-29 12:11:20.602019",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Student Applicant",

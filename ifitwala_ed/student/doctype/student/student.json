@@ -156,6 +156,7 @@
    "fieldname": "student_email",
    "fieldtype": "Data",
    "label": "Student Email",
+   "options": "Email",
    "reqd": 1,
    "unique": 1
   },
@@ -306,7 +307,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-27 07:30:43.546545",
+ "modified": "2020-12-29 08:16:40.247651",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

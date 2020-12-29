@@ -150,7 +150,8 @@
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
-   "label": "Personal Email"
+   "label": "Personal Email",
+   "options": "Email"
   },
   {
    "fieldname": "guardian_mobile_phone",
@@ -187,7 +188,7 @@
  ],
  "image_field": "guardian_image",
  "links": [],
- "modified": "2020-12-08 17:57:08.342798",
+ "modified": "2020-12-29 08:16:58.357404",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",

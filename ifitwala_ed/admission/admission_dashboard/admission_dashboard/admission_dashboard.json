@@ -1,0 +1,31 @@
+{
+ "cards": [
+  {
+   "card": "Student Applicant to Review"
+  },
+  {
+   "card": "Student Applicant Approved"
+  },
+  {
+   "card": "Student Applicant Rejected"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Admission",
+   "width": "Half"
+  }
+ ],
+ "creation": "2020-12-29 10:13:13.091623",
+ "dashboard_name": "Admission Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2020-12-29 10:24:33.965332",
+ "modified_by": "Administrator",
+ "module": "Admission",
+ "name": "Admission Dashboard",
+ "owner": "Administrator"
+}

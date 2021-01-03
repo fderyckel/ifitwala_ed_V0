@@ -2,6 +2,6 @@
 // For license information, please see license.txt
 
 frappe.listview_settings['Learning Unit'] = {
-    add_fields: ['program', 'course', 'start_date', 'end_date'],
-  	hide_name_column: true, 
+    add_fields: ["program", "course", "start_date", "end_date"],
+  	hide_name_column: true,
 };

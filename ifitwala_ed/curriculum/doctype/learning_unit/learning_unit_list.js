@@ -3,5 +3,5 @@
 
 frappe.listview_settings['Learning Unit'] = {
     add_fields: ['program', 'course', 'start_date', 'end_date'],
-  	hide_name_column: true
+  	hide_name_column: true, 
 };

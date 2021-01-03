@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe import _
 from frappe.utils  import getdate
 from frappe.desk.reportview import get_match_cond, get_filters_cond
 from frappe.model.document import Document

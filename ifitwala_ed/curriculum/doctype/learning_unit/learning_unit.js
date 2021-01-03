@@ -2,7 +2,17 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Learning Unit', {
-	// refresh: function(frm) {
+	onload: function(frm) {
+    if (frm.doc.program) {
+      frm.set_query ('course', function(frm) {
+        return {
+          query: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.get_courses',
+          filters: {
+            'program': frm.doc.program
+          }
+        }
+      });
+    }
 
-	// }
+	}
 });

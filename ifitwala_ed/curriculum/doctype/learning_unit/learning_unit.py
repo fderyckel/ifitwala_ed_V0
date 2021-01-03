@@ -10,7 +10,7 @@ from frappe.model.document import Document
 
 class LearningUnit(Document):
 	def validate(self):
-		if self.start_date and self.end_date and getdate(start_date) > getdate(end_date):
+		if self.start_date and self.end_date and getdate(self.start_date) > getdate(self.end_date):
 			frappe.throw(_("The start of the unit {0} cannot be after its end {1}.  Please adjust the dates").format(self.start_date, self.end_date))
 
 

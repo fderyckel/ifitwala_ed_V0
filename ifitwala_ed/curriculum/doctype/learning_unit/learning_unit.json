@@ -8,14 +8,25 @@
  "field_order": [
   "course",
   "start_date",
+  "unit_status",
   "column_break_3",
   "program",
   "end_date",
+  "duration",
   "section_break_6",
   "unit_name",
+  "statement_of_inquiry",
   "unit_summary",
   "essential_questions",
-  "learning_outcomes"
+  "learning_outcomes",
+  "curriculum_section",
+  "aims_and_objectives",
+  "content_and_skills",
+  "standards_and_benchmark",
+  "reflections_section",
+  "prior_to_learning",
+  "during_learning",
+  "after_learning"
  ],
  "fields": [
   {
@@ -25,12 +36,12 @@
   },
   {
    "fieldname": "start_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Start Date"
   },
   {
    "fieldname": "end_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "End Date"
   },
   {
@@ -56,10 +67,13 @@
    "options": "Program"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_6",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Inquiry"
   },
   {
+   "default": "<b>What is this unit about?</b> <br><br><br>\n\n<b>Conceptual Understanding: </b> ",
    "fieldname": "unit_summary",
    "fieldtype": "Text Editor",
    "label": "Unit Summary"
@@ -68,11 +82,74 @@
    "fieldname": "learning_outcomes",
    "fieldtype": "Text Editor",
    "label": "Learning Outcomes"
+  },
+  {
+   "default": "Active",
+   "fieldname": "unit_status",
+   "fieldtype": "Select",
+   "label": "Unit Status",
+   "options": "\nActive\nArchived"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Duration"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "reflections_section",
+   "fieldtype": "Section Break",
+   "label": "Reflections"
+  },
+  {
+   "default": "<b>Questions to focus on</b>:  <br>Why do we think that the unit or the selection of topics will be interesting? What do students already know, and what can they do? What have students encountered in this discipline before? What does experience tell us about what to expect in this unit?  What potential interdisciplinary connections can we identify? What do we know about students\u2019 preferences and patterns of interaction? Are there any possible opportunities for meaningful service-learning? What in the unit might be inspiring for community or personal projects? How can we use students\u2019 multilingualism as a resource for learning?",
+   "fieldname": "prior_to_learning",
+   "fieldtype": "Text Editor",
+   "label": "Prior to learning"
+  },
+  {
+   "default": "<b>Questions to focus on: </b><br>What difficulties did we encounter while completing the unit or the summative assessment task(s)? What resources are proving useful, and what other resources do we need? What student inquiries are emerging? What can we adjust or change? What skills need more practice? What is the level of student engagement? How can we scaffold learning for students who need more guidance? What is happening in the world right now with which we could connect teaching and learning in this unit? How well are the learning experiences aligned with the unit\u2019s objectives? What opportunities are we hearing to help students explore the interpretative nature of knowledge, including personal biases that might be retained, revised or rejected? ",
+   "fieldname": "during_learning",
+   "fieldtype": "Text Editor",
+   "label": "During Learning"
+  },
+  {
+   "default": "<b>Questions to focus on: </b><br>What were the learning outcomes of this unit? How well did the summative assessment task serve to distinguish levels of achievement? Was the task sufficiently complex to allow students to reach the highest levels? What evidence of learning can we identify? What artifacts of learning should we document? Which teaching strategies were effective? Why? What was surprising? What student-initiated action did we notice? What will we do differently next time? How will we build on our experience to plan the next unit? How effectively did we differentiate learning in this unit? What can students carry forward from this unit to the next year/level of study? Which subject groups could we work with next time? What did we learn from standardizing the assessment?",
+   "fieldname": "after_learning",
+   "fieldtype": "Text Editor",
+   "label": "After Learning"
+  },
+  {
+   "fieldname": "statement_of_inquiry",
+   "fieldtype": "Data",
+   "label": "Statement of Inquiry"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "curriculum_section",
+   "fieldtype": "Section Break",
+   "label": "Curriculum"
+  },
+  {
+   "fieldname": "aims_and_objectives",
+   "fieldtype": "Text Editor",
+   "label": "Aims and Objectives"
+  },
+  {
+   "fieldname": "content_and_skills",
+   "fieldtype": "Text Editor",
+   "label": "Content and Skills"
+  },
+  {
+   "fieldname": "standards_and_benchmark",
+   "fieldtype": "Data",
+   "label": "Standards and Benchmark"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-15 20:06:35.054252",
+ "modified": "2021-01-03 11:06:46.998627",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

@@ -8,7 +8,10 @@
  "field_order": [
   "s_and_b_name",
   "organization",
-  "main_domain"
+  "main_domain",
+  "dok",
+  "standard_abbreviation",
+  "standard"
  ],
  "fields": [
   {
@@ -25,11 +28,26 @@
    "fieldname": "organization",
    "fieldtype": "Data",
    "label": "Organization"
+  },
+  {
+   "fieldname": "dok",
+   "fieldtype": "Data",
+   "label": "Depth of Knowledge"
+  },
+  {
+   "fieldname": "standard_abbreviation",
+   "fieldtype": "Data",
+   "label": "Standard Abbreviation"
+  },
+  {
+   "fieldname": "standard",
+   "fieldtype": "Data",
+   "label": "Standard"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-15 20:11:37.900436",
+ "modified": "2021-01-03 10:37:21.538504",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Standards and Benchmarks",

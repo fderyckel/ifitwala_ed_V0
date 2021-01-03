@@ -4,7 +4,7 @@
 frappe.ui.form.on('Learning Unit', {
 	onload: function(frm) {
     if (frm.doc.program) {
-      frm.set_query ('course', function(frm) {
+      frm.set_query ('course', function() {
         return {
           query: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.get_courses',
           filters: {

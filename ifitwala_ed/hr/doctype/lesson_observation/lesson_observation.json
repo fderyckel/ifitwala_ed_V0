@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "creation": "2020-12-31 10:04:02.468073",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lesson_details_section",
+  "title",
+  "course_schedule",
+  "observer",
+  "learning_unit",
+  "column_break_6",
+  "course",
+  "date",
+  "instructor",
+  "section_break_10",
+  "data_11"
+ ],
+ "fields": [
+  {
+   "fieldname": "lesson_details_section",
+   "fieldtype": "Section Break",
+   "label": "Lesson Details"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "fieldname": "course_schedule",
+   "fieldtype": "Link",
+   "label": "Course Schedule",
+   "options": "Course Schedule"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Read Only",
+   "label": "Date"
+  },
+  {
+   "fieldname": "observer",
+   "fieldtype": "Link",
+   "label": "Observer",
+   "options": "User"
+  },
+  {
+   "fieldname": "learning_unit",
+   "fieldtype": "Link",
+   "label": "Learning Unit",
+   "options": "Learning Unit"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "instructor",
+   "fieldtype": "Link",
+   "label": "Instructor",
+   "options": "Instructor"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "data_11",
+   "fieldtype": "Data"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-12-31 10:07:36.774175",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Lesson Observation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

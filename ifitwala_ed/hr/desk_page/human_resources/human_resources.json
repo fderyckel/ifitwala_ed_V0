@@ -9,6 +9,11 @@
    "hidden": 0,
    "label": "Calendar",
    "links": "[\n    {\n        \"description\": \"Holiday Lost\",\n        \"label\": \"Holiday List\",\n        \"name\": \"Holiday List\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Employee Designation\",\n        \"label\": \"Designation\",\n        \"name\": \"Designation\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Reflections",
+   "links": "[\n    {\n        \"description\": \"Learning from a meeting\",\n        \"label\": \"Learning from a meeting\",\n        \"name\": \"Learn Meeting\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Employee Designation\",\n        \"label\": \"Designation\",\n        \"name\": \"Designation\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "Employee Master",
@@ -24,7 +29,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2020-11-16 14:42:18.596217",
+ "modified": "2020-12-31 09:49:57.577587",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",

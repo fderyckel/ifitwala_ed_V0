@@ -38,16 +38,19 @@
   {
    "fieldname": "start_date",
    "fieldtype": "Date",
+   "in_standard_filter": 1,
    "label": "Start Date"
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
+   "in_standard_filter": 1,
    "label": "End Date"
   },
   {
    "fieldname": "course",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Course",
    "options": "Course"
   },
@@ -64,6 +67,7 @@
   {
    "fieldname": "program",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Program",
    "options": "Program"
   },
@@ -150,7 +154,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-03 16:56:36.450883",
+ "modified": "2021-01-03 17:17:55.377464",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

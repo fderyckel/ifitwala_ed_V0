@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "LU-.YYYY.-.####",
  "creation": "2020-11-14 09:50:40.751561",
  "doctype": "DocType",
@@ -149,7 +150,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-03 11:06:46.998627",
+ "modified": "2021-01-03 16:56:36.450883",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",
@@ -201,7 +202,7 @@
   }
  ],
  "quick_entry": 1,
- "sort_field": "modified",
+ "sort_field": "start_date",
  "sort_order": "DESC",
  "title_field": "unit_name",
  "track_changes": 1

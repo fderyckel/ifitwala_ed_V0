@@ -15,6 +15,7 @@ class LearningUnit(Document):
 			frappe.throw(_("The start of the unit {0} cannot be after its end {1}.  Please adjust the dates").format(self.start_date, self.end_date))
 
 
+
 # from JS. to filter out course that are only present in the program list of courses.
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs

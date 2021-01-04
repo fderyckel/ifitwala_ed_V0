@@ -33,7 +33,9 @@
   {
    "fieldname": "unit_name",
    "fieldtype": "Data",
-   "label": "Unit  Name"
+   "label": "Unit  Name",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "start_date",
@@ -50,6 +52,7 @@
   {
    "fieldname": "course",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Course",
    "options": "Course"
@@ -67,6 +70,7 @@
   {
    "fieldname": "program",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Program",
    "options": "Program"
@@ -154,7 +158,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-03 17:17:55.377464",
+ "modified": "2021-01-04 18:43:52.656303",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",
@@ -205,7 +209,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "start_date",
  "sort_order": "DESC",
  "title_field": "unit_name",

@@ -4,6 +4,7 @@
  "autoname": "LU-.YYYY.-.####",
  "creation": "2020-11-14 09:50:40.751561",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -40,13 +41,11 @@
   {
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "in_standard_filter": 1,
    "label": "Start Date"
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "in_standard_filter": 1,
    "label": "End Date"
   },
   {
@@ -158,7 +157,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-04 18:43:52.656303",
+ "modified": "2021-01-04 22:12:40.993461",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

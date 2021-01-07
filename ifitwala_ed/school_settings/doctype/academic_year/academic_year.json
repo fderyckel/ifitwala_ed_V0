@@ -14,7 +14,10 @@
   "column_break_3",
   "school",
   "year_end_date",
-  "title"
+  "title",
+  "section_break_7",
+  "ay_start",
+  "ay_end"
  ],
  "fields": [
   {
@@ -61,10 +64,29 @@
   {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ay_start",
+   "fieldtype": "Link",
+   "label": "ay_start",
+   "options": "School Event",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "ay_end",
+   "fieldtype": "Link",
+   "label": "ay_end",
+   "options": "School Event",
+   "print_hide": 1
   }
  ],
  "links": [],
- "modified": "2020-12-05 07:04:30.529507",
+ "modified": "2021-01-07 14:25:52.670679",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

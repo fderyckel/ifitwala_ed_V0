@@ -85,4 +85,4 @@ class AcademicYear(Document):
                 "reference_name": self.name
         	})
             end_year.insert()
-            self.ay_start.db_set("School Event", start_year.name, update_modified = False)
+            self.ay_end.db_set("School Event", end_year.name, update_modified = False)

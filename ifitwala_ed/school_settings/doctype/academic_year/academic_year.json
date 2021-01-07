@@ -17,6 +17,7 @@
   "title",
   "section_break_7",
   "ay_start",
+  "column_break_9",
   "ay_end"
  ],
  "fields": [
@@ -83,10 +84,14 @@
    "label": "ay_end",
    "options": "School Event",
    "print_hide": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
   }
  ],
  "links": [],
- "modified": "2021-01-07 14:25:52.670679",
+ "modified": "2021-01-07 15:05:37.158867",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

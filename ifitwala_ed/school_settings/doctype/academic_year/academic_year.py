@@ -66,7 +66,7 @@ class AcademicYear(Document):
                 "reference_name": self.name
         	})
             start_year.insert()
-            self.ay_start.db_set("School Event", start_year.name, update_modified = False)
+            self.db_set("ay_start", start_year.name)
 
         if not self.ay_end:
             end_year = frappe.get_doc({
@@ -85,4 +85,4 @@ class AcademicYear(Document):
                 "reference_name": self.name
         	})
             end_year.insert()
-            self.ay_end.db_set("School Event", end_year.name, update_modified = False)
+            self.db_set("ay_end", end_year.name)

@@ -3,7 +3,6 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-
 import frappe
 from frappe.utils import getdate, get_link_to_form
 from frappe import _
@@ -44,6 +43,7 @@ class AcademicYear(Document):
             if getdate(start_ay.starts_on) != getdate(self.year_start_date):
                 start_ay.db_set("starts_on", self.year_start_date)
                 start_ay.db_set("ends_on", self.year_start_date)
+                frappe.msgprint(_("Date for the start of the year {0} has been updated on the School Event Calendar {1}").format(self.year_start_date, get_link_to_form("School Event", start_ay.name)))
 
         if self.ay_end:
             end_ay = frappe.get_doc("School Event", self.ay_end)

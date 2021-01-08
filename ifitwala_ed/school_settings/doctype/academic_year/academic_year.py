@@ -43,10 +43,12 @@ class AcademicYear(Document):
             start_ay = frappe.get_doc("School Event", self.ay_start)
             if getdate(start_ay.starts_on) != getdate(self.year_start_date):
                 start_ay.db_set("starts_on", self.year_start_date)
+                start_ay.db_set("ends_on", self.year_start_date)
 
         if self.ay_end:
             end_ay = frappe.get_doc("School Event", self.ay_end)
             if getdate(end_ay.ends_on) != getdate(self.year_end_date):
+                end_ay.db_set("starts_on", self.year_end_date)
                 end_ay.db_set("ends_on", self.year_end_date)
 
         if not self.ay_start:

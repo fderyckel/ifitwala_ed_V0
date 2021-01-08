@@ -69,21 +69,24 @@
   {
    "collapsible": 1,
    "fieldname": "section_break_7",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "School Events"
   },
   {
    "fieldname": "ay_start",
    "fieldtype": "Link",
    "label": "ay_start",
    "options": "School Event",
-   "print_hide": 1
+   "print_hide": 1,
+   "read_only": 1
   },
   {
    "fieldname": "ay_end",
    "fieldtype": "Link",
    "label": "ay_end",
    "options": "School Event",
-   "print_hide": 1
+   "print_hide": 1,
+   "read_only": 1
   },
   {
    "fieldname": "column_break_9",
@@ -91,7 +94,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-07 15:05:37.158867",
+ "modified": "2021-01-07 21:16:18.069518",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

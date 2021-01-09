@@ -26,7 +26,7 @@ class AcademicYear(Document):
 
         # The start of the year has to be before the end of the academic year.
         if self.year_start_date and self.year_end_date and getdate(self.year_start_date) > getdate(self.year_end_date):
-            frappe.throw(_("The start of the academic year {0} has to be before the end of the academic year {1}.").format(self.year_start_date, self.year_end_date), title=_("Wrong Dates"))
+            frappe.throw(_("The start of the academic year ({0}) has to be before the end of the academic year ({1}).").format(self.year_start_date, self.year_end_date), title=_("Wrong Dates"))
 
     def on_update(self):
         if self.year_start_date and self.year_end_date:
@@ -35,7 +35,7 @@ class AcademicYear(Document):
     def validate_duplicate(self):
         year = frappe.db.sql("""select name from `tabAcademic Year` where school=%s and academic_year_name=%s and docstatus<2 and name!=%s""", (self.school, self.academic_year_name, self.name))
         if year:
-            frappe.throw(_("An academic year with this name {0} and this school already exist.").format(get_link_to_form("Academic Year", self.name)), title=_("Duplicate Entry"))
+            frappe.throw(_("An academic year with this name {0} and this school {1} already exist.").format(self.academic_year_name, get_link_to_form("School", self.school)), title=_("Duplicate Entry"))
 
     def create_calendar_events(self):
         if self.ay_start:
@@ -70,6 +70,7 @@ class AcademicYear(Document):
         	})
             start_year.insert()
             self.db_set("ay_start", start_year.name)
+            frappe.msgprint(_("Date for the start of the year {0} has been created on the School Event Calendar {1}").format(self.year_start_date, get_link_to_form("School Event", start_year.name)))
 
         if not self.ay_end:
             end_year = frappe.get_doc({
@@ -89,3 +90,4 @@ class AcademicYear(Document):
         	})
             end_year.insert()
             self.db_set("ay_end", end_year.name)
+            frappe.msgprint(_("Date for the end of the year {0} has been created on the School Event Calendar {1}").format(self.year_end_date, get_link_to_form("School Event", end_year.name)))

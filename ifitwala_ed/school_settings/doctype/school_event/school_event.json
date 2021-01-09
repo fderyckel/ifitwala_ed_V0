@@ -3,6 +3,7 @@
  "autoname": "EVENT-.YYYY.-.#####",
  "creation": "2020-12-20 17:01:16.495801",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -117,9 +118,10 @@
    "fieldtype": "Column Break"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-29 13:39:23.112342",
+ "modified": "2021-01-08 16:20:55.747918",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Event",
@@ -151,6 +153,7 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "subject",
  "track_changes": 1,
  "track_seen": 1,
  "track_views": 1

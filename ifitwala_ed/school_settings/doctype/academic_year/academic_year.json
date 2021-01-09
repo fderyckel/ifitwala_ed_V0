@@ -5,6 +5,7 @@
  "autoname": "field:title",
  "creation": "2020-08-16 12:58:26.087693",
  "doctype": "DocType",
+ "document_type": "Document",
  "documentation": "http://ifitwala.com/docs/user/manual/en/education-settings/academic-year",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -93,8 +94,9 @@
    "fieldtype": "Column Break"
   }
  ],
+ "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-01-07 21:16:18.069518",
+ "modified": "2021-01-09 08:48:08.347099",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",
@@ -113,16 +115,13 @@
    "write": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "School IT",
-   "share": 1,
-   "write": 1
+   "share": 1
   },
   {
    "email": 1,
@@ -134,13 +133,16 @@
    "share": 1
   },
   {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Schedule Maker",
-   "share": 1
+   "share": 1,
+   "write": 1
   },
   {
    "email": 1,
@@ -158,15 +160,6 @@
    "read": 1,
    "report": 1,
    "role": "Curriculum Coordinator",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Student",
    "share": 1
   }
  ],

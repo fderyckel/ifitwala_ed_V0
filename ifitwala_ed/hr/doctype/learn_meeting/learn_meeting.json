@@ -1,9 +1,11 @@
 {
  "actions": [],
  "autoname": "REF-MEET-.YYYY.-.####",
+ "color": "far fa-handshake",
  "creation": "2020-12-31 09:16:24.044273",
  "description": "Use this DocType if you would like to reflect on a meeting you've got.  ",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -18,8 +20,8 @@
   "how_will_it_help",
   "so_what",
   "section_break_7",
-  "amended_from",
-  "share_with"
+  "share_with",
+  "amended_from"
  ],
  "fields": [
   {
@@ -104,7 +106,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-12-31 10:01:53.810310",
+ "modified": "2021-01-09 10:00:18.275640",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Learn Meeting",
@@ -121,10 +123,23 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
   }
  ],
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "track_changes": 1
+ "title_field": "title",
+ "track_changes": 1,
+ "track_views": 1
 }

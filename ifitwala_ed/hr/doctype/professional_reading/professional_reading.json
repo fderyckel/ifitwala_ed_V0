@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "autoname": "REF-READ-.YYYY.-.####",
+ "creation": "2021-01-09 09:35:49.957414",
+ "description": "Record your professional readings/conferences (books, articles, conferences) and reflect on it. ",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title_of_reading",
+  "publishing_details",
+  "column_break_3",
+  "follow_up",
+  "section_break_5",
+  "synopsis",
+  "reflections_section",
+  "motivation",
+  "column_break_9",
+  "so_what",
+  "section_break_11",
+  "share_with"
+ ],
+ "fields": [
+  {
+   "fieldname": "title_of_reading",
+   "fieldtype": "Data",
+   "label": "Title of Reading"
+  },
+  {
+   "fieldname": "publishing_details",
+   "fieldtype": "Small Text",
+   "label": "Publishing Details"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "follow_up",
+   "fieldtype": "Date",
+   "label": "Follow up "
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "<b>What key things have you have taken away?</b>",
+   "fieldname": "synopsis",
+   "fieldtype": "Text Editor",
+   "label": "Synopsis"
+  },
+  {
+   "fieldname": "reflections_section",
+   "fieldtype": "Section Break",
+   "label": "Reflections"
+  },
+  {
+   "default": "<b>What was it about this reading that compels me to want to reflect on it in this way?</b>",
+   "fieldname": "motivation",
+   "fieldtype": "Text Editor",
+   "label": "Motivation"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "<b>How will it help me? How has it helped me?</b>\n<br>\n<br>\n<br>\n<b>What do I propose to do with this new information? What am I going to do differently as a result?</b>",
+   "fieldname": "so_what",
+   "fieldtype": "Text Editor",
+   "label": "So what"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "share_with",
+   "fieldtype": "Table",
+   "label": "Share With",
+   "options": "Collaborating Colleague"
+  }
+ ],
+ "icon": "fa fa-book",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-01-09 09:41:08.979307",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Professional Reading",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "title_of_reading",
+ "track_changes": 1,
+ "track_views": 1
+}

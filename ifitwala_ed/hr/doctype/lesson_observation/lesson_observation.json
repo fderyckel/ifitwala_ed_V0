@@ -1,21 +1,25 @@
 {
  "actions": [],
+ "autoname": "REF-LESS-.YYYY.-.####",
  "creation": "2020-12-31 10:04:02.468073",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "lesson_details_section",
   "title",
   "course_schedule",
-  "observer",
   "learning_unit",
   "column_break_6",
   "course",
   "date",
   "instructor",
   "section_break_10",
-  "data_11"
+  "observer",
+  "reflections_section",
+  "observations",
+  "amended_from"
  ],
  "fields": [
   {
@@ -47,9 +51,9 @@
   },
   {
    "fieldname": "observer",
-   "fieldtype": "Link",
+   "fieldtype": "Table",
    "label": "Observer",
-   "options": "User"
+   "options": "Collaborating Colleague"
   },
   {
    "fieldname": "learning_unit",
@@ -69,16 +73,33 @@
   },
   {
    "fieldname": "section_break_10",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Observers"
   },
   {
-   "fieldname": "data_11",
-   "fieldtype": "Data"
+   "fieldname": "reflections_section",
+   "fieldtype": "Section Break",
+   "label": "Reflections"
+  },
+  {
+   "fieldname": "observations",
+   "fieldtype": "Text Editor",
+   "label": "Observations"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Lesson Observation",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2020-12-31 10:07:36.774175",
+ "modified": "2021-01-09 09:53:25.020135",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Lesson Observation",
@@ -95,10 +116,46 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1,
+   "write": 1
   }
  ],
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "track_changes": 1
+ "track_changes": 1,
+ "track_views": 1
 }

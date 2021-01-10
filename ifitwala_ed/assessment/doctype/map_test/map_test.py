@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import get_link_to_form
+from frappe.utils import get_link_to_form, getdate
 
 class MAPTest(Document):
 	def validate(self):
@@ -29,6 +29,6 @@ class MAPTest(Document):
 			"student": self.student,
 			"academic_term": self.academic_term,
 			"discipline": self.discipline
-		})  
+		})
 		if  map_test:
 			frappe.throw(_("There is already a MAP test submitted for this student and this term and this subject."))

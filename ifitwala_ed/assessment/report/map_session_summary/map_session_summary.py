@@ -11,9 +11,9 @@ def execute(filters=None):
 
 	columns = get_columns(filters)
 	data = get_data(filters)
-	chart = get_chart_data(data)
+	#chart = get_chart_data(data)
 
-	return columns, data, None, chart
+	return columns, data, None #, chart
 
 def get_columns(filters=None):
 	columns = [

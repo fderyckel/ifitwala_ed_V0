@@ -56,11 +56,11 @@
    "label": "How will it help me?"
   },
   {
-   "description": "What do I propose to do with this new information? What am I going to do differently as a result?",
+   "default": "<b>What do I propose to do with this new information?</b> \n<br>\n<br>\n<br>\n<br>\n<b>What am I going to do differently as a result?</b>",
    "fieldname": "so_what",
    "fieldtype": "Text Editor",
    "in_list_view": 1,
-   "label": "So what?",
+   "label": "So what",
    "reqd": 1
   },
   {
@@ -74,7 +74,8 @@
   },
   {
    "fieldname": "section_break_7",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Sharing"
   },
   {
    "fieldname": "share_with",
@@ -106,7 +107,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-01-09 10:00:18.275640",
+ "modified": "2021-01-10 09:19:39.744147",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Learn Meeting",

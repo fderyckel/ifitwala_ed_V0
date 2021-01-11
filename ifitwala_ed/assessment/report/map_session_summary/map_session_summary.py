@@ -100,7 +100,7 @@ def get_chart_data(data):
 					wtf+=1
 			if wtf  ==  0:
 				values.append(0)
-		datasets.append({"name": _(t), "values":values})
+		datasets.append({"name": t, "values":values})
 
 	return {
 		"data": {

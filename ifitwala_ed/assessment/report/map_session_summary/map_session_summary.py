@@ -108,9 +108,7 @@ def get_chart_data(data):
 			"datasets": datasets
 		},
 		"type": "bar",
-		"lineOptions": {
-			"regionFill": 1
-		},
+		"height": 300,
 		"axis": {
 			"y": {
 				"min": 150

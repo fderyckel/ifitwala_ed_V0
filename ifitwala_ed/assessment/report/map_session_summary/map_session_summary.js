@@ -9,14 +9,21 @@ frappe.query_reports["MAP Session Summary"] = {
 			"label": __("From Date"),
 			"fieldtype": "Date",
 			"default": frappe.datetime.add_months(frappe.datetime.get_today(), -36),
-			"reqd": 1
+			"reqd": 0
 		},
 		{
 			"fieldname":"to_date",
 			"label": __("To Date"),
 			"fieldtype": "Date",
 			"default": frappe.datetime.get_today(),
-			"reqd": 1
+			"reqd": 0
+		},
+		{
+			"fieldname":"academic_year",
+			"label": __("Academic Year"),
+			"fieldtype": "Link",
+			"options": "Academic Year",
+			"reqd": 0
 		},
 		{
 			"fieldname":"academic_term",

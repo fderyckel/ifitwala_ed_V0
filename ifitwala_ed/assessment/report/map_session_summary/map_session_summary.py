@@ -107,7 +107,10 @@ def get_chart_data(data):
 			"labels": labels,
 			"datasets": datasets
 		},
-		"type": "bar"
+		"type": "bar",
+		"axis": {
+			"y": {
+				"min": 150}}
 	}
 
 

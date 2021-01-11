@@ -61,10 +61,9 @@ def get_columns(filters=None):
 	return columns
 
 def get_data(filters = None):
-	data = []
 	conditions = get_filter_conditions(filters)
-	map_results = frappe.db.sql("""
-			SELECT DISTINCT academic_year, academic_term, discipline, program, 
+	data = frappe.db.sql("""
+			SELECT DISTINCT academic_year, academic_term, discipline, program,
 							median(test_rit_score) OVER (PARTITION BY academic_term, program, discipline) AS median_rit,
 							median(test_percentile) OVER (PARTITION BY academic_term, program, discipline) AS median_percentile
 			FROM `tabMAP Test`
@@ -72,17 +71,6 @@ def get_data(filters = None):
 					docstatus = 0 %s
 			ORDER BY
 					academic_term, program""" % (conditions),  as_dict=1)
-
-	for result in map_results:
-		data.append({
-				'academic_year': result.academic_year,
-				'academic_term': result.academic_term,
-				'discipline': result.discipline,
-				'program': result.program,
-				'median_rit': result.median_rit,
-				'median_percentile': result.median_percentile
-		})
-
 	return data
 
 
@@ -99,10 +87,10 @@ def get_chart_data(data):
 	for entry in data:
 		if entry.get("program") not in labels:
 			labels.append(entry.get("program"))
-		if entry.get("academic_term") not in datasets:
-			labels.append(entry.get("academic_term"))
+		if entry.get("academic_term") not in terms:
+			terms.append(entry.get("academic_term"))
 
-	for t in datasets:
+	for t in terms:
 		values=[]
 		for l in labels:
 			wtf = 0

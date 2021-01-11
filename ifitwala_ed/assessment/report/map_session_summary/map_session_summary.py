@@ -70,7 +70,7 @@ def get_data(filters = None):
 			WHERE
 					docstatus = 0 %s
 			ORDER BY
-					academic_term, program""" % (conditions),  as_dict=1)
+					program, academic_term""" % (conditions),  as_dict=1)
 	return data
 
 
@@ -103,17 +103,10 @@ def get_chart_data(data):
 		datasets.append({"name": t, "values":values})
 
 	return {
-		"data": {
-			"labels": labels,
-			"datasets": datasets
-		},
+		"data": {"labels": labels, "datasets": datasets},
 		"type": "bar",
 		"height": 300,
-		"axis": {
-			"y": {
-				"min": 150
-				}
-				}
+		"axis": {"y": {"min": 150}}
 	}
 
 

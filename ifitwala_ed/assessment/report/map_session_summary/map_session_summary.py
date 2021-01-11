@@ -115,7 +115,7 @@ def get_filter_conditions(filters):
 	conditions = ""
 
 	if filters.get('from_date') and filters.get('to_date'):
-		conditions += " and posting_date BETWEEN '%s' and '%s'" % (filters.get("from_date"), filters.get("to_date"))
+		conditions += " and test_date BETWEEN '%s' and '%s'" % (filters.get("from_date"), filters.get("to_date"))
 
 	if filters.get("discipline"):
 		conditions += " and discipline = '%s' " % (filters.get("discipline"))

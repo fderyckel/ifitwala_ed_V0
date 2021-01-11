@@ -64,7 +64,7 @@ def get_data(filters = None):
 	data = []
 	conditions = get_filter_conditions(filters)
 	map_results = frappe.db.sql("""
-			SELECT DISTINCT academic_year, academic_term, discipline,
+			SELECT DISTINCT academic_year, academic_term, discipline, program, 
 							median(test_rit_score) OVER (PARTITION BY academic_term, program, discipline) AS median_rit,
 							median(test_percentile) OVER (PARTITION BY academic_term, program, discipline) AS median_percentile
 			FROM `tabMAP Test`

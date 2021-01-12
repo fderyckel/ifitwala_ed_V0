@@ -14,7 +14,7 @@ frappe.ui.form.on('Student', {
 					'name': ['!=', doc.name]
 				}
 			};
-		})
+		}); 
 	},
 
 	refresh: function(frm) {

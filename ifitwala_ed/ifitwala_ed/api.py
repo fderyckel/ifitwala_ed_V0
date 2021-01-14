@@ -19,9 +19,9 @@ def get_student_group_students(student_group, include_inactive=0):
                 filters = {"parent": student_group, "active": 1}, order_by = "group_roll_number")
 
 @frappe.whitelist()
-def enroll_student(source_name):
-    frappe.publish_realtime('enroll_student_progress', {"progress": [1, 4]}, user=frappe.session.user)
-    student = get_mapped_doc("Student Applicant", source_name,
+def enroll_student(source_name): 
+	frappe.publish_realtime('enroll_student_progress', {"progress": [1, 4]}, user=frappe.session.user)
+    	student = get_mapped_doc("Student Applicant", source_name,
             {"Student Applicant": {
                 "doctype": "Student",
                 "field_map": {

@@ -73,9 +73,6 @@ def get_data(filters = None):
 					program, academic_term""" % (conditions),  as_dict=1)
 	return data
 
-
-
-
 def get_chart_data(data):
 	if not data:
 		return None

@@ -10,8 +10,8 @@ from ifitwala_ed import __version__ as version
 setup(
 	name='ifitwala_ed',
 	version=version,
-	description='sms',
-	author='flipo',
+	description='A Frappe App that serve as a School Management System',
+	author='François de Ryckel',
 	author_email='fderyckel@gmail.com',
 	packages=find_packages(),
 	zip_safe=False,

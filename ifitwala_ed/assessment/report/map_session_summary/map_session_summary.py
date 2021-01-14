@@ -99,7 +99,7 @@ def get_chart_data(data):
 					values.append(entry.get("median_rit"))
 					wtf+=1
 			if wtf  ==  0:
-				values.append("null")
+				values.append("")
 		datasets.append({"name": t, "values":values})
 
 	return {

@@ -4,7 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe.model.wrapper import get_mapped_doc
+from frappe.model.mapper import get_mapped_doc
 import json
 
 

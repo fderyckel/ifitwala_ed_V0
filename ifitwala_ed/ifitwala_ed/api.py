@@ -20,7 +20,7 @@ def get_student_group_students(student_group, include_inactive=0):
 
 @frappe.whitelist()
 def enroll_student(source_name):
-	frappe.publish_realtime('enroll_student_progress', {"progress": [1, 4]}, user=frappe.session.user)
+    frappe.publish_realtime('enroll_student_progress', {"progress": [1, 4]}, user=frappe.session.user)
     student = get_mapped_doc("Student Applicant", source_name, {"Student Applicant": {"doctype": "Student", "field_map": {"name": "student_applicant"}}}, ignore_permissions = True)
     student.save()
     program_enrollment = frappe.new_doc("Program Enrollment")

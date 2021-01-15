@@ -11,9 +11,9 @@ def setup_education():
 	disable_desk_access_for_student_role()
 	disable_desk_access_for_guardian_role()
 
-	if frappe.db.exists("Academic Year", "2019-20"):
-		return
-	create_academic_sessions()
+	#if frappe.db.exists("Academic Year", "2019-20"):
+	#	return
+	#create_academic_sessions()
 
 	if frappe.db.exists("Designation", "Director"):
 		return
@@ -43,7 +43,7 @@ def disable_desk_access_for_guardian_role():
 	except frappe.DoesNotExistError:
 		create_guardian_role()
 		return
-		
+
 	guardian_role.desk_access = 0
 	guardian_role.save()
 

@@ -25,7 +25,7 @@ def enroll_student(source_name):
     student.save()
     program_enrollment = frappe.new_doc("Program Enrollment")
     program_enrollment.student = student.name
-	program_enrollment.student_name = student.title
-	program_enrollment.program = frappe.db.get_value("Student Applicant", source_name, "program")
-	frappe.publish_realtime('enroll_student_progress', {"progress": [2, 4]}, user=frappe.session.user)
-	return program_enrollment
+    program_enrollment.student_name = student.title
+    program_enrollment.program = frappe.db.get_value("Student Applicant", source_name, "program")
+    frappe.publish_realtime('enroll_student_progress', {"progress": [2, 4]}, user=frappe.session.user)
+    return program_enrollment

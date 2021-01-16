@@ -4,7 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from ifitwala_ed.school_settings.utils import insert_record
+from ifitwala_ed.setup.utils import insert_record
 
 
 def setup_education():

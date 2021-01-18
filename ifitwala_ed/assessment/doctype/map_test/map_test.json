@@ -21,6 +21,7 @@
   "discipline",
   "test_percentile",
   "test_date",
+  "norms_reference_data",
   "column_break_14",
   "test_name",
   "test_rit_score",
@@ -256,10 +257,15 @@
    "fieldname": "session_name",
    "fieldtype": "Data",
    "label": "Session Name"
+  },
+  {
+   "fieldname": "norms_reference_data",
+   "fieldtype": "Data",
+   "label": "Norms Reference Data"
   }
  ],
  "links": [],
- "modified": "2021-01-10 15:23:33.833208",
+ "modified": "2021-01-18 13:05:32.267798",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",

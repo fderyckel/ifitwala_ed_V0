@@ -32,6 +32,15 @@ class AcademicTerm(Document):
         if self.term_end_date and getdate(year.year_end_date) and getdate(self.term_end_date) > getdate(year.year_end_date):
             frappe.throw(_("The end of the term cannot be after the end of the linked academic year.  The end of the academic year {0} has been set to {1}. Pleae adjust the dates.").format(self.academic_year, year.year_end_date))
 
+    def on_update(self):
+        create_calendar_events(self)
+
+
+    def validate_duplicate(self):
+        term = frappe.db.sql("""select name from `tabAcademic Term` where academic_year= %s and term_name= %s and docstatus<2 and name != %s""", (self.academic_year, self.term_name, self.name))
+        if term:
+            frappe.throw(_("An academic term with this academic year {0} and this name {1} already exisit. Please adjust the name if necessary.").format(self.academic_year, self.term_name))
+
     def create_calendar_events(self):
         if self.at_start:
             start_at = frappe.get_doc("School Event", self.at_start)
@@ -84,8 +93,3 @@ class AcademicTerm(Document):
             end_term.insert()
             self.db_set("at_end", end_term.name)
             frappe.msgprint(_("Date for the end of the term {0} has been created on the School Event Calendar {1}").format(self.term_end_date, get_link_to_form("School Event", end_term.name)))
-
-def validate_duplicate(self):
-    term = frappe.db.sql("""select name from `tabAcademic Term` where academic_year= %s and term_name= %s and docstatus<2 and name != %s""", (self.academic_year, self.term_name, self.name))
-    if term:
-        frappe.throw(_("An academic term with this academic year {0} and this name {1} already exisit. Please adjust the name if necessary.").format(self.academic_year, self.term_name))

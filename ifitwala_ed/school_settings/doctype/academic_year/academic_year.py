@@ -76,7 +76,7 @@ class AcademicYear(Document):
             end_year = frappe.get_doc({
                 "doctype": "School Event",
                 "owner": frappe.session.user,
-        	    "subject": "End of the " + cstr(self.name) + "  Academic Year",
+        	    "subject": "End of the " + cstr(self.name) + " Academic Year",
         	    "starts_on": getdate(self.year_end_date),
         	    "ends_on": getdate(self.year_end_date),
         	    "status": "Closed",

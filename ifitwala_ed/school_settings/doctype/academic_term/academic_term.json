@@ -14,7 +14,11 @@
   "column_break_3",
   "term_start_date",
   "term_end_date",
-  "title"
+  "title",
+  "school_events_section",
+  "at_start",
+  "column_break_10",
+  "ay_end"
  ],
  "fields": [
   {
@@ -65,10 +69,34 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "School"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "school_events_section",
+   "fieldtype": "Section Break",
+   "label": "School Events"
+  },
+  {
+   "fieldname": "at_start",
+   "fieldtype": "Link",
+   "label": "at_start",
+   "options": "School Event",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ay_end",
+   "fieldtype": "Link",
+   "label": "ay_end",
+   "options": "School Event",
+   "read_only": 1
   }
  ],
  "links": [],
- "modified": "2020-12-05 07:03:22.332430",
+ "modified": "2021-01-19 15:59:05.658550",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

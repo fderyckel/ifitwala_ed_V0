@@ -4,7 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe.utils import getdate, get_link_to_form
+from frappe.utils import getdate, get_link_to_form, cstr
 from frappe import _
 from frappe.model.document import Document
 
@@ -56,7 +56,7 @@ class AcademicYear(Document):
             start_year = frappe.get_doc({
                 "doctype": "School Event",
         	    "owner": frappe.session.user,
-                "subject": "Start of Academic Year",
+                "subject": "Start of the " + cstr(self.name) + " Academic Year",
                 "starts_on": getdate(self.year_start_date),
                 "ends_on": getdate(self.year_start_date),
                 "status": "Closed",
@@ -76,7 +76,7 @@ class AcademicYear(Document):
             end_year = frappe.get_doc({
                 "doctype": "School Event",
                 "owner": frappe.session.user,
-        	    "subject": "End of Academic Year",
+        	    "subject": "End of the " + cstr(self.name) + "  Academic Year",
         	    "starts_on": getdate(self.year_end_date),
         	    "ends_on": getdate(self.year_end_date),
         	    "status": "Closed",

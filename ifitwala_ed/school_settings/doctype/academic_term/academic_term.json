@@ -18,7 +18,7 @@
   "school_events_section",
   "at_start",
   "column_break_10",
-  "ay_end"
+  "at_end"
  ],
  "fields": [
   {
@@ -88,15 +88,15 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "ay_end",
+   "fieldname": "at_end",
    "fieldtype": "Link",
-   "label": "ay_end",
+   "label": "at_end",
    "options": "School Event",
    "read_only": 1
   }
  ],
  "links": [],
- "modified": "2021-01-19 15:59:05.658550",
+ "modified": "2021-01-20 06:32:54.121544",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

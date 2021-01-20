@@ -15,7 +15,7 @@ class AcademicTerm(Document):
 
     def validate(self):
         # first, we'll check that there are no other terms that are the same.
-        validate_duplicate(self)
+        self.validate_duplicate()
 
         self.title = self.academic_year + " ({})".format(self.term_name) if self.term_name else ""
 
@@ -33,7 +33,8 @@ class AcademicTerm(Document):
             frappe.throw(_("The end of the term cannot be after the end of the linked academic year.  The end of the academic year {0} has been set to {1}. Pleae adjust the dates.").format(self.academic_year, year.year_end_date))
 
     def on_update(self):
-        create_calendar_events(self)
+        if self.term_start_date and self.term_end_date:
+            self.create_calendar_events()
 
 
     def validate_duplicate(self):

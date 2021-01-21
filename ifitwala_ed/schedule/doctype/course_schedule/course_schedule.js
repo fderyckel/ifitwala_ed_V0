@@ -9,7 +9,6 @@ frappe.ui.form.on('Course Schedule', {
 
 	},
 
-
 	refresh: function(frm) {
 
 	},

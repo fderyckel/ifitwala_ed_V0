@@ -18,7 +18,7 @@ frappe.ui.form.on('Program Enrollment Tool', {
 		frm.set_query('new_academic_term', function() {
 			return {
 				'filters': {
-					'new_academic_year': (frm.doc.new_academic_year)
+					'academic_year': (frm.doc.new_academic_year)
 				}
 			};
 		});

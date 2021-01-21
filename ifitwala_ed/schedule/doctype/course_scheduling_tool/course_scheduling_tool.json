@@ -14,6 +14,7 @@
   "academic_year",
   "academic_term",
   "room",
+  "color",
   "timing_section",
   "from_time",
   "from_date",
@@ -102,7 +103,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "academic_term.end_academic_term",
+   "fetch_from": "academic_term.term_end_date",
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "Course End Date",
@@ -119,13 +120,19 @@
    "fieldtype": "Select",
    "label": "Day",
    "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
+  },
+  {
+   "default": "#7575ff",
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-21 15:44:25.318047",
+ "modified": "2021-01-21 18:59:36.206716",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

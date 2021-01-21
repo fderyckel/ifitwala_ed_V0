@@ -7,11 +7,18 @@ frappe.ui.form.on('Program Enrollment Tool', {
 		frm.add_fetch("student", "student_full_name", "student_name");
 	},
 
-	onload: function(frm){
-		frm.set_query("academic_term", function(){
-			return{
+	onload: function(frm) {
+		frm.set_query("academic_term", function() {
+			return {
 				"filters":{
 					"academic_year": (frm.doc.academic_year)
+				}
+			};
+		});
+		frm.set_query("new_academic_term", function() {
+			return {
+				"filters": {
+					"new_academic_year": (frm.doc.new_academic_year)
 				}
 			};
 		});

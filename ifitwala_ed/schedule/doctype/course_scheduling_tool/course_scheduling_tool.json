@@ -17,6 +17,7 @@
   "timing_section",
   "from_time",
   "from_date",
+  "day",
   "column_break_11",
   "to_time",
   "to_date",
@@ -26,14 +27,18 @@
   {
    "fieldname": "student_group",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student Group",
-   "options": "Student Group"
+   "options": "Student Group",
+   "reqd": 1
   },
   {
    "fieldname": "course",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Course",
-   "options": "Course"
+   "options": "Course",
+   "reqd": 1
   },
   {
    "fieldname": "program",
@@ -48,19 +53,24 @@
   {
    "fieldname": "academic_year",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Academic Year",
-   "options": "Academic Year"
+   "options": "Academic Year",
+   "reqd": 1
   },
   {
    "fieldname": "academic_term",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Academic Term",
-   "options": "Academic Term"
+   "options": "Academic Term",
+   "reqd": 1
   },
   {
    "fieldname": "room",
    "fieldtype": "Data",
-   "label": "Room"
+   "label": "Room",
+   "reqd": 1
   },
   {
    "fieldname": "timing_section",
@@ -70,12 +80,14 @@
   {
    "fieldname": "from_time",
    "fieldtype": "Datetime",
-   "label": "From Time"
+   "label": "From Time",
+   "reqd": 1
   },
   {
    "fieldname": "from_date",
    "fieldtype": "Date",
-   "label": "From Date"
+   "label": "Course  Start Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_11",
@@ -84,25 +96,33 @@
   {
    "fieldname": "to_time",
    "fieldtype": "Datetime",
-   "label": "To Time"
+   "label": "To Time",
+   "reqd": 1
   },
   {
    "fieldname": "to_date",
    "fieldtype": "Date",
-   "label": "To Date"
+   "label": "Course End Date",
+   "reqd": 1
   },
   {
    "default": "0",
    "fieldname": "reschedule",
    "fieldtype": "Check",
    "label": "Reschedule"
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "label": "Day",
+   "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-21 12:30:52.771944",
+ "modified": "2021-01-21 12:42:15.050430",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

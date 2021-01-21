@@ -84,6 +84,8 @@
    "reqd": 1
   },
   {
+   "fetch_from": "academic_term.term_start_date",
+   "fetch_if_empty": 1,
    "fieldname": "from_date",
    "fieldtype": "Date",
    "label": "Course  Start Date",
@@ -100,6 +102,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "academic_term.end_academic_term",
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "Course End Date",
@@ -122,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-21 12:42:15.050430",
+ "modified": "2021-01-21 15:44:25.318047",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

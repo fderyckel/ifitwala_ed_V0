@@ -80,7 +80,9 @@
    "fieldname": "at_start",
    "fieldtype": "Link",
    "label": "at_start",
+   "no_copy": 1,
    "options": "School Event",
+   "print_hide": 1,
    "read_only": 1
   },
   {
@@ -91,12 +93,14 @@
    "fieldname": "at_end",
    "fieldtype": "Link",
    "label": "at_end",
+   "no_copy": 1,
    "options": "School Event",
+   "print_hide": 1,
    "read_only": 1
   }
  ],
  "links": [],
- "modified": "2021-01-20 06:32:54.121544",
+ "modified": "2021-01-21 15:16:50.644595",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

@@ -77,6 +77,7 @@
    "fieldname": "ay_start",
    "fieldtype": "Link",
    "label": "ay_start",
+   "no_copy": 1,
    "options": "School Event",
    "print_hide": 1,
    "read_only": 1
@@ -85,6 +86,7 @@
    "fieldname": "ay_end",
    "fieldtype": "Link",
    "label": "ay_end",
+   "no_copy": 1,
    "options": "School Event",
    "print_hide": 1,
    "read_only": 1
@@ -96,7 +98,7 @@
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-01-09 08:48:08.347099",
+ "modified": "2021-01-21 14:21:52.451202",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

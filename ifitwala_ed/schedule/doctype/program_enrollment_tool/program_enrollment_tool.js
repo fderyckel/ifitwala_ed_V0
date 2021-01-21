@@ -4,7 +4,7 @@
 frappe.ui.form.on('Program Enrollment Tool', {
 
 	setup: function(frm) {
-		frm.add_fetch("student", "title", "student_name");
+		frm.add_fetch("student", "student_full_name", "student_name");
 	},
 
 	onload: function(frm){

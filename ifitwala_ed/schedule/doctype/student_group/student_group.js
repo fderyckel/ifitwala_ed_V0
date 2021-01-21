@@ -4,8 +4,8 @@
 cur_frm.add_fetch("student", "student_full_name", "student_name");
 
 frappe.ui.form.on('Student Group', {
-	onload: function(frm) { 
-		// will filter the academic terms  based on the chosen academic year. 
+	onload: function(frm) {
+		// will filter the academic terms  based on the chosen academic year.
 		frm.set_query("academic_term", function() {
 			return {
 				filters: {
@@ -13,7 +13,7 @@ frappe.ui.form.on('Student Group', {
 				}
 			};
 		});
-		
+
 		if (!frm.__islocal) {
 			frm.set_query("student", "students", function() {
 				return{
@@ -30,14 +30,14 @@ frappe.ui.form.on('Student Group', {
 				}
 			});
 		}
-	}, 
-	
+	},
+
 	refresh: function(frm) {
 
-	}, 
-	
+	},
+
 	group_based_on: function(frm) {
-		if (frm.doc.group_based_on == 'Batch') {
+		if (frm.doc.group_based_on == 'Cohort') {
 			frm.doc.course = null;
 			frm.set_df_property('program', 'reqd', 1);
 			frm.set_df_property('course', 'reqd', 0);
@@ -51,7 +51,7 @@ frappe.ui.form.on('Student Group', {
 			frm.set_df_property('course', 'reqd', 0);
 		}
 	},
-	
+
 	get_students: function(frm) {
 		if (frm.doc.group_based_on == "Cohort" || frm.doc.group_based_on == "Course") {
 			var student_list = [];

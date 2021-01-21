@@ -80,7 +80,7 @@ class AcademicTerm(Document):
             end_term = frappe.get_doc({
                 "doctype": "School Event",
                 "owner": frappe.session.user,
-        	    "subject": "End of the " + cstr(self.name) + "  Academic Term",
+        	    "subject": "End of the " + cstr(self.name) + " Academic Term",
         	    "starts_on": getdate(self.term_end_date),
         	    "ends_on": getdate(self.term_end_date),
                 "school": self.school,

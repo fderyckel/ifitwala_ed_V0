@@ -322,6 +322,7 @@
    "fieldname": "employee_professional_email",
    "fieldtype": "Data",
    "label": "Professional email",
+   "options": "Email",
    "reqd": 1
   },
   {
@@ -334,7 +335,8 @@
   {
    "fieldname": "employee_personal_email",
    "fieldtype": "Data",
-   "label": "Personal email"
+   "label": "Personal email",
+   "options": "Email"
   },
   {
    "fieldname": "employee_date_of_birth",
@@ -358,7 +360,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2020-12-08 17:56:34.326206",
+ "modified": "2021-01-21 04:40:46.219834",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

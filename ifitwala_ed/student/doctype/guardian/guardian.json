@@ -172,7 +172,8 @@
   {
    "fieldname": "guardian_work_email",
    "fieldtype": "Data",
-   "label": "Work Email"
+   "label": "Work Email",
+   "options": "Email"
   },
   {
    "fieldname": "guardian_work_phone",
@@ -188,7 +189,7 @@
  ],
  "image_field": "guardian_image",
  "links": [],
- "modified": "2020-12-29 08:16:58.357404",
+ "modified": "2021-01-21 04:41:10.024934",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",

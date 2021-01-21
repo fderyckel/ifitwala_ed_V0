@@ -7,7 +7,7 @@
   },
   {
    "hidden": 0,
-   "label": "Year & Terms",
+   "label": "Years & Terms",
    "links": "[\n    {\n        \"description\": \"Setting up the academic year\",\n        \"label\": \"Academic Year\",\n        \"name\": \"Academic Year\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic terms\",\n        \"label\": \"Academic Term\",\n        \"name\": \"Academic Term\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the holidays list\",\n        \"label\": \"School Calendar\",\n        \"name\": \"School Calendar\",\n        \"type\": \"doctype\"\n    }\n]"
   },
   {
@@ -34,7 +34,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2020-12-21 15:23:53.752561",
+ "modified": "2021-01-20 07:45:36.767915",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
@@ -43,13 +43,15 @@
  "pin_to_top": 1,
  "shortcuts": [
   {
+   "doc_view": "Tree",
    "label": "School",
    "link_to": "School",
    "type": "DocType"
   },
   {
-   "label": "Academic Year",
-   "link_to": "Academic Year",
+   "doc_view": "Calendar",
+   "label": "School Event",
+   "link_to": "School Event",
    "type": "DocType"
   },
   {

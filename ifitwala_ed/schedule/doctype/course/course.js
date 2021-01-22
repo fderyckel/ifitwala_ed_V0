@@ -2,6 +2,10 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Course', {
+	setup: function(frm) {
+		frm.add_fetch('department', 'school', 'school'); 
+	},
+
 	refresh: function(frm) {
 		if (!cur_frm.doc.__islocal) {
 			frm.add_custom_button(__('Add to Programs'), function() {

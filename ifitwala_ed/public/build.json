@@ -1,4 +1,13 @@
 {
+	"css/ifitwala_ed.css": [
+		"public/less/ifitwala.less"
+	],
+	"js/ifitwala_ed-web.min.js": [
+		"public/js/website_utils.js"
+	],
+	"css/ifitwala_ed-web.css": [
+		"public/scss/website.scss"
+	],
 	"js/ifitwala_ed.min.js": [
 		"public/js/utils.js",
 		"public/js/queries.js"

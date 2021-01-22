@@ -1,5 +1,42 @@
 @import "frappe/public/scss/variables";
 
+
+.address-card {
+	cursor: pointer;
+	position: relative;
+
+	.check {
+		display: none;
+	}
+
+	&.active {
+		border-color: $primary;
+
+		.check {
+			display: inline-flex;
+		}
+	}
+}
+
+.check {
+	display: inline-flex;
+    padding: 0.25rem;
+    background: $primary;
+    color: white;
+    border-radius: 50%;
+	font-size: 12px;
+	width: 24px;
+	height: 24px;
+}
+
+.website-list .result {
+	margin-top: 2rem;
+}
+
+.result {
+	border-bottom: 1px solid $border-color;
+}
+
 .website-list .result {
 	margin-top: 2rem;
 }

@@ -1,0 +1,47 @@
+.erpnext-footer {
+  margin: 11px auto;
+  text-align: center;
+}
+.show-all-reports {
+  margin-top: 5px;
+  font-size: 11px;
+}
+/* toolbar */
+.toolbar-splash {
+  width: 32px;
+  height: 32px;
+  margin: -10px auto;
+}
+.erpnext-icon {
+  width: 24px;
+  margin-right: 0px;
+  margin-top: -3px;
+}
+.dashboard-list-item {
+  padding: 5px 15px;
+}
+.dashboard-list-item:last-child {
+  border-bottom: none;
+}
+.frappe-control[data-fieldname='result_html'] {
+  overflow: scroll;
+}
+.assessment-result-tool {
+  table-layout: fixed;
+}
+.assessment-result-tool input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  text-align: right;
+}
+.assessment-result-tool th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.assessment-result-tool .total-score,
+.assessment-result-tool .grade,
+.assessment-result-tool .score {
+  text-align: right;
+}

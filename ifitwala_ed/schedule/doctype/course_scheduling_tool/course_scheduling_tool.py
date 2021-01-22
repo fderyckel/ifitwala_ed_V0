@@ -58,7 +58,7 @@ class CourseSchedulingTool(Document):
 	def get_instructors(self):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
-	def make_course_schedule(date):
+	def make_course_schedule(self, date):
 		course_schedule = frappe.new_doc("Course Schedule")
 		course_schedule.student_group = self.student_group
 		course_schedule.course = self.course

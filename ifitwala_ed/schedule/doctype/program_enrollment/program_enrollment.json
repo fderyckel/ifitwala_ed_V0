@@ -10,7 +10,6 @@
   "student",
   "student_name",
   "cohort",
-  "status",
   "column_break_4",
   "program",
   "academic_year",
@@ -96,15 +95,6 @@
    "label": "Enrolled Courses"
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "options": "\nCurrent\nDone",
-   "read_only": 1
-  },
-  {
    "allow_on_submit": 1,
    "fieldname": "cohort",
    "fieldtype": "Link",
@@ -116,7 +106,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-01-21 20:40:26.008167",
+ "modified": "2021-01-22 07:10:19.728819",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program Enrollment",

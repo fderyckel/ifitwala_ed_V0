@@ -26,6 +26,7 @@ class CourseSchedulingTool(Document):
 				course_schedule = self.make_course_schedule(date)
 				try:
 					print('pass')
+					course_schedule.save()
 				except OverlapError:
 					print('fail')
 					course_schedules_errors.append(date)
@@ -66,6 +67,7 @@ class CourseSchedulingTool(Document):
 		course_schedule.from_time = self.from_time
 		course_schedule.to_time = self.to_time
 		course_schedule.color = self.color
+		return  course_schedule
 
 	def delete_course_schedule(self, rescheduled, reschedule_errors):
 		schedules = frappe.get_list("Course Schedule",

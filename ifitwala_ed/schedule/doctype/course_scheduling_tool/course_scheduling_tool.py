@@ -42,6 +42,9 @@ class CourseSchedulingTool(Document):
 			reschedule_errors=reschedule_errors
 		)
 
+		if self.reschedule:
+			rescheduled, reschedule_errors = self.delete_course_schedule(rescheduled, reschedule_errors)
+
 
 	def validate_dates(self):
 		if getdate(self.from_date) > getdate(self.to_date):
@@ -55,7 +58,7 @@ class CourseSchedulingTool(Document):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 	def make_course_schedule(date):
-		course_schedule =  frappe.new_doc("Course Schedule")
+		course_schedule = frappe.new_doc("Course Schedule")
 		course_schedule.student_group = self.student_group
 		course_schedule.course = self.course
 		course_schedule.schedule_date = date
@@ -63,3 +66,22 @@ class CourseSchedulingTool(Document):
 		course_schedule.from_time = self.from_time
 		course_schedule.to_time = self.to_time
 		course_schedule.color = self.color
+
+	def delete_course_schedule(self, rescheduled, reschedule_errors):
+		schedules = frappe.get_list("Course Schedule",
+			fields = ["name", "schedule_date"],
+			filters = [
+				["student_group", "=", self.student_group],
+				["course", "=", self.course],
+				["schedule_date", ">=", self.from_date],
+				["schedule_date", "<=", self.to_date]
+			])
+		for schedule in schedules:
+			try:
+				if self.day == get_weekday(getdate(schedule.schedule_date)):
+					frappe.delete_doc("Course Schedule", schedule.name)
+					rescheduled.append(schedule.name)
+			except:
+				reschedule_errors.append(schedule.name)
+
+		return rescheduled, reschedule_errors

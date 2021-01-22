@@ -213,6 +213,7 @@
    "fieldname": "user_id",
    "fieldtype": "Link",
    "label": "User ID",
+   "no_copy": 1,
    "options": "User"
   },
   {
@@ -269,12 +270,14 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "First Name",
+   "no_copy": 1,
    "reqd": 1
   },
   {
    "fieldname": "employee_middle_name",
    "fieldtype": "Data",
-   "label": "Middle Name"
+   "label": "Middle Name",
+   "no_copy": 1
   },
   {
    "fieldname": "employee_last_name",
@@ -283,6 +286,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Last Name",
+   "no_copy": 1,
    "reqd": 1
   },
   {
@@ -322,6 +326,7 @@
    "fieldname": "employee_professional_email",
    "fieldtype": "Data",
    "label": "Professional email",
+   "no_copy": 1,
    "options": "Email",
    "reqd": 1
   },
@@ -360,7 +365,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-01-21 04:40:46.219834",
+ "modified": "2021-01-22 08:19:36.112667",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

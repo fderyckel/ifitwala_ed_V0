@@ -8,7 +8,6 @@
  "engine": "InnoDB",
  "field_order": [
   "student_group",
-  "instructor_name",
   "column_break_4",
   "course",
   "color",
@@ -32,14 +31,6 @@
    "label": "Student Group",
    "options": "Student Group",
    "reqd": 1
-  },
-  {
-   "fetch_from": "instructor.instructor_name",
-   "fieldname": "instructor_name",
-   "fieldtype": "Read Only",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Instructor Name"
   },
   {
    "fieldname": "column_break_4",
@@ -122,7 +113,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-22 07:55:11.691716",
+ "modified": "2021-01-22 08:07:55.165878",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",

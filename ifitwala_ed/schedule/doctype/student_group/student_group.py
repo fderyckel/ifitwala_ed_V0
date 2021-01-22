@@ -124,13 +124,13 @@ def fetch_students(doctype, txt, searchfield, start, page_len, filters):
 		students = ([d.student for d in enrolled_students if d.student not in student_group_student]
 			if enrolled_students else [""]) or [""]
 		return frappe.db.sql("""select name, student_full_name from tabStudent
-			where name in ({0}) and (`{1}` LIKE %s or title LIKE %s)
+			where name in ({0}) and (`{1}` LIKE %s or student_full_name LIKE %s)
 			order by idx desc, name
 			limit %s, %s""".format(", ".join(['%s']*len(students)), searchfield),
 			tuple(students + ["%%%s%%" % txt, "%%%s%%" % txt, start, page_len]))
 	else:
-		return frappe.db.sql("""select name, title from tabStudent
-			where `{0}` LIKE %s or title LIKE %s
+		return frappe.db.sql("""select name, student_full_name from tabStudent
+			where `{0}` LIKE %s or student_full_name LIKE %s
 			order by idx desc, name
 			limit %s, %s""".format(searchfield),
 			tuple(["%%%s%%" % txt, "%%%s%%" % txt, start, page_len]))

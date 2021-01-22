@@ -1,10 +1,9 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-cur_frm.add_fetch("student", "student_full_name", "student_name");
-
 frappe.ui.form.on('Student Group', {
 	onload: function(frm) {
+		frm.add_fetch('student', 'student_full_name', 'student_name');
 		// will filter the academic terms  based on the chosen academic year.
 		frm.set_query("academic_term", function() {
 			return {

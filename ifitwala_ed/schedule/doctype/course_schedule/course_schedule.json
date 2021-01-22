@@ -8,7 +8,6 @@
  "engine": "InnoDB",
  "field_order": [
   "student_group",
-  "instructor",
   "instructor_name",
   "column_break_4",
   "course",
@@ -35,14 +34,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "instructor",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Instructor",
-   "options": "Instructor",
-   "reqd": 1
-  },
-  {
    "fetch_from": "instructor.instructor_name",
    "fieldname": "instructor_name",
    "fieldtype": "Read Only",
@@ -59,6 +50,7 @@
    "fieldtype": "Link",
    "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Course",
    "options": "Course",
    "reqd": 1
@@ -86,6 +78,7 @@
    "fieldname": "room",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Room",
    "options": "Room",
    "reqd": 1
@@ -122,13 +115,14 @@
   {
    "fieldname": "instructors",
    "fieldtype": "Table",
+   "in_standard_filter": 1,
    "label": "Instructors",
    "options": "Course Schedule Instructor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-22 07:27:10.444332",
+ "modified": "2021-01-22 07:55:11.691716",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",

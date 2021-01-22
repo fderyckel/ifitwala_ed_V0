@@ -60,7 +60,7 @@ update_website_context  = ["ifitwala_ed.school_settings.doctype.education_settin
 after_install = "ifitwala_ed.setup.setup_education"
 
 
-calendars = ["Course Schedule", "School Calendar", "School Event"]
+calendars = ["School Calendar", "School Event"]
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config

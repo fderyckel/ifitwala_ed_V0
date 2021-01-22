@@ -64,5 +64,5 @@ def get_course_schedule_events(start, end, filters=None):
 			WHERE ( schedule_date between %(start)s and %(end)s )
 			{conditions}""".format(conditions = conditions), {
 					"start":start,
-					"end": end}, as_dict=True, update={"all_day": 0})
+					"end": end}, as_dict=True, update={"allDay": 0})
 	return data

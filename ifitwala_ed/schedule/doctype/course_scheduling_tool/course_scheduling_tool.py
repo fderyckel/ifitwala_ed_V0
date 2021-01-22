@@ -20,8 +20,8 @@ class CourseSchedulingTool(Document):
 
 		self.validate_dates()
 
-		date = getdate(self.course_start_date)
-		while date < getdate(self.course_end_date):
+		date = getdate(self.from_date)
+		while date < getdate(self.to_date):
 			if self.day == get_weekday(date):
 				course_schedule = self.make_course_schedule(date)
 				try:

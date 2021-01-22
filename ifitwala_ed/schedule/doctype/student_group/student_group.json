@@ -136,7 +136,7 @@
   }
  ],
  "links": [],
- "modified": "2020-10-26 14:26:09.388587",
+ "modified": "2021-01-22 09:24:39.380478",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",
@@ -212,7 +212,6 @@
    "share": 1
   }
  ],
- "quick_entry": 1,
  "search_fields": "program, cohort, course",
  "sort_field": "modified",
  "sort_order": "DESC",

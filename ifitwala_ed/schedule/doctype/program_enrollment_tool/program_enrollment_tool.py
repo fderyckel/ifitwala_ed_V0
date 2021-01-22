@@ -26,7 +26,7 @@ class ProgramEnrollmentTool(Document):
 				frappe.throw(_("Not yet developped. Choose another option"))
 			elif self.get_students_from == "Program Enrollment":
 				condition2 = 'and cohort=%(student_cohort)s' if self.student_cohort else " "
-				students = frappe.db.sql('''select student, student_name, cohort
+				students = frappe.db.sql('''select student, student_name, cohort AS student_cohort
 					from
 						`tabProgram Enrollment`
 					where
@@ -35,7 +35,7 @@ class ProgramEnrollmentTool(Document):
 				# remove inactive students from students list.
 				student_list = [d.student for d in students]
 				if student_list:
-					inactive_students = frappe.db.sql('''select name as student, student_full_name as student_name 
+					inactive_students = frappe.db.sql('''select name as student, student_full_name as student_name
 					from
 						`tabStudent`
 					where

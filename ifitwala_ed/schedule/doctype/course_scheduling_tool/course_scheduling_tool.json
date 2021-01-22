@@ -22,7 +22,9 @@
   "column_break_11",
   "to_time",
   "to_date",
-  "reschedule"
+  "reschedule",
+  "instructors_section",
+  "instructors"
  ],
  "fields": [
   {
@@ -69,8 +71,9 @@
   },
   {
    "fieldname": "room",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Room",
+   "options": "Room",
    "reqd": 1
   },
   {
@@ -80,7 +83,7 @@
   },
   {
    "fieldname": "from_time",
-   "fieldtype": "Datetime",
+   "fieldtype": "Time",
    "label": "From Time",
    "reqd": 1
   },
@@ -98,7 +101,7 @@
   },
   {
    "fieldname": "to_time",
-   "fieldtype": "Datetime",
+   "fieldtype": "Time",
    "label": "To Time",
    "reqd": 1
   },
@@ -126,13 +129,24 @@
    "fieldname": "color",
    "fieldtype": "Color",
    "label": "Color"
+  },
+  {
+   "fieldname": "instructors_section",
+   "fieldtype": "Section Break",
+   "label": "Instructors"
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Table",
+   "label": "Instructors",
+   "options": "Course Schedule Instructor"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-21 18:59:36.206716",
+ "modified": "2021-01-22 06:11:48.264680",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

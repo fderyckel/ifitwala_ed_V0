@@ -67,6 +67,7 @@
    "options": "Academic Term"
   },
   {
+   "fetch_from": "academic_term.term_start_date",
    "fieldname": "enrollment_date",
    "fieldtype": "Date",
    "label": "Enrollment Date",
@@ -115,7 +116,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-01-20 14:16:24.329526",
+ "modified": "2021-01-21 20:40:26.008167",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program Enrollment",

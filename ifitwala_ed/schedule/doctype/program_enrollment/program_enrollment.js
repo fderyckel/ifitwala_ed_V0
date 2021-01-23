@@ -14,15 +14,6 @@ frappe.ui.form.on('Program Enrollment', {
 			};
 		});
 
-		frm.set_query('course', 'courses', function(doc, cdt, cdn) {
-			return{
-				query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
-				filters: {
-					'program': frm.doc.program,
-				}
-			}
-		});
-
 		// To filter the students showing up in the student fields (will not show up students already enrolled for that year  or term)
 		// only  work if academic term or academic year have already been selected
 		frm.set_query('student', function() {
@@ -43,6 +34,14 @@ frappe.ui.form.on('Program Enrollment', {
 
 	program: function(frm) {
 		frm.events.get_courses(frm);
+		frm.set_query('course', 'courses', function(doc, cdt, cdn) {
+			return{
+				query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
+				filters: {
+					'program': frm.doc.program,
+				}
+			}
+		});
 	},
 
 	get_courses: function(frm) {

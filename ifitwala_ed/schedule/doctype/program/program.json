@@ -10,8 +10,9 @@
  "engine": "InnoDB",
  "field_order": [
   "program_name",
-  "program_abbreviation",
   "school",
+  "column_break_3",
+  "program_abbreviation",
   "courses_section",
   "courses",
   "description_section",
@@ -100,11 +101,15 @@
    "fieldname": "intro_video",
    "fieldtype": "Data",
    "label": "Intro Video"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-01-16 20:19:02.411929",
+ "modified": "2021-01-23 13:03:54.623914",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program",

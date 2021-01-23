@@ -30,21 +30,17 @@ frappe.ui.form.on('Student Group', {
 				}
 			});
 		}
-
-		if (frm.program) {
-			frm.set_query('course', function() {
-				return{
-					query: 'ifitwala_ed.ifitwala_ed.api.get_courses_from_program',
-					filters: {
-						'program': frm.doc.program
-					}
-				}
-			});
-		}
 	},
 
 	refresh: function(frm) {
-
+		frm.set_query('course', function() {
+			return {
+				query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',				
+				filters: {
+					'program': (frm.doc.program)
+				}
+			};
+		});
 	},
 
 	group_based_on: function(frm) {

@@ -81,7 +81,7 @@
    "options": "Program"
   },
   {
-   "depends_on": "eval:doc.group_based_on != 'Cohort'",
+   "depends_on": "eval:doc.group_based_on != 'Activity'",
    "fieldname": "cohort",
    "fieldtype": "Link",
    "label": "Cohort",
@@ -137,7 +137,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-22 09:53:16.394019",
+ "modified": "2021-01-23 11:39:13.585811",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

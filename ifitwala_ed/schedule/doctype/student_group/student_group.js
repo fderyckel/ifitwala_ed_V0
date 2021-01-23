@@ -14,6 +14,17 @@ frappe.ui.form.on('Student Group', {
 			};
 		});
 
+		if (frm.doc.program) {
+			frm.set_query('course', function() {
+				return{
+					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
+					filters: {
+						'program': frm.doc.program,
+					}
+				}
+			});
+		}
+		
 		if (!frm.__islocal) {
 			frm.set_query('student', 'students', function() {
 				return{
@@ -33,16 +44,7 @@ frappe.ui.form.on('Student Group', {
 	},
 
 	refresh: function(frm) {
-		if (frm.doc.program) {
-			frm.set_query('course', function() {
-				return{
-					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
-					filters: {
-						'program': frm.doc.program,
-					}
-				}
-			});
-		}
+
 	},
 
 	group_based_on: function(frm) {

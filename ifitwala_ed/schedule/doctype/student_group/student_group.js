@@ -33,7 +33,7 @@ frappe.ui.form.on('Student Group', {
 	},
 
 	refresh: function(frm) {
-		if (frm.program) {
+		if (frm.doc.program) {
 			frm.set_query('course', function() {
 				return{
 					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',

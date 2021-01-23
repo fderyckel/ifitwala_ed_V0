@@ -51,6 +51,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Student Group Name",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -137,7 +138,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-23 11:39:13.585811",
+ "modified": "2021-01-23 12:35:01.833714",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

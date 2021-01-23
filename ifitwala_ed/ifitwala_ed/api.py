@@ -20,7 +20,7 @@ def get_student_group_students(student_group, include_inactive=0):
 
 @frappe.whitelist()
 def get_courses_from_program(program):
-    return frappe.db.sql("""SELECT course FROM `tabProgram Course` WHERE parent=%(program)s """)
+    return frappe.db.sql("""SELECT course FROM `tabProgram Course` WHERE parent=%s """, format(program))
 
 @frappe.whitelist()
 def enroll_student(source_name):

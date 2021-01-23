@@ -2,6 +2,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Student Group', {
+
 	onload: function(frm) {
 		frm.add_fetch('student', 'student_full_name', 'student_name');
 		// will filter the academic terms  based on the chosen academic year.
@@ -33,7 +34,7 @@ frappe.ui.form.on('Student Group', {
 		if (frm.program) {
 			frm.set_query('course', function() {
 				return{
-					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
+					query: 'ifitwala_ed.ifitwala_ed.api.get_courses_from_program',
 					filters: {
 						'program': frm.doc.program
 					}

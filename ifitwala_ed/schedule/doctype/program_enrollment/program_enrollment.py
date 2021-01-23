@@ -56,7 +56,7 @@ class ProgramEnrollment(Document):
 		for course in self.courses:
 			if course.course in found:
 				frappe.throw(_("Course {0} entered twice.").format(course.course))
-			elif course.course in pc_list:
+			elif course.course not in pc_list:
 				frappe.throw(_("Course {0} is not part of program {1}").format(get_link_to_form("Course", course.course), get_link_to_form("Program", self.program)))
 			else:
 				found.append(course.course)

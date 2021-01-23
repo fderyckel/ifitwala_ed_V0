@@ -5,18 +5,18 @@ frappe.ui.form.on('Student Group', {
 	onload: function(frm) {
 		frm.add_fetch('student', 'student_full_name', 'student_name');
 		// will filter the academic terms  based on the chosen academic year.
-		frm.set_query("academic_term", function() {
+		frm.set_query('academic_term', function() {
 			return {
 				filters: {
-					"academic_year": (frm.doc.academic_year)
+					'academic_year': (frm.doc.academic_year)
 				}
 			};
 		});
 
 		if (!frm.__islocal) {
-			frm.set_query("student", "students", function() {
+			frm.set_query('student', 'students', function() {
 				return{
-					query: "ifitwala_ed.schedule.doctype.student_group.student_group.fetch_students",
+					query: 'ifitwala_ed.schedule.doctype.student_group.student_group.fetch_students',
 					filters: {
 						'academic_year': frm.doc.academic_year,
 						'group_based_on': frm.doc.group_based_on,
@@ -25,6 +25,17 @@ frappe.ui.form.on('Student Group', {
 						'cohort': frm.doc.cohort,
 						'course': frm.doc.course,
 						'student_group': frm.doc.name
+					}
+				}
+			});
+		}
+
+		if (frm.program) {
+			frm.set_query('course', function() {
+				return{
+					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
+					filters: {
+						'program': frm.doc.program
 					}
 				}
 			});

@@ -80,9 +80,9 @@ class ProgramEnrollment(Document):
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_program_courses(doctype, txt, searchfield, start, page_len, filters):
-	if not filters.get('program'):
-		frappe.msgprint(_("Please select a Program first."))
-		return []
+	#if not filters.get('program'):
+	#	frappe.msgprint(_("Please select a Program first."))
+	#	return []
 
 	return frappe.db.sql("""select course, course_name from `tabProgram Course`
 		where  parent = %(program)s and course like %(txt)s {match_cond}

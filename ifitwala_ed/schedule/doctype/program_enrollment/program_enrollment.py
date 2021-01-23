@@ -34,14 +34,15 @@ class ProgramEnrollment(Document):
 
 	# you cannot enrolled twice for a same program, same year, same term.
 	def validate_duplication(self):
-		enrollment = frappe.get_all("Program Enrollment", filters = {
-			"student": self.student,
-			"academic_year": self.academic_year,
-			"academic_term": self.academic_term,
-			"program": self.program,
-			"docstatus": ("<", 2),
-			"name": ("!=", self.name)
-		})
+		enrollment = frappe.get_all("Program Enrollment", fields = ["name", "student_name"],
+				filters = {
+					"student": self.student,
+					"academic_year": self.academic_year,
+					"academic_term": self.academic_term,
+					"program": self.program,
+					"docstatus": ("<", 2),
+					"name": ("!=", self.name)
+				})
 		if enrollment:
 			frappe.throw(_("This student {0} is already enrolled {1} in this program for this term.").format(enrollment[0].student_name, enrollment[0].name))
 

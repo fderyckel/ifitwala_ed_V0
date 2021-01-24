@@ -23,9 +23,9 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Home",
- "modified": "2021-01-24 18:02:09.113321",
+ "modified": "2021-01-24 14:32:44.082301",
  "modified_by": "Administrator",
- "module": "Ifitwala Ed",
+ "module": "Setup",
  "name": "Home",
  "owner": "Administrator",
  "pin_to_bottom": 0,
@@ -55,15 +55,8 @@
   {
    "color": "Grey",
    "doc_view": "Calendar",
-   "label": "Learning Unit",
+   "label": ":earning Unit",
    "link_to": "Learning Unit",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Student Group",
-   "link_to": "Student Group",
    "type": "DocType"
   }
  ]

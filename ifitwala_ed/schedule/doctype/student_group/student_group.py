@@ -29,10 +29,10 @@ class StudentGroup(Document):
 	def validate_mandatory_fields(self):
 		if self.group_based_on == "Course" and not self.course:
 			frappe.throw(_("Please select a course."))
-		if self.group_based_on == "Activity" and not self.course:
-			frappe.throw(_("Please select a course."))
-		if self.group_based_on == "Course" and (not self.program and self.cohort):
-			frappe.throw(_("Please select a Program"))
+		if self.group_based_on == "Cohort" and not self.cohort:
+			frappe.throw(_("Please select a cohort."))
+		if self.group_based_on == "Course" and not self.program:
+			frappe.throw(_("Please select a program"))
 
 	# Throwing message if more students than maximum size in the group
 	def validate_size(self):

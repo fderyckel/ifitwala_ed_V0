@@ -34,13 +34,13 @@
  "idx": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2021-01-20 07:45:36.767915",
+ "modified": "2021-01-24 14:10:50.209699",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": [
   {
    "doc_view": "Tree",

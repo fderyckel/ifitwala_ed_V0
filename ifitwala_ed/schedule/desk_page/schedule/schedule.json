@@ -29,12 +29,12 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Schedule",
- "modified": "2021-01-21 15:46:57.026822",
+ "modified": "2021-01-24 14:10:36.341711",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Schedule",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": []
 }

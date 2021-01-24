@@ -19,13 +19,13 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Admission",
- "modified": "2020-12-29 10:25:31.219947",
+ "modified": "2021-01-24 14:18:23.892785",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Admission",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": [
   {
    "color": "Grey",

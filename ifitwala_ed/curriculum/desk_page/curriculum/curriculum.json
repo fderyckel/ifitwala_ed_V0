@@ -18,12 +18,12 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Curriculum",
- "modified": "2021-01-03 10:44:56.853315",
+ "modified": "2021-01-24 14:18:20.569553",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Curriculum",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": []
 }

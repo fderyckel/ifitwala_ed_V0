@@ -29,13 +29,13 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2021-01-09 09:52:09.514854",
+ "modified": "2021-01-24 14:14:41.999996",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": [
   {
    "color": "Grey",

@@ -58,7 +58,7 @@ def update_email_group(doctype, name):
     for student in students:
         s_mail = frappe.get_value("Student", student.student, "student_email")
         if s_mail:
-            students_mail_list.append(s_mail)
+            student_mail_list.append(s_mail)
         for guardian in get_student_guardians(student.student):
             g_mail = frappe.get_value("Guardian", guardian.guardian, "guardian_email")
             if g_mail:

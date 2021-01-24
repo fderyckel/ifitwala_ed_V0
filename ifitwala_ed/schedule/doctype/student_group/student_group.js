@@ -33,7 +33,17 @@ frappe.ui.form.on('Student Group', {
 	},
 
 	refresh: function(frm) {
-
+		if (!frm.doc.__islocal) {
+			frm.add_custom_button(__('Add Guardians and Student Email Group'), function() {
+				frappe.call({
+					method: 'ifitwala_ed.ifitwala_ed.api.update_email_group',
+					args: {
+						'doctype': 'Student Group',
+						'name': frm.doc.name
+					}
+				});
+			}, __('Actions'));
+		}
 	},
 
 	program: function(frm) {

@@ -2,11 +2,11 @@
 // For license information, please see license.txt
 
 frappe.listview_settings['Student Group'] = {
-	filters: [['disabled','=', '0']],
+	filters: [['status','=', 'Active']],
 	hide_name_column: true,
 	get_indicator: function(doc) {
-		var indicator = [__(doc.disabled), frappe.utils.guess_colour(doc.disabled), "status,=," + doc.disabled];
-		indicator[1] = {'0': 'green', '1': "darkgrey"}[doc.disabled];
+		var indicator = [__(doc.status), frappe.utils.guess_colour(doc.status), "status,=," + doc.status];
+		indicator[1] = {'Active': 'green', 'Retired': "darkgrey"}[doc.status];
 		return indicator;
 	}
 };

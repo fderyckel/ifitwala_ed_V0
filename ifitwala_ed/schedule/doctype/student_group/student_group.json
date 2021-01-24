@@ -18,7 +18,7 @@
   "program",
   "cohort",
   "course",
-  "disabled",
+  "status",
   "section_break_10",
   "get_students",
   "students",
@@ -130,20 +130,21 @@
    "label": "Get Students"
   },
   {
-   "default": "0",
-   "fieldname": "disabled",
-   "fieldtype": "Check",
-   "label": "Disabled"
-  },
-  {
    "fieldname": "student_group_abbreviation",
    "fieldtype": "Data",
    "label": "Student Group Abbreviation",
    "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nRetired"
   }
  ],
  "links": [],
- "modified": "2021-01-24 08:37:24.474990",
+ "modified": "2021-01-24 09:30:29.902490",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

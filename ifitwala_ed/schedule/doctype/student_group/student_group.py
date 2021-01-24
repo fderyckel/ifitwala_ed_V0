@@ -33,8 +33,6 @@ class StudentGroup(Document):
 			frappe.throw(_("Please select a course."))
 		if self.group_based_on == "Course" and (not self.program and self.cohort):
 			frappe.throw(_("Please select a Program"))
-		if self.group_based_on == "Cohort" and not self.program:
-			frappe.throw(_("Please select a Program"))
 
 	# Throwing message if more students than maximum size in the group
 	def validate_size(self):

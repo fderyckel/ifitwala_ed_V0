@@ -62,7 +62,7 @@ frappe.ui.form.on('Student Group', {
 		}
 		else if (frm.doc.group_based_on == 'Activity') {
 			frm.set_df_property('program', 'reqd', 0);
-			frm.set_df_property('course', 'reqd', 1);
+			frm.set_df_property('course', 'reqd', 0);
 		}
 	},
 

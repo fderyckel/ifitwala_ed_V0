@@ -1,7 +1,7 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.listview_settings['Course'] = {
+frappe.listview_settings['Student Group'] = {
 	filters: [['disabled','=', '0']],
 	hide_name_column: true,
 	get_indicator: function(doc) {

@@ -15,7 +15,7 @@
  "charts": [],
  "creation": "2021-01-24 14:10:10.305517",
  "developer_mode_only": 0,
- "disable_user_customization": 1,
+ "disable_user_customization": 0,
  "docstatus": 0,
  "doctype": "Desk Page",
  "extends_another_page": 0,
@@ -23,7 +23,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Home",
- "modified": "2021-01-25 08:01:23.110429",
+ "modified": "2021-01-25 08:45:53.284619",
  "modified_by": "Administrator",
  "module": "Ifitwala Ed",
  "name": "Home",
@@ -40,9 +40,9 @@
   },
   {
    "color": "Grey",
-   "doc_view": "List",
-   "label": "Student Group",
-   "link_to": "Student Group",
+   "doc_view": "Calendar",
+   "label": "Schedule",
+   "link_to": "Course Schedule",
    "type": "DocType"
   },
   {
@@ -55,15 +55,8 @@
   {
    "color": "Grey",
    "doc_view": "Calendar",
-   "label": "Learning Unit",
+   "label": ":earning Unit",
    "link_to": "Learning Unit",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "Calendar",
-   "label": "Schedule",
-   "link_to": "Course Schedule",
    "type": "DocType"
   }
  ]

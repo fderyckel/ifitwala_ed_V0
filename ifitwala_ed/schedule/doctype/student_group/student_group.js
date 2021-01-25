@@ -34,6 +34,7 @@ frappe.ui.form.on('Student Group', {
 
 	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
+			var stud = frm.doc.name+'|students'
 
 			frm.add_custom_button(__('Update Guardians and Students to Email Group'), function() {
 				frappe.call({
@@ -47,7 +48,7 @@ frappe.ui.form.on('Student Group', {
 
 			frm.add_custom_button(__('Course Scheduling Tool'), function() {
 				frappe.route_options = {
-					student_group: frm.doc.name+'|students'
+					student_group: stud
 				}
 				frappe.set_route('Form', 'Course Scheduling Tool', 'Course Scheduling Tool');
 			}, __('Tools'));

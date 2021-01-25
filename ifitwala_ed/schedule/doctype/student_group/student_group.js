@@ -34,6 +34,7 @@ frappe.ui.form.on('Student Group', {
 
 	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
+
 			frm.add_custom_button(__('Update Guardians and Students to Email Group'), function() {
 				frappe.call({
 					method: 'ifitwala_ed.ifitwala_ed.api.update_email_group',
@@ -57,6 +58,7 @@ frappe.ui.form.on('Student Group', {
 				}
 				frappe.set_route('List', 'Newsletter');
 			}, __('View'));
+			
 		}
 	},
 

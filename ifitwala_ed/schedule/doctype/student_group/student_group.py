@@ -11,10 +11,10 @@ from ifitwala_ed.utils import validate_duplicate_student
 
 class StudentGroup(Document):
     def autoname(self):
-		if self.group_based_on == "Course" | self.group_based_on == "Activity":
-			self.name = self.student_group_abbreviation + "|" + self.academic_term
-		else:
-			self.name = self.student_group_abbreviation + "|" + self.cohort
+        if self.group_based_on == "Course" | self.group_based_on == "Activity":
+            self.name = self.student_group_abbreviation + "|" + self.academic_term
+        else:
+            self.name = self.student_group_abbreviation + "|" + self.cohort
 
 	def validate(self):
 		self.validate_term()

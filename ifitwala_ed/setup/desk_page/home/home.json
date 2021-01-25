@@ -3,7 +3,7 @@
   {
    "hidden": 0,
    "label": "Collaboration",
-   "links": "[\n    {\n        \"description\": \"Meetings organized at school\",\n        \"label\": \"Meeting\",\n        \"name\": \"Meeting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Todo list\",\n        \"label\": \"Todo list\",\n        \"name\": \"ToDo\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your School Event List\",\n        \"label\": \"School Events\",\n        \"name\": \"School Event\",\n        \"type\": \"doctype\"\n    }\n    \n]"
+   "links": "[\n    {\n        \"description\": \"Meetings organized at school\",\n        \"label\": \"Meeting\",\n        \"name\": \"Meeting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Todo list\",\n        \"label\": \"Todo list\",\n        \"name\": \"ToDo\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your School Department\",\n        \"label\": \"Department\",\n        \"name\": \"Department\",\n        \"type\": \"doctype\"\n    }\n    \n]"
   },
   {
    "hidden": 0,
@@ -23,7 +23,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Home",
- "modified": "2021-01-25 10:30:53.664138",
+ "modified": "2021-01-25 14:26:26.276635",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Home",

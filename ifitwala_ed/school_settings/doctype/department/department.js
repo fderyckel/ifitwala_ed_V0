@@ -20,8 +20,8 @@ frappe.ui.form.on('Department', {
 			}, __('Communication'));
 
 			frm.add_custom_button(__('Set New Meeting'), function() {
-				//frappe.route_options = {'department': frm.doc.name};
-				frappe.set_route('Form', 'Meeting', {'department': frm.doc.name});
+				frappe.route_options = {'department': frm.doc.name};
+				frappe.set_route('Form', 'Meeting');
 			}, __('Meeting'));
 
 			frm.add_custom_button(__('Past Meetings'), function() {

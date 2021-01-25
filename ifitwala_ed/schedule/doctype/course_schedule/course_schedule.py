@@ -20,12 +20,13 @@ class CourseSchedule(Document):
 
 	# set up the course field if it is based on a course.
 	def validate_course(self):
-		group_based_on, course = frappe.db.get_value("Student Group", self.student_group, ["group_based_on", "course"])
-		if group_based_on == "course":
-			self.course = course
+		coursse = frappe.db.get_value("Student Group", self.student_group, ["course"])
+		if self.course != coursse:
+			frappe.throw(_("This course {0} is not the course {1} attached to this student group. Please adjust.").format(get_link_to_form("Course", coursse), get_link_to_form("Course", self.course)))
 
 	def set_title(self):
-		self.title = self.course + " by " + (self.instructor_name if self.instructor_name else self.instructor)
+		course_abbr = frappe.db.get_value("Student Group", self.student_group, ["student_group_abbreviation"])
+		self.title = course_abbr + self.schedule_date
 
 	def validate_date(self):
 		if self.from_time > self.to_time:
@@ -42,9 +43,12 @@ class CourseSchedule(Document):
 
 		if self.student_group:
 			validate_overlap_for(self, "Course Schedule", "student_group")
-
-		validate_overlap_for(self, "Course Schedule", "room")
-		validate_overlap_for(self, "Course Schedule", "instructor")
+		if self.room:
+			validate_overlap_for(self, "Course Schedule", "room")
+		if self.instructors:
+			tructors = frappe.get_list("Student Group Instructor", fields = ["instructor"], filters = {"parent": self.student_group})
+			for tructor in tructors:
+				validate_overlap_for(self, "Course Schedule", tructor.instructor)
 
 	def get_instructors(self):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)

@@ -13,7 +13,7 @@ class StudentGroup(Document):
     def autoname(self):
 		if self.group_based_on == "Course" | self.group_based_on == "Activity":
 			self.name = self.student_group_abbreviation + "|" + self.academic_term
-		elif self.group_based_on == "Cohort":
+		else:
 			self.name = self.student_group_abbreviation + "|" + self.cohort
 
 	def validate(self):
@@ -25,7 +25,7 @@ class StudentGroup(Document):
 		validate_duplicate_student(self.students)
 		if self.group_based_on == "Course" | self.group_based_on == "Activity":
 			self.title = self.student_group_abbreviation + "|" + self.academic_term
-		elif self.group_based_on == "Cohort":
+		else:
 			self.title = self.student_group_abbreviation + "|" + self.cohort
 
 	def validate_term(self):

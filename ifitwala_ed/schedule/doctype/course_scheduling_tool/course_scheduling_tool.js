@@ -3,7 +3,7 @@
 
 frappe.ui.form.on('Course Scheduling Tool', {
 
-  setup: function(frm) {
+  onload: function(frm) {
     frm.add_fetch('student_group', 'program', 'program');
     frm.add_fetch('student_group', 'course', 'course');
     frm.add_fetch('student_group', 'academic_year', 'academic_year');

@@ -18,6 +18,16 @@ frappe.ui.form.on('Department', {
 				frappe.route_options = {'Newsletter Email Group.email_group': frm.doc.name};
 				frappe.set_route('List', 'Newsletter');
 			}, __('Communication'));
+
+			frm.add_custom_button(__('Set New Meeting'), function() {
+				//frappe.route_options = {'department': frm.doc.name};
+				frappe.set_route('Form', 'Meeting', {'department': frm.doc.name});
+			}, __('Meeting'));
+
+			frm.add_custom_button(__('Past Meetings'), function() {
+				frappe.route_options = {'department': frm.doc.name};
+				frappe.set_route('List', 'Meeting');
+			}, __('Meeting'));
 		}
 	}
 

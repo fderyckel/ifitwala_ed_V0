@@ -50,12 +50,12 @@ frappe.ui.form.on('Student Group', {
 				frappe.route_options = {
 					student_group: frm.doc.name
 				};
-				frappe.set_route('Form', 'Course Scheduling Tool', 'Course Scheduling Tool');
+				frappe.set_route('Form', 'Course Scheduling Tool');
 			}, __('Tools'));
 
 			frm.add_custom_button(__('Newsletter'), function() {
 				frappe.route_options = {
-					'Newsletter Email Group.email_group': stud.concat('|students') || stud.concat('|guardian')
+					'Newsletter Email Group.email_group': [“like”, “%” + frm.doc.name + “%”]
 				};
 				frappe.set_route('List', 'Newsletter');
 			}, __('View'));

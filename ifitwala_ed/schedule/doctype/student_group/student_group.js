@@ -55,7 +55,7 @@ frappe.ui.form.on('Student Group', {
 
 			frm.add_custom_button(__('Newsletter'), function() {
 				frappe.route_options = {
-					'Newsletter Email Group.email_group': stud.concat('|students')
+					'Newsletter Email Group.email_group': stud.concat('|students') || stud.concat('|guardian')
 				};
 				frappe.set_route('List', 'Newsletter');
 			}, __('View'));

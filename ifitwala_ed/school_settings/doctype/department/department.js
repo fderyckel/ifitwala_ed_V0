@@ -6,13 +6,18 @@ frappe.ui.form.on('Department', {
 		if (!frm.doc.__islocal) {
 			frm.add_custom_button(__('Update Dpt Member Email Group'), function() {
 				frappe.call({
-					method: 'ifitwala_ed.ifitwala_ed.api.update_dpt_email',
+					method: 'ifitwala_ed.school_settings.doctype.department.department.update_dpt_email',
 					args: {
 						'doctype': 'Department',
 						'name': frm.doc.name
 					}
 				});
-			}, __('Communication'));  
+			}, __('Communication'));
+
+			frm.add_custom_button(__('Newsletter'), function() {
+				frappe.route_options = {'Newsletter Email Group.email_group': frm.doc.name};
+				frappe.set_route('List', 'Newsletter');
+			}, __('Communication'));
 		}
 	}
 

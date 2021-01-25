@@ -34,7 +34,7 @@ frappe.ui.form.on('Student Group', {
 
 	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
-			var stud = frm.doc.name+'|students'
+			var stud = frm.doc.name+'|students'; 
 
 			frm.add_custom_button(__('Update Guardians and Students to Email Group'), function() {
 				frappe.call({

@@ -10,6 +10,11 @@ from frappe.utils import cint
 from ifitwala_ed.utils import validate_duplicate_student
 
 class StudentGroup(Document):
+    def autoname(self):
+		if self.group_based_on == "Course" | self.group_based_on == "Activity":
+			self.name = self.student_group_abbreviation + "|" + self.academic_term
+		elif self.group_based_on == "Cohort":
+			self.name = self.student_group_abbreviation + "|" + self.cohort
 
 	def validate(self):
 		self.validate_term()
@@ -18,8 +23,10 @@ class StudentGroup(Document):
 		self.validate_students()
 		self.validate_and_set_child_table_fields()
 		validate_duplicate_student(self.students)
-		if not self.student_group_name:
-			self.student_group_name = self.course + "/" + self.program + "/" + self.academic_term
+		if self.group_based_on == "Course" | self.group_based_on == "Activity":
+			self.title = self.student_group_abbreviation + "|" + self.academic_term
+		elif self.group_based_on == "Cohort":
+			self.title = self.student_group_abbreviation + "|" + self.cohort
 
 	def validate_term(self):
 		term_year = frappe.get_doc("Academic Term", self.academic_term)

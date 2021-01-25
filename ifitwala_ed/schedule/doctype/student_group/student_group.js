@@ -35,6 +35,7 @@ frappe.ui.form.on('Student Group', {
 	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
 			var stud = frm.doc.name;
+			var guard =  frm.doc.name;
 
 			frm.add_custom_button(__('Update Guardians and Students to Email Group'), function() {
 				frappe.call({
@@ -53,9 +54,16 @@ frappe.ui.form.on('Student Group', {
 				frappe.set_route('Form', 'Course Scheduling Tool');
 			}, __('Tools'));
 
-			frm.add_custom_button(__('Newsletter'), function() {
+			frm.add_custom_button(__('Students Newsletter'), function() {
 				frappe.route_options = {
-					'Newsletter Email Group.email_group': [“like”, “%” + frm.doc.name + “%”]
+					'Newsletter Email Group.email_group': stud.concat('|students')
+				};
+				frappe.set_route('List', 'Newsletter');
+			}, __('View'));
+
+			frm.add_custom_button(__('Guardians Newsletter'), function() {
+				frappe.route_options = {
+					'Newsletter Email Group.email_group': frm.doc.name.concat('|guardians')
 				};
 				frappe.set_route('List', 'Newsletter');
 			}, __('View'));

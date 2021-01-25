@@ -34,7 +34,7 @@ frappe.ui.form.on('Student Group', {
 
 	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
-			frm.add_custom_button(__('Add Guardians and Student Email Group'), function() {
+			frm.add_custom_button(__('Update Guardians and Students to Email Group'), function() {
 				frappe.call({
 					method: 'ifitwala_ed.ifitwala_ed.api.update_email_group',
 					args: {
@@ -43,6 +43,20 @@ frappe.ui.form.on('Student Group', {
 					}
 				});
 			}, __('Actions'));
+
+			frm.add_custom_button(__('Course Scheduling Tool'), function() {
+				frappe.route_options = {
+					student_group = frm.doc.name
+				}
+				frappe.set_route('Form', 'Course Scheduling Tool', 'Course Scheduling Tool');
+			}, __('Tools'));
+
+			frm.add_custom_button(__('Newsletter'), function() {
+				frappe.route_options = {
+					'Newsletter Email Group.email_group': frm.doc.name
+				}
+				frappe.set_route('List', 'Newsletter');
+			}, __('View'));
 		}
 	},
 

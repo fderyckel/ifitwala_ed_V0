@@ -26,7 +26,7 @@ class CourseSchedule(Document):
 
 	def set_title(self):
 		course_abbr = frappe.db.get_value("Student Group", self.student_group, ["student_group_abbreviation"])
-		self.title = course_abbr + self.schedule_date
+		self.title = course_abbr
 
 	def validate_date(self):
 		if self.from_time > self.to_time:

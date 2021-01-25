@@ -19,15 +19,10 @@ frappe.ui.form.on('Department', {
 				frappe.set_route('List', 'Newsletter');
 			}, __('Communication'));
 
-			frm.add_custom_button(__('Set New Meeting'), function() {
-				frappe.route_options = {'department': frm.doc.name};
-				frappe.set_route('Form', 'Meeting');
-			}, __('Meeting'));
-
-			frm.add_custom_button(__('Past Meetings'), function() {
+			frm.add_custom_button(__('Meetings'), function() {
 				frappe.route_options = {'department': frm.doc.name};
 				frappe.set_route('List', 'Meeting');
-			}, __('Meeting'));
+			});
 		}
 	}
 

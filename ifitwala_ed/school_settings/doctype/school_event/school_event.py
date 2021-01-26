@@ -4,23 +4,31 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe.utils import get_datetime
 from frappe.model.document import Document
 
 class SchoolEvent(Document):
+	def validate_date(self):
+		if getdate(self.date) < getdate(today()):
+			frappe.throw(_("The date {0} of the event has to be in the future. Please adjust the date.").format(self.date))
 
-	def get_permission_query_conditions(user):
-		if not user: user = frappe.session.user
-		return """(name in (select parent from `tabSchool Event Participant`where participant=%(user)s) or owner=%(user)s)""" % {
-				"user": frappe.db.escape(user),
-			}
+	def validate_time(self):
+		if get_datetime(self.starts_on) >= get_datetime(self.ends_on):
+			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.starts_on, self.ends_on))
 
-	def event_has_permission(doc, user):
-		if doc.is_new():
-			return True
-		if doc.event_type=="Public" or doc.owner==user:
-			return True
 
-		if doc.owner == user or user in [d.participant for d in doc.participants]:
-			return True
+def get_permission_query_conditions(user):
+	if not user: user = frappe.session.user
+	return """(name in (select parent from `tabSchool Event Participant`where participant=%(user)s) or owner=%(user)s)""" % {
+			"user": frappe.db.escape(user),
+		}
 
-		return False
+def event_has_permission(doc, user):
+	if doc.is_new():
+		return True
+	if doc.event_type=="Public":
+		return True
+	if doc.owner == user or user in [d.participant for d in doc.participants]:
+		return True
+
+	return False

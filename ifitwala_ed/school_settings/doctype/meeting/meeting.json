@@ -17,6 +17,7 @@
   "date",
   "from_time",
   "to_time",
+  "room",
   "agenda_section_section",
   "agenda",
   "attendees_section_section",
@@ -117,11 +118,17 @@
    "label": "School Event",
    "options": "School Event",
    "read_only": 1
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Room"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-20 19:27:27.635021",
+ "modified": "2021-01-26 07:12:55.674420",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",

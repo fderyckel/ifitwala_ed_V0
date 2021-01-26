@@ -60,7 +60,7 @@ update_website_context  = ["ifitwala_ed.school_settings.doctype.education_settin
 after_install = "ifitwala_ed.setup.setup_education"
 
 
-calendars = ["School Calendar", "School Event"]
+calendars = ["School Calendar", "Course Schedule"]
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
@@ -73,10 +73,12 @@ calendars = ["School Calendar", "School Event"]
 
 permission_query_conditions = {
  	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.get_permission_query_conditions",
+    "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.get_permission_query_conditions"
 }
 #
 has_permission = {
  	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",
+    "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.event_has_permission"
 }
 
 default_roles = [

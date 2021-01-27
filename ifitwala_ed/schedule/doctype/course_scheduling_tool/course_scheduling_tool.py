@@ -78,21 +78,21 @@ class CourseSchedulingTool(Document):
 			course_schedule.append("participants": {"participant": student.student})
 
 
-	def delete_course_schedule(self, rescheduled, reschedule_errors):
-		schedules = frappe.get_list("Course Schedule",
-			fields = ["name", "schedule_date"],
-			filters = [
-				["student_group", "=", self.student_group],
-				["course", "=", self.course],
-				["schedule_date", ">=", self.from_date],
-				["schedule_date", "<=", self.to_date]
-			])
-		for schedule in schedules:
-			try:
-				if self.day == get_weekday(getdate(schedule.schedule_date)):
-					frappe.delete_doc("Course Schedule", schedule.name)
-					rescheduled.append(schedule.name)
-			except:
-				reschedule_errors.append(schedule.name)
+	#def delete_course_schedule(self, rescheduled, reschedule_errors):
+	#	schedules = frappe.get_list("Course Schedule",
+	#		fields = ["name", "schedule_date"],
+	#		filters = [
+	#			["student_group", "=", self.student_group],
+	#			["course", "=", self.course],
+	#			["schedule_date", ">=", self.from_date],
+	#			["schedule_date", "<=", self.to_date]
+	#		])
+	#	for schedule in schedules:
+	#		try:
+	#			if self.day == get_weekday(getdate(schedule.schedule_date)):
+	#				frappe.delete_doc("Course Schedule", schedule.name)
+	#				rescheduled.append(schedule.name)
+	#		except:
+	#			reschedule_errors.append(schedule.name)
 
-		return rescheduled, reschedule_errors
+	#	return rescheduled, reschedule_errors

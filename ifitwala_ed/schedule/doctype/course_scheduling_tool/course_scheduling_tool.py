@@ -44,8 +44,8 @@ class CourseSchedulingTool(Document):
 			reschedule_errors=reschedule_errors
 		)
 
-		if self.reschedule:
-			rescheduled, reschedule_errors = self.delete_course_schedule(rescheduled, reschedule_errors)
+		#if self.reschedule:
+		#	rescheduled, reschedule_errors = self.delete_course_schedule(rescheduled, reschedule_errors)
 
 
 	def validate_dates(self):
@@ -60,7 +60,7 @@ class CourseSchedulingTool(Document):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 	def make_course_schedule(self, date):
-		course_schedule = frappe.new_doc({
+		course_schedule = frappe.get_doc({
 			"doctype": "School Event",
 			"subject": self.student_group.split("/")[0],
 			"event_category": "Course",

@@ -72,9 +72,9 @@ class CourseSchedulingTool(Document):
 			"reference_type": "Student Group",
 			"reference_name": self.student_group,
 		})
-		for instructor in self.instructors:
-			course_schedule.append("participants", {"participant":instructor.instructor})
-		course_schedule.save()
+		#for instructor in self.instructors:
+		#	course_schedule.append("participants", {"participant":instructor.instructor})
+		course_schedule.insert()
 
 
 	#def delete_course_schedule(self, rescheduled, reschedule_errors):

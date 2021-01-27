@@ -71,11 +71,10 @@ class CourseSchedulingTool(Document):
 			"ends_on": datetime.datetime.combine(getdate(self.schedule_date), get_time(self.to_time)),
 			"reference_type": "Student Group",
 			"reference_name": self.student_group,
-			})
-		for instructor in instructors:
-			course_schedule.append("participants": {"participant": instructor.instructor})
-		for student in students:
-			course_schedule.append("participants": {"participant": student.student})
+		})
+		for instructor in self.instructors:
+			meeting_event.append("participants", {"participant":instructor.instructor})		
+		course_schedule.save()
 
 
 	#def delete_course_schedule(self, rescheduled, reschedule_errors):

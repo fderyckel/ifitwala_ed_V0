@@ -67,13 +67,13 @@ class CourseSchedulingTool(Document):
 			"event_type": "Private",
 			"room": self.room,
 			"color": self.color,
-			"starts_on": datetime.datetime.combine(getdate(self.schedule_date), get_time(self.from_time)),
-			"ends_on": datetime.datetime.combine(getdate(self.schedule_date), get_time(self.to_time)),
+			"starts_on": datetime.datetime.combine(getdate(date), get_time(self.from_time)),
+			"ends_on": datetime.datetime.combine(getdate(date), get_time(self.to_time)),
 			"reference_type": "Student Group",
 			"reference_name": self.student_group,
 		})
 		for instructor in self.instructors:
-			meeting_event.append("participants", {"participant":instructor.instructor})		
+			meeting_event.append("participants", {"participant":instructor.instructor})
 		course_schedule.save()
 
 

@@ -8,6 +8,12 @@ from frappe.utils import get_datetime
 from frappe.model.document import Document
 
 class SchoolEvent(Document):
+	def validate(self):
+		self.validate_time() 
+
+	def on_update(self):
+		self.validate_date()
+
 	def validate_date(self):
 		if getdate(self.date) < getdate(today()):
 			frappe.throw(_("The date {0} of the event has to be in the future. Please adjust the date.").format(self.date))

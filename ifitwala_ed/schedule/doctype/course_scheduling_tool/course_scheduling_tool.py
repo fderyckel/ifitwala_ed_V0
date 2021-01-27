@@ -6,7 +6,8 @@ from __future__ import unicode_literals
 import frappe
 import  calendar
 from frappe import _
-from frappe.utils import getdate, get_link_to_form, get_weekday, add_days
+import datetime
+from frappe.utils import getdate, get_link_to_form, get_weekday, add_days, get_time
 from frappe.model.document import Document
 from ifitwala_ed.utils import OverlapError
 
@@ -59,15 +60,23 @@ class CourseSchedulingTool(Document):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 	def make_course_schedule(self, date):
-		course_schedule = frappe.new_doc("Course Schedule")
-		course_schedule.student_group = self.student_group
-		course_schedule.course = self.course
-		course_schedule.schedule_date = date
-		course_schedule.room = self.room
-		course_schedule.from_time = self.from_time
-		course_schedule.to_time = self.to_time
-		course_schedule.color = self.color
-		return  course_schedule
+		course_schedule = frappe.new_doc({
+			"doctype": "School Event",
+			"subject": self.student_group.split("/")[0],
+			"event_category": "Course",
+			"event_type": "Private",
+			"room": self.room,
+			"color": self.color,
+			"starts_on": datetime.datetime.combine(getdate(self.schedule_date), get_time(self.from_time)),
+			"ends_on": datetime.datetime.combine(getdate(self.schedule_date), get_time(self.to_time)),
+			"reference_type": "Student Group",
+			"reference_name": self.student_group,
+			})
+		for instructor in instructors:
+			course_schedule.append("participants": {"participant": instructor.instructor})
+		for student in students:
+			course_schedule.append("participants": {"participant": student.student})
+
 
 	def delete_course_schedule(self, rescheduled, reschedule_errors):
 		schedules = frappe.get_list("Course Schedule",

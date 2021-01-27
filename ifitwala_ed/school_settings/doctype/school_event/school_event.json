@@ -11,11 +11,12 @@
   "event_category",
   "event_type",
   "color",
+  "all_day",
   "column_break_5",
   "school",
   "starts_on",
   "ends_on",
-  "all_day",
+  "room",
   "section_break_8",
   "description",
   "participants_section",
@@ -64,7 +65,8 @@
   },
   {
    "fieldname": "section_break_8",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Description"
   },
   {
    "fieldname": "description",
@@ -73,7 +75,8 @@
   },
   {
    "fieldname": "participants_section",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Participants"
   },
   {
    "default": "0",
@@ -115,13 +118,20 @@
   },
   {
    "fieldname": "column_break_16",
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Room"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-08 16:20:55.747918",
+ "modified": "2021-01-26 21:29:43.545072",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Event",

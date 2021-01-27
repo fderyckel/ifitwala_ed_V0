@@ -5,6 +5,7 @@
  "autoname": "field:student_group_name",
  "creation": "2020-08-26 17:06:06.928454",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -151,7 +152,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-25 17:51:34.067307",
+ "modified": "2021-01-27 04:28:11.730279",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

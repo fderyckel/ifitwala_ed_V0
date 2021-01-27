@@ -113,7 +113,7 @@
  "has_web_view": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2020-12-22 12:29:39.922497",
+ "modified": "2021-01-27 04:29:41.093169",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Student Admission",
@@ -143,15 +143,13 @@
    "write": 1
   },
   {
-   "create": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "School IT",
-   "share": 1,
-   "write": 1
+   "role": "Academic Admin",
+   "share": 1
   }
  ],
  "route": "admissions",

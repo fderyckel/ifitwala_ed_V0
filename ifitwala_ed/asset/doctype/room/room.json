@@ -76,7 +76,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-22 23:25:55.139690",
+ "modified": "2021-01-27 04:33:59.226288",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Room",
@@ -144,6 +144,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "location",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

@@ -28,6 +28,7 @@
    "reqd": 1
   },
   {
+   "columns": 3,
    "fetch_from": "student.student_full_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
@@ -40,6 +41,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 2,
    "fieldname": "program",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -51,13 +53,13 @@
   {
    "fieldname": "academic_year",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Academic Year",
    "options": "Academic Year",
    "reqd": 1
   },
   {
+   "columns": 2,
    "fieldname": "academic_term",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -96,6 +98,7 @@
   },
   {
    "allow_on_submit": 1,
+   "columns": 1,
    "fieldname": "cohort",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -106,7 +109,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-01-22 07:10:19.728819",
+ "modified": "2021-01-27 04:58:59.282122",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program Enrollment",

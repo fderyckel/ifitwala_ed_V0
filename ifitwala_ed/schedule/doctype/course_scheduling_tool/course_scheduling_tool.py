@@ -73,7 +73,7 @@ class CourseSchedulingTool(Document):
 			"reference_name": self.student_group,
 		})
 		for instructor in self.instructors:
-			meeting_event.append("participants", {"participant":instructor.instructor})
+			course_schedule.append("participants", {"participant":instructor.instructor})
 		course_schedule.save()
 
 

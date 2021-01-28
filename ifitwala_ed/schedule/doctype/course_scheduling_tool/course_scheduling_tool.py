@@ -73,7 +73,8 @@ class CourseSchedulingTool(Document):
 			"reference_name": self.student_group,
 		})
 		for instructor in self.instructors:
-			course_schedule.append("participants", {"participant":instructor.instructor})
+			yo = frappe.get_doc("Instructor", instructor.instructor)
+			course_schedule.append("participants", {"participant":yo.user_id})
 		course_schedule.insert(ignore_permissions=True)
 
 

@@ -60,7 +60,7 @@ class CourseSchedulingTool(Document):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 	def make_course_schedule(self, date):
-		course_schedule = frappe.get_doc({
+		course_schedule = frappe.new_doc({
 			"doctype": "School Event",
 			"subject": self.student_group.split("/")[0],
 			"event_category": "Course",
@@ -75,7 +75,7 @@ class CourseSchedulingTool(Document):
 		for instructor in self.instructors:
 			yo = frappe.get_doc("Instructor", instructor.instructor)
 			course_schedule.append("participants", {"participant":yo.user_id})
-		course_schedule.insert(ignore_permissions=True)
+		return course_schedule
 
 
 	#def delete_course_schedule(self, rescheduled, reschedule_errors):

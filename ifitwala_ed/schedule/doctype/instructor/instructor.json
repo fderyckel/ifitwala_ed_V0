@@ -8,7 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "employee",
-  "email",
+  "user_id",
   "column_break_3",
   "instructor_name",
   "school",
@@ -28,16 +28,6 @@
    "label": "Instructor Name",
    "read_only": 1,
    "unique": 1
-  },
-  {
-   "fetch_from": "employee.employee_professional_email",
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Email",
-   "options": "Email",
-   "read_only": 1
   },
   {
    "fieldname": "log_details",
@@ -80,11 +70,18 @@
   {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "user_id",
+   "fieldtype": "Data",
+   "label": "User ID",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2021-01-21 04:41:19.197519",
+ "modified": "2021-01-28 09:47:08.008825",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

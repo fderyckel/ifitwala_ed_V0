@@ -25,14 +25,8 @@ class CourseSchedulingTool(Document):
 		while date < getdate(self.to_date):
 			if self.day == get_weekday(date):
 				course_schedule = self.make_course_schedule(date)
-				try:
-					print('pass')
-					course_schedule.save()
-				except OverlapError:
-					print('fail')
-					course_schedules_errors.append(date)
-				else:
-					course_schedules.append(course_schedule)
+				course_schedule.insert()
+				course_schedules.append(course_schedule)
 				date = add_days(date, 7)
 			else:
 				date = add_days(date, 1)
@@ -60,7 +54,7 @@ class CourseSchedulingTool(Document):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 	def make_course_schedule(self, date):
-		course_schedule = frappe.new_doc({
+		course_schedule = frappe.get_doc({
 			"doctype": "School Event",
 			"subject": self.student_group.split("/")[0],
 			"event_category": "Course",

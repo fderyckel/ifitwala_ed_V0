@@ -23,7 +23,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Home",
- "modified": "2021-01-25 14:26:26.276635",
+ "modified": "2021-01-28 11:27:42.442061",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Home",
@@ -61,7 +61,7 @@
   },
   {
    "color": "Grey",
-   "doc_view": "Calendar",
+   "doc_view": "List",
    "label": "School Event",
    "link_to": "School Event",
    "type": "DocType"

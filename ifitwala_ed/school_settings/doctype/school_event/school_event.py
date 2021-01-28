@@ -4,7 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe.utils import get_datetime, getdate, today
+from frappe.utils import get_datetime, getdate, today, now_datetime
 from frappe.model.document import Document
 
 class SchoolEvent(Document):
@@ -15,7 +15,7 @@ class SchoolEvent(Document):
 		self.validate_date()
 
 	def validate_date(self):
-		if getdate(self.date) < getdate(today()):
+		if get_datetime(self.starts_on) < get_datetime(now_datetime()):
 			frappe.throw(_("The date {0} of the event has to be in the future. Please adjust the date.").format(self.date))
 
 	def validate_time(self):

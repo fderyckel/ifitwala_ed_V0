@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe import _
 from frappe.utils import get_datetime, getdate, today, now_datetime
 from frappe.model.document import Document
 

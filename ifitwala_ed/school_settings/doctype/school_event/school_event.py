@@ -4,12 +4,12 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe.utils import get_datetime
+from frappe.utils import get_datetime, getdate, today
 from frappe.model.document import Document
 
 class SchoolEvent(Document):
 	def validate(self):
-		self.validate_time() 
+		self.validate_time()
 
 	def on_update(self):
 		self.validate_date()

@@ -20,6 +20,7 @@ class CourseSchedulingTool(Document):
 		reschedule_errors = []
 
 		self.validate_dates()
+		self.validate_mandatory_fields()
 
 		date = getdate(self.from_date)
 		while date < getdate(self.to_date):
@@ -27,7 +28,7 @@ class CourseSchedulingTool(Document):
 				course_schedule = self.make_course_schedule(date)
 				course_schedule.insert()
 				course_schedules.append(course_schedule)
-				date = add_days(date, 7)
+				date = add_days(date, n_week * 7)
 			else:
 				date = add_days(date, 1)
 
@@ -49,6 +50,12 @@ class CourseSchedulingTool(Document):
 		at = frappe.get_doc("Academic Term", self.academic_term)
 		if not (getdate(at.term_start_date) <= getdate(self.from_date) <= getdate(at.term_end_date)):
 			frappe.throw(_("The start and end date of the course should be included in the selected academic term {1}.").format(get_link_to_form(self.academic_term)))
+
+	def validate_mandatory_fields(self):
+		fields = ['course', 'instructors', 'students', 'room', 'from_time', 'to_time', 'from_date', 'to_date']
+		for f in fields:
+			if not self.get(f):
+				frappe.throw(_("{0} is a mandatory field. Please select an appropriate value.").format(self.meta.get_label(f)))
 
 	def get_instructors(self):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
@@ -75,7 +82,7 @@ class CourseSchedulingTool(Document):
 			course_schedule.append("participants", {"participant":yo.user_id})
 		for student in self.students:
 			yo = frappe.get_doc("Student", student.student)
-			course_schedule.append("participants", {"participant":yo.student_email})		
+			course_schedule.append("participants", {"participant":yo.student_email})
 		return course_schedule
 
 

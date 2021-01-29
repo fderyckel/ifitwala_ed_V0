@@ -22,6 +22,7 @@
   "column_break_11",
   "to_time",
   "to_date",
+  "n_week",
   "reschedule",
   "instructors_section",
   "instructors",
@@ -154,13 +155,21 @@
    "fieldname": "students_section_section",
    "fieldtype": "Section Break",
    "label": "Students Section"
+  },
+  {
+   "default": "1",
+   "fieldname": "n_week",
+   "fieldtype": "Int",
+   "label": "Every n  week",
+   "non_negative": 1,
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-28 18:17:17.373794",
+ "modified": "2021-01-29 13:51:52.310494",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

@@ -148,11 +148,12 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Title"
   }
  ],
  "links": [],
- "modified": "2021-01-27 04:28:11.730279",
+ "modified": "2021-01-28 19:09:31.455827",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",

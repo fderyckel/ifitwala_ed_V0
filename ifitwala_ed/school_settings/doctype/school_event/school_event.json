@@ -35,6 +35,8 @@
   {
    "fieldname": "event_category",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Event Category",
    "options": "\nMeeting\nCourse\nAppointment\nOther"
   },
@@ -56,11 +58,14 @@
   {
    "fieldname": "starts_on",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Starts on"
   },
   {
    "fieldname": "ends_on",
    "fieldtype": "Datetime",
+   "in_standard_filter": 1,
    "label": "Ends on"
   },
   {
@@ -106,31 +111,34 @@
   {
    "fieldname": "reference_type",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Reference Type",
    "options": "DocType"
   },
   {
    "fieldname": "reference_name",
    "fieldtype": "Dynamic Link",
+   "in_standard_filter": 1,
    "label": "Reference Name",
    "mandatory_depends_on": "reference_type",
    "options": "reference_type"
   },
   {
    "fieldname": "column_break_16",
-   "fieldtype": "Column Break",
-   "label": "References"
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "room",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Room",
    "options": "Room"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-28 11:23:10.437087",
+ "modified": "2021-01-28 18:54:46.075732",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Event",

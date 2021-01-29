@@ -37,6 +37,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "student_group.course",
    "fieldname": "course",
    "fieldtype": "Link",
    "label": "Course",
@@ -44,6 +45,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "student_group.program",
    "fieldname": "program",
    "fieldtype": "Link",
    "label": "Program",
@@ -54,6 +56,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "student_group.academic_year",
    "fieldname": "academic_year",
    "fieldtype": "Link",
    "label": "Academic Year",
@@ -61,6 +64,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "student_group.academic_term",
    "fieldname": "academic_term",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -156,7 +160,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-27 12:33:15.699933",
+ "modified": "2021-01-28 18:17:17.373794",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

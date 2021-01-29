@@ -3,13 +3,6 @@
 
 frappe.ui.form.on('Course Scheduling Tool', {
 
-  onload: function(frm) {
-    frm.add_fetch('student_group', 'program', 'program');
-    frm.add_fetch('student_group', 'course', 'course');
-    frm.add_fetch('student_group', 'academic_year', 'academic_year');
-    frm.add_fetch('student_group', 'academic_term', 'academic_term');
-  },
-
   refresh: function(frm) {
     frm.disable_save();
 
@@ -28,7 +21,7 @@ frappe.ui.form.on('Course Scheduling Tool', {
 							<tbody>
 								${course_schedules.map(
 									c => `<tr><td><a href="#Form/School Event/${c.name}">${c.name}</a></td>
-									<td>${c.schedule_date}</td></tr>`
+									<td>${c.starts_on}</td></tr>`
 								).join('')}
 							</tbody>
 						</table>`
@@ -41,6 +34,7 @@ frappe.ui.form.on('Course Scheduling Tool', {
 
   student_group: function(frm) {
 		frm.events.get_instructors(frm);
+    frm.events.get_students(frm);
 	},
 
 	get_instructors: function(frm) {
@@ -54,5 +48,18 @@ frappe.ui.form.on('Course Scheduling Tool', {
 				}
 			}
 		})
-	}
+	},
+
+  get_students: function(frm) {
+    frm.set_value('students',[]);
+    frappe.call({
+      method: 'get_students',
+      doc:frm.doc,
+      callback: function(r) {
+        if(r.message) {
+          frm.set_value('students', r.message);
+        }
+      }
+    })
+  }
 });

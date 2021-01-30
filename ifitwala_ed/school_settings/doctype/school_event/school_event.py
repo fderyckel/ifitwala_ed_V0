@@ -66,8 +66,6 @@ def get_school_events(start, end, user=None, filters=None):
 								  		OR (date(`tabSchool Event`.ends_on) BETWEEN date(%(start)s) AND date(%(end)s))
 											)
 								{filter_condition}
-								ORDER BY `tabSchool Event`.starts_on""".format(tables=", ".join(tables), filter_condition=filter_condition,
+								ORDER BY `tabSchool Event`.starts_on""".format(tables=", ".join(tables), filter_condition=filter_condition),
 																	{ "start": start, "end": end, "user": user}, as_dict=1)
-
-							)
 	return events

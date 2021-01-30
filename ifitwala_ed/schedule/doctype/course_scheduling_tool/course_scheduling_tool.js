@@ -3,6 +3,17 @@
 
 frappe.ui.form.on('Course Scheduling Tool', {
 
+  onload: function(frm) {
+
+		frm.set_query('student_group', function() {
+			return {
+				filters: {
+					'academic_year': (frm.doc.academic_year)
+				}
+			};
+		});
+  },
+
   refresh: function(frm) {
     frm.disable_save();
 

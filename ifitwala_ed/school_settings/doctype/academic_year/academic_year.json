@@ -23,6 +23,7 @@
  ],
  "fields": [
   {
+   "columns": 1,
    "fieldname": "academic_year_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -32,6 +33,7 @@
   },
   {
    "allow_in_quick_entry": 1,
+   "columns": 2,
    "fieldname": "year_start_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -39,6 +41,7 @@
   },
   {
    "allow_in_quick_entry": 1,
+   "columns": 1,
    "fieldname": "year_end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -46,6 +49,7 @@
   },
   {
    "allow_in_quick_entry": 1,
+   "columns": 3,
    "fieldname": "school",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -56,6 +60,7 @@
    "reqd": 1
   },
   {
+   "columns": 2,
    "fieldname": "title",
    "fieldtype": "Data",
    "hidden": 1,
@@ -98,7 +103,7 @@
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-01-21 14:21:52.451202",
+ "modified": "2021-01-30 21:01:28.307816",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

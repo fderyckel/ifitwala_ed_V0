@@ -28,7 +28,7 @@ class CourseSchedulingTool(Document):
 				course_schedule = self.make_course_schedule(date)
 				course_schedule.insert()
 				course_schedules.append(course_schedule)
-				date = add_days(date, n_week * 7)
+				date = add_days(date, self.n_week * 7)
 			else:
 				date = add_days(date, 1)
 

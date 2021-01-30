@@ -143,7 +143,7 @@
    "fieldname": "instructors",
    "fieldtype": "Table",
    "label": "Instructors",
-   "options": "Course Schedule Instructor",
+   "options": "Student Group Instructor",
    "reqd": 1
   },
   {
@@ -170,7 +170,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-30 06:47:39.284158",
+ "modified": "2021-01-30 09:58:10.115994",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

@@ -77,12 +77,12 @@ class CourseSchedulingTool(Document):
 			"reference_type": "Student Group",
 			"reference_name": self.student_group,
 		})
+		for instructor in self.instructors:
+			yo = frappe.get_doc("Instructor", instructor.instructor)
+			course_schedule.append("participants", {"participant":yo.user_id})
 		for student in self.students:
 			yo = frappe.get_doc("Student", student.student)
 			course_schedule.append("participants", {"participant":yo.student_email})
-		for instructor in self.instructors:
-			yoo = frappe.get_doc("Instructor", instructor.instructor)
-			course_schedule.append("participants", {"participant":yoo.user_id})
 		return course_schedule
 
 

@@ -4,6 +4,8 @@
 
 from __future__ import unicode_literals
 import frappe
+import json
+from six import string_types
 from frappe import _
 from frappe.utils import get_datetime, getdate, today, now_datetime
 from frappe.model.document import Document
@@ -25,7 +27,8 @@ class SchoolEvent(Document):
 
 
 def get_permission_query_conditions(user):
-	if not user: user = frappe.session.user
+	if not user:
+		user = frappe.session.user
 	return """(name in (select parent from `tabSchool Event Participant`where participant=%(user)s) or owner=%(user)s)""" % {
 			"user": frappe.db.escape(user),
 		}
@@ -35,7 +38,36 @@ def event_has_permission(doc, user):
 		return True
 	if doc.event_type=="Public":
 		return True
-	if doc.owner == user or user in [d.participant for d in doc.participants]:
+	#if doc.owner == user or user in [d.participant for d in doc.participants]:
+	if doc.event_type == "Private" and (doc.owner == user or user in [d.participant for d in doc.participants]):
 		return True
 
 	return False
+
+@frappe.whitelist()
+def get_school_events(start, end, user=None, filters=None):
+	if not user:
+		user = frappe.session.user
+
+	if isinstance(filters, string_types):
+		filters = json.loads(filters)
+
+	filter_condition = get_filters_cond('School Event', filters, [])
+
+	tables = ["`tabSchool Event`"]
+	if "`tabSchool Event Participants`" in filter_condition:
+		tables.append("`tabSchool Event Participants`")
+	events = frappe.db.sql(""" SELECT 	`tabSchool Event`.name, `tabSchool Event`.subject, `tabSchool Event`.description,
+										`tabSchool Event`.color, `tabSchool Event`.starts_on, `tabSchool Event`.ends_on,
+										`tabSchool Event`.owner, `tabSchool Event`.all_day, `tabSchool Event`.event_category,
+										`tabSchool Event`.school, `tabSchool Event`.room
+								FROM {tables}
+								WHERE (	(date(`tabSchool Event`.starts_on) BETWEEN date(%(start)s) AND date(%(end)s))
+								  		OR (date(`tabSchool Event`.ends_on) BETWEEN date(%(start)s) AND date(%(end)s))
+											)
+								{filter_condition}
+								ORDER BY `tabSchool Event`.starts_on""".format(tables=", ".join(tables), filter_condition=filter_condition,
+																	{ "start": start, "end": end, "user": user}, as_dict=1)
+
+							)
+	return events

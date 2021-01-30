@@ -44,8 +44,8 @@ frappe.ui.form.on('Course Scheduling Tool', {
   },
 
   student_group: function(frm) {
-    frm.events.get_students(frm);
-		frm.events.get_instructors(frm);
+    frm.events.get_students(frm)
+		frm.events.get_instructors(frm)
 	},
 
 	get_instructors: function(frm) {

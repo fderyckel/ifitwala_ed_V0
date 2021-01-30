@@ -9,6 +9,7 @@ from six import string_types
 from frappe import _
 from frappe.utils import get_datetime, getdate, today, now_datetime
 from frappe.model.document import Document
+from frappe.desk.reportview import get_filters_cond
 
 class SchoolEvent(Document):
 	def validate(self):

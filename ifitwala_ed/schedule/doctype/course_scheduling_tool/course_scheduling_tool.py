@@ -39,8 +39,8 @@ class CourseSchedulingTool(Document):
 			reschedule_errors=reschedule_errors
 		)
 
-		#if self.reschedule:
-		#	rescheduled, reschedule_errors = self.delete_course_schedule(rescheduled, reschedule_errors)
+		if self.reschedule:
+			rescheduled, reschedule_errors = self.delete_course_schedule(rescheduled, reschedule_errors)
 
 
 	def validate_dates(self):
@@ -48,6 +48,8 @@ class CourseSchedulingTool(Document):
 			frappe.throw(_("The start date of the course {0} cannot be after its end date {1}. Please adjust the dates.").format(getdate(self.from_date), getdate(self.to_date)))
 
 		at = frappe.get_doc("Academic Term", self.academic_term)
+		if at.academic_year != self.academic_year:
+			frappe.throw(_("The academic term {0} does not belong to the academic  year {1}").format(self.academic_term, self.academic_year))
 		if not (getdate(at.term_start_date) <= getdate(self.from_date) <= getdate(at.term_end_date)):
 			frappe.throw(_("The start and end date of the course should be included in the selected academic term {1}.").format(get_link_to_form(self.academic_term)))
 
@@ -88,21 +90,19 @@ class CourseSchedulingTool(Document):
 		return course_schedule
 
 
-	#def delete_course_schedule(self, rescheduled, reschedule_errors):
-	#	schedules = frappe.get_list("Course Schedule",
-	#		fields = ["name", "schedule_date"],
-	#		filters = [
-	#			["student_group", "=", self.student_group],
-	#			["course", "=", self.course],
-	#			["schedule_date", ">=", self.from_date],
-	#			["schedule_date", "<=", self.to_date]
-	#		])
-	#	for schedule in schedules:
-	#		try:
-	#			if self.day == get_weekday(getdate(schedule.schedule_date)):
-	#				frappe.delete_doc("Course Schedule", schedule.name)
-	#				rescheduled.append(schedule.name)
-	#		except:
-	#			reschedule_errors.append(schedule.name)
+	def delete_course_schedule(self, rescheduled, reschedule_errors):
+		schedules = frappe.get_list("School Event", fields = ["name", "starts_on"],
+			filters = [
+				["reference_name", "=", self.student_group],
+				["starts_on", ">=", datetime.datetime.combine(getdate(date), get_time(self.from_time))],
+				["ends_on", "<=", datetime.datetime.combine(getdate(date), get_time(self.to_time))]
+			])
+		for schedule in schedules:
+			try:
+				if self.day == get_weekday(getdate(schedule.schedule_date)):
+					frappe.delete_doc("School Event", schedule.name)
+					rescheduled.append(schedule.name)
+			except:
+				reschedule_errors.append(schedule.name)
 
-	#	return rescheduled, reschedule_errors
+		return rescheduled, reschedule_errors

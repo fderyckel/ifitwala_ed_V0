@@ -10,6 +10,7 @@ from frappe import _
 from frappe.utils import get_datetime, getdate, today, now_datetime
 from frappe.model.document import Document
 from frappe.desk.reportview import get_filters_cond
+from frappe.permissions import has_permission
 
 class SchoolEvent(Document):
 	def validate(self):
@@ -58,7 +59,7 @@ def get_school_events(start, end, user=None, filters=None):
 	tables = ["`tabSchool Event`"]
 	if "`tabSchool Event Participants`" in filter_condition:
 		tables.append("`tabSchool Event Participants`")
-	events = frappe.db.sql(""" SELECT 	`tabSchool Event`.name, `tabSchool Event`.subject, `tabSchool Event`.description,
+	events = frappe.db.sql(""" SELECT 	`tabSchool Event`.name, `tabSchool Event`.subject,
 										`tabSchool Event`.color, `tabSchool Event`.starts_on, `tabSchool Event`.ends_on,
 										`tabSchool Event`.owner, `tabSchool Event`.all_day, `tabSchool Event`.event_category,
 										`tabSchool Event`.school, `tabSchool Event`.room
@@ -69,4 +70,9 @@ def get_school_events(start, end, user=None, filters=None):
 								{filter_condition}
 								ORDER BY `tabSchool Event`.starts_on""".format(tables=", ".join(tables), filter_condition=filter_condition),
 																	{ "start": start, "end": end, "user": user}, as_dict=1)
-	return events
+	allowed_events = []
+	for event in events:
+		if frappe.get_doc("School Event", event.name).has_permission():
+			allowed_events.append(event)
+
+	return allowed_events

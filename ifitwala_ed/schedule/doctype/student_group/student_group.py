@@ -23,7 +23,7 @@ class StudentGroup(Document):
 		self.validate_students()
 		self.validate_and_set_child_table_fields()
 		validate_duplicate_student(self.students)
-		if self.group_based_on == "Course" or self.group_based_on == "Activity"::
+		if self.group_based_on == "Course" or self.group_based_on == "Activity":
 			self.title = self.student_group_abbreviation + "/" + self.academic_term
 		else:
 			self.title = self.student_group_abbreviation + "/" + self.cohort

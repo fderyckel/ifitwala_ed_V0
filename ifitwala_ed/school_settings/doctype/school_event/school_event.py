@@ -24,8 +24,8 @@ class SchoolEvent(Document):
 			frappe.throw(_("The date {0} of the event has to be in the future. Please adjust the date.").format(self.starts_on))
 
 	def validate_time(self):
-		if get_datetime(self.starts_on) >= get_datetime(self.ends_on):
-			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.starts_on, self.ends_on))
+		if get_datetime(self.starts_on) > get_datetime(self.ends_on):
+			frappe.throw(_("The start time of your event {0} has to be earlier than its end {1}. Please adjust the time.").format(self.starts_on, self.ends_on))
 
 
 def get_permission_query_conditions(user):

@@ -20,7 +20,7 @@ class SchoolEvent(Document):
 		self.validate_date()
 
 	def validate_date(self):
-		if get_datetime(self.starts_on) < get_datetime(now_datetime()):
+		if (self.event_category != "Other") and (get_datetime(self.starts_on) < get_datetime(now_datetime())):
 			frappe.throw(_("The date {0} of the event has to be in the future. Please adjust the date.").format(self.starts_on))
 
 	def validate_time(self):

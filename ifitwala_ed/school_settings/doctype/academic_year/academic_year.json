@@ -81,7 +81,7 @@
   {
    "fieldname": "ay_start",
    "fieldtype": "Link",
-   "label": "ay_start",
+   "label": "Start of Year Event",
    "no_copy": 1,
    "options": "School Event",
    "print_hide": 1,
@@ -90,7 +90,7 @@
   {
    "fieldname": "ay_end",
    "fieldtype": "Link",
-   "label": "ay_end",
+   "label": "End of Year Event",
    "no_copy": 1,
    "options": "School Event",
    "print_hide": 1,
@@ -103,7 +103,7 @@
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-01-30 21:01:28.307816",
+ "modified": "2021-01-31 11:59:57.473884",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

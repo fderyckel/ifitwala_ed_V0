@@ -79,7 +79,7 @@
   {
    "fieldname": "at_start",
    "fieldtype": "Link",
-   "label": "at_start",
+   "label": "Start of Term Event",
    "no_copy": 1,
    "options": "School Event",
    "print_hide": 1,
@@ -92,7 +92,7 @@
   {
    "fieldname": "at_end",
    "fieldtype": "Link",
-   "label": "at_end",
+   "label": "End of Term Event",
    "no_copy": 1,
    "options": "School Event",
    "print_hide": 1,
@@ -100,7 +100,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-21 15:16:50.644595",
+ "modified": "2021-01-31 12:00:21.607734",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

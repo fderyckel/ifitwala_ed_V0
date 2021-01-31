@@ -41,7 +41,7 @@
   },
   {
    "allow_in_quick_entry": 1,
-   "columns": 1,
+   "columns": 2,
    "fieldname": "year_end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -103,7 +103,7 @@
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-01-31 11:59:57.473884",
+ "modified": "2021-01-31 19:19:32.969497",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

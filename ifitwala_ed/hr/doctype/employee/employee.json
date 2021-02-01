@@ -46,6 +46,8 @@
   "emergency_contact_person",
   "section_break_30",
   "internal_work_history",
+  "bio_section",
+  "biography",
   "exit_section",
   "notice_date",
   "relieving_date",
@@ -176,6 +178,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "exit_section",
    "fieldtype": "Section Break",
    "label": "Exit"
@@ -356,6 +359,17 @@
    "no_copy": 1,
    "print_hide": 1,
    "report_hide": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "bio_section",
+   "fieldtype": "Section Break",
+   "label": "Bio"
+  },
+  {
+   "fieldname": "biography",
+   "fieldtype": "Text Editor",
+   "label": "Biography"
   }
  ],
  "image_field": "employee_image",
@@ -365,7 +379,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-01-22 08:19:36.112667",
+ "modified": "2021-02-01 07:12:37.005398",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

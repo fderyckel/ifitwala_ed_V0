@@ -28,7 +28,10 @@
   "reflections_section",
   "prior_to_learning",
   "during_learning",
-  "after_learning"
+  "after_learning",
+  "differentiated_instructions_section",
+  "differentiation",
+  "resources_section"
  ],
  "fields": [
   {
@@ -153,11 +156,29 @@
    "fieldname": "standards_and_benchmark",
    "fieldtype": "Data",
    "label": "Standards and Benchmark"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "differentiated_instructions_section",
+   "fieldtype": "Section Break",
+   "label": "Differentiated Instructions"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "resources_section",
+   "fieldtype": "Section Break",
+   "label": "Resources"
+  },
+  {
+   "fieldname": "differentiation",
+   "fieldtype": "Table",
+   "label": "differentiation",
+   "options": "Learning Unit Differentiation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-04 22:12:40.993461",
+ "modified": "2021-02-01 09:01:14.300645",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

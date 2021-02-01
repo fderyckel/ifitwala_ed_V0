@@ -17,7 +17,9 @@
   "school_abbreviation",
   "department_members_section",
   "members",
-  "title"
+  "title",
+  "dpt_philosophy_section",
+  "philosphy"
  ],
  "fields": [
   {
@@ -86,11 +88,22 @@
    "fieldtype": "Check",
    "in_standard_filter": 1,
    "label": "Enabled"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "dpt_philosophy_section",
+   "fieldtype": "Section Break",
+   "label": "Dpt. Philosophy"
+  },
+  {
+   "fieldname": "philosphy",
+   "fieldtype": "Text Editor",
+   "label": "Philosphy"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2020-12-20 14:47:56.215233",
+ "modified": "2021-02-01 13:08:31.418369",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",
@@ -123,7 +136,6 @@
   },
   {
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,

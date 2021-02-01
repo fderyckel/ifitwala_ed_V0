@@ -100,7 +100,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-31 12:00:21.607734",
+ "modified": "2021-02-01 13:09:56.941794",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",
@@ -119,16 +119,13 @@
    "write": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "School IT",
-   "share": 1,
-   "write": 1
+   "share": 1
   },
   {
    "create": 1,

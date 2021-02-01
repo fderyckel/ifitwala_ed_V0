@@ -1,0 +1,54 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2021-02-01 20:54:16.621600",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "student_group",
+   "fieldtype": "Link",
+   "label": "Student Group",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2021-02-01 20:55:25.644900",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Student Guardian Contact Details",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Program Enrollment",
+ "report_name": "Student Guardian Contact Details",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Instructor"
+  },
+  {
+   "role": "Academic Admin"
+  },
+  {
+   "role": "Counselor"
+  }
+ ]
+}

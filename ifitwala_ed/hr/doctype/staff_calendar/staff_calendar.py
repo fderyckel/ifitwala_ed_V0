@@ -9,7 +9,7 @@ from frappe import _
 from frappe.utils import getdate, today, formatdate, cint, date_diff
 from frappe.model.document import Document
 
-class HolidayList(Document):
+class StaffCalendar(Document):
 	def validate(self):
 		self.validate_days()
 		self.total_holidays = len(self.holidays)

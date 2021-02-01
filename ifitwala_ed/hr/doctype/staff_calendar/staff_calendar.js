@@ -1,7 +1,7 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Holiday List', {
+frappe.ui.form.on('Staff Calendar', {
 	refresh: function(frm) {
     if(frm.doc.holidays) {
       frm.set_value('total_holidays', frm.doc.holidays.length);

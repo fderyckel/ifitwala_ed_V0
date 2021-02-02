@@ -2,13 +2,13 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:holiday_list_name",
+ "autoname": "field:staff_calendar_name",
  "creation": "2020-10-14 17:19:25.042786",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "holiday_list_name",
+  "staff_calendar_name",
   "from_date",
   "school",
   "total_working_day",
@@ -30,15 +30,6 @@
   "clear_table"
  ],
  "fields": [
-  {
-   "fieldname": "holiday_list_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Holiday List Name",
-   "reqd": 1,
-   "unique": 1
-  },
   {
    "fieldname": "from_date",
    "fieldtype": "Date",
@@ -149,11 +140,20 @@
    "fieldname": "break_description",
    "fieldtype": "Data",
    "label": "Break Description"
+  },
+  {
+   "fieldname": "staff_calendar_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Staff Calendar Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-18 20:04:44.803101",
+ "modified": "2021-02-01 21:39:25.599861",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",
@@ -179,26 +179,6 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "School IT",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Academic Admin",
-   "share": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "HR User",
    "share": 1,
    "write": 1
@@ -209,16 +189,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Instructor",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Student",
+   "role": "Employee",
    "share": 1
   }
  ],

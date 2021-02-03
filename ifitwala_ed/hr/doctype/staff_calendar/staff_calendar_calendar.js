@@ -17,6 +17,12 @@ frappe.views.calendar['Staff Calendar'] = {
 			'fieldname': 'staff_calendar',
 			'options': 'Staff Calendar',
 			'label': __('Staff Calendar')
-		}
+		},
+    {
+      'fieldtype': 'Link',
+      'fieldname': 'school',
+      'options': 'School',
+      'label': __('School')
+    }    
 	]
 }

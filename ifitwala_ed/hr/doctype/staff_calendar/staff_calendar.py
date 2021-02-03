@@ -14,7 +14,7 @@ class StaffCalendar(Document):
 		#ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_days()
 		self.total_holidays = len(self.holidays)
-		self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays
+		self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays + 1
 
 	#logic for the button (with button id name)
 	def get_weekly_off_dates(self):
@@ -123,6 +123,6 @@ def get_events(start, end, filters=None):
 		filters.append(['Holiday', 'holiday_date', '<', getdate(end)])
 
 	return frappe.get_list('Staff Calendar',
-		fields = ['name', 'academic_year', 'school', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday List`.color'],
+		fields = ['name', 'academic_year', 'school', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday`.color'],
 		filters = filters,
 		update = {"allDay": 1})

@@ -22,7 +22,7 @@
   "get_long_break_dates",
   "column_break_12",
   "end_of_break",
-  "break_color",
+  "breaks_color",
   "add_weekly_holidays_section",
   "weekly_off",
   "get_weekly_off_dates",
@@ -159,11 +159,6 @@
    "options": "Academic Year"
   },
   {
-   "fieldname": "break_color",
-   "fieldtype": "Color",
-   "label": "Break Color"
-  },
-  {
    "fieldname": "column_break_19",
    "fieldtype": "Column Break"
   },
@@ -171,11 +166,16 @@
    "fieldname": "weekend_color",
    "fieldtype": "Color",
    "label": "Weekend Color"
+  },
+  {
+   "fieldname": "breaks_color",
+   "fieldtype": "Color",
+   "label": "Breaks Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-02 20:10:15.317354",
+ "modified": "2021-02-03 11:07:51.591024",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",

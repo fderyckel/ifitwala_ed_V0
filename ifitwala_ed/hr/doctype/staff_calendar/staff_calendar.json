@@ -9,35 +9,41 @@
  "engine": "InnoDB",
  "field_order": [
   "staff_calendar_name",
-  "from_date",
-  "school",
+  "academic_year",
   "total_working_day",
+  "from_date",
   "column_break_4",
-  "to_date",
-  "color",
+  "school",
   "total_holidays",
+  "to_date",
   "add_longer_breaks_section",
   "start_of_break",
   "break_description",
+  "get_long_break_dates",
   "column_break_12",
   "end_of_break",
-  "get_long_break_dates",
+  "break_color",
   "add_weekly_holidays_section",
   "weekly_off",
   "get_weekly_off_dates",
+  "column_break_19",
+  "weekend_color",
   "section_break_9",
   "holidays",
   "clear_table"
  ],
  "fields": [
   {
+   "fetch_from": "academic_year.year_start_date",
    "fieldname": "from_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "From Date",
+   "read_only": 1,
    "reqd": 1
   },
   {
+   "fetch_from": "academic_year.year_end_date",
    "fieldname": "to_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -79,11 +85,6 @@
    "options": "Holiday"
   },
   {
-   "fieldname": "color",
-   "fieldtype": "Color",
-   "label": "Color"
-  },
-  {
    "fieldname": "clear_table",
    "fieldtype": "Button",
    "label": "Clear Table",
@@ -98,6 +99,7 @@
   {
    "fieldname": "school",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
@@ -149,11 +151,31 @@
    "label": "Staff Calendar Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "break_color",
+   "fieldtype": "Color",
+   "label": "Break Color"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weekend_color",
+   "fieldtype": "Color",
+   "label": "Weekend Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-01 21:39:25.599861",
+ "modified": "2021-02-02 20:10:15.317354",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",

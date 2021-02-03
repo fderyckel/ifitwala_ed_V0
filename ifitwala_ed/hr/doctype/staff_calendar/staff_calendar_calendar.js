@@ -10,11 +10,11 @@ frappe.views.calendar['Staff Calendar'] = {
     allDay: 'allDay'
   },
   order_by: 'from_date',
-  get_events_method: 'ifitwala_ed.hr.doctype.holiday_list.holiday_list.get_events',
+  get_events_method: 'ifitwala_ed.hr.doctype.staff_calendar.staff_calendar.get_events',
   filters: [
 		{
 			'fieldtype': 'Link',
-			'fieldname': 'holiday_list',
+			'fieldname': 'staff_calendar',
 			'options': 'Staff Calendar',
 			'label': __('Staff Calendar')
 		}

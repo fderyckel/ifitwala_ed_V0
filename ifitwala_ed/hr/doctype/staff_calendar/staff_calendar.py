@@ -11,6 +11,7 @@ from frappe.model.document import Document
 
 class StaffCalendar(Document):
 	def validate(self):
+		#ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_days()
 		self.total_holidays = len(self.holidays)
 		self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays
@@ -23,6 +24,7 @@ class StaffCalendar(Document):
 		for i, d in enumerate(date_list):
 			ch = self.append("holidays", {})
 			ch.description = self.weekly_off
+			ch.color = self.weekend_color if self.weekend_color else ""
 			ch.holiday_date = d
 			ch.weekly_off = 1
 			ch.idx = last_idx + i + 1
@@ -34,8 +36,8 @@ class StaffCalendar(Document):
 		for i, d in enumerate(date_list):
 			ch = self.append("holidays", {})
 			ch.description = self.break_description if self.break_description else "Break"
+			ch.color = self.breaks_color if self.breaks_color else ""
 			ch.holiday_date = d
-			#ch.weekly_off = 1
 			ch.idx = last_idx + i + 1
 
 	# logic for the button "clear_table"
@@ -80,7 +82,7 @@ class StaffCalendar(Document):
 			frappe.throw(_("Please select first the start and end of your break."))
 		if getdate(self.start_of_break) > getdate(self.end_of_break):
 			frappe.throw(_("The start of the break cannot be after its end. Adjust the dates."))
-		if getdate(self.start_of_break) < getdate(self.from_date) or getdate(self.start_of_break) > getdate(self.to_date) or getdate(self.end_of_break) < getdate(self.from_date) or getdate(self.end_of_break) > getdate(self.to_date):
+		if not (getdate(self.from_date) <= getdate(self.start_of_break) <= getdate(self.to_date)) or not (getdate(self.from_date) <= getdate(self.end_of_break) <= getdate(self.to_date)):
 			frappe.throw(_("The start and end of the break have to be within the start and end of the calendar."))
 
 	def get_long_break_dates_list(self, start_date, end_date):
@@ -120,7 +122,7 @@ def get_events(start, end, filters=None):
 	if end:
 		filters.append(['Holiday', 'holiday_date', '<', getdate(end)])
 
-	return frappe.get_list('Holiday List',
-		fields = ['name', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday List`.color'],
+	return frappe.get_list('Staff Calendar',
+		fields = ['name', 'academic_year', 'school', '`tabHoliday`.holiday_date', '`tabHoliday`.description', '`tabHoliday List`.color'],
 		filters = filters,
 		update = {"allDay": 1})

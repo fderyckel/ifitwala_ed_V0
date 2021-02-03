@@ -34,12 +34,10 @@
  ],
  "fields": [
   {
-   "fetch_from": "academic_year.year_start_date",
    "fieldname": "from_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "From Date",
-   "read_only": 1,
    "reqd": 1
   },
   {
@@ -175,7 +173,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-03 11:07:51.591024",
+ "modified": "2021-02-03 11:26:39.153782",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",

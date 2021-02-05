@@ -15,7 +15,7 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 		}
 	},
 
-	salutation: function() {
+	employee_salutation: function() {
 		if(this.frm.doc.salutation) {
 			this.frm.set_value("employee_gender", {
 				"Mr": "Male",
@@ -26,6 +26,7 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 	},
 
 });
+
 frappe.ui.form.on('Employee', {
 
 	refresh: function(frm) {
@@ -47,4 +48,9 @@ frappe.ui.form.on('Employee', {
 		});
 	}
 });
+
+frappe.ui.form.on('Employee Internal Work History', {
+	
+});
+
 cur_frm.cscript = new ifitwala_ed.hr.EmployeeController({frm: cur_frm});

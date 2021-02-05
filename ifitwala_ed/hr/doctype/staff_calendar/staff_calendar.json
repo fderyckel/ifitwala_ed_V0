@@ -42,6 +42,7 @@
   },
   {
    "fetch_from": "academic_year.year_end_date",
+   "fetch_if_empty": 1,
    "fieldname": "to_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -173,7 +174,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-03 11:26:39.153782",
+ "modified": "2021-02-05 09:25:03.961265",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",

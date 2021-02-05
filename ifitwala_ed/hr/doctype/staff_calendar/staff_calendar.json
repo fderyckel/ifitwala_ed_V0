@@ -173,7 +173,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-05 09:52:34.908740",
+ "modified": "2021-02-05 09:59:28.129552",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",
@@ -214,7 +214,7 @@
   }
  ],
  "show_name_in_global_search": 1,
- "sort_field": "modified",
+ "sort_field": "from_date",
  "sort_order": "DESC",
  "track_changes": 1
 }

@@ -6,8 +6,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "calendar_name",
   "academic_year",
+  "calendar_name",
   "total_number_day",
   "section_break_4",
   "school",
@@ -33,6 +33,8 @@
  ],
  "fields": [
   {
+   "fetch_from": "academic_year.name",
+   "fetch_if_empty": 1,
    "fieldname": "calendar_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -177,7 +179,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-02 16:53:44.945632",
+ "modified": "2021-02-05 11:00:20.497367",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

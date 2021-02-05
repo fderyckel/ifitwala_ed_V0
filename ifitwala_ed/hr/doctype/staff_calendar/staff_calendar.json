@@ -145,7 +145,6 @@
   {
    "fieldname": "staff_calendar_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Staff Calendar Name",
    "reqd": 1,
@@ -174,7 +173,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-05 09:25:03.961265",
+ "modified": "2021-02-05 09:52:34.908740",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",

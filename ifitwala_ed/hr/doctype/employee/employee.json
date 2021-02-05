@@ -73,7 +73,8 @@
    "fetch_from": "current_address.phone",
    "fieldname": "home_phone",
    "fieldtype": "Data",
-   "label": "Home Phone"
+   "label": "Home Phone",
+   "options": "Phone"
   },
   {
    "fetch_from": "current_address.address_line1",
@@ -271,7 +272,7 @@
   {
    "fieldname": "employee_first_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
+   "in_global_search": 1,
    "label": "First Name",
    "no_copy": 1,
    "reqd": 1
@@ -286,7 +287,6 @@
    "fieldname": "employee_last_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Last Name",
    "no_copy": 1,
@@ -295,7 +295,6 @@
   {
    "fieldname": "employee_gender",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Gender",
    "options": "\nFemale\nMale\nPrefer not to say\nOther",
@@ -338,7 +337,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Mobile Phone"
+   "label": "Mobile Phone",
+   "options": "Phone"
   },
   {
    "fieldname": "employee_personal_email",
@@ -379,7 +379,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-02-01 07:12:37.005398",
+ "modified": "2021-02-05 17:40:19.729227",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

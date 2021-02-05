@@ -243,7 +243,8 @@
    "fieldname": "student_mobile_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Mobile Number"
+   "label": "Mobile Number",
+   "options": "Phone"
   },
   {
    "fieldname": "student_joining_date",
@@ -307,7 +308,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-12-29 08:16:40.247651",
+ "modified": "2021-02-05 17:15:22.978826",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

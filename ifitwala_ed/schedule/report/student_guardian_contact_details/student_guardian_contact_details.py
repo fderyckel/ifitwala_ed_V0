@@ -24,6 +24,8 @@ def execute(filters=None):
 
 		data.append(row)
 
+	columns = get_columns(filters)
+
 	return columns, data
 
 def get_columns(filters=None):

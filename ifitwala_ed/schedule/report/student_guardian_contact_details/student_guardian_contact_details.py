@@ -8,7 +8,7 @@ from frappe import _
 
 def execute(filters=None):
 
-	columns, data = [], [] ]
+	columns, data = [], [] 
 
 	student_group = filters.get("student_group")
 	students = frappe.get_list("Student Group Student", fields = ["student", "student_name", "group_roll_number"], filter = {"name": student_group})

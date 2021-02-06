@@ -20,12 +20,9 @@ def execute(filters=None):
 
 	for s in students:
 		student_details = student_map.get(s.student)
-		row = [s.group_roll_number, s.student, s.student_name, student_details.get(student_mobile_number)]
+		row = [s.group_roll_number, s.student, s.student_name, student_details.get("student_mobile_number")]
 
 		data.append(row)
-
-
-
 
 	return columns, data
 

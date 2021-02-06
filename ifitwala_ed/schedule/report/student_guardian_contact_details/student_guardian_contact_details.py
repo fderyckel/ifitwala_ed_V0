@@ -9,6 +9,7 @@ from frappe import _
 def execute(filters=None):
 
 	columns, data = [], []
+	columns = get_columns()
 
 	student_group = filters.get("student_group")
 	students = frappe.get_list("Student Group Student", fields = ["student", "student_name", "group_roll_number"], filters = {"name": student_group})
@@ -24,11 +25,9 @@ def execute(filters=None):
 
 		data.append(row)
 
-	columns = get_columns(filters)
-
 	return columns, data
 
-def get_columns(filters=None):
+def get_columns():
 	columns = [
 			{
 				"label": _("Student Roll No"),

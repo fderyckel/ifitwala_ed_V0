@@ -5,19 +5,6 @@
 frappe.query_reports["Student Guardian Contact Details"] = {
 	"filters": [
 		{
-			"fieldname":"academic_year",
-			"label": __("Academic Year"),
-			"fieldtype": "Link",
-			"options": "Academic Year",
-			"reqd": 1,
-		},
-		{
-			"fieldname":"program",
-			"label": __("Program"),
-			"fieldtype": "Link",
-			"options": "Program",
-		},
-		{
 			"fieldname":"student_group",
 			"label": __("Student Group"),
 			"fieldtype": "Link",

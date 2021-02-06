@@ -8,10 +8,10 @@ from frappe import _
 
 def execute(filters=None):
 
-	columns, data = [], [] 
+	columns, data = [], []
 
 	student_group = filters.get("student_group")
-	students = frappe.get_list("Student Group Student", fields = ["student", "student_name", "group_roll_number"], filter = {"name": student_group})
+	students = frappe.get_list("Student Group Student", fields = ["student", "student_name", "group_roll_number"], filters = {"name": student_group})
 	student_list = [student.student for student in students]
 	if not student_list:
 		return columns, []

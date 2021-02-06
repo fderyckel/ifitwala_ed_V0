@@ -8,20 +8,6 @@
  "doctype": "Report",
  "filters": [
   {
-   "fieldname": "academic_year",
-   "fieldtype": "Link",
-   "label": "Academic Year",
-   "mandatory": 0,
-   "wildcard_filter": 0
-  },
-  {
-   "fieldname": "program",
-   "fieldtype": "Link",
-   "label": "Program",
-   "mandatory": 0,
-   "wildcard_filter": 0
-  },
-  {
    "fieldname": "student_group",
    "fieldtype": "Link",
    "label": "Student Group",
@@ -31,7 +17,7 @@
  ],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2021-02-06 13:38:36.757702",
+ "modified": "2021-02-04 13:38:36.757702",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Guardian Contact Details",

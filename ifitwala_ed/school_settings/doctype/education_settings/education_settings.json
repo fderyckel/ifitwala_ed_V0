@@ -11,10 +11,12 @@
   "attendance_freeze_date",
   "default_school",
   "meetings_section",
-  "default_todo_meeting_color",
+  "default_calendar_meeting_color",
+  "default_weekend_color",
   "default_course_color",
   "column_break_8",
-  "default_calendar_meeting_color",
+  "default_todo_meeting_color",
+  "default_break_color",
   "course_management_section",
   "enable_cms",
   "cms_title",
@@ -100,12 +102,22 @@
    "fieldname": "default_course_color",
    "fieldtype": "Color",
    "label": "Default Course Color"
+  },
+  {
+   "fieldname": "default_weekend_color",
+   "fieldtype": "Color",
+   "label": "Default Weekend Color"
+  },
+  {
+   "fieldname": "default_break_color",
+   "fieldtype": "Color",
+   "label": "Default Break Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-01-31 12:46:08.789924",
+ "modified": "2021-02-05 18:26:51.983443",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Education Settings",

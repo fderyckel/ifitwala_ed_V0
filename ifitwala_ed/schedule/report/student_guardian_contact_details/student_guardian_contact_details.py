@@ -35,6 +35,13 @@ def get_columns():
 				"width": 50
 			},
 			{
+				"label": _("Student ID"),
+				"fieldname": "student",
+				"fieldtype": "Link",
+				"options": "Student",
+				"width": 80
+			},
+			{
 				"label": _("Student Name"),
 				"fieldname": "student_full_name",
 				"fieldtype": "Data",
@@ -59,6 +66,7 @@ def get_columns():
 				"width": 90
 			}
 	]
+	return columns
 
 def get_student_details(student_list):
 	student_map = frappe._dict()

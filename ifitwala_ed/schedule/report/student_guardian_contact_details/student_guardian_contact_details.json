@@ -1,23 +1,13 @@
 {
  "add_total_row": 0,
- "columns": [],
  "creation": "2021-02-01 20:54:16.621600",
  "disable_prepared_report": 0,
  "disabled": 0,
  "docstatus": 0,
  "doctype": "Report",
- "filters": [
-  {
-   "fieldname": "student_group",
-   "fieldtype": "Link",
-   "label": "Student Group",
-   "mandatory": 0,
-   "wildcard_filter": 0
-  }
- ],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2021-02-04 13:38:36.757702",
+ "modified": "2021-02-06 15:38:36.757702",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Guardian Contact Details",

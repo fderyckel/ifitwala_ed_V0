@@ -26,7 +26,7 @@ def execute(filters=None):
 
 	return columns, data
 
-def get_columns():
+def get_columns(filters=None):
 	columns = [
 			{
 				"label": _("Student Roll No"),
@@ -52,20 +52,9 @@ def get_columns():
 				"fieldname": "student_mobile_number",
 				"fieldtype": "Data",
 				"width": 100
-			},
-			{
-				"label": _("Guardian 1 Name"),
-				"fieldname": "student_full_name",
-				"fieldtype": "Data",
-				"width": 150
-			},
-			{
-				"label": _("Relation with Guardian 1"),
-				"fieldname": "student_full_name",
-				"fieldtype": "Data",
-				"width": 90
 			}
 	]
+
 	return columns
 
 def get_student_details(student_list):

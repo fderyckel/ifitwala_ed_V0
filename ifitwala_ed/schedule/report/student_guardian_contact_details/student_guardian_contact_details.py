@@ -9,11 +9,13 @@ from frappe import _
 def execute(filters=None):
 
 	columns, data = [], []
-	columns = get_columns()
+	columns = get_columns(filters)
 
 	student_group = filters.get("student_group")
 	students = frappe.get_list("Student Group Student", fields = ["student", "student_name", "group_roll_number"], filters = {"name": student_group})
 	student_list = [student.student for student in students]
+	if not student_list:
+		return columns, []
 
 	student_details = get_student_details(student_list)
 
@@ -25,7 +27,7 @@ def execute(filters=None):
 
 	return columns, data
 
-def get_columns():
+def get_columns(fitlers=None):
 	columns = [
 			{
 				"label": _("Student Roll No"),
@@ -58,9 +60,8 @@ def get_columns():
 
 def get_student_details(student_list):
 	student_map = frappe._dict()
-	student_details = frappe.db.sql(""" SELECT name, student_full_name, student_mobile_number
-										FROM `tabStudent`
-										WHERE name in (%s)""" % ', '.join(['%s']*len(student_list)), tuple(student_list), as_dict=1)
+	student_details = frappe.db.sql("""SELECT name, student_full_name, student_mobile_number FROM `tabStudent` WHERE name in (%s)""" %
+		', '.join(['%s']*len(student_list)), tuple(student_list), as_dict=1)
 	for s in student_details:
 		student = frappe._dict()
 		student["student_full_name"] = s.student_full_name

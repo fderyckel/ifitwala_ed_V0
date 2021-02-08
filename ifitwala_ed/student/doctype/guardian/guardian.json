@@ -14,15 +14,10 @@
   "guardian_gender",
   "guardian_email",
   "guardian_mobile_phone",
+  "column_break_7",
   "guardian_image",
   "user",
-  "column_break_7",
-  "address",
-  "home_phone",
-  "address_name_1",
-  "address_name_2",
-  "town",
-  "country",
+  "address_html",
   "others_section",
   "students",
   "work_contacts_section",
@@ -35,16 +30,6 @@
  ],
  "fields": [
   {
-   "depends_on": "eval: !doc.__islocal",
-   "fetch_from": "address.phone",
-   "fieldname": "home_phone",
-   "fieldtype": "HTML",
-   "label": "Address HTML",
-   "no_copy": 1,
-   "print_hide": 1,
-   "report_hide": 1
-  },
-  {
    "fieldname": "work_place",
    "fieldtype": "Text",
    "label": "Work Place"
@@ -52,24 +37,14 @@
   {
    "fieldname": "salutation",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Salutation",
    "options": "Salutation"
   },
   {
-   "fetch_from": "address.city",
-   "fieldname": "town",
-   "fieldtype": "Read Only",
-   "label": "Town"
-  },
-  {
-   "fetch_from": "address.country",
-   "fieldname": "country",
-   "fieldtype": "Read Only",
-   "label": "Country"
-  },
-  {
    "fieldname": "column_break_7",
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "label": "Address and Contacts"
   },
   {
    "fieldname": "work_contacts_section",
@@ -86,30 +61,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "address.address_line1",
-   "fieldname": "address_name_1",
-   "fieldtype": "Read Only",
-   "label": "Address Name 1"
-  },
-  {
-   "fetch_from": "address.address_line2",
-   "fieldname": "address_name_2",
-   "fieldtype": "Read Only",
-   "label": "Address Name 2"
-  },
-  {
    "fieldname": "user",
    "fieldtype": "Link",
    "label": "User ID",
    "options": "User"
-  },
-  {
-   "fieldname": "address",
-   "fieldtype": "Link",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Address Name",
-   "options": "Address"
   },
   {
    "fieldname": "students",
@@ -124,13 +79,14 @@
    "hidden": 1,
    "in_global_search": 1,
    "in_list_view": 1,
+   "in_preview": 1,
    "label": "Full  Name"
   },
   {
    "fieldname": "guardian_first_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "First Name",
    "reqd": 1
   },
@@ -138,7 +94,7 @@
    "fieldname": "guardian_last_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Last Name",
    "reqd": 1
   },
@@ -182,11 +138,21 @@
    "fieldtype": "Select",
    "label": "Gender",
    "options": "\nFemale\nMale\nOther\nPrefer Not To Say"
+  },
+  {
+   "depends_on": "eval: !doc.__islocal",
+   "fetch_from": "address.phone",
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
  "image_field": "guardian_image",
  "links": [],
- "modified": "2021-02-08 16:03:18.576569",
+ "modified": "2021-02-08 20:20:50.545467",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",

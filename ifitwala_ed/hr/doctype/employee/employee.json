@@ -35,14 +35,8 @@
   "school",
   "reports_to",
   "data_19",
-  "current_address",
-  "home_phone",
-  "address_line_1",
-  "address_line_2",
-  "zipcode",
-  "town__city",
+  "address_html",
   "column_break_21",
-  "permanent_address",
   "emergency_contact_person",
   "section_break_30",
   "internal_work_history",
@@ -70,57 +64,14 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "current_address.phone",
-   "fieldname": "home_phone",
-   "fieldtype": "Data",
-   "label": "Home Phone",
-   "options": "Phone"
-  },
-  {
-   "fetch_from": "current_address.address_line1",
-   "fieldname": "address_line_1",
-   "fieldtype": "Data",
-   "label": "Address Line 1"
-  },
-  {
-   "fetch_from": "current_address.address_line2",
-   "fieldname": "address_line_2",
-   "fieldtype": "Data",
-   "label": "Address Line 2"
-  },
-  {
-   "fetch_from": "current_address.pincode",
-   "fieldname": "zipcode",
-   "fieldtype": "Data",
-   "label": "Zipcode"
-  },
-  {
-   "fetch_from": "current_address.city",
-   "fieldname": "town__city",
-   "fieldtype": "Data",
-   "label": "Town / City"
-  },
-  {
    "collapsible": 1,
    "fieldname": "data_19",
    "fieldtype": "Section Break",
    "label": "Addresses"
   },
   {
-   "fieldname": "current_address",
-   "fieldtype": "Link",
-   "label": "Current Address",
-   "options": "Address"
-  },
-  {
    "fieldname": "column_break_21",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "permanent_address",
-   "fieldtype": "Link",
-   "label": "Permanent Address",
-   "options": "Address"
   },
   {
    "fieldname": "date_of_joining",
@@ -370,6 +321,15 @@
    "fieldname": "biography",
    "fieldtype": "Text Editor",
    "label": "Biography"
+  },
+  {
+   "depends_on": "eval: !doc.__islocal",
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
  "image_field": "employee_image",
@@ -379,7 +339,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-02-05 17:40:19.729227",
+ "modified": "2021-02-08 20:24:59.932231",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

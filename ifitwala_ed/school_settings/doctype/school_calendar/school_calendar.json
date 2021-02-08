@@ -1,0 +1,263 @@
+{
+ "actions": [],
+ "autoname": "field:calendar_name",
+ "creation": "2020-11-25 13:20:35.780507",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "academic_year",
+  "calendar_name",
+  "total_number_day",
+  "section_break_4",
+  "school",
+  "total_holiday_days",
+  "total_instruction_days",
+  "terms_section",
+  "terms",
+  "add_school_breaks_section",
+  "start_of_break",
+  "break_description",
+  "get_long_break_dates",
+  "column_break_14",
+  "end_of_break",
+  "breaks_color",
+  "add_weekends_section",
+  "weekly_off",
+  "get_weekly_off_dates",
+  "column_break_20",
+  "weekend_color",
+  "section_break_22",
+  "holidays",
+  "clear_table"
+ ],
+ "fields": [
+  {
+   "fetch_from": "academic_year.name",
+   "fetch_if_empty": 1,
+   "fieldname": "calendar_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Calendar Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_number_day",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Number Day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "fieldname": "total_holiday_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Holiday Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Academic Terms"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Table",
+   "label": "Terms",
+   "options": "School Calendar Term",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_school_breaks_section",
+   "fieldtype": "Section Break",
+   "label": "Add School Breaks"
+  },
+  {
+   "fieldname": "start_of_break",
+   "fieldtype": "Date",
+   "label": "Start of Break"
+  },
+  {
+   "fieldname": "end_of_break",
+   "fieldtype": "Date",
+   "label": "End of Break"
+  },
+  {
+   "fieldname": "break_description",
+   "fieldtype": "Data",
+   "label": "Break Description"
+  },
+  {
+   "fieldname": "get_long_break_dates",
+   "fieldtype": "Button",
+   "label": "Add to Holidays",
+   "options": "get_long_break_dates"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_weekends_section",
+   "fieldtype": "Section Break",
+   "label": "Add Weekends"
+  },
+  {
+   "fieldname": "clear_table",
+   "fieldtype": "Button",
+   "label": "Clear Table",
+   "options": "clear_table"
+  },
+  {
+   "fieldname": "holidays",
+   "fieldtype": "Table",
+   "label": "holidays",
+   "options": "Holiday"
+  },
+  {
+   "fieldname": "breaks_color",
+   "fieldtype": "Color",
+   "label": "Breaks Color"
+  },
+  {
+   "fieldname": "weekly_off",
+   "fieldtype": "Select",
+   "label": "Weekly Off",
+   "options": "\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday"
+  },
+  {
+   "fieldname": "get_weekly_off_dates",
+   "fieldtype": "Button",
+   "label": "Add to Holidays",
+   "options": "get_weekly_off_dates"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weekend_color",
+   "fieldtype": "Color",
+   "label": "Weekend Color"
+  },
+  {
+   "fieldname": "section_break_22",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_instruction_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Instruction Days",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-02-05 20:35:38.301293",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "School Calendar",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Nurse",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

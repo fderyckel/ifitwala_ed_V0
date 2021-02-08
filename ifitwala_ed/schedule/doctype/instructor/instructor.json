@@ -8,9 +8,10 @@
  "engine": "InnoDB",
  "field_order": [
   "employee",
+  "user_id",
+  "column_break_3",
   "instructor_name",
-  "email",
-  "mobile_phone",
+  "school",
   "log_details",
   "instructor_log",
   "image"
@@ -25,21 +26,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Instructor Name",
+   "read_only": 1,
    "unique": 1
-  },
-  {
-   "fetch_from": "employee.employee_professional_email",
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email"
-  },
-  {
-   "fetch_from": "employee.employee_mobile_phone",
-   "fieldname": "mobile_phone",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Mobile Phone"
   },
   {
    "fieldname": "log_details",
@@ -50,14 +38,16 @@
    "fieldname": "instructor_log",
    "fieldtype": "Table",
    "label": "Instructor Log",
-   "options": "Instructor Log"
+   "options": "Instructor Log",
+   "read_only": 1
   },
   {
    "fetch_from": "employee.employee_image",
    "fieldname": "image",
    "fieldtype": "Attach Image",
    "hidden": 1,
-   "label": "image"
+   "label": "image",
+   "read_only": 1
   },
   {
    "fieldname": "employee",
@@ -69,11 +59,29 @@
    "options": "Employee",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fetch_from": "employee.school",
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "user_id",
+   "fieldtype": "Data",
+   "label": "User ID",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2020-10-01 19:43:35.537171",
+ "modified": "2021-01-30 09:30:52.429094",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

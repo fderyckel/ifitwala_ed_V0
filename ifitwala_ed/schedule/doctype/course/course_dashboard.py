@@ -15,6 +15,10 @@ def get_data():
 			{
 				'label': _('Student'),
 				'items': ['Student Group']
+			},  
+			{
+				'label': _('Curriculum'),
+				'items': ['Learning Unit']
 			}
 		]
 	}

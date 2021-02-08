@@ -5,3 +5,7 @@ Health
 Schedule
 HR
 Assessment
+Asset
+Setup
+Curriculum
+Admission

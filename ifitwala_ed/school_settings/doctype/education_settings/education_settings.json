@@ -7,7 +7,16 @@
  "field_order": [
   "current_academic_year",
   "current_academic_term",
+  "column_break_3",
   "attendance_freeze_date",
+  "default_school",
+  "meetings_section",
+  "default_calendar_meeting_color",
+  "default_weekend_color",
+  "default_course_color",
+  "column_break_8",
+  "default_todo_meeting_color",
+  "default_break_color",
   "course_management_section",
   "enable_cms",
   "cms_title",
@@ -32,6 +41,7 @@
    "label": "Attendance Freeze Date"
   },
   {
+   "collapsible": 1,
    "fieldname": "course_management_section",
    "fieldtype": "Section Break",
    "label": "Course Management"
@@ -52,12 +62,62 @@
    "fieldname": "description",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_school",
+   "fieldtype": "Link",
+   "label": "Default School",
+   "options": "School"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "meetings_section",
+   "fieldtype": "Section Break",
+   "label": "Calendar Colors"
+  },
+  {
+   "default": "#ffc4c4",
+   "description": "Default color when an assignment (todo) is created from a meeting. ",
+   "fieldname": "default_todo_meeting_color",
+   "fieldtype": "Color",
+   "label": "Default Todo Meeting Color"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#a4f3dd",
+   "description": "Default color when a calendar event is created from a meeting. ",
+   "fieldname": "default_calendar_meeting_color",
+   "fieldtype": "Color",
+   "label": "Default Calendar Meeting Color"
+  },
+  {
+   "default": "#dac7ff",
+   "fieldname": "default_course_color",
+   "fieldtype": "Color",
+   "label": "Default Course Color"
+  },
+  {
+   "fieldname": "default_weekend_color",
+   "fieldtype": "Color",
+   "label": "Default Weekend Color"
+  },
+  {
+   "fieldname": "default_break_color",
+   "fieldtype": "Color",
+   "label": "Default Break Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-09-25 08:30:57.518030",
+ "modified": "2021-02-05 18:26:51.983443",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Education Settings",
@@ -72,6 +132,21 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Academic Admin",
+   "share": 1
   }
  ],
  "quick_entry": 1,

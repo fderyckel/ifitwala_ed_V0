@@ -1,5 +1,8 @@
 {
  "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "MTG-.YYYY.-.####",
  "creation": "2020-09-24 21:42:04.956651",
  "doctype": "DocType",
@@ -9,17 +12,20 @@
   "meeting_name",
   "status",
   "department",
+  "meeting_organizer",
   "column_break_4",
   "date",
   "from_time",
   "to_time",
+  "room",
   "agenda_section_section",
   "agenda",
   "attendees_section_section",
   "attendees",
   "minutes_section",
   "minutes",
-  "title"
+  "title",
+  "school_event"
  ],
  "fields": [
   {
@@ -90,18 +96,39 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "hidden": 1,
+   "label": "Title",
+   "print_hide": 1
   },
   {
    "fieldname": "attendees",
    "fieldtype": "Table",
    "label": "Attendees",
    "options": "Meeting Attendee"
+  },
+  {
+   "fieldname": "meeting_organizer",
+   "fieldtype": "Link",
+   "label": "Meeting Organizer",
+   "options": "User"
+  },
+  {
+   "fieldname": "school_event",
+   "fieldtype": "Link",
+   "label": "School Event",
+   "options": "School Event",
+   "read_only": 1
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Room"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-05 14:01:48.493348",
+ "modified": "2021-01-26 07:12:55.674420",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",
@@ -151,6 +178,17 @@
    "read": 1,
    "report": 1,
    "role": "Curriculum Coordinator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
    "share": 1,
    "write": 1
   }

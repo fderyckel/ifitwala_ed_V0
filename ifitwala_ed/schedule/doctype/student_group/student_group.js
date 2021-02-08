@@ -1,23 +1,23 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-cur_frm.add_fetch("student", "student_full_name", "student_name");
-
 frappe.ui.form.on('Student Group', {
-	onload: function(frm) { 
-		// will filter the academic terms  based on the chosen academic year. 
-		frm.set_query("academic_term", function() {
+
+	onload: function(frm) {
+		frm.add_fetch('student', 'student_full_name', 'student_name');
+		// will filter the academic terms  based on the chosen academic year.
+		frm.set_query('academic_term', function() {
 			return {
 				filters: {
-					"academic_year": (frm.doc.academic_year)
+					'academic_year': (frm.doc.academic_year)
 				}
 			};
 		});
-		
+
 		if (!frm.__islocal) {
-			frm.set_query("student", "students", function() {
+			frm.set_query('student', 'students', function() {
 				return{
-					query: "ifitwala_ed.schedule.doctype.student_group.student_group.fetch_students",
+					query: 'ifitwala_ed.schedule.doctype.student_group.student_group.fetch_students',
 					filters: {
 						'academic_year': frm.doc.academic_year,
 						'group_based_on': frm.doc.group_based_on,
@@ -30,20 +30,73 @@ frappe.ui.form.on('Student Group', {
 				}
 			});
 		}
-	}, 
-	
-	refresh: function(frm) {
+	},
 
-	}, 
-	
+	refresh: function(frm) {
+		if (!frm.doc.__islocal) {
+			var stud = frm.doc.name;
+			var guard =  frm.doc.name;
+
+			frm.add_custom_button(__('Update Guardians and Students to Email Group'), function() {
+				frappe.call({
+					method: 'ifitwala_ed.ifitwala_ed.api.update_email_group',
+					args: {
+						'doctype': 'Student Group',
+						'name': frm.doc.name
+					}
+				});
+			}, __('Actions'));
+
+			frm.add_custom_button(__('Add a session'), function() {
+				frappe.route_options = { 'event_category': 'Course', 'event_type': 'Private', 'reference_type': 'Student Group', 
+					'reference_name': frm.doc.name};
+				frappe.set_route('Form', 'Course Scheduling Tool');
+			}, __('Tools'));
+
+			frm.add_custom_button(__('Course Scheduling Tool'), function() {
+				frappe.route_options = {'student_group': frm.doc.name};
+				frappe.set_route('Form', 'Course Scheduling Tool');
+			}, __('Tools'));
+
+			frm.add_custom_button(__('Students Newsletter'), function() {
+				frappe.route_options = {
+					'Newsletter Email Group.email_group': stud.concat('|students')
+				};
+				frappe.set_route('List', 'Newsletter');
+			}, __('View'));
+
+			frm.add_custom_button(__('Guardians Newsletter'), function() {
+				frappe.route_options = {
+					'Newsletter Email Group.email_group': frm.doc.name.concat('|guardians')
+				};
+				frappe.set_route('List', 'Newsletter');
+			}, __('View'));
+
+		}
+	},
+
+	program: function(frm) {
+		if (frm.doc.program) {
+			frm.set_query('course', function() {
+				return{
+					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
+					filters: {
+						'program': frm.doc.program,
+					}
+				}
+			});
+		}
+	},
+
 	group_based_on: function(frm) {
-		if (frm.doc.group_based_on == 'Batch') {
+		if (frm.doc.group_based_on == 'Cohort') {
 			frm.doc.course = null;
-			frm.set_df_property('program', 'reqd', 1);
+			frm.set_df_property('program', 'reqd', 0);
 			frm.set_df_property('course', 'reqd', 0);
+			frm.set_df_property('cohort', 'reqd', 1);
 		}
 		else if (frm.doc.group_based_on == 'Course') {
-			frm.set_df_property('program', 'reqd', 0);
+			frm.set_df_property('program', 'reqd', 1);
 			frm.set_df_property('course', 'reqd', 1);
 		}
 		else if (frm.doc.group_based_on == 'Activity') {
@@ -51,7 +104,7 @@ frappe.ui.form.on('Student Group', {
 			frm.set_df_property('course', 'reqd', 0);
 		}
 	},
-	
+
 	get_students: function(frm) {
 		if (frm.doc.group_based_on == "Cohort" || frm.doc.group_based_on == "Course") {
 			var student_list = [];

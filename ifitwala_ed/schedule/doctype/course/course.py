@@ -3,23 +3,30 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe 
-import json 
+import frappe
+import json
 from frappe import _
 from frappe.model.document import Document
 
 class Course(Document):
-	def validate(self): 
+	def validate(self):
 		self.validate_sum_weighting
-		
-	def validate_sum_weighting(self): 
-		if self.assessment_criteria: 
+		ass_criteria = []
+		for d in self.assessment_criteria:
+			if d.assessment_criteria in ass_criteria:
+				frappe.throw(_("Assessment Criteria {0} appears more than once. Please remove duplicate entries.").format(d.assessment_criteria))
+			else:
+				ass_criteria.append(d.assessment_criteria)
+
+
+	def validate_sum_weighting(self):
+		if self.assessment_criteria:
 			total_weight = 0
-			for criteria in assessment_criteria: 
+			for criteria in assessment_criteria:
 				total_weight += assessment_criteria.criteria_weighting or 0
-			if total_weight != 100: 
+			if total_weight != 100:
 				frappe.throw(_("The sum of the Criteria Weighting should be 100%.  Please adjust and try to save again."))
-		
+
 
 @frappe.whitelist()
 def add_course_to_programs(course, programs, mandatory=False):

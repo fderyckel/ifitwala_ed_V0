@@ -5,29 +5,36 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "date",
-  "description"
+  "holiday_date",
+  "description",
+  "color"
  ],
  "fields": [
-  {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Date",
-   "reqd": 1
-  },
   {
    "fieldname": "description",
    "fieldtype": "Text",
    "in_list_view": 1,
    "label": "Description",
    "reqd": 1
+  },
+  {
+   "fieldname": "holiday_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "in_list_view": 1,
+   "label": "Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-10-14 17:24:54.471636",
+ "modified": "2020-11-25 13:54:56.711641",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Holiday",

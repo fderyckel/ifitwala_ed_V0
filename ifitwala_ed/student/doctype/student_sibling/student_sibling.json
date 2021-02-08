@@ -8,44 +8,38 @@
   "student",
   "sibling_name",
   "sibling_gender",
-  "sibling_date_of_birth",
-  "sibling_program"
+  "sibling_date_of_birth"
  ],
  "fields": [
   {
-   "fetch_from": "student.student_full_name",
+   "columns": 2,
    "fieldname": "sibling_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Sibling Name",
    "read_only": 1
   },
   {
+   "columns": 1,
    "fetch_from": "student.student_gender",
    "fieldname": "sibling_gender",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Sibling Gender",
+   "label": "Sibling Gender"
+  },
+  {
+   "columns": 2,
+   "fieldname": "sibling_date_of_birth",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Sibling Date of Birth",
    "read_only": 1
   },
   {
-   "fetch_from": "student.student_date_of_birth",
-   "fieldname": "sibling_date_of_birth",
-   "fieldtype": "Date",
-   "label": "Sibling Date of Birth"
-  },
-  {
-   "fieldname": "sibling_program",
-   "fieldtype": "Data",
-   "label": "Sibling Program"
-  },
-  {
+   "columns": 2,
    "fieldname": "student",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Sibling",
    "options": "Student",
    "reqd": 1
@@ -54,7 +48,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-09-28 13:28:43.103289",
+ "modified": "2021-01-12 16:30:14.770180",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student Sibling",

@@ -1,0 +1,217 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "creation": "2021-01-21 12:14:04.003057",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "student_group",
+  "course",
+  "program",
+  "column_break_4",
+  "academic_year",
+  "academic_term",
+  "room",
+  "color",
+  "timing_section",
+  "from_time",
+  "from_date",
+  "day",
+  "column_break_11",
+  "to_time",
+  "to_date",
+  "n_week",
+  "reschedule",
+  "instructors_section",
+  "instructors",
+  "students_section_section",
+  "students"
+ ],
+ "fields": [
+  {
+   "fieldname": "student_group",
+   "fieldtype": "Link",
+   "label": "Student Group",
+   "options": "Student Group",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_group.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Course",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_group.program",
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "student_group.academic_year",
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_group.academic_term",
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Academic Term",
+   "options": "Academic Term",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Room",
+   "reqd": 1
+  },
+  {
+   "fieldname": "timing_section",
+   "fieldtype": "Section Break",
+   "label": "Timing"
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "academic_term.term_start_date",
+   "fetch_if_empty": 1,
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "Course  Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "academic_term.term_end_date",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "Course End Date",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "reschedule",
+   "fieldtype": "Check",
+   "label": "Reschedule"
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "label": "Day",
+   "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
+  },
+  {
+   "default": "#7575ff",
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "fieldname": "instructors_section",
+   "fieldtype": "Section Break",
+   "label": "Instructors Section"
+  },
+  {
+   "fieldname": "instructors",
+   "fieldtype": "Table",
+   "label": "Instructors",
+   "options": "Student Group Instructor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "Table",
+   "label": "Students",
+   "options": "Student Group Student"
+  },
+  {
+   "fieldname": "students_section_section",
+   "fieldtype": "Section Break",
+   "label": "Students Section"
+  },
+  {
+   "default": "1",
+   "fieldname": "n_week",
+   "fieldtype": "Int",
+   "label": "Every n  week",
+   "non_negative": 1,
+   "reqd": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-01-30 17:40:38.551985",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Course Scheduling Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

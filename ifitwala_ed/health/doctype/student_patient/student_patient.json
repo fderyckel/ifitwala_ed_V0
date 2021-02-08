@@ -60,6 +60,7 @@
   {
    "fieldname": "student",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Student",
    "options": "Student",
    "reqd": 1,
@@ -329,12 +330,13 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Preferred Name"
+   "label": "Preferred Name",
+   "read_only": 1
   }
  ],
  "image_field": "photo",
  "links": [],
- "modified": "2020-10-03 08:07:32.785873",
+ "modified": "2020-12-27 07:26:58.355545",
  "modified_by": "Administrator",
  "module": "Health",
  "name": "Student Patient",

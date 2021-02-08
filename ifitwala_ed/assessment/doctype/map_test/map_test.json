@@ -4,6 +4,7 @@
  "autoname": "MAP-.YYYY.-.#####",
  "creation": "2020-08-27 15:17:15.459557",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -11,6 +12,7 @@
   "school_name",
   "student",
   "academic_year",
+  "session_name",
   "column_break_5",
   "program",
   "student_name",
@@ -19,6 +21,7 @@
   "discipline",
   "test_percentile",
   "test_date",
+  "norms_reference_data",
   "column_break_14",
   "test_name",
   "test_rit_score",
@@ -249,10 +252,20 @@
    "in_standard_filter": 1,
    "label": "Student Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "session_name",
+   "fieldtype": "Data",
+   "label": "Session Name"
+  },
+  {
+   "fieldname": "norms_reference_data",
+   "fieldtype": "Data",
+   "label": "Norms Reference Data"
   }
  ],
  "links": [],
- "modified": "2020-10-10 14:03:19.633997",
+ "modified": "2021-01-18 13:05:32.267798",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",

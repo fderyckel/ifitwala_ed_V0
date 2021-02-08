@@ -2,8 +2,8 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Student', {
-	
-	setup: function(frm) { 
+
+	setup: function(frm) {
 		frm.add_fetch('guardian', 'guardian_name', 'guardian_full_name');
 		frm.set_query('student', 'siblings', function(doc) {
 			return {
@@ -11,15 +11,15 @@ frappe.ui.form.on('Student', {
 					'name': ['!=', doc.name]
 				}
 			};
-		})
+		});
 	},
-	
+
 	refresh: function(frm) {
 
     }
 });
 
-// in student guardian child table, do filter out already present guardian. 
+// in student guardian child table, do filter out already present guardian.
 frappe.ui.form.on('Student Guardian', {
 	guardians_add: function(frm){
 		frm.fields_dict['student_guardians'].grid.get_field('guardian').get_query = function(doc){
@@ -33,7 +33,7 @@ frappe.ui.form.on('Student Guardian', {
 	}
 });
 
-// in student sibling child table, do filter out already present siblings. 
+// in student sibling child table, do filter out already present siblings.
 frappe.ui.form.on('Student Sibling', {
 	siblings_add: function(frm){
 		frm.fields_dict['siblings'].grid.get_field('student').get_query = function(doc){

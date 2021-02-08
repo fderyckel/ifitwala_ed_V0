@@ -1,26 +1,31 @@
 {
  "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:student_group_name",
  "creation": "2020-08-26 17:06:06.928454",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "academic_year",
   "group_based_on",
   "maximum_size",
+  "student_group_abbreviation",
   "column_break_4",
   "academic_term",
   "student_group_name",
   "program",
   "cohort",
   "course",
-  "disabled",
+  "status",
   "section_break_10",
   "get_students",
   "students",
   "instructors_section",
-  "instructors"
+  "instructors",
+  "title"
  ],
  "fields": [
   {
@@ -39,14 +44,17 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Academic Term",
-   "options": "Academic Term"
+   "options": "Academic Term",
+   "reqd": 1
   },
   {
+   "description": "You can leave this blank and it will create the name automatically using the course name, program and academic term. ",
    "fieldname": "student_group_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Student Group Name",
-   "reqd": 1,
+   "no_copy": 1,
    "unique": 1
   },
   {
@@ -74,25 +82,28 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "label": "Program",
+   "mandatory_depends_on": "eval:doc.group_based_on == 'Course'",
    "options": "Program"
   },
   {
    "fieldname": "cohort",
    "fieldtype": "Link",
    "label": "Cohort",
+   "mandatory_depends_on": "eval:doc.group_based_on == 'Cohort'",
    "options": "Student Cohort"
   },
   {
-   "depends_on": "eval:doc.group_based_on == 'Course'",
    "fieldname": "course",
    "fieldtype": "Link",
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Course",
+   "mandatory_depends_on": "eval:doc.group_based_on == 'Course'",
    "options": "Course"
   },
   {
+   "depends_on": "eval:!doc.__islocal",
    "fieldname": "section_break_10",
    "fieldtype": "Section Break",
    "label": "Students"
@@ -106,12 +117,14 @@
    "fieldname": "instructors",
    "fieldtype": "Table",
    "label": "Instructors",
+   "no_copy": 1,
    "options": "Student Group Instructor"
   },
   {
    "fieldname": "students",
    "fieldtype": "Table",
    "label": "Students",
+   "no_copy": 1,
    "options": "Student Group Student"
   },
   {
@@ -120,14 +133,27 @@
    "label": "Get Students"
   },
   {
-   "default": "0",
-   "fieldname": "disabled",
-   "fieldtype": "Check",
-   "label": "Disabled"
+   "fieldname": "student_group_abbreviation",
+   "fieldtype": "Data",
+   "label": "Student Group Abbreviation",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nRetired"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title"
   }
  ],
  "links": [],
- "modified": "2020-09-24 20:13:23.644118",
+ "modified": "2021-01-28 19:09:31.455827",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",
@@ -203,9 +229,9 @@
    "share": 1
   }
  ],
- "quick_entry": 1,
  "search_fields": "program, cohort, course",
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "student_group_abbreviation",
  "track_changes": 1
 }

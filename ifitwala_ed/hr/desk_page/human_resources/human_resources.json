@@ -3,7 +3,17 @@
   {
    "hidden": 0,
    "label": "HR Master",
-   "links": "[\n    {\n        \"description\": \"Setting up School Employees\",\n        \"label\": \"Employee\",\n        \"name\": \"Emplopyee\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"Employee Master.\",\n        \"label\": \"Employee\",\n        \"name\": \"Employee\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Employee Designation\",\n        \"label\": \"Designation\",\n        \"name\": \"Designation\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Calendar",
+   "links": "[\n    {\n        \"description\": \"Staff calendar\",\n        \"label\": \"Staff Calendar\",\n        \"name\": \"Staff Calendar\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Employee Designation\",\n        \"label\": \"Designation\",\n        \"name\": \"Designation\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Reflections",
+   "links": "[\n    {\n        \"description\": \"Learning from a meeting\",\n        \"label\": \"Learning from a meeting\",\n        \"name\": \"Learn Meeting\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Reflection from a book or conference\",\n        \"label\": \"Professional Reading\",\n        \"name\": \"Professional Reading\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Reflection from a lesson observation / walk-through\",\n        \"label\": \"Lesson Observation\",\n        \"name\": \"Lesson Observation\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "Employee Master",
@@ -17,15 +27,16 @@
  "extends_another_page": 0,
  "hide_custom": 0,
  "idx": 0,
+ "is_default": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2020-10-04 07:39:27.886372",
+ "modified": "2021-02-01 21:36:41.698687",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": [
   {
    "color": "Grey",

@@ -15,24 +15,26 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/ifitwala_ed/css/ifitwala_ed.css"
-# app_include_js = "/assets/ifitwala_ed/js/ifitwala_ed.js"
+app_include_css = "/assets/ifitwala_ed/css/ifitwala_ed.css"
+app_include_js = ["/assets/ifitwala_ed/js/utils.js", "/assets/ifitwala_ed/js/queries.js"]
 
 # include js, css files in header of web template
-# web_include_css = "/assets/ifitwala_ed/css/ifitwala_ed.css"
-# web_include_js = "/assets/ifitwala_ed/js/ifitwala_ed.js"
+web_include_css = "/assets/ifitwala_ed/css/ifitwala_ed.css"
+web_include_js = "/assets/ifitwala_ed/js/ifitwala_ed.js"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
-# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
+doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
 # Home Pages
 # ----------
+
+update_website_context  = ["ifitwala_ed.school_settings.doctype.education_settings.education_settings.update_website_context"]
 
 # application home page (will override Website Settings)
 # home_page = "login"
@@ -57,6 +59,8 @@ app_license = "MIT"
 # before_install = "ifitwala_ed.install.before_install"
 after_install = "ifitwala_ed.setup.setup_education"
 
+
+calendars = ["School Calendar", "Course Schedule"]
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
@@ -67,13 +71,15 @@ after_install = "ifitwala_ed.setup.setup_education"
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
+permission_query_conditions = {
+ 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.get_permission_query_conditions",
+    "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.get_permission_query_conditions"
+}
 #
-# has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
+has_permission = {
+ 	"Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",
+    "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.event_has_permission"
+}
 
 default_roles = [
 	{'role': 'Student', 'doctype':'Student', 'email_field': 'student_email'},
@@ -95,29 +101,34 @@ doc_events = {
 
 	"User": {
 		"after_insert": "frappe.contacts.doctype.contact.contact.update_contact"
-	}
+	},
+
+    "ToDo": {
+        "on_update": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status",
+        "on_trash": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status"
+    }
 }
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"ifitwala_ed.tasks.all"
 # 	],
 # 	"daily": [
 # 		"ifitwala_ed.tasks.daily"
 # 	],
-# 	"hourly": [
-# 		"ifitwala_ed.tasks.hourly"
-# 	],
+	"hourly": [
+ 		"ifitwala_ed.school_settings.doctype.meeting.meeting.update_meeting_status"
+ 	]
 # 	"weekly": [
 # 		"ifitwala_ed.tasks.weekly"
 # 	]
 # 	"monthly": [
 # 		"ifitwala_ed.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------
@@ -137,4 +148,3 @@ doc_events = {
 # override_doctype_dashboards = {
 # 	"Task": "ifitwala_ed.task.get_dashboard_data"
 # }
-

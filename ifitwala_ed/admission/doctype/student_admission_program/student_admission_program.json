@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "creation": "2020-12-22 08:21:56.499925",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "program",
+  "cutoff_birthdate",
+  "maximum_age",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "fieldname": "cutoff_birthdate",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Cutoff Birthdate"
+  },
+  {
+   "fieldname": "maximum_age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Maximum Age"
+  },
+  {
+   "fetch_from": "program.description",
+   "fetch_if_empty": 1,
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-12-22 08:25:20.481200",
+ "modified_by": "Administrator",
+ "module": "Admission",
+ "name": "Student Admission Program",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

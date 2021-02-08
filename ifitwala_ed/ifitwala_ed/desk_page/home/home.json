@@ -1,0 +1,70 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Collaboration",
+   "links": "[\n    {\n        \"description\": \"Meetings organized at school\",\n        \"label\": \"Meeting\",\n        \"name\": \"Meeting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Todo list\",\n        \"label\": \"Todo list\",\n        \"name\": \"ToDo\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your School Event List\",\n        \"label\": \"School Events\",\n        \"name\": \"School Event\",\n        \"type\": \"doctype\"\n    }\n    \n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Student",
+   "links": "[\n    {\n        \"description\": \"Demographics about Students.\",\n        \"label\": \"Student\",\n        \"name\": \"Student\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Demographics of guardians\",\n        \"label\": \"Guardian\",\n        \"name\": \"Guardian\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"To log any info about students\",\n        \"label\": \"Student Log\",\n        \"name\": \"Student Log\",\n        \"type\": \"doctype\"\n    }\n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2021-01-24 14:10:10.305517",
+ "developer_mode_only": 0,
+ "disable_user_customization": 1,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Home",
+ "modified": "2021-01-25 08:49:14.916136",
+ "modified_by": "Administrator",
+ "module": "Ifitwala Ed",
+ "name": "Home",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Students",
+   "link_to": "Student",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Student Group",
+   "link_to": "Student Group",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "Calendar",
+   "label": "School Event",
+   "link_to": "School Event",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "Calendar",
+   "label": "Learning Unit",
+   "link_to": "Learning Unit",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "Calendar",
+   "label": "Schedule",
+   "link_to": "Course Schedule",
+   "type": "DocType"
+  }
+ ]
+}

@@ -3,12 +3,12 @@
   {
    "hidden": 0,
    "label": "Main Documents",
-   "links": "[\n    {\n        \"description\": \"Creating student cohort\",\n        \"label\": \"Student Cohort\",\n        \"name\": \"Student Cohort\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Programs offered by the school.\",\n        \"label\": \"Program\",\n        \"name\": \"Program\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Courses offered by the school.\",\n        \"label\": \"Course\",\n        \"name\": \"Course\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Instructor associated with courses.\",\n        \"label\": \"Instructor\",\n        \"name\": \"Instructor\",\n        \"type\": \"doctype\"\n    }\n\n]"
+   "links": "[\n    {\n        \"description\": \"Creating student cohort\",\n        \"label\": \"Student Cohort\",\n        \"name\": \"Student Cohort\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Programs offered by the school.\",\n        \"label\": \"Program\",\n        \"name\": \"Program\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Courses offered by the school.\",\n        \"label\": \"Course\",\n        \"name\": \"Course\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Instructor associated with courses.\",\n        \"label\": \"Instructor\",\n        \"name\": \"Instructor\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Room available for teaching.\",\n        \"label\": \"Room\",\n        \"name\": \"Room\",\n        \"type\": \"doctype\"\n    }\n\n]"
   },
   {
    "hidden": 0,
    "label": "Tools",
-   "links": "[\n    {\n        \"description\": \"Tool to roll over program enrollment\",\n        \"label\": \"Program Enrollment Tool\",\n        \"name\": \"Program Enrollment Tool\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"List of course enrollment (for checking)\",\n        \"label\": \"Course Enrollment\",\n        \"name\": \"Course Enrollment\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"Tool to roll over program enrollment\",\n        \"label\": \"Program Enrollment Tool\",\n        \"name\": \"Program Enrollment Tool\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Tool to create student group\",\n        \"label\": \"Student Group Creation Tool\",\n        \"name\": \"Student Group Creation Tool\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Tool to create schedule for student group\",\n        \"label\": \"Course Scheduling Tool\",\n        \"name\": \"Course Scheduling Tool\",\n        \"type\": \"doctype\"\n    },     \n    {\n        \"description\": \"List of all scheduled courses\",\n        \"label\": \"Course Schedule\",\n        \"name\": \"Course Schedule\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"List of course enrollment (for checking)\",\n        \"label\": \"Course Enrollment\",\n        \"name\": \"Course Enrollment\",\n        \"type\": \"doctype\"\n    }\n]"
   },
   {
    "hidden": 0,
@@ -29,12 +29,12 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Schedule",
- "modified": "2020-10-13 07:29:08.962646",
+ "modified": "2021-01-24 14:10:36.341711",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Schedule",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": []
 }

@@ -29,12 +29,12 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Assessment",
- "modified": "2020-09-23 21:31:43.020498",
+ "modified": "2021-01-24 14:20:15.688959",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": []
 }

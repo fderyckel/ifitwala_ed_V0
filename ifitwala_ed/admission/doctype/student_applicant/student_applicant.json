@@ -1,0 +1,285 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "STU-APP-.YYYY.-.#####",
+ "creation": "2020-12-22 14:45:00.131069",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "first_name",
+  "middle_name",
+  "last_name",
+  "program",
+  "column_break_5",
+  "application_status",
+  "application_date",
+  "academic_year",
+  "academic_term",
+  "student_admission",
+  "image",
+  "section_break_12",
+  "date_of_birth",
+  "gender",
+  "nationality",
+  "second_nationality",
+  "column_break_17",
+  "student_email",
+  "student_mobile",
+  "student_first_language",
+  "student_second_language",
+  "addresses_section",
+  "address_line_1",
+  "address_line_2",
+  "pincode",
+  "column_break_26",
+  "city",
+  "state",
+  "guardians_section",
+  "student_guardian",
+  "sibling_details_section",
+  "siblings",
+  "title",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "label": "Academic Term",
+   "options": "Academic Term"
+  },
+  {
+   "fieldname": "student_admission",
+   "fieldtype": "Link",
+   "label": "Student Admission",
+   "options": "Student Admission"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Applicant",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nFemale\nMale\nOther"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "second_nationality",
+   "fieldtype": "Link",
+   "label": "Second Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_email",
+   "fieldtype": "Data",
+   "label": "Student Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "student_mobile",
+   "fieldtype": "Data",
+   "label": "Student Mobile"
+  },
+  {
+   "fieldname": "student_first_language",
+   "fieldtype": "Data",
+   "label": "Student First Language"
+  },
+  {
+   "fieldname": "student_second_language",
+   "fieldtype": "Data",
+   "label": "Student Second Language"
+  },
+  {
+   "fieldname": "addresses_section",
+   "fieldtype": "Section Break",
+   "label": "Addresses"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "title",
+   "print_hide": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sibling_details_section",
+   "fieldtype": "Section Break",
+   "label": "Sibling Details"
+  },
+  {
+   "fieldname": "siblings",
+   "fieldtype": "Table",
+   "label": "Siblings",
+   "options": "Student Sibling"
+  },
+  {
+   "default": "Today",
+   "fieldname": "application_date",
+   "fieldtype": "Date",
+   "label": "Application Date"
+  },
+  {
+   "fieldname": "guardians_section",
+   "fieldtype": "Section Break",
+   "label": "Guardians"
+  },
+  {
+   "fieldname": "student_guardian",
+   "fieldtype": "Table",
+   "label": "Student Guardian",
+   "options": "Student Guardian"
+  },
+  {
+   "fieldname": "application_status",
+   "fieldtype": "Select",
+   "label": "Application Status",
+   "options": "\nApplied\nApproved\nRejected\nAdmitted"
+  }
+ ],
+ "image_field": "image",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-12-29 12:37:45.158528",
+ "modified_by": "Administrator",
+ "module": "Admission",
+ "name": "Student Applicant",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admission Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "title",
+ "track_changes": 1
+}

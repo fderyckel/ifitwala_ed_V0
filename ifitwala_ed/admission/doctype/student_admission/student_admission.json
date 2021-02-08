@@ -1,0 +1,161 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "autoname": "ADM-.YYYY.-.###",
+ "creation": "2020-12-22 08:14:59.031516",
+ "description": "This is the DocType to set up the admission webpage on your website.  You set up the fields and logic here. ",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "page_name",
+  "route",
+  "column_break_3",
+  "academic_year",
+  "admission_start_date",
+  "admission_end_date",
+  "published",
+  "enable_admission_application",
+  "column_break_9",
+  "program_details",
+  "section_break_11",
+  "introduction",
+  "title"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "depends_on": "enable_admission_application",
+   "fieldname": "admission_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Admission Start Date",
+   "mandatory_depends_on": "enable_admission_application"
+  },
+  {
+   "depends_on": "enable_admission_application",
+   "fieldname": "admission_end_date",
+   "fieldtype": "Date",
+   "label": "Admission End Date",
+   "mandatory_depends_on": "enable_admission_application",
+   "no_copy": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_admission_application",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enable Admission Application"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "introduction",
+   "fieldtype": "Text Editor",
+   "label": "Introduction"
+  },
+  {
+   "fieldname": "program_details",
+   "fieldtype": "Table",
+   "label": "Eligibility and Details",
+   "options": "Student Admission Program"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Published on Website"
+  },
+  {
+   "fieldname": "page_name",
+   "fieldtype": "Data",
+   "label": "Page Name",
+   "reqd": 1,
+   "unique": 1
+  }
+ ],
+ "has_web_view": 1,
+ "is_published_field": "published",
+ "links": [],
+ "modified": "2021-01-27 04:29:41.093169",
+ "modified_by": "Administrator",
+ "module": "Admission",
+ "name": "Student Admission",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admission Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  }
+ ],
+ "route": "admissions",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "title",
+ "track_changes": 1
+}

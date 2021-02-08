@@ -1,0 +1,13 @@
+{
+ "creation": "2021-02-01 21:08:51.498751",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2021-02-01 21:08:51.498751",
+ "modified_by": "Administrator",
+ "module": "Schedule",
+ "name": "Students II",
+ "owner": "Administrator",
+ "source_name": "Students II",
+ "timeseries": 0
+}

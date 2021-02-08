@@ -136,7 +136,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2020-09-24 15:51:17.466595",
+ "modified": "2021-01-16 19:44:02.701594",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",
@@ -203,7 +203,6 @@
    "share": 1
   }
  ],
- "quick_entry": 1,
  "search_fields": "course_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

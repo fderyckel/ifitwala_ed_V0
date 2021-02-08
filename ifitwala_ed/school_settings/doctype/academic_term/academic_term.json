@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:title",
@@ -9,9 +10,15 @@
  "field_order": [
   "academic_year",
   "term_name",
+  "school",
+  "column_break_3",
   "term_start_date",
   "term_end_date",
-  "title"
+  "title",
+  "school_events_section",
+  "at_start",
+  "column_break_10",
+  "at_end"
  ],
  "fields": [
   {
@@ -30,13 +37,17 @@
    "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "term_start_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Term Start Date"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "term_end_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Term End Date"
   },
   {
@@ -44,10 +55,52 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Title",
+   "print_hide": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "academic_year.school",
+   "fieldname": "school",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "school_events_section",
+   "fieldtype": "Section Break",
+   "label": "School Events"
+  },
+  {
+   "fieldname": "at_start",
+   "fieldtype": "Link",
+   "label": "Start of Term Event",
+   "no_copy": 1,
+   "options": "School Event",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "at_end",
+   "fieldtype": "Link",
+   "label": "End of Term Event",
+   "no_copy": 1,
+   "options": "School Event",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
- "modified": "2020-08-27 20:00:17.242086",
+ "links": [],
+ "modified": "2021-02-01 13:09:56.941794",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",
@@ -66,16 +119,13 @@
    "write": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "School IT",
-   "share": 1,
-   "write": 1
+   "share": 1
   },
   {
    "create": 1,
@@ -97,10 +147,37 @@
    "report": 1,
    "role": "Academic Admin",
    "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
   }
  ],
  "quick_entry": 1,
- "sort_field": "name",
+ "sort_field": "term_start_date",
  "sort_order": "ASC",
  "title_field": "title",
  "track_changes": 1

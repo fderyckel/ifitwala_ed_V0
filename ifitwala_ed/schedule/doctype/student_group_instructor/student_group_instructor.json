@@ -1,11 +1,13 @@
 {
+ "actions": [],
  "creation": "2020-09-01 18:49:33.141800",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "instructor",
-  "instructor_name"
+  "instructor_name",
+  "designation"
  ],
  "fields": [
   {
@@ -23,10 +25,18 @@
    "in_list_view": 1,
    "label": "Instructor Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Designation",
+   "options": "Designation"
   }
  ],
  "istable": 1,
- "modified": "2020-09-01 18:53:38.831895",
+ "links": [],
+ "modified": "2020-10-27 07:31:12.238549",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group Instructor",

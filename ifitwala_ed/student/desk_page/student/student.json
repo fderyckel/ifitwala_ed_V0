@@ -9,16 +9,16 @@
    "hidden": 0,
    "label": "Health",
    "links": "[\n    {\n        \"description\": \"Health Info about Students.\",\n        \"label\": \"Student Patient\",\n        \"name\": \"Student Patient\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Visit of students to the health office\",\n        \"label\": \"Health Visit\",\n        \"name\": \"Student Patient Visit\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Attendance",
+   "links": "[\n    {\n        \"description\": \"Taking attendance for a single student.\",\n        \"label\": \"Student Attendance\",\n        \"name\": \"Student Attendance\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Planning Student Leave\",\n        \"label\": \"Student Leave Application\",\n        \"name\": \"Student Leave Application\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "",
  "category": "Modules",
- "charts": [
-  {
-   "chart_name": "Student Gender Ratio",
-   "label": "Student Gender Ratio"
-  }
- ],
+ "charts": [],
  "creation": "2020-09-13 23:34:22.525108",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
@@ -29,22 +29,34 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2020-09-23 13:48:10.042624",
+ "modified": "2021-01-24 14:20:10.671328",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": [
   {
-   "label": "Student Dash",
+   "doc_view": "Dashboard",
+   "label": "Student Dashboard",
    "link_to": "Student",
    "type": "DocType"
   },
   {
-   "label": "Student List",
+   "color": "Green",
+   "doc_view": "List",
+   "format": "{} Enabled",
+   "label": "Student",
    "link_to": "Student",
+   "stats_filter": "{\"enabled\":\"1\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Student Log",
+   "link_to": "Student Log",
    "type": "DocType"
   }
  ]

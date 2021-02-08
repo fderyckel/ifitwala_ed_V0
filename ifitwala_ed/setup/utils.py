@@ -5,8 +5,6 @@
 from __future__ import unicode_literals
 import frappe
 
-
-
 def insert_record(records):
 	for r in records:
 		doc = frappe.new_doc(r.get("doctype"))

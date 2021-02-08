@@ -28,6 +28,12 @@
   "create_user",
   "create_user_permission",
   "second_nationality",
+  "professional_section",
+  "date_of_joining",
+  "status",
+  "column_break_28",
+  "school",
+  "reports_to",
   "data_19",
   "current_address",
   "home_phone",
@@ -38,14 +44,10 @@
   "column_break_21",
   "permanent_address",
   "emergency_contact_person",
-  "professional_section",
-  "date_of_joining",
-  "status",
-  "column_break_28",
-  "school",
-  "reports_to",
   "section_break_30",
   "internal_work_history",
+  "bio_section",
+  "biography",
   "exit_section",
   "notice_date",
   "relieving_date",
@@ -71,7 +73,8 @@
    "fetch_from": "current_address.phone",
    "fieldname": "home_phone",
    "fieldtype": "Data",
-   "label": "Home Phone"
+   "label": "Home Phone",
+   "options": "Phone"
   },
   {
    "fetch_from": "current_address.address_line1",
@@ -98,6 +101,7 @@
    "label": "Town / City"
   },
   {
+   "collapsible": 1,
    "fieldname": "data_19",
    "fieldtype": "Section Break",
    "label": "Addresses"
@@ -175,6 +179,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "exit_section",
    "fieldtype": "Section Break",
    "label": "Exit"
@@ -212,6 +217,7 @@
    "fieldname": "user_id",
    "fieldtype": "Link",
    "label": "User ID",
+   "no_copy": 1,
    "options": "User"
   },
   {
@@ -266,28 +272,29 @@
   {
    "fieldname": "employee_first_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
+   "in_global_search": 1,
    "label": "First Name",
+   "no_copy": 1,
    "reqd": 1
   },
   {
    "fieldname": "employee_middle_name",
    "fieldtype": "Data",
-   "label": "Middle Name"
+   "label": "Middle Name",
+   "no_copy": 1
   },
   {
    "fieldname": "employee_last_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Last Name",
+   "no_copy": 1,
    "reqd": 1
   },
   {
    "fieldname": "employee_gender",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Gender",
    "options": "\nFemale\nMale\nPrefer not to say\nOther",
@@ -321,6 +328,8 @@
    "fieldname": "employee_professional_email",
    "fieldtype": "Data",
    "label": "Professional email",
+   "no_copy": 1,
+   "options": "Email",
    "reqd": 1
   },
   {
@@ -328,12 +337,14 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Mobile Phone"
+   "label": "Mobile Phone",
+   "options": "Phone"
   },
   {
    "fieldname": "employee_personal_email",
    "fieldtype": "Data",
-   "label": "Personal email"
+   "label": "Personal email",
+   "options": "Email"
   },
   {
    "fieldname": "employee_date_of_birth",
@@ -348,6 +359,17 @@
    "no_copy": 1,
    "print_hide": 1,
    "report_hide": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "bio_section",
+   "fieldtype": "Section Break",
+   "label": "Bio"
+  },
+  {
+   "fieldname": "biography",
+   "fieldtype": "Text Editor",
+   "label": "Biography"
   }
  ],
  "image_field": "employee_image",
@@ -357,7 +379,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2020-10-04 07:16:26.059972",
+ "modified": "2021-02-05 17:40:19.729227",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
@@ -418,7 +440,6 @@
    "share": 1
   }
  ],
- "quick_entry": 1,
  "search_fields": "employee_full_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

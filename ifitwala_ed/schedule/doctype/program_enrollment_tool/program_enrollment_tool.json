@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_copy": 1,
  "creation": "2020-09-04 10:45:06.621408",
  "doctype": "DocType",
@@ -120,7 +121,7 @@
    "options": "Program Enrollment Tool Student"
   },
   {
-   "description": "Indicate the date of the first day for this new enrollment. By default, it will be the first day of the indicated academic year.  ",
+   "description": "Indicate the date of the first day for this new enrollment. If left blank, by default, it will be the first day of the indicated academic year or academic term if indicated.  ",
    "fieldname": "new_enrollment_date",
    "fieldtype": "Date",
    "label": "New Enrollment Date"
@@ -128,7 +129,8 @@
  ],
  "hide_toolbar": 1,
  "issingle": 1,
- "modified": "2020-09-05 14:37:49.247041",
+ "links": [],
+ "modified": "2021-01-22 19:52:39.650330",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program Enrollment Tool",

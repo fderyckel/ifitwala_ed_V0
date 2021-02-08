@@ -1,0 +1,220 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:staff_calendar_name",
+ "creation": "2020-10-14 17:19:25.042786",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "staff_calendar_name",
+  "academic_year",
+  "total_working_day",
+  "from_date",
+  "column_break_4",
+  "school",
+  "total_holidays",
+  "to_date",
+  "add_longer_breaks_section",
+  "start_of_break",
+  "break_description",
+  "get_long_break_dates",
+  "column_break_12",
+  "end_of_break",
+  "breaks_color",
+  "add_weekly_holidays_section",
+  "weekly_off",
+  "get_weekly_off_dates",
+  "column_break_19",
+  "weekend_color",
+  "section_break_9",
+  "holidays",
+  "clear_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "academic_year.year_end_date",
+   "fetch_if_empty": 1,
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_holidays",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total holidays",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_weekly_holidays_section",
+   "fieldtype": "Section Break",
+   "label": "Add Weekly Holidays"
+  },
+  {
+   "fieldname": "weekly_off",
+   "fieldtype": "Select",
+   "label": "Weekly off",
+   "no_copy": 1,
+   "options": "\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "holidays",
+   "fieldtype": "Table",
+   "label": "Holidays",
+   "options": "Holiday"
+  },
+  {
+   "fieldname": "clear_table",
+   "fieldtype": "Button",
+   "label": "Clear Table",
+   "options": "clear_table"
+  },
+  {
+   "fieldname": "get_weekly_off_dates",
+   "fieldtype": "Button",
+   "label": "Add to holidays",
+   "options": "get_weekly_off_dates"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "fieldname": "total_working_day",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Working Day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_longer_breaks_section",
+   "fieldtype": "Section Break",
+   "label": "Add Longer Breaks"
+  },
+  {
+   "fieldname": "start_of_break",
+   "fieldtype": "Date",
+   "label": "Start Of Break"
+  },
+  {
+   "fieldname": "end_of_break",
+   "fieldtype": "Date",
+   "label": "End of Break"
+  },
+  {
+   "fieldname": "get_long_break_dates",
+   "fieldtype": "Button",
+   "label": "Add to holidays",
+   "options": "get_long_break_dates"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "break_description",
+   "fieldtype": "Data",
+   "label": "Break Description"
+  },
+  {
+   "fieldname": "staff_calendar_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Staff Calendar Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weekend_color",
+   "fieldtype": "Color",
+   "label": "Weekend Color"
+  },
+  {
+   "fieldname": "breaks_color",
+   "fieldtype": "Color",
+   "label": "Breaks Color"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-02-05 09:59:28.129552",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Staff Calendar",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "sort_field": "from_date",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

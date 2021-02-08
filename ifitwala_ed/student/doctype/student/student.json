@@ -19,6 +19,7 @@
   "student_second_language",
   "column_break_9",
   "student_image",
+  "student_applicant",
   "student_date_of_birth",
   "student_gender",
   "student_mobile_number",
@@ -71,6 +72,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_14",
    "fieldtype": "Section Break",
    "label": "Home Address"
@@ -154,6 +156,7 @@
    "fieldname": "student_email",
    "fieldtype": "Data",
    "label": "Student Email",
+   "options": "Email",
    "reqd": 1,
    "unique": 1
   },
@@ -240,7 +243,8 @@
    "fieldname": "student_mobile_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Mobile Number"
+   "label": "Mobile Number",
+   "options": "Phone"
   },
   {
    "fieldname": "student_joining_date",
@@ -293,12 +297,18 @@
    "fieldtype": "Table",
    "label": "Student Guardian",
    "options": "Student Guardian"
+  },
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "label": "Student Applicant",
+   "options": "Student Applicant"
   }
  ],
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-30 20:57:25.509089",
+ "modified": "2021-02-05 17:15:22.978826",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -318,7 +328,6 @@
   },
   {
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -346,24 +355,6 @@
    "role": "Counselor",
    "share": 1,
    "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Student",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Nurse",
-   "share": 1
   },
   {
    "email": 1,

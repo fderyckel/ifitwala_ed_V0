@@ -1,15 +1,17 @@
 {
+ "actions": [],
  "creation": "2020-08-21 13:29:24.452806",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "student",
-  "column_break_2",
-  "student_name"
+  "student_name",
+  "student_gender"
  ],
  "fields": [
   {
+   "columns": 2,
    "fieldname": "student",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -18,20 +20,24 @@
    "read_only": 1
   },
   {
+   "columns": 5,
    "fieldname": "student_name",
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
-   "label": "Student Name",
-   "read_only": 1
+   "label": "Student Name"
   },
   {
-   "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
+   "columns": 2,
+   "fieldname": "student_gender",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Gender"
   }
  ],
  "istable": 1,
- "modified": "2020-08-23 20:43:47.595164",
+ "links": [],
+ "modified": "2020-11-26 08:30:36.486890",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian Student",

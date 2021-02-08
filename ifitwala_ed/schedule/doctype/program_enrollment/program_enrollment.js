@@ -8,23 +8,11 @@ frappe.ui.form.on('Program Enrollment', {
 		// to filter academic terms that matches the given academic year.
 		frm.set_query('academic_term', function(){
 			return{
-				'filters':{
+				'filters': {
 					'academic_year': (frm.doc.academic_year)
 				}
 			};
 		});
-
-		// once program field is set, call the function get_program_course in the python file to get the list of all the courses in that program
-		if (frm.doc.program) {
-			frm.set_query('course', 'courses', function() {
-				return {
-					query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
-					filters: {
-						'program': frm.doc.program
-					}
-				}
-			});
-		}
 
 		// To filter the students showing up in the student fields (will not show up students already enrolled for that year  or term)
 		// only  work if academic term or academic year have already been selected
@@ -46,6 +34,14 @@ frappe.ui.form.on('Program Enrollment', {
 
 	program: function(frm) {
 		frm.events.get_courses(frm);
+		frm.set_query('course', 'courses', function(doc, cdt, cdn) {
+			return{
+				query: 'ifitwala_ed.schedule.doctype.program_enrollment.program_enrollment.get_program_courses',
+				filters: {
+					'program': frm.doc.program,
+				}
+			}
+		});
 	},
 
 	get_courses: function(frm) {
@@ -59,19 +55,5 @@ frappe.ui.form.on('Program Enrollment', {
 				}
 			}
 		})
-	}
-});
-
-// So that course does not appear again in the list if they have already been selected.
-frappe.ui.form.on('Program Enrollment Course', {
-	courses_add: function(frm){
-		frm.fields_dict['courses'].grid.get_field('course').get_query = function(doc) {
-			var course_list = [];
-			if(!doc.__islocal) course_list.push(doc.name);
-			$.each(doc.courses, function(_idx, val) {
-				if (val.course) course_list.push(val.course);
-			});
-			return { filters: [['Course', 'name', 'not in', course_list]] };
-		};
 	}
 });

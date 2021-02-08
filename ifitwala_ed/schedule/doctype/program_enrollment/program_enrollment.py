@@ -34,16 +34,17 @@ class ProgramEnrollment(Document):
 
 	# you cannot enrolled twice for a same program, same year, same term.
 	def validate_duplication(self):
-		enrollment = frappe.get_all("Program Enrollment", filters = {
-			"student": self.student,
-			"academic_year": self.academic_year,
-			"academic_term": self.academic_term,
-			"program": self.program,
-			"docstatus": ("<", 2),
-			"name": ("!=", self.name)
-		})
+		enrollment = frappe.get_all("Program Enrollment", fields = ["name", "student_name"],
+				filters = {
+					"student": self.student,
+					"academic_year": self.academic_year,
+					"academic_term": self.academic_term,
+					"program": self.program,
+					"docstatus": ("<", 2),
+					"name": ("!=", self.name)
+				})
 		if enrollment:
-			frappe.throw(_("This student is already enrolled in this program for this term."))
+			frappe.throw(_("This student {0} is already enrolled {1} in this program for this term.").format(enrollment[0].student_name, get_link_to_form("Program Enrollment", enrollment[0].name)))
 
 	# If a student is in a program and that program has required courses (non elective), then these courses are loaded automatically.
 	def get_courses(self):
@@ -51,9 +52,13 @@ class ProgramEnrollment(Document):
 
 	def validate_duplicate_course(self):
 		found = []
+		pc = frappe.get_list("Program Course", fields = ["Course"], filters = [["parent", "=", self.program]])
+		pc_list = [c.Course for c in pc]
 		for course in self.courses:
 			if course.course in found:
 				frappe.throw(_("Course {0} entered twice.").format(course.course))
+			elif course.course not in pc_list:
+				frappe.throw(_("Course {0} is not part of program {1}").format(get_link_to_form("Course", course.course), get_link_to_form("Program", self.program)))
 			else:
 				found.append(course.course)
 
@@ -80,21 +85,24 @@ class ProgramEnrollment(Document):
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def get_program_courses(doctype, txt, searchfield, start, page_len, filters):
-	if filters.get('program'):
-		return frappe.db.sql("""select course, course_name from `tabProgram Course`
-			where  parent = %(program)s and course like %(txt)s {match_cond}
-			order by
-				if(locate(%(_txt)s, course), locate(%(_txt)s, course), 99999),
-				idx desc,
-				`tabProgram Course`.course asc
-			limit {start}, {page_len}""".format(
-				match_cond=get_match_cond(doctype),
-				start=start,
-				page_len=page_len), {
-					"txt": "%{0}%".format(txt),
-					"_txt": txt.replace('%', ''),
-					"program": filters['program']
-				})
+	#if not filters.get('program'):
+	#	frappe.msgprint(_("Please select a Program first."))
+	#	return []
+
+	return frappe.db.sql("""select course, course_name from `tabProgram Course`
+		where  parent = %(program)s and course like %(txt)s {match_cond}
+		order by
+			if(locate(%(_txt)s, course), locate(%(_txt)s, course), 99999),
+			idx desc,
+			`tabProgram Course`.course asc
+		limit {start}, {page_len}""".format(
+			match_cond=get_match_cond(doctype),
+			start=start,
+			page_len=page_len), {
+				"txt": "%{0}%".format(txt),
+				"_txt": txt.replace('%', ''),
+				"program": filters['program']
+			})
 
 # from JS to filter out students that have already been enrolled for a given year and/or term
 @frappe.whitelist()

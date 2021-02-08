@@ -3,6 +3,7 @@
 
 frappe.listview_settings['Course'] = {
 	filters: [["status","=", "Active"]],
+	hide_name_column: true, 
 	get_indicator: function(doc) {
 		var indicator = [__(doc.status), frappe.utils.guess_colour(doc.status), "status,=," + doc.status];
 		indicator[1] = {"Active": "green", "Discontinued": "darkgrey"}[doc.status];

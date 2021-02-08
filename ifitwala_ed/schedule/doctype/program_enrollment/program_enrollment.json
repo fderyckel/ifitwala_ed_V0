@@ -10,7 +10,6 @@
   "student",
   "student_name",
   "cohort",
-  "status",
   "column_break_4",
   "program",
   "academic_year",
@@ -29,6 +28,7 @@
    "reqd": 1
   },
   {
+   "columns": 3,
    "fetch_from": "student.student_full_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
@@ -41,6 +41,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 2,
    "fieldname": "program",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -52,20 +53,22 @@
   {
    "fieldname": "academic_year",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Academic Year",
    "options": "Academic Year",
    "reqd": 1
   },
   {
+   "columns": 2,
    "fieldname": "academic_term",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Academic Term",
    "options": "Academic Term"
   },
   {
+   "fetch_from": "academic_term.term_start_date",
    "fieldname": "enrollment_date",
    "fieldtype": "Date",
    "label": "Enrollment Date",
@@ -94,16 +97,8 @@
    "label": "Enrolled Courses"
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "options": "\nCurrent\nDone",
-   "read_only": 1
-  },
-  {
    "allow_on_submit": 1,
+   "columns": 1,
    "fieldname": "cohort",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -114,7 +109,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-27 19:05:55.936920",
+ "modified": "2021-01-27 04:58:59.282122",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program Enrollment",

@@ -1,0 +1,177 @@
+{
+ "actions": [],
+ "autoname": "EVENT-.YYYY.-.#####",
+ "creation": "2020-12-20 17:01:16.495801",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "event_category",
+  "event_type",
+  "color",
+  "all_day",
+  "column_break_5",
+  "school",
+  "starts_on",
+  "ends_on",
+  "room",
+  "section_break_8",
+  "description",
+  "participants_section",
+  "participants",
+  "references_section",
+  "reference_type",
+  "column_break_16",
+  "reference_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fieldname": "event_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Event Category",
+   "options": "\nMeeting\nCourse\nAppointment\nOther"
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "label": "Event Type",
+   "options": "\nPrivate\nPublic"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "starts_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Starts on"
+  },
+  {
+   "fieldname": "ends_on",
+   "fieldtype": "Datetime",
+   "in_standard_filter": 1,
+   "label": "Ends on"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "participants_section",
+   "fieldtype": "Section Break",
+   "label": "Participants"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "All Day"
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Table",
+   "ignore_user_permissions": 1,
+   "label": "Participants",
+   "options": "School Event Participant"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "reference_type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Reference Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_standard_filter": 1,
+   "label": "Reference Name",
+   "mandatory_depends_on": "reference_type",
+   "options": "reference_type"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Room",
+   "options": "Room"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-01-28 18:54:46.075732",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "School Event",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "subject",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

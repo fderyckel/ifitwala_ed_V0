@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2020-08-24 15:55:39.365665",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -6,38 +7,69 @@
  "field_order": [
   "academic_year",
   "academic_term",
+  "course",
   "designation",
+  "student_group",
+  "program",
   "other_details"
  ],
  "fields": [
   {
+   "columns": 2,
    "fieldname": "academic_year",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Academic Year"
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Academic Year",
+   "options": "Academic Year"
   },
   {
+   "columns": 2,
    "fieldname": "academic_term",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Academic Term"
+   "label": "Academic Term",
+   "options": "Academic Term"
   },
   {
+   "columns": 2,
    "fieldname": "other_details",
    "fieldtype": "Text",
-   "in_list_view": 1,
    "label": "Other Details"
   },
   {
+   "columns": 2,
    "fieldname": "designation",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Designation",
    "options": "Designation"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "columns": 2,
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "columns": 2,
+   "fieldname": "student_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Group",
+   "options": "Student Group"
   }
  ],
  "istable": 1,
- "modified": "2020-09-11 08:19:19.355750",
+ "links": [],
+ "modified": "2021-01-28 09:42:40.977288",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor Log",

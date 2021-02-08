@@ -1,0 +1,18 @@
+
+{% macro hero(title, description, has_access, back) %}
+	<div class='container pb-5'>
+		<div class="mb-3">
+			<a href="{{ back.url }}" class="text-muted">
+				{{_('Back to')}} {{ _(back.name) }}
+			</a>
+		</div>
+		<h1>{{ title }}</h1>
+		<p class='lead' style="max-width: 100%;">{{ description or ''}}</p>
+		<p class="mt-4">
+			{% if frappe.session.user == 'Guest' %}
+			<a id="signup" class="btn btn-primary btn-lg" href="/login#signup">{{_('Sign Up')}}</a>
+			{% endif %}
+		</p>
+	</div>
+
+{% endmacro %}

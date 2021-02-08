@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:school_name",
@@ -15,7 +16,9 @@
   "parent_school",
   "abbr",
   "school_logo",
-  "change_abbr"
+  "change_abbr",
+  "mission_vision_values_section",
+  "school_philosophy"
  ],
  "fields": [
   {
@@ -82,11 +85,23 @@
    "fieldname": "change_abbr",
    "fieldtype": "Button",
    "label": "Change Abbreviation"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "mission_vision_values_section",
+   "fieldtype": "Section Break",
+   "label": "Mission Vision Values"
+  },
+  {
+   "fieldname": "school_philosophy",
+   "fieldtype": "Text Editor",
+   "label": "School Philosophy"
   }
  ],
  "image_field": "school_logo",
  "is_tree": 1,
- "modified": "2020-09-12 22:04:40.293991",
+ "links": [],
+ "modified": "2021-02-01 07:09:35.679664",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",
@@ -106,8 +121,6 @@
    "write": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -123,7 +136,43 @@
    "print": 1,
    "read": 1,
    "report": 1,
+   "role": "Schedule Maker",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
    "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
    "share": 1
   }
  ],

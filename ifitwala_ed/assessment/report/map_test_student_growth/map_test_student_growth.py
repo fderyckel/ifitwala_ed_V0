@@ -1,4 +1,4 @@
-# Copyright (c) 2013, ifitwala and contributors
+# Copyright (c) 2020, ifitwala and contributors
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
@@ -96,30 +96,41 @@ def get_chart_data(data):
 		return None
 
 	labels =  []
-	percentile = []
+	math = []
+	reading = []
+	language = []
 
 	for entry in data:
-		labels.append(entry.get("academic_term"))
-		percentile.append(entry.get("test_percentile"))
-
-	#labels = list(set(labels))
+		if entry.get("academic_term") not in labels:
+			labels.append(entry.get("academic_term"))
+		if entry.get("discipline") == "Mathematics":
+			math.append(entry.get("test_percentile"))
+		if entry.get("discipline") == "Reading":
+			reading.append(entry.get("test_percentile"))
+		if entry.get("discipline") == "Language":
+			language.append(entry.get("test_percentile"))
 
 	return {
 		"data": {
 			"labels": labels,
 			"datasets": [
 				{
-					"name": _("Test Percentile"),
-					"values": percentile
+					"name": _("Math Percentile"),
+					"values": math
+				},
+				{
+					"name": _("Reading Percentile"),
+					"values": reading
+				},
+				{
+					"name": _("Language Percentile"),
+					"values": language
 				}
 			]
 		},
 		"type": "line"
 
 	}
-
-
-
 
 
 def get_filter_conditions(filters):

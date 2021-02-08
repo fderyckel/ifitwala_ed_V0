@@ -1,36 +1,109 @@
 {
+ "actions": [],
  "allow_import": 1,
- "autoname": "field:academic_year_name",
+ "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2020-08-16 12:58:26.087693",
  "doctype": "DocType",
+ "document_type": "Document",
+ "documentation": "http://ifitwala.com/docs/user/manual/en/education-settings/academic-year",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "academic_year_name",
   "year_start_date",
-  "year_end_date"
+  "column_break_3",
+  "school",
+  "year_end_date",
+  "title",
+  "section_break_7",
+  "ay_start",
+  "column_break_9",
+  "ay_end"
  ],
  "fields": [
   {
+   "columns": 1,
    "fieldname": "academic_year_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Academic Year Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
    "fieldname": "year_start_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Year Start Date"
   },
   {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
    "fieldname": "year_end_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Year End Date"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 3,
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School",
+   "options": "School",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "print_hide": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "School Events"
+  },
+  {
+   "fieldname": "ay_start",
+   "fieldtype": "Link",
+   "label": "Start of Year Event",
+   "no_copy": 1,
+   "options": "School Event",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "ay_end",
+   "fieldtype": "Link",
+   "label": "End of Year Event",
+   "no_copy": 1,
+   "options": "School Event",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
   }
  ],
- "modified": "2020-08-27 19:57:41.444623",
+ "icon": "fa fa-calendar",
+ "links": [],
+ "modified": "2021-01-31 19:19:32.969497",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",
@@ -49,16 +122,13 @@
    "write": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "School IT",
-   "share": 1,
-   "write": 1
+   "share": 1
   },
   {
    "email": 1,
@@ -70,17 +140,39 @@
    "share": 1
   },
   {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
    "share": 1
   }
  ],
  "quick_entry": 1,
- "sort_field": "modified",
+ "sort_field": "year_start_date",
  "sort_order": "DESC",
+ "title_field": "title",
  "track_changes": 1
 }

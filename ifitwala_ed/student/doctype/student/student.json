@@ -36,6 +36,7 @@
   "column_break_25",
   "state_province",
   "country",
+  "address_html",
   "gardians_section",
   "student_guardians",
   "siblings_section",
@@ -303,12 +304,20 @@
    "fieldtype": "Link",
    "label": "Student Applicant",
    "options": "Student Applicant"
+  },
+  {
+   "depends_on": "eval: !doc.__islocal",
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML",
+   "no_copy": 1,
+   "report_hide": 1
   }
  ],
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-05 17:15:22.978826",
+ "modified": "2021-02-08 14:43:07.177223",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

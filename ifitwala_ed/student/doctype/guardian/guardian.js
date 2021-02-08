@@ -3,6 +3,13 @@
 
 frappe.ui.form.on('Guardian', {
 	refresh: function(frm) {
+		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Student'};
+		if (!frm.is_new())  {
+			frappe.contacts.render_address_and_contact(frm);
+		} else {
+			frappe.contacts.clear_address_and_contact(frm); 
+		}
+
 		if(!frm.doc.user && !frm.is_new()) {
 			frm.add_custom_button(__("Create and Invite as User"), function() {
 				return frappe.call({

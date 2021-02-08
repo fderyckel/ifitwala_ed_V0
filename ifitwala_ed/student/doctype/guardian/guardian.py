@@ -7,6 +7,7 @@ import frappe
 from frappe import _
 from frappe.utils.csvutils import getlink
 from frappe.model.document import Document
+from frappe.contacts.address_and_contact import load_address_and_contact
 
 class Guardian(Document):
 
@@ -15,6 +16,7 @@ class Guardian(Document):
 
     ## to load students for quick view
     def onload(self):
+            load_address_and_contact(self)
             self.load_students()
 
     ## to load studens from the database

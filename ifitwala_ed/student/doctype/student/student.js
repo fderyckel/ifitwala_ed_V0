@@ -20,7 +20,7 @@ frappe.ui.form.on('Student', {
 		if (!frm.is_new()) {
 			frappe.contacts.render_address_and_contact(frm);
 		} else {
-			frappe.contacts.clear_address_and_contact(frm); 
+			frappe.contacts.clear_address_and_contact(frm);
 		}
 
     }

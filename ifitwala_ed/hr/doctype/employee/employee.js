@@ -30,7 +30,12 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 frappe.ui.form.on('Employee', {
 
 	refresh: function(frm) {
-
+		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Employee'};
+		if (!frm.is_new())  {
+			frappe.contacts.render_address_and_contact(frm);
+		} else {
+			frappe.contacts.clear_address_and_contact(frm);
+		}
 	},
 
 	create_user: function(frm) {
@@ -50,7 +55,7 @@ frappe.ui.form.on('Employee', {
 });
 
 frappe.ui.form.on('Employee Internal Work History', {
-	
+
 });
 
 cur_frm.cscript = new ifitwala_ed.hr.EmployeeController({frm: cur_frm});

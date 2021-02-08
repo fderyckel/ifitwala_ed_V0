@@ -3,11 +3,11 @@
 
 frappe.ui.form.on('Guardian', {
 	refresh: function(frm) {
-		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Student'};
+		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Guardian'};
 		if (!frm.is_new())  {
 			frappe.contacts.render_address_and_contact(frm);
 		} else {
-			frappe.contacts.clear_address_and_contact(frm); 
+			frappe.contacts.clear_address_and_contact(frm);
 		}
 
 		if(!frm.doc.user && !frm.is_new()) {
@@ -24,12 +24,13 @@ frappe.ui.form.on('Guardian', {
 			});
 		}
 	},
+
 	salutation: function() {
-		if(this.frm.doc.salutation) {
-			this.frm.set_value("gender", {
+		if(frm.doc.salutation) {
+			frm.set_value("gender", {
 				"Mr": "Male",
 				"Ms": "Female"
-			}[this.frm.doc.salutation]);
+			}[frm.doc.salutation]);
 		}
 	},
 });

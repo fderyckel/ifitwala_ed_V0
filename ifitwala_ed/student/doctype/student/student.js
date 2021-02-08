@@ -15,6 +15,13 @@ frappe.ui.form.on('Student', {
 	},
 
 	refresh: function(frm) {
+		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Student'};
+
+		if (!frm.is_new()) {
+			frappe.contacts.render_address_and_contact(frm);
+		} else {
+			frappe.contacts.clear_address_and_contact(frm); 
+		}
 
     }
 });

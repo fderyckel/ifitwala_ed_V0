@@ -8,9 +8,12 @@ from frappe import _
 from frappe.utils import getdate, today, get_link_to_form, validate_email_address
 from frappe.model.document import Document
 from frappe.desk.form.linked_with import get_linked_doctypes
+from frappe.contacts.address_and_contact import load_address_and_contact, delete_contact_and_address
 
 
 class Student(Document):
+	def onload(self):
+		load_address_and_contact(self)	
 
 	def validate(self):
 		self.student_full_name = " ".join(filter(None, [self.student_first_name, self.student_middle_name, self.student_last_name]))

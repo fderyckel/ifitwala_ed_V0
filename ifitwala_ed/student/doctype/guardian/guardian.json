@@ -21,7 +21,6 @@
   "home_phone",
   "address_name_1",
   "address_name_2",
-  "zipcode",
   "town",
   "country",
   "others_section",
@@ -36,10 +35,14 @@
  ],
  "fields": [
   {
+   "depends_on": "eval: !doc.__islocal",
    "fetch_from": "address.phone",
    "fieldname": "home_phone",
-   "fieldtype": "Read Only",
-   "label": "Home Phone"
+   "fieldtype": "HTML",
+   "label": "Address HTML",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "work_place",
@@ -51,12 +54,6 @@
    "fieldtype": "Link",
    "label": "Salutation",
    "options": "Salutation"
-  },
-  {
-   "fetch_from": "address.pincode",
-   "fieldname": "zipcode",
-   "fieldtype": "Read Only",
-   "label": "Zipcode "
   },
   {
    "fetch_from": "address.city",
@@ -189,7 +186,7 @@
  ],
  "image_field": "guardian_image",
  "links": [],
- "modified": "2021-01-21 04:41:10.024934",
+ "modified": "2021-02-08 16:03:18.576569",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",

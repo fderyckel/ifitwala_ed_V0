@@ -28,14 +28,8 @@
   "student_second_nationality",
   "cohort",
   "section_break_14",
-  "main_address",
-  "address_line_1",
-  "address_line_2",
-  "zip_code",
-  "town",
+  "contact_html",
   "column_break_25",
-  "state_province",
-  "country",
   "address_html",
   "gardians_section",
   "student_guardians",
@@ -79,18 +73,6 @@
    "label": "Home Address"
   },
   {
-   "fetch_from": "main_address.pincode",
-   "fieldname": "zip_code",
-   "fieldtype": "Read Only",
-   "label": "Zip code"
-  },
-  {
-   "fetch_from": "main_address.city",
-   "fieldname": "town",
-   "fieldtype": "Read Only",
-   "label": "Town"
-  },
-  {
    "fieldname": "gardians_section",
    "fieldtype": "Section Break",
    "label": "Gardian Details"
@@ -102,40 +84,8 @@
    "label": "Siblings Details"
   },
   {
-   "fetch_from": "main_address.address_line2",
-   "fieldname": "address_line_2",
-   "fieldtype": "Read Only",
-   "label": "Address Line 2"
-  },
-  {
-   "fetch_from": "main_address.address_line1",
-   "fieldname": "address_line_1",
-   "fieldtype": "Read Only",
-   "label": "Address Line 1"
-  },
-  {
-   "fieldname": "main_address",
-   "fieldtype": "Link",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Main Address",
-   "options": "Address"
-  },
-  {
-   "fetch_from": "main_address.state",
-   "fieldname": "state_province",
-   "fieldtype": "Read Only",
-   "label": "State / Province"
-  },
-  {
    "fieldname": "column_break_25",
    "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "main_address.country",
-   "fieldname": "country",
-   "fieldtype": "Read Only",
-   "label": "Country"
   },
   {
    "collapsible": 1,
@@ -312,12 +262,21 @@
    "label": "Address HTML",
    "no_copy": 1,
    "report_hide": 1
+  },
+  {
+   "depends_on": "eval: !doc.__islocal",
+   "fieldname": "contact_html",
+   "fieldtype": "HTML",
+   "label": "Contact HTML",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-08 14:43:07.177223",
+ "modified": "2021-02-09 20:12:31.381174",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

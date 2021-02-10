@@ -11,8 +11,8 @@ from frappe.model.document import Document
 
 class StaffCalendar(Document):
 
-    def __setup__(self):
-            self.onload()
+    	def __setup__(self):
+            	self.onload()
 
 	def onload(self):
 		if not self.weekend_color:

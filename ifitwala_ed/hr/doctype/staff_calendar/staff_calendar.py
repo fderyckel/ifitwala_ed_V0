@@ -10,9 +10,15 @@ from frappe.utils import getdate, today, formatdate, cint, date_diff
 from frappe.model.document import Document
 
 class StaffCalendar(Document):
+
+    def __setup__(self):
+            self.onload()
+
 	def onload(self):
 		if not self.weekend_color:
 			self.weekend_color = frappe.get_single("Education Settings").default_weekend_color
+		if not self.break_color:
+			self.breaks_color = frappe.get_single("Education Settings").default_breaks_color			
 
 	def validate(self):
 		#ay = frappe.get_doc("Academic Year", self.academic_year)

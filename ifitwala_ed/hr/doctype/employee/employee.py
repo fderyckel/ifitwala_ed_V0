@@ -14,9 +14,9 @@ from frappe.contacts.address_and_contact import load_address_and_contact
 class EmployeeUserDisabledError(frappe.ValidationError): pass
 class EmployeeLeftValidationError(frappe.ValidationError): pass
 
-class Employee(Document):
-    def onload(self):
-        load_address_and_contact(self)
+class Employee(Document): 
+	def onload(self): 
+		load_address_and_contact(self)
 
 	def validate(self):
 		from ifitwala_ed.controllers.status_updater import validate_status

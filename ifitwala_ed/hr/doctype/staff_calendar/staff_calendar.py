@@ -17,7 +17,7 @@ class StaffCalendar(Document):
         if not self.weekend_color:
             self.weekend_color = frappe.get_single("Education Settings").default_weekend_color
         if not self.break_color:
-            self.breaks_color = frappe.get_single("Education Settings").default_breaks_color
+            self.breaks_color = frappe.get_single("Education Settings").default_break_color
 
     def validate(self):
         self.validate_days()

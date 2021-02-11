@@ -14,18 +14,18 @@ class StaffCalendar(Document):
         self.onload()
 
     def onload(self):
-		if not self.weekend_color:
-			self.weekend_color = frappe.get_single("Education Settings").default_weekend_color
-		if not self.break_color:
-			self.breaks_color = frappe.get_single("Education Settings").default_breaks_color
+        if not self.weekend_color:
+            self.weekend_color = frappe.get_single("Education Settings").default_weekend_color
+        if not self.break_color:
+            self.breaks_color = frappe.get_single("Education Settings").default_breaks_color
 
-	def validate(self):
+    def validate(self):
 		self.validate_days()
 		self.total_holidays = len(self.holidays)
 		self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays + 1
 
 	#logic for the button (with button id name)
-	def get_weekly_off_dates(self):
+    def get_weekly_off_dates(self):
 		self.validate_values()
 		date_list = self.get_weekly_off_dates_list(self.from_date, self.to_date)
 		last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
@@ -37,7 +37,7 @@ class StaffCalendar(Document):
 			ch.weekly_off = 1
 			ch.idx = last_idx + i + 1
 
-	def get_long_break_dates(self):
+    def get_long_break_dates(self):
 		self.validate_break_values()
 		date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)
 		last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])

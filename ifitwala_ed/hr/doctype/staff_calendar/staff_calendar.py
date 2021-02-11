@@ -10,7 +10,6 @@ from frappe.utils import getdate, today, formatdate, cint, date_diff
 from frappe.model.document import Document
 
 class StaffCalendar(Document):
-
     	def __setup__(self):
             	self.onload()
 
@@ -21,7 +20,6 @@ class StaffCalendar(Document):
 			self.breaks_color = frappe.get_single("Education Settings").default_breaks_color			
 
 	def validate(self):
-		#ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_days()
 		self.total_holidays = len(self.holidays)
 		self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays + 1

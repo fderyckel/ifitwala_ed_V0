@@ -22,7 +22,8 @@ def execute(filters=None):
 
 	for s in students:
 		yo = student_details.get(s.student)
-		row = [s.group_roll_number, s.student, s.student_name, yo.get("student_mobile_number")]
+		row = [s.group_roll_number, s.student, s.student_name, yo.get("student_mobile_number"), yo.get("address"),
+				yo.get("state"), yo.get("pincode"), yo.get("country")]
 
 		data.append(row)
 

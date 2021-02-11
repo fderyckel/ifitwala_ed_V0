@@ -18,6 +18,7 @@ def execute(filters=None):
 		return columns, []
 
 	student_details = get_student_details(student_list)
+	guardian_details = get_guardian_details(student_list)
 
 	for s in students:
 		yo = student_details.get(s.student)
@@ -53,6 +54,30 @@ def get_columns(fitlers=None):
 				"fieldname": "student_mobile_number",
 				"fieldtype": "Data",
 				"width": 100
+			},
+			{
+				"label": _("Student Address"),
+				"fieldname": "address",
+				"fieldtype": "Data",
+				"width": 250
+			},
+			{
+				"label": _("Student State"),
+				"fieldname": "state",
+				"fieldtype": "Data",
+				"width": 50
+			},
+			{
+				"label": _("Student ZIP"),
+				"fieldname": "pincode",
+				"fieldtype": "Data",
+				"width": 50
+			},
+			{
+				"label": _("Student Country"),
+				"fieldname": "country",
+				"fieldtype": "Data",
+				"width": 150
 			}
 	]
 
@@ -60,12 +85,38 @@ def get_columns(fitlers=None):
 
 def get_student_details(student_list):
 	student_map = frappe._dict()
-	student_details = frappe.db.sql("""SELECT name, student_full_name, student_mobile_number FROM `tabStudent` WHERE name in (%s)""" %
-		', '.join(['%s']*len(student_list)), tuple(student_list), as_dict=1)
+	student_details = frappe.db.sql("""
+			SELECT
+				`tabStudent`.name,
+				`tabStudent`.student_full_name,
+				`tabStudent`.student_email,
+				`tabStudent`.student_mobile_number,
+				concat_ws(', ',
+					trim(',' from `tabAddress`.address_line1),
+					trim(',' from `tabAddress`.address_line2)
+					) AS address,
+				`tabAddress`.state,
+				`tabAddress`.pincode,
+				`tabAddress`.country
+			FROM
+				`tabStudent` left join `tabDynamic Link` on (
+				`tabStudent`.name = `tabDynamic Link`.link_name and
+				`tabDynamic Link`.parenttype = 'Address')
+				left join `tabAddress` on (`tabAddress`.name=`tabDynamic Link`.parent) """, as_dict=1)
 	for s in student_details:
 		student = frappe._dict()
 		student["student_full_name"] = s.student_full_name
 		student["student_mobile_number"] = s.student_mobile_number
+		student.["address"] = s.address
+		student.["state"] = s.state
+		student.["pincode"]= s.pincode
+		student.["country"] = s.country
 		student_map[s.name] = student
 
 	return student_map
+
+def get_guardian_details(student_list):
+	guardian_map = frappe._dict()
+	guardian_details = frappe.db.sql("""SELECT parent, guardian, guardian_name, relation FROM `tabStudent Guardian` WHERE parent in (%s)""" %
+		', '.join(['%s']*len(student_list)), tuple(student_list), as_dict=1)
+	guardian_list = list(set([g.guardian for g in guardian_details])) or ['']

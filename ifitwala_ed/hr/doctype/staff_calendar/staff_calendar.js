@@ -3,9 +3,9 @@
 
 frappe.ui.form.on('Staff Calendar', {
 	onload: function(frm) {
-		if (frm.is_new || frm.__islocal) {
-			frm.set_value('weekend_color', frm.__onload.weekend_color);
-			frm.set_value('breaks_color', frm.__onload.breaks_color);
+		if (frm.doc.__onload) {
+			frm.set_value('weekend_color', frm.doc.__onload.weekend_color);
+			frm.set_value('breaks_color', frm.doc.__onload.breaks_color);
 		}
 	},
 

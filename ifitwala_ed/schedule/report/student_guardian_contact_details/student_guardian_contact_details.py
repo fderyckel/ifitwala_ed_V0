@@ -107,10 +107,10 @@ def get_student_details(student_list):
 		student = frappe._dict()
 		student["student_full_name"] = s.student_full_name
 		student["student_mobile_number"] = s.student_mobile_number
-		student.["address"] = s.address
-		student.["state"] = s.state
-		student.["pincode"]= s.pincode
-		student.["country"] = s.country
+		student["address"] = s.address
+		student["state"] = s.state
+		student["pincode"]= s.pincode
+		student["country"] = s.country
 		student_map[s.name] = student
 
 	return student_map

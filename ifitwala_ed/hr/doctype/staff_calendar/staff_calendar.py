@@ -92,24 +92,24 @@ class StaffCalendar(Document):
         if not (getdate(self.from_date) <= getdate(self.start_of_break) <= getdate(self.to_date)) or not (getdate(self.from_date) <= getdate(self.end_of_break) <= getdate(self.to_date)):
             frappe.throw(_("The start and end of the break have to be within the start and end of the calendar."))
 
-	def get_long_break_dates_list(self, start_date, end_date):
-		start_date, end_date = getdate(start_date), getdate(end_date)
+    def get_long_break_dates_list(self, start_date, end_date):
+        start_date, end_date = getdate(start_date), getdate(end_date)
 
-		from dateutil import relativedelta
-		from datetime import timedelta
-		import calendar
+        from dateutil import relativedelta
+        from datetime import timedelta
+        import calendar
 
-		date_list = []
-		existing_date_list = []
-		reference_date = start_date
-		existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
+        date_list = []
+        existing_date_list = []
+        reference_date = start_date
+        existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
 
-		while reference_date <= end_date:
-			if reference_date not in existing_date_list:
-				date_list.append(reference_date)
-			reference_date += timedelta(days = 1)
+        while reference_date <= end_date:
+            if reference_date not in existing_date_list:
+                date_list.append(reference_date)
+            reference_date += timedelta(days = 1)
 
-		return date_list
+        return date_list
 
 
 @frappe.whitelist()

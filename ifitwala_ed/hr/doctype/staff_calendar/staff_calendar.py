@@ -20,9 +20,9 @@ class StaffCalendar(Document):
             self.breaks_color = frappe.get_single("Education Settings").default_breaks_color
 
     def validate(self):
-		self.validate_days()
-		self.total_holidays = len(self.holidays)
-		self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays + 1
+        self.validate_days()
+        self.total_holidays = len(self.holidays)
+        self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays + 1
 
 	#logic for the button (with button id name)
     def get_weekly_off_dates(self):
@@ -48,21 +48,21 @@ class StaffCalendar(Document):
 			ch.holiday_date = d
 			ch.idx = last_idx + i + 1
 
-	# logic for the button "clear_table"
-	def clear_table(self):
-		self.set("holidays", [])
+    # logic for the button "clear_table"
+    def clear_table(self):
+        self.set("holidays", [])
 
-	def validate_days(self):
-		if getdate(self.from_date) > getdate(self.to_date):
-			frappe.throw(_("From Date cannot be after To Date. Please adjust the date."))
+    def validate_days(self):
+        if getdate(self.from_date) > getdate(self.to_date):
+            frappe.throw(_("From Date cannot be after To Date. Please adjust the date."))
 
-		for day in self.get("holidays"):
-			if not (getdate(self.from_date) <= getdate(day.holiday_date) <= getdate(self.to_date)):
-				frappe.throw(_("The holiday on {0} should be between From Date and To Date.").format(formatdate(day.holiday_date)))
+        for day in self.get("holidays"):
+            if not (getdate(self.from_date) <= getdate(day.holiday_date) <= getdate(self.to_date)):
+                frappe.throw(_("The holiday on {0} should be between From Date and To Date.").format(formatdate(day.holiday_date)))
 
-	def validate_values(self):
-		if not self.weekly_off:
-			frappe.throw(_("Please select first the weekly off days."))
+    def validate_values(self):
+        if not self.weekly_off:
+            frappe.throw(_("Please select first the weekly off days."))
 
 	def get_weekly_off_dates_list(self, start_date, end_date):
 		start_date, end_date = getdate(start_date), getdate(end_date)

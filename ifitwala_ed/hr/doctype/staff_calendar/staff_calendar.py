@@ -14,8 +14,8 @@ class StaffCalendar(Document):
     def onload(self):
         weekend_color = frappe.get_single("Education Settings").default_weekend_color
         self.set_onload("weekend_color", weekend_color)
-        break_color = frappe.get_single("Education Settings").default_break_color
-        self.set_onload("breaks_color", break_color)
+        breaks_color = frappe.get_single("Education Settings").default_break_color
+        self.set_onload("breaks_color", breaks_color)
 
     def validate(self):
         self.validate_days()

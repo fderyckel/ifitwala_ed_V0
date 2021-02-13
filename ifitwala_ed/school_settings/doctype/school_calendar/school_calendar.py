@@ -34,22 +34,22 @@ class SchoolCalendar(Document):
             self.append("terms", {"term": term.term, "start": term.start, "end": term.end, "length": date_diff(getdate(term.end), getdate(term.start))})
 
     def validate_dates(self):
-		ay = frappe.get_doc("Academic Year", self.academic_year)
-		for day in self.get("holidays"):
-			if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
-				frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
+        ay = frappe.get_doc("Academic Year", self.academic_year)
+        for day in self.get("holidays"):
+            if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
+                frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
 
     def get_long_break_dates(self):
-		ay = frappe.get_doc("Academic Year", self.academic_year)
-		self.validate_break_dates()
-		date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)
-		last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
-		for i, d in enumerate(date_list):
-			ch = self.append("holidays", {})
-			ch.description = self.break_description if self.break_description else "Break"
-			ch.color = self.break_color if self.break_color else ""
-			ch.holiday_date = d
-			ch.idx = last_idx + i + 1
+        ay = frappe.get_doc("Academic Year", self.academic_year)
+        self.validate_break_dates()
+        date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)
+        last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
+        for i, d in enumerate(date_list):
+            ch = self.append("holidays", {})
+            ch.description = self.break_description if self.break_description else "Break"
+            ch.color = self.break_color if self.break_color else ""
+            ch.holiday_date = d
+            ch.idx = last_idx + i + 1
 
     def get_weekly_off_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
@@ -66,16 +66,16 @@ class SchoolCalendar(Document):
 
 	# logic for the button "clear_table"
     def clear_table(self):
-		self.set("holidays", [])
+        self.set("holidays", [])
 
     def validate_break_dates(self):
-		ay = frappe.get_doc("Academic Year", self.academic_year)
-		if not self.start_of_break and not self.end_of_break:
-			frappe.throw(_("Please select first the start and end of your break."))
-		if getdate(self.start_of_break) > getdate(self.end_of_break):
-			frappe.throw(_("The start of the break cannot be after its end. Adjust the dates."))
-		if not (getdate(ay.year_start_date) <= getdate(self.start_of_break) <= getdate(ay.year_end_date)) or not (getdate(ay.year_start_date) <= getdate(self.end_of_break) <= getdate(ay.year_end_date)):
-			frappe.throw(_("The holiday called {0} should be within your academic year {1} dates.").format(self.break_description, get_link_to_form("Academic Year", self.academic_year)))
+        ay = frappe.get_doc("Academic Year", self.academic_year)
+        if not self.start_of_break and not self.end_of_break:
+            frappe.throw(_("Please select first the start and end of your break."))
+        if getdate(self.start_of_break) > getdate(self.end_of_break):
+            frappe.throw(_("The start of the break cannot be after its end. Adjust the dates."))
+        if not (getdate(ay.year_start_date) <= getdate(self.start_of_break) <= getdate(ay.year_end_date)) or not (getdate(ay.year_start_date) <= getdate(self.end_of_break) <= getdate(ay.year_end_date)):
+            frappe.throw(_("The holiday called {0} should be within your academic year {1} dates.").format(self.break_description, get_link_to_form("Academic Year", self.academic_year)))
 
     def get_long_break_dates_list(self, start_date, end_date):
 		start_date, end_date = getdate(start_date), getdate(end_date)

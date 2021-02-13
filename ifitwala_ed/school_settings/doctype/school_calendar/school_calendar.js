@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('School Calendar', {
-  refresh: function(frm) {
+  onload: function(frm) {
 
     if (frm.doc.school) {
       frm.set_query('academic_year', function() {
@@ -10,7 +10,7 @@ frappe.ui.form.on('School Calendar', {
           'filters': {
             'school': (frm.doc.school)
           }
-        }
+        };
       });
     }
   },

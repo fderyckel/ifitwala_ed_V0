@@ -22,7 +22,7 @@
   "get_long_break_dates",
   "column_break_12",
   "end_of_break",
-  "breaks_color",
+  "break_color",
   "add_weekly_holidays_section",
   "weekly_off",
   "get_weekly_off_dates",
@@ -166,14 +166,14 @@
    "label": "Weekend Color"
   },
   {
-   "fieldname": "breaks_color",
+   "fieldname": "break_color",
    "fieldtype": "Color",
-   "label": "Breaks Color"
+   "label": "Break Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-05 09:59:28.129552",
+ "modified": "2021-02-13 09:51:20.354225",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",

@@ -17,13 +17,13 @@ class SchoolCalendar(Document):
         self.set_onload("break_color", break_color)
 
     def validate(self):
-		if not self.terms:
-			self.extend("terms", self.get_terms())
-		ay = frappe.get_doc("Academic Year", self.academic_year)
-		self.validate_dates()
-		self.total_holiday_days = len(self.holidays)
-		self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date)
-		self.total_instruction_days = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
+        if not self.terms:
+            self.extend("terms", self.get_terms())
+        ay = frappe.get_doc("Academic Year", self.academic_year)
+        self.validate_dates()
+        self.total_holiday_days = len(self.holidays)
+        self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date)
+        self.total_instruction_days = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
 
     def get_terms(self):
         self.terms = []
@@ -52,17 +52,17 @@ class SchoolCalendar(Document):
             ch.idx = last_idx + i + 1
 
     def get_weekly_off_dates(self):
-		ay = frappe.get_doc("Academic Year", self.academic_year)
-		self.validate_values()
-		date_list = self.get_weekly_off_dates_list(ay.year_start_date, ay.year_end_date)
-		last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
-		for i, d in enumerate(date_list):
-			ch = self.append("holidays", {})
-			ch.description = self.weekly_off
-			ch.holiday_date = d
-			ch.color = self.weekend_color if self.weekend_color else ""
-			ch.weekly_off = 1
-			ch.idx = last_idx + i + 1
+        ay = frappe.get_doc("Academic Year", self.academic_year)
+        self.validate_values()
+        date_list = self.get_weekly_off_dates_list(ay.year_start_date, ay.year_end_date)
+        last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
+        for i, d in enumerate(date_list):
+            ch = self.append("holidays", {})
+            ch.description = self.weekly_off
+            ch.holiday_date = d
+            ch.color = self.weekend_color if self.weekend_color else ""
+            ch.weekly_off = 1
+            ch.idx = last_idx + i + 1
 
 	# logic for the button "clear_table"
     def clear_table(self):
@@ -78,47 +78,48 @@ class SchoolCalendar(Document):
             frappe.throw(_("The holiday called {0} should be within your academic year {1} dates.").format(self.break_description, get_link_to_form("Academic Year", self.academic_year)))
 
     def get_long_break_dates_list(self, start_date, end_date):
-		start_date, end_date = getdate(start_date), getdate(end_date)
+        start_date, end_date = getdate(start_date), getdate(end_date)
 
-		from datetime import timedelta
-		import calendar
+        from datetime import timedelta
+        import calendar
 
-		date_list = []
-		existing_date_list = []
-		reference_date = start_date
-		existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
+        date_list = []
+        existing_date_list = []
 
-		while reference_date <= end_date:
-			if reference_date not in existing_date_list:
-				date_list.append(reference_date)
-			reference_date += timedelta(days = 1)
+        reference_date = start_date
+        existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
 
-		return date_list
+        while reference_date <= end_date:
+            if reference_date not in existing_date_list:
+                date_list.append(reference_date)
+            reference_date += timedelta(days = 1)
+
+        return date_list
 
     def validate_values(self):
-		if not self.weekly_off:
-			frappe.throw(_("Please select first the weekly off days."))
+        if not self.weekly_off:
+            frappe.throw(_("Please select first the weekly off days."))
 
     def get_weekly_off_dates_list(self, start_date, end_date):
-		start_date, end_date = getdate(start_date), getdate(end_date)
+        start_date, end_date = getdate(start_date), getdate(end_date)
 
-		from dateutil import relativedelta
-		from datetime import timedelta
-		import calendar
+        from dateutil import relativedelta
+        from datetime import timedelta
+        import calendar
 
-		date_list = []
-		existing_date_list = []
+        date_list = []
+        existing_date_list = []
 
-		weekday = getattr(calendar, (self.weekly_off).upper())
-		reference_date = start_date + relativedelta.relativedelta(weekday = weekday)
-		existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
+        weekday = getattr(calendar, (self.weekly_off).upper())
+        reference_date = start_date + relativedelta.relativedelta(weekday = weekday)
+        existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
 
-		while reference_date <= end_date:
-			if reference_date not in existing_date_list:
-				date_list.append(reference_date)
-			reference_date += timedelta(days = 7)
+        while reference_date <= end_date: 
+            if reference_date not in existing_date_list:
+                date_list.append(reference_date)
+            reference_date += timedelta(days = 7)
 
-		return date_list
+        return date_list
 
 
 @frappe.whitelist()

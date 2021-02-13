@@ -43,7 +43,7 @@ class SchoolCalendar(Document):
 		for i, d in enumerate(date_list):
 			ch = self.append("holidays", {})
 			ch.description = self.break_description if self.break_description else "Break"
-			ch.color = self.breaks_color if self.breaks_color else ""
+			ch.color = self.break_color if self.break_color else ""
 			ch.holiday_date = d
 			ch.idx = last_idx + i + 1
 

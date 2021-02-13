@@ -11,12 +11,6 @@ from frappe.model.document import Document
 
 class StaffCalendar(Document):
 
-    def onload(self):
-        weekend_color = frappe.get_single("Education Settings").default_weekend_color
-        self.set_onload("weekend_color", weekend_color)
-        breaks_color = frappe.get_single("Education Settings").default_break_color
-        self.set_onload("breaks_color", breaks_color)
-
     def validate(self):
         self.validate_days()
         self.total_holidays = len(self.holidays)
@@ -42,7 +36,7 @@ class StaffCalendar(Document):
         for i, d in enumerate(date_list):
             ch = self.append("holidays", {})
             ch.description = self.break_description if self.break_description else "Break"
-            ch.color = self.breaks_color if self.breaks_color else ""
+            ch.color = self.break_color if self.break_color else ""
             ch.holiday_date = d
             ch.idx = last_idx + i + 1
 

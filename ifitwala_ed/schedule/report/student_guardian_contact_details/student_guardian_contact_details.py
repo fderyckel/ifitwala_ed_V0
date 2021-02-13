@@ -42,7 +42,7 @@ def get_columns(fitlers=None):
 				"fieldname": "student",
 				"fieldtype": "Link",
 				"options": "Student",
-				"width": 80
+				"width": 120
 			},
 			{
 				"label": _("Student Name"),
@@ -51,10 +51,10 @@ def get_columns(fitlers=None):
 				"width": 150
 			},
 			{
-				"label": _("Student Mobile"),
+				"label": _("Mobile"),
 				"fieldname": "student_mobile_number",
 				"fieldtype": "Data",
-				"width": 100
+				"width": 120
 			},
 			{
 				"label": _("Student Address"),
@@ -63,22 +63,22 @@ def get_columns(fitlers=None):
 				"width": 250
 			},
 			{
-				"label": _("Student State"),
+				"label": _("State"),
 				"fieldname": "state",
 				"fieldtype": "Data",
 				"width": 50
 			},
 			{
-				"label": _("Student ZIP"),
+				"label": _("ZIP code"),
 				"fieldname": "pincode",
 				"fieldtype": "Data",
 				"width": 50
 			},
 			{
-				"label": _("Student Country"),
+				"label": _("Country"),
 				"fieldname": "country",
 				"fieldtype": "Data",
-				"width": 150
+				"width": 120
 			}
 	]
 

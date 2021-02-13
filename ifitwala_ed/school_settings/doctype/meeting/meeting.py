@@ -58,7 +58,7 @@ class Meeting(Document):
 			"status": "Open",
 			"event_category": "Meeting",
 			"event_type": "Private",
-			"color": default_color.default_calendar_meeting_color,
+			"color": default_color.meeting_color,
 			"participants":[dict(participant = self.meeting_organizer)]
 		})
 		for attendee in self.attendees:
@@ -91,7 +91,7 @@ class Meeting(Document):
 						"owner": minute.assigned_to,
 						"assigned_by": self.meeting_organizer,
 						"date": minute.completed_by,
-						"color": default_color.default_todo_meeting_color
+						"color": default_color.todo_color
 						})
 					todo.insert()
 					minute.db_set("todo", todo.name, update_modified = False)

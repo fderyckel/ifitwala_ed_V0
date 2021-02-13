@@ -2,12 +2,6 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Staff Calendar', {
-	onload: function(frm) {
-		if (frm.doc.__onload) {
-			frm.set_value('weekend_color', frm.doc.__onload.weekend_color);
-			frm.set_value('breaks_color', frm.doc.__onload.breaks_color);
-		}
-	},
 
 	refresh: function(frm) {
     if(frm.doc.holidays) {

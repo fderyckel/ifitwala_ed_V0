@@ -26,15 +26,12 @@ class SchoolCalendar(Document):
 		self.total_instruction_days = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
 
     def get_terms(self):
-			self.terms = []
-			terms = frappe.get_list("Academic Term", filters = {"academic_year":self.academic_year}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
-            if not terms:
-                frappe.throw(_("You need to add at least one term for this academic year {0}.").format(get_link_to_form("Academic Year", self.academic_year)))
-			for term in terms:
-				self.append("terms", {
-					"term": term.term, "start": term.start, "end": term.end,
-					"length": date_diff(getdate(term.end), getdate(term.start))
-				})
+        self.terms = []
+        terms = frappe.get_list("Academic Term", filters = {"academic_year":self.academic_year}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
+        if not terms:
+            frappe.throw(_("You need to add at least one term for this academic year {0}.").format(get_link_to_form("Academic Year", self.academic_year)))
+        for term in terms:
+            self.append("terms", {"term": term.term, "start": term.start, "end": term.end, "length": date_diff(getdate(term.end), getdate(term.start))})
 
     def validate_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)

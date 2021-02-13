@@ -4,8 +4,7 @@
 frappe.ui.form.on('School Calendar', {
   onload: function(frm) {
 		if (frm.doc.__onload.weekend_color) {
-			frm.set_value('weekend_color', frm.doc.weekend_color);
-			frm.set_value('break_color', frm.doc.__onload.break_color);
+			frm.set_value('weekend_color', frm.doc.__onload.weekend_color);
 		},
 
     if (frm.doc.school) {

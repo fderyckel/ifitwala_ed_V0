@@ -13,7 +13,7 @@ class SchoolCalendar(Document):
     def onload(self):
         weekend_color = frappe.get_single("Education Settings").weekend_color
         self.set_onload("weekend_color", weekend_color)
-        breaks_color = frappe.get_single("Education Settings").break_color
+        break_color = frappe.get_single("Education Settings").break_color
         self.set_onload("break_color", break_color)
 
     def validate(self):
@@ -114,7 +114,7 @@ class SchoolCalendar(Document):
         reference_date = start_date + relativedelta.relativedelta(weekday = weekday)
         existing_date_list = [getdate(holiday.holiday_date) for holiday in self.get("holidays")]
 
-        while reference_date <= end_date: 
+        while reference_date <= end_date:
             if reference_date not in existing_date_list:
                 date_list.append(reference_date)
             reference_date += timedelta(days = 7)

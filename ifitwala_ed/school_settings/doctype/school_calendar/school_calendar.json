@@ -21,7 +21,7 @@
   "get_long_break_dates",
   "column_break_14",
   "end_of_break",
-  "breaks_color",
+  "break_color",
   "add_weekends_section",
   "weekly_off",
   "get_weekly_off_dates",
@@ -140,11 +140,6 @@
    "options": "Holiday"
   },
   {
-   "fieldname": "breaks_color",
-   "fieldtype": "Color",
-   "label": "Breaks Color"
-  },
-  {
    "fieldname": "weekly_off",
    "fieldtype": "Select",
    "label": "Weekly Off",
@@ -175,11 +170,16 @@
    "in_list_view": 1,
    "label": "Total Instruction Days",
    "read_only": 1
+  },
+  {
+   "fieldname": "break_color",
+   "fieldtype": "Color",
+   "label": "Breaks Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-05 20:35:38.301293",
+ "modified": "2021-02-13 09:42:02.008474",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

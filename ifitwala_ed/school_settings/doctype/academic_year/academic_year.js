@@ -3,6 +3,12 @@
 
 frappe.ui.form.on('Academic Year', {
 	refresh: function(frm) {
+		if (!frm.doc.islocal) {
+			frm.add_custom_button(__('Create school Calendar'), function() {
+				frappe.route_options = { 'school': 'school', 'academic_year': 'title'};
+				frappe.set_route('Form', 'School Calendar');
+			});
+		}
 	},
 
 	year_start_date: function(frm) {

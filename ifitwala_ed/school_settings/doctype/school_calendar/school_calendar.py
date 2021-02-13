@@ -10,11 +10,11 @@ from frappe.utils import get_link_to_form, today, getdate, formatdate, date_diff
 from frappe.model.document import Document
 
 class SchoolCalendar(Document):
-        def onload(self):
-                weekend_color = frappe.get_single("Education Settings").weekend_color
-                self.set_onload("weekend_color", weekend_color)
-                breaks_color = frappe.get_single("Education Settings").break_color
-                self.set_onload("break_color", break_color)
+    def onload(self):
+        weekend_color = frappe.get_single("Education Settings").weekend_color
+        self.set_onload("weekend_color", weekend_color)
+        breaks_color = frappe.get_single("Education Settings").break_color
+        self.set_onload("break_color", break_color)
 
 	def validate(self):
 		if not self.terms:
@@ -29,7 +29,7 @@ class SchoolCalendar(Document):
 			self.terms = []
 			terms = frappe.get_list("Academic Term", filters = {"academic_year":self.academic_year}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
             if not terms:
-                frappe.throw(_("Your academic year should have at least one term."))
+                frappe.throw(_("You need to add at least one term for this academic year {0}.").format(get_link_to_form("Academic Year", self.academic_year)))
 			for term in terms:
 				self.append("terms", {
 					"term": term.term, "start": term.start, "end": term.end,

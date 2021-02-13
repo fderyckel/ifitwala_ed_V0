@@ -16,7 +16,7 @@ class SchoolCalendar(Document):
         breaks_color = frappe.get_single("Education Settings").break_color
         self.set_onload("break_color", break_color)
 
-	def validate(self):
+    def validate(self):
 		if not self.terms:
 			self.extend("terms", self.get_terms())
 		ay = frappe.get_doc("Academic Year", self.academic_year)
@@ -25,7 +25,7 @@ class SchoolCalendar(Document):
 		self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date)
 		self.total_instruction_days = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
 
-	def get_terms(self):
+    def get_terms(self):
 			self.terms = []
 			terms = frappe.get_list("Academic Term", filters = {"academic_year":self.academic_year}, fields=["name as term", "term_start_date as start", "term_end_date as end"])
             if not terms:
@@ -36,13 +36,13 @@ class SchoolCalendar(Document):
 					"length": date_diff(getdate(term.end), getdate(term.start))
 				})
 
-	def validate_dates(self):
+    def validate_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
 		for day in self.get("holidays"):
 			if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
 				frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
 
-	def get_long_break_dates(self):
+    def get_long_break_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_break_dates()
 		date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)
@@ -54,7 +54,7 @@ class SchoolCalendar(Document):
 			ch.holiday_date = d
 			ch.idx = last_idx + i + 1
 
-	def get_weekly_off_dates(self):
+    def get_weekly_off_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
 		self.validate_values()
 		date_list = self.get_weekly_off_dates_list(ay.year_start_date, ay.year_end_date)
@@ -68,10 +68,10 @@ class SchoolCalendar(Document):
 			ch.idx = last_idx + i + 1
 
 	# logic for the button "clear_table"
-	def clear_table(self):
+    def clear_table(self):
 		self.set("holidays", [])
 
-	def validate_break_dates(self):
+    def validate_break_dates(self):
 		ay = frappe.get_doc("Academic Year", self.academic_year)
 		if not self.start_of_break and not self.end_of_break:
 			frappe.throw(_("Please select first the start and end of your break."))
@@ -80,7 +80,7 @@ class SchoolCalendar(Document):
 		if not (getdate(ay.year_start_date) <= getdate(self.start_of_break) <= getdate(ay.year_end_date)) or not (getdate(ay.year_start_date) <= getdate(self.end_of_break) <= getdate(ay.year_end_date)):
 			frappe.throw(_("The holiday called {0} should be within your academic year {1} dates.").format(self.break_description, get_link_to_form("Academic Year", self.academic_year)))
 
-	def get_long_break_dates_list(self, start_date, end_date):
+    def get_long_break_dates_list(self, start_date, end_date):
 		start_date, end_date = getdate(start_date), getdate(end_date)
 
 		from datetime import timedelta
@@ -98,11 +98,11 @@ class SchoolCalendar(Document):
 
 		return date_list
 
-	def validate_values(self):
+    def validate_values(self):
 		if not self.weekly_off:
 			frappe.throw(_("Please select first the weekly off days."))
 
-	def get_weekly_off_dates_list(self, start_date, end_date):
+    def get_weekly_off_dates_list(self, start_date, end_date):
 		start_date, end_date = getdate(start_date), getdate(end_date)
 
 		from dateutil import relativedelta

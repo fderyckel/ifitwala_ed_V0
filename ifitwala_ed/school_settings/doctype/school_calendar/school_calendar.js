@@ -3,7 +3,7 @@
 
 frappe.ui.form.on('School Calendar', {
   onload: function(frm) {
-    frm.set_value('break_color', frm.doc.__onload.break_color);
+
     if (frm.doc.school) {
       frm.set_query('academic_year', function() {
         return {
@@ -18,6 +18,7 @@ frappe.ui.form.on('School Calendar', {
   refresh: function(frm) {
 		if (frm.doc.__onload) {
 			frm.set_value('weekend_color', frm.doc.__onload.weekend_color);
+      frm.set_value('break_color', frm.doc.__onload.break_color);
 		}
   },
 

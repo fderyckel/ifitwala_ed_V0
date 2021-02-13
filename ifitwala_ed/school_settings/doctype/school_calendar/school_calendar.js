@@ -18,7 +18,7 @@ frappe.ui.form.on('School Calendar', {
   refresh: function(frm) {
 		if (frm.doc.__onload) {
 			frm.set_value('weekend_color', frm.doc.__onload.weekend_color);
-		},
+		}
   },
 
   academic_year: function(frm) {

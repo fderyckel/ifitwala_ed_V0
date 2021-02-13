@@ -11,12 +11,12 @@
   "attendance_freeze_date",
   "default_school",
   "meetings_section",
-  "default_calendar_meeting_color",
-  "default_weekend_color",
-  "default_course_color",
+  "meeting_color",
+  "weekend_color",
+  "course_color",
   "column_break_8",
-  "default_todo_meeting_color",
-  "default_break_color",
+  "todo_color",
+  "break_color",
   "course_management_section",
   "enable_cms",
   "cms_title",
@@ -80,36 +80,36 @@
    "label": "Calendar Colors"
   },
   {
-   "default": "#ffc4c4",
-   "description": "Default color when an assignment (todo) is created from a meeting. ",
-   "fieldname": "default_todo_meeting_color",
-   "fieldtype": "Color",
-   "label": "Default Todo Meeting Color"
-  },
-  {
    "fieldname": "column_break_8",
    "fieldtype": "Column Break"
   },
   {
    "default": "#a4f3dd",
    "description": "Default color when a calendar event is created from a meeting. ",
-   "fieldname": "default_calendar_meeting_color",
+   "fieldname": "meeting_color",
    "fieldtype": "Color",
    "label": "Default Calendar Meeting Color"
   },
   {
-   "default": "#dac7ff",
-   "fieldname": "default_course_color",
-   "fieldtype": "Color",
-   "label": "Default Course Color"
-  },
-  {
-   "fieldname": "default_weekend_color",
+   "fieldname": "weekend_color",
    "fieldtype": "Color",
    "label": "Default Weekend Color"
   },
   {
-   "fieldname": "default_break_color",
+   "default": "#dac7ff",
+   "fieldname": "course_color",
+   "fieldtype": "Color",
+   "label": "Default Course Color"
+  },
+  {
+   "default": "#ffc4c4",
+   "description": "Default color when an assignment (todo) is created from a meeting. ",
+   "fieldname": "todo_color",
+   "fieldtype": "Color",
+   "label": "Default Todo Meeting Color"
+  },
+  {
+   "fieldname": "break_color",
    "fieldtype": "Color",
    "label": "Default Break Color"
   }
@@ -117,7 +117,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-02-05 18:26:51.983443",
+ "modified": "2021-02-13 09:27:23.504092",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Education Settings",

@@ -29,14 +29,17 @@
  ],
  "fields": [
   {
+   "columns": 2,
    "fieldname": "course_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
+   "in_global_search": 1,
+   "in_standard_filter": 1,
    "label": "Course Name",
    "reqd": 1,
    "unique": 1
   },
   {
+   "columns": 2,
    "fieldname": "school",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -45,6 +48,7 @@
    "options": "School"
   },
   {
+   "columns": 3,
    "fieldname": "department",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -81,7 +85,7 @@
    "description": "Check this box if this course only last a term. ",
    "fieldname": "term_long",
    "fieldtype": "Check",
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Term Long"
   },
   {
@@ -89,6 +93,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 1,
    "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -136,7 +141,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-01-16 19:44:02.701594",
+ "modified": "2021-02-15 21:01:41.652025",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

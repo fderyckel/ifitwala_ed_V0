@@ -50,7 +50,7 @@ frappe.ui.form.on('Student Group', {
 			frm.add_custom_button(__('Add a session'), function() {
 				frappe.route_options = { 'event_category': 'Course', 'event_type': 'Private', 'reference_type': 'Student Group',
 					'reference_name': frm.doc.name};
-				frappe.set_route('Form', 'School Event');
+				frappe.set_route('List', 'School Event');
 			}, __('Tools'));
 
 			frm.add_custom_button(__('Course Scheduling Tool'), function() {

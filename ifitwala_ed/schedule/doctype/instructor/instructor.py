@@ -18,6 +18,10 @@ class Instructor(Document):
 		self.instructor_log = []
 		self.validate_duplicate_employee()
 
+	def after_insert(self):
+		from frappe.utils.user import add_role
+		add_role(self.user_id, "Instructor")
+
 	def validate_duplicate_employee(self):
 		if self.employee and frappe.db.get_value("Instructor", {'employee': self.employee, 'name': ['!=', self.name]}, 'name'):
 			frappe.throw(_("Employee ID is linked with another instructor."))

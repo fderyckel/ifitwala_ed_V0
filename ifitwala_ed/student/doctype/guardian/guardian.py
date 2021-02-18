@@ -46,8 +46,6 @@ class Guardian(Document):
         contact.update({
             "first_name": self.guardian_first_name,
             "last_name": self.guardian_last_name,
-            "salutation": self.salutation,
-            "gender": self.guardian_gender
         })
         if self.salutation:
             contact.append("salutation": self.salutation)
@@ -63,7 +61,7 @@ class Guardian(Document):
 
     def update_links(self):
         if self.contact_doc:
-            self.contact_doc.append("Links", {
+            self.contact_doc.append("links", {
                 "link_doctype": "Guardian",
                 "link_name": self.name,
                 "link_title": self.guardian_full_name

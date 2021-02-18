@@ -45,12 +45,12 @@ class Guardian(Document):
         contact = frappe.get_doc("Contact")
         contact.update({
             "first_name": self.guardian_first_name,
-            "last_name": self.guardian_last_name,
+            "last_name": self.guardian_last_name
         })
         if self.salutation:
-            contact.append("salutation": self.salutation)
+            contact.append({"salutation": self.salutation})
         if self.guardian_gender:
-            contact.append("gender": self.guardian_gender)
+            contact.append({"gender": self.guardian_gender})
         if self.guardian_email:
             contact.append("email_ids", {"email_id": self.guardian_email, "is_primary": 1})
         if self.guardian_mobile_phone:

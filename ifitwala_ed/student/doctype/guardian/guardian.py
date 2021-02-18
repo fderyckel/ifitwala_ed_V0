@@ -32,7 +32,7 @@ class Guardian(Document):
                     })
 
     def before_insert(self):
-        self.contact_doc = self.create_address()
+        self.contact_doc = self.create_contact()
 
     def validate(self):
         self.guardian_full_name = self.guardian_first_name + " " + self.guardian_last_name

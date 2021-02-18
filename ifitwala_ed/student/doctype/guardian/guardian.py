@@ -42,7 +42,7 @@ class Guardian(Document):
         self.update_links()
 
     def create_contact(self):
-        contact = frappe.get_doc("Contact")
+        contact = frappe.new_doc("Contact")
         contact.update({
             "first_name": self.guardian_first_name,
             "last_name": self.guardian_last_name

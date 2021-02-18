@@ -31,10 +31,45 @@ class Guardian(Document):
                             "student_gender": frappe.db.get_value("Student", student.parent, "student_gender")
                     })
 
+    def before_insert(self):
+        self.contact_doc = self.create_address()
 
     def validate(self):
         self.guardian_full_name = self.guardian_first_name + " " + self.guardian_last_name
         self.students = []
+
+    def after_insert(self):
+        self.update_links()
+
+    def create_contact(self):
+        contact = frappe.get_doc("Contact")
+        contact.update({
+            "first_name": self.guardian_first_name,
+            "last_name": self.guardian_last_name,
+            "salutation": self.salutation,
+            "gender": self.guardian_gender
+        })
+        if self.salutation:
+            contact.append("salutation": self.salutation)
+        if self.guardian_gender:
+            contact.append("gender": self.guardian_gender)
+        if self.guardian_email:
+            contact.append("email_ids", {"email_id": self.guardian_email, "is_primary": 1})
+        if self.guardian_mobile_phone:
+            contact.append("phone_nos", {"phone": self.guardian_mobile_phone})
+        contact.insert(ignore_permissions=True)
+
+        return contact
+
+    def update_links(self):
+        if self.contact_doc:
+            self.contact_doc.append("Links", {
+                "link_doctype": "Guardian",
+                "link_name": self.name,
+                "link_title": self.guardian_full_name
+            })
+            self.contact_doc.save()
+
 
 
 # to support the invite_guardian method on the JS side.

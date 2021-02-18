@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.utils.csvutils import getlink
+from frappe.utils import get_link_to_form
 from frappe.model.document import Document
 from frappe.contacts.address_and_contact import load_address_and_contact
 
@@ -80,7 +81,7 @@ def invite_guardian(guardian):
         guardian_as_user = frappe.get_value('User', dict(email = guardian_doc.guardian_email))
         if guardian_as_user:
             # Using msgprint as we do not want to throw an exception.  Just informing the user already exist in the db.
-            frappe.msgprint(_("The user {0} already exists.").format(getlink("User", guardian_as_user)))
+            frappe.msgprint(_("The user {0} already exists.").format(get_link_to_form("User", guardian_as_user)))
         else:
             user = frappe.get_doc({
                 "doctype": "User",

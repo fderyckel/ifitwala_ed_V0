@@ -109,7 +109,7 @@ doc_events = {
     },
 
     "Contact": {
-        "on_update": "iftwala_ed.ifitwala_ed.doctype.blablabla.blablabla.update_profile_from_contact"
+        "on_update": "ifitwala_ed.ifitwala_ed.utils.update_profile_from_contact"
     }
 }
 

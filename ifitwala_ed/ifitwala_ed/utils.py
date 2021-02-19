@@ -4,11 +4,11 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe.model.document import Document
 from frappe import _
 
 
-@frappe.whitelist()
-def update_profile_from_contact(doc, method=None):
+def update_profile_from_contact(doc, method = None):
     """update the main doctype if changes made on Contact DocType. Called by hook.py """
     links = doc.get("links")
     guardian=None

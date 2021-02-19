@@ -36,6 +36,7 @@
   "reports_to",
   "data_19",
   "address_html",
+  "contact_html",
   "column_break_21",
   "emergency_contact_person",
   "section_break_30",
@@ -330,6 +331,15 @@
    "no_copy": 1,
    "print_hide": 1,
    "report_hide": 1
+  },
+  {
+   "depends_on": "eval: !doc.__islocal",
+   "fieldname": "contact_html",
+   "fieldtype": "HTML",
+   "label": "Contact HTML",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
  "image_field": "employee_image",
@@ -339,7 +349,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-02-08 20:24:59.932231",
+ "modified": "2021-02-18 19:38:17.296728",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

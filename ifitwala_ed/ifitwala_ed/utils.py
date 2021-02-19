@@ -21,3 +21,4 @@ def update_profile_from_contact(doc, method = None):
         guardian_doc = frappe.get_doc("Guardian", guardian)
         guardian_doc.salutation = doc.get("salutation")
         guardian_doc.gender = doc.get("gender")
+        guardian_doc.save()

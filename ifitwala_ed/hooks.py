@@ -106,6 +106,9 @@ doc_events = {
     "ToDo": {
         "on_update": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status",
         "on_trash": "ifitwala_ed.school_settings.doctype.meeting.meeting.update_minute_status"
+    },
+    "Contact": {
+        "on_update": "iftwala_ed.ifitwala_ed.utils.update_profile_from_contact"
     }
 }
 

@@ -85,6 +85,7 @@ class Meeting(Document):
 					todo = frappe.get_doc({
 						"doctype": "ToDo",
 						"owner": self.meeting_organizer,
+						"status": "Open", 
 						"description": minute.discussion,
 						"reference_type": self.doctype,
 						"reference_name": self.name,

@@ -34,7 +34,8 @@ def execute(filters=None):
 					row += [g.guardian_name, g.relation, g.mobile_number, g.email_address]
 				else:
 					row += [None, None, None, None]
-
+		else:
+			row += [None, None, None, None, None, None, None, None]
 		data.append(row)
 
 	return columns, data

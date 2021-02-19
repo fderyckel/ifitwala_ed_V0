@@ -50,6 +50,8 @@ class Guardian(Document):
         })
         if self.salutation:
             contact.update({"salutation": self.salutation})
+        if self.user:
+            contact.update({"user": self.user})
         if self.guardian_gender:
             contact.update({"gender": self.guardian_gender})
         if self.guardian_email:

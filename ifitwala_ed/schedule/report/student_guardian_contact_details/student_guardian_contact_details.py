@@ -32,8 +32,8 @@ def execute(filters=None):
 				if i < len(student_guardians):
 					g = student_guardians[i]
 					row += [g.guardian_name, g.relation, g.mobile_number, g.email_address]
-		else:
-			row += [None, None, None, None, None, None, None, None]
+				else:
+					row += [None, None, None, None]
 
 		data.append(row)
 

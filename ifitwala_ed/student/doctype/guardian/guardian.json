@@ -9,11 +9,12 @@
  "engine": "InnoDB",
  "field_order": [
   "salutation",
+  "guardian_full_name",
   "guardian_first_name",
   "guardian_last_name",
   "guardian_gender",
-  "guardian_email",
   "guardian_mobile_phone",
+  "guardian_email",
   "user",
   "guardian_image",
   "column_break_7",
@@ -26,8 +27,7 @@
   "column_break_20",
   "guardian_designation",
   "guardian_work_email",
-  "guardian_work_phone",
-  "guardian_full_name"
+  "guardian_work_phone"
  ],
  "fields": [
   {
@@ -165,7 +165,7 @@
  ],
  "image_field": "guardian_image",
  "links": [],
- "modified": "2021-02-19 09:30:32.224425",
+ "modified": "2021-02-19 12:41:04.605441",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Guardian",

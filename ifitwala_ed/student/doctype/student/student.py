@@ -13,7 +13,7 @@ from frappe.contacts.address_and_contact import load_address_and_contact, delete
 
 class Student(Document):
 	def onload(self):
-		load_address_and_contact(self)	
+		load_address_and_contact(self)
 
 	def validate(self):
 		self.student_full_name = " ".join(filter(None, [self.student_first_name, self.student_middle_name, self.student_last_name]))
@@ -64,6 +64,7 @@ class Student(Document):
 		if not frappe.db.exists("User", self.student_email):
 			student_user = frappe.get_doc({
 				"doctype": "User",
+				"enabled": 1, 
 				"first_name": self.student_first_name,
 				"last_name": self.student_last_name,
 				"email": self.student_email,

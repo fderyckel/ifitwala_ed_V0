@@ -91,3 +91,11 @@ class AcademicYear(Document):
             end_year.insert()
             self.db_set("ay_end", end_year.name)
             frappe.msgprint(_("Date for the end of the year {0} has been created on the School Event Calendar {1}").format(self.year_end_date, get_link_to_form("School Event", end_year.name)))
+
+
+
+@frappe.whitelist()
+def start_school_calendar(**args):
+    args = frappe._dict(args)
+    ref_doc = frappe.get_doc(args.dt, args.dn)
+    

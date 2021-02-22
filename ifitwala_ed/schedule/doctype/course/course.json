@@ -14,9 +14,10 @@
   "department",
   "additional_information_section",
   "exclude_from_report",
+  "exclude_from_transcript",
   "term_long",
   "column_break_8",
-  "exclude_from_transcript",
+  "learning_unit_color",
   "status",
   "section_break_4",
   "hero_image",
@@ -77,7 +78,7 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "Text Editor",
+   "fieldtype": "Small Text",
    "label": "Description"
   },
   {
@@ -137,11 +138,19 @@
    "fieldtype": "Link",
    "label": "Default Grade Scale",
    "options": "Grade Scale"
+  },
+  {
+   "fetch_from": "department.learning_unit_color",
+   "fetch_if_empty": 1,
+   "fieldname": "learning_unit_color",
+   "fieldtype": "Color",
+   "ignore_user_permissions": 1,
+   "label": "Learning Unit Color"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-02-15 21:01:41.652025",
+ "modified": "2021-02-22 14:42:56.709119",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",
@@ -196,7 +205,8 @@
    "read": 1,
    "report": 1,
    "role": "Instructor",
-   "share": 1
+   "share": 1,
+   "write": 1
   },
   {
    "email": 1,

@@ -54,12 +54,13 @@
    "set_only_once": 1
   },
   {
+   "default": "Current",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nCurrent\nDone",
+   "options": "\nCurrent\nRetired",
    "read_only": 1
   },
   {
@@ -77,7 +78,7 @@
   }
  ],
  "links": [],
- "modified": "2020-09-25 23:18:06.034235",
+ "modified": "2021-02-21 20:03:29.748423",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Enrollment",

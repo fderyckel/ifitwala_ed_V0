@@ -19,7 +19,9 @@
   "members",
   "title",
   "dpt_philosophy_section",
-  "philosphy"
+  "philosphy",
+  "settings_section",
+  "learning_unit_color"
  ],
  "fields": [
   {
@@ -99,11 +101,24 @@
    "fieldname": "philosphy",
    "fieldtype": "Text Editor",
    "label": "Philosphy"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "settings_section",
+   "fieldtype": "Section Break",
+   "label": "Settings"
+  },
+  {
+   "default": "#dac7ff",
+   "fetch_if_empty": 1,
+   "fieldname": "learning_unit_color",
+   "fieldtype": "Color",
+   "label": "Learning Unit Colors"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2021-02-01 13:08:31.418369",
+ "modified": "2021-02-22 14:34:58.455017",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

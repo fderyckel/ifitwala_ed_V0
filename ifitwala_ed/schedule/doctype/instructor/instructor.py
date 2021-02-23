@@ -21,12 +21,16 @@ class Instructor(Document):
 	def after_insert(self):
 		from frappe.utils.user import add_role
 		add_role(self.user_id, "Instructor")
+		if self.status == "Active":
+			add_role(self.user_id, "Newsletter Manager")
 
-	def on_trash(self):
-		user = frappe.get_doc("User", self.user_id)
-		for role in user.get("roles", {"role":"Instructor"}):
-			user.get("roles").remove("role")
-			user.save()
+	def on_update(self):
+		if self.status == "Inactive":
+			user = frappe.get_doc("User", self.user_id)
+			user.remove_roles("Instructor")
+		if self.status == "Active":
+			user = frappe.get_doc("User", self.user_id)
+			add_role(self.user_id, "Instructor")		
 
 	def validate_duplicate_employee(self):
 		if self.employee and frappe.db.get_value("Instructor", {'employee': self.employee, 'name': ['!=', self.name]}, 'name'):

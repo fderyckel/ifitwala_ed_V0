@@ -9,16 +9,16 @@ def get_data():
 		'fieldname': 'course',
 		'transactions': [
 			{
-				'label': _('Program and Course'),
-				'items': ['Program', 'Course Enrollment', 'Course Schedule']
-			},
-			{
 				'label': _('Student'),
 				'items': ['Student Group']
-			},  
+			},
 			{
 				'label': _('Curriculum'),
 				'items': ['Learning Unit']
-			}
+			},
+			{
+				'label': _('Program and Course'),
+				'items': ['Program', 'Course Enrollment', 'Course Schedule']
+			}			
 		]
 	}

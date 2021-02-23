@@ -64,7 +64,7 @@ class Student(Document):
 		if not frappe.db.exists("User", self.student_email):
 			student_user = frappe.get_doc({
 				"doctype": "User",
-				"enabled": 1, 
+				"enabled": 1,
 				"first_name": self.student_first_name,
 				"last_name": self.student_last_name,
 				"email": self.student_email,
@@ -131,7 +131,8 @@ class Student(Document):
 					"student": self.name,
 					"course": course_name,
 					"program_enrollment": program_enrollment,
-					"enrollment_date": enrollment_date
+					"enrollment_date": enrollment_date, 
+					"status": "Current"
 				})
 			enrollment.save(ignore_permissions=True)
 		except frappe.exceptions.ValidationError:

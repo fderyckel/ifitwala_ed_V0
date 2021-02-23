@@ -5,6 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
+from frappe.utils.user import add_role
 from frappe.model.document import Document
 from frappe.email.doctype.email_group.email_group import add_subscribers
 
@@ -23,12 +24,16 @@ class Department(Document):
 			if member.member in found:
 				frappe.throw(_("You have already added the member {0} to the Department. Please remove it.").format(member.member))
 			found.append(member.member)
+		if self.department_lead not in found:
+			self.append("members", {"member": self.department_lead})
+			frappe.msgprint(_("{0} added as a member of the department.").format(self.department_lead))
+		if self.department_lead:
+			add_role(self.department_lead, "Newsletter Manager")
 
 	def validate_duplicate(self):
     		dpt = frappe.db.sql("""select name from `tabDepartment` where school= %s and department_name= %s and docstatus<2 and name != %s""", (self.school, self.department_name, self.name))
     		if dpt:
        			frappe.throw(_("A department within this school {0} and this name {1} already exisit. Please adjust the name as necessary.").format(self.school, self.department_name))
-
 
 
 @frappe.whitelist()

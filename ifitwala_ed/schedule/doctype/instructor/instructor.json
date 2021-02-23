@@ -12,6 +12,7 @@
   "column_break_3",
   "instructor_name",
   "school",
+  "status",
   "log_details",
   "instructor_log",
   "image"
@@ -77,11 +78,18 @@
    "fieldtype": "Data",
    "label": "User ID",
    "read_only": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2021-01-30 09:30:52.429094",
+ "modified": "2021-02-23 13:46:35.231488",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

@@ -41,7 +41,7 @@
   {
    "depends_on": "is_published",
    "fieldname": "description",
-   "fieldtype": "Text",
+   "fieldtype": "Small Text",
    "label": "Description "
   },
   {
@@ -109,7 +109,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-01-23 13:03:54.623914",
+ "modified": "2021-02-23 10:53:37.211735",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program",

@@ -24,7 +24,7 @@ class Department(Document):
 			if member.member in found:
 				frappe.throw(_("You have already added the member {0} to the Department. Please remove it.").format(member.member))
 			found.append(member.member)
-		if self.department_lead not in found:
+		if self.department_lead and (self.department_lead not in found):
 			self.append("members", {"member": self.department_lead})
 			frappe.msgprint(_("{0} added as a member of the department.").format(self.department_lead))
 		if self.department_lead:

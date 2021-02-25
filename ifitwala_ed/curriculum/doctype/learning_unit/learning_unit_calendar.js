@@ -33,5 +33,6 @@ frappe.views.calendar['Learning Unit'] = {
       'options': 'Program',
       'label': __('Program')
     }
-  ]
+  ],
+  get_events_method: "frappe.desk.calendar.get_events"
 };

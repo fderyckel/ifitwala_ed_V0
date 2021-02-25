@@ -29,6 +29,7 @@ class Department(Document):
 			frappe.msgprint(_("{0} added as a member of the department.").format(self.department_lead))
 		if self.department_lead:
 			add_role(self.department_lead, "Newsletter Manager")
+			frappe.msgprint(_("Added the Newsletter role to {0} as Department Lead.").format(self.department_lead))
 
 	def validate_duplicate(self):
     		dpt = frappe.db.sql("""select name from `tabDepartment` where school= %s and department_name= %s and docstatus<2 and name != %s""", (self.school, self.department_name, self.name))

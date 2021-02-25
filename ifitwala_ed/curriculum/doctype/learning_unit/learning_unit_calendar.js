@@ -10,16 +10,7 @@ frappe.views.calendar['Learning Unit'] = {
     color: 'learning_unit_color',
     allDay: 'allDay'
   },
-  gantt: {
-    field_map: {
-      'start': 'start_date',
-      'end': 'end_date',
-      'id': 'name',
-      'title': 'unit_name',
-      'color': 'learning_unit_color',
-      'allDay': 'allDay'
-    },
-  },
+  gantt: true,
   filters: [
     {
       'fieldtype': 'Link',

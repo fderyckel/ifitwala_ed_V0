@@ -14,12 +14,12 @@ def get_data():
 				'items': ['Program Enrollment']
 			},
 			{
-				'label': _('Curriculum'),
-				'items': ['Learning Unit']
-			},
-			{
 				'label': _('Student Activity'),
 				'items': ['Student Group', 'Student Log']
-			}
+			},
+			{
+				'label': _('Curriculum'),
+				'items': ['Learning Unit']
+			}			
 		]
 	}

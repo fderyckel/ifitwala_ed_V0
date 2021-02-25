@@ -15,7 +15,7 @@
   "course",
   "end_date",
   "duration",
-  "learning_unit_color",
+  "color",
   "section_break_6",
   "unit_name",
   "statement_of_inquiry",
@@ -184,14 +184,14 @@
   {
    "fetch_from": "course.learning_unit_color",
    "fetch_if_empty": 1,
-   "fieldname": "learning_unit_color",
+   "fieldname": "color",
    "fieldtype": "Color",
    "label": "Learning Unit Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-22 14:50:36.688663",
+ "modified": "2021-02-25 09:04:32.384405",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

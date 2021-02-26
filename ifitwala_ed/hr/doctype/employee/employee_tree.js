@@ -9,7 +9,7 @@ frappe.treeview_settings['Employee'] = {
 			fieldtype:"Select",
 			options: ['All Schools'].concat(ifitwala_ed.utils.get_tree_options("school")),
 			label: __("School"),
-			default: ifitwala_ed.utils.get_tree_default("company")
+			default: ifitwala_ed.utils.get_tree_default("school")
 		}
 	],
 	breadcrumb: "Hr",

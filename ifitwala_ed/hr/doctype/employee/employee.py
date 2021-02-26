@@ -123,19 +123,17 @@ class Employee(Document):
 			user.birth_date = self.employee_date_of_birth
 		if self.employee_mobile_phone and privacy.mobile_to_user==1:
 			user.mobile_no = self.employee_mobile_phone
-		#if self.image:
-		#	if not user.user_image:
-		#		user.user_image = self.image
-		#		try:
-		#			frappe.get_doc({
-		#				"doctype": "File",
-		#				"file_name": self.image,
-		#				"attached_to_doctype": "User",
-		#				"attached_to_name": self.user_id
-		#			}).insert()
-		#		except frappe.DuplicateEntryError:
-		#			# already exists
-		#			pass
+		if self.employee_image:
+			if not user.user_image:
+				user.user_image = self.employee_image
+				try:
+					frappe.get_doc({"doctype": "File", "file_name": self.employee_image,
+						"attached_to_doctype": "User",
+						"attached_to_name": self.user_id
+						}).insert()
+				except frappe.DuplicateEntryError:
+					# already exists
+					pass
 		user.save()
 
 	def update_user_permissions(self):

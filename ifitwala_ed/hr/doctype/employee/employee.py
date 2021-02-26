@@ -14,8 +14,8 @@ from frappe.contacts.address_and_contact import load_address_and_contact
 class EmployeeUserDisabledError(frappe.ValidationError): pass
 class EmployeeLeftValidationError(frappe.ValidationError): pass
 
-class Employee(Document): 
-	def onload(self): 
+class Employee(Document):
+	def onload(self):
 		load_address_and_contact(self)
 
 	def validate(self):
@@ -108,25 +108,21 @@ class Employee(Document):
 	def update_user(self):
 		# add employee role if missing
 		user = frappe.get_doc("User", self.user_id)
+		privacy = frappe.get_single("Privacy Settings")
 		user.flags.ignore_permissions = True
 
 		if "Employee" not in user.get("roles"):
 			user.append_roles("Employee")
 
-		# copy details like Fullname, DOB and Image to User
-		if self.employee_full_name and not (user.first_name and user.last_name):
-			employee_name = self.employee_full_name.split(" ")
-			if len(employee_name) >= 3:
-				user.last_name = " ".join(employee_name[2:])
-				user.middle_name = employee_name[1]
-			elif len(employee_name) == 2:
-				user.last_name = employee_name[1]
-			user.first_name = employee_name[0]
+		user.first_name = self.employee_first_name
+		user.middle_name = self.employee_middle_name
+		user.last_name = self.employee_last_name
+		user.full_name = self.employee_full_name
 
-		if self.employee_date_of_birth:
+		if self.employee_date_of_birth and privacy.dob_to_user==1:
 			user.birth_date = self.employee_date_of_birth
-		if self.employee_gender:
-			user.gender = self.employee_gender
+		if self.employee_mobile_phone and privacy.mobile_to_user==1:
+			user.mobile_no = self.employee_mobile_phone
 		#if self.image:
 		#	if not user.user_image:
 		#		user.user_image = self.image
@@ -164,32 +160,25 @@ class Employee(Document):
 @frappe.whitelist()
 def create_user(employee, user = None, email=None):
 	emp = frappe.get_doc("Employee", employee)
-
-	employee_name = emp.employee_full_name.split(" ")
-	middle_name = last_name = ""
-
-	if len(employee_name) >= 3:
-		last_name = " ".join(employee_name[2:])
-		middle_name = employee_name[1]
-	elif len(employee_name) == 2:
-		last_name = employee_name[1]
-
-	first_name = employee_name[0]
-
-	if email:
-		emp.employee_professional_email = email
+	privacy = frappe.get_single("Privacy Settings")
+	birth_date = None
+	phone = None
+	if emp.employee_date_of_birth and privacy.dob_to_user==1:
+		birth_date = emp.employee_date_of_birth
+	if emp.employee_mobile_phone and privacy.mobile_to_user==1:
+		phone = emp.employee_mobile_phone
 
 	user = frappe.new_doc("User")
 	user.update({
 		"name": emp.employee_full_name,
 		"email": emp.employee_professional_email,
 		"enabled": 1,
-		"first_name": first_name,
-		"middle_name": middle_name,
-		"last_name": last_name,
+		"first_name": emp.employee_first_name,
+		"middle_name": emp.employee_middle_name,
+		"last_name": emp.employee_last_name,
 		"gender": emp.employee_gender,
-		"birth_date": emp.employee_date_of_birth,
-		"phone": emp.employee_mobile_phone
+		"birth_date": birth_date,
+		"mobile_no": phone
 	})
 	user.insert()
 	return user.name

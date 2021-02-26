@@ -5,6 +5,7 @@
  "autoname": "field:course_name",
  "creation": "2020-08-25 18:49:32.364050",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -150,24 +151,12 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-02-22 14:42:56.709119",
+ "modified": "2021-02-25 21:35:18.653541",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
   {
    "create": 1,
    "delete": 1,

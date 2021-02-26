@@ -103,42 +103,12 @@
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-01-31 19:19:32.969497",
+ "modified": "2021-02-25 21:47:32.629885",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "School IT",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Academic Admin",
-   "share": 1
-  },
   {
    "create": 1,
    "delete": 1,
@@ -157,6 +127,25 @@
    "print": 1,
    "read": 1,
    "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "School IT",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
    "role": "Instructor",
    "share": 1
   },
@@ -167,6 +156,15 @@
    "read": 1,
    "report": 1,
    "role": "Curriculum Coordinator",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
    "share": 1
   }
  ],

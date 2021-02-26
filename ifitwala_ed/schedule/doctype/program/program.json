@@ -109,33 +109,12 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-02-23 10:53:37.211735",
+ "modified": "2021-02-25 21:34:46.245335",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "School IT",
-   "share": 1
-  },
   {
    "create": 1,
    "delete": 1,
@@ -154,24 +133,6 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Instructor",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Student",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
    "role": "Academic Admin",
    "share": 1
   },
@@ -182,6 +143,24 @@
    "read": 1,
    "report": 1,
    "role": "Admission Officer",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
    "share": 1
   }
  ],

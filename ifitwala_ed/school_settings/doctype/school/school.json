@@ -101,7 +101,7 @@
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-02-01 07:09:35.679664",
+ "modified": "2021-02-25 21:46:58.338425",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",
@@ -116,7 +116,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Academic Admin",
    "share": 1,
    "write": 1
   },
@@ -137,15 +137,6 @@
    "read": 1,
    "report": 1,
    "role": "Schedule Maker",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Academic Admin",
    "share": 1
   },
   {

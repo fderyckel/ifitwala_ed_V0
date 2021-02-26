@@ -31,9 +31,11 @@
   "professional_section",
   "date_of_joining",
   "status",
+  "employment_type",
   "column_break_28",
   "school",
   "reports_to",
+  "current_holiday_list",
   "data_19",
   "address_html",
   "contact_html",
@@ -340,6 +342,20 @@
    "no_copy": 1,
    "print_hide": 1,
    "report_hide": 1
+  },
+  {
+   "description": "Current holiday list for the employee.  ",
+   "fieldname": "current_holiday_list",
+   "fieldtype": "Link",
+   "label": "Current Holiday List",
+   "options": "Staff Calendar"
+  },
+  {
+   "fieldname": "employment_type",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Employment Type",
+   "options": "Employment Type"
   }
  ],
  "image_field": "employee_image",
@@ -349,24 +365,12 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-02-18 19:38:17.296728",
+ "modified": "2021-02-25 21:30:39.990084",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
   {
    "create": 1,
    "delete": 1,
@@ -407,7 +411,8 @@
    "read": 1,
    "report": 1,
    "role": "Academic Admin",
-   "share": 1
+   "share": 1,
+   "write": 1
   }
  ],
  "search_fields": "employee_full_name",

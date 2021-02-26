@@ -54,6 +54,7 @@
    "label": "Enable CMS"
   },
   {
+   "default": "Curriculum  Summary",
    "fieldname": "cms_title",
    "fieldtype": "Data",
    "label": "CMS Title"
@@ -91,6 +92,7 @@
    "label": "Default Calendar Meeting Color"
   },
   {
+   "default": "#ffd19c",
    "fieldname": "weekend_color",
    "fieldtype": "Color",
    "label": "Default Weekend Color"
@@ -109,6 +111,7 @@
    "label": "Default Todo Meeting Color"
   },
   {
+   "default": "#a6e4ff",
    "fieldname": "break_color",
    "fieldtype": "Color",
    "label": "Default Break Color"
@@ -117,7 +120,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-02-13 09:27:23.504092",
+ "modified": "2021-02-25 21:32:13.453333",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Education Settings",
@@ -147,6 +150,14 @@
    "read": 1,
    "role": "Academic Admin",
    "share": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "School IT",
+   "share": 1,
+   "write": 1
   }
  ],
  "quick_entry": 1,

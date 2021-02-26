@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "creation": "2021-02-25 20:06:23.110120",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dob_to_user",
+  "section_break_2",
+  "mobile_to_user"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "description": "Copy Date of Birth from Employee or Student to User Doctype",
+   "fieldname": "dob_to_user",
+   "fieldtype": "Check",
+   "label": "DoB to User"
+  },
+  {
+   "default": "0",
+   "description": "Copy mobile number from Employee or Student to User DocType",
+   "fieldname": "mobile_to_user",
+   "fieldtype": "Check",
+   "label": "Mobile to User"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-02-25 21:43:01.604684",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "Privacy Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "School IT",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

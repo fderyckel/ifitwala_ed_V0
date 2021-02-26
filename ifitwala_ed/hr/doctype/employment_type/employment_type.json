@@ -2,29 +2,30 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:student_type_name",
- "creation": "2021-02-01 08:55:21.205447",
+ "autoname": "field:employment_type_name",
+ "creation": "2021-02-25 17:39:46.165756",
  "doctype": "DocType",
- "document_type": "Document",
+ "document_type": "Setup",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "student_type_name"
+  "employment_type_name"
  ],
  "fields": [
   {
-   "fieldname": "student_type_name",
+   "fieldname": "employment_type_name",
    "fieldtype": "Data",
-   "label": "Student Type Name",
+   "label": "Employment Type",
    "unique": 1
   }
  ],
+ "icon": "fa fa-flag",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-25 21:46:24.022811",
+ "modified": "2021-02-25 21:31:42.936685",
  "modified_by": "Administrator",
- "module": "Student",
- "name": "Student Type",
+ "module": "HR",
+ "name": "Employment Type",
  "owner": "Administrator",
  "permissions": [
   {
@@ -35,52 +36,35 @@
    "print": 1,
    "read": 1,
    "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
    "role": "Academic Admin",
    "share": 1,
    "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Counselor",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Schedule Maker",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Admission Officer",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Instructor",
-   "share": 1
   }
  ],
  "quick_entry": 1,
+ "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

@@ -175,7 +175,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-13 12:17:45.246289",
+ "modified": "2021-02-25 21:44:56.921307",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",
@@ -189,7 +189,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "HR Manager",
    "share": 1,
    "write": 1
   },

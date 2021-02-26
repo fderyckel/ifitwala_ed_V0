@@ -276,24 +276,12 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-09 20:12:31.381174",
+ "modified": "2021-02-25 21:28:49.733364",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
   {
    "create": 1,
    "email": 1,
@@ -341,7 +329,8 @@
    "read": 1,
    "report": 1,
    "role": "Academic Admin",
-   "share": 1
+   "share": 1,
+   "write": 1
   }
  ],
  "quick_entry": 1,

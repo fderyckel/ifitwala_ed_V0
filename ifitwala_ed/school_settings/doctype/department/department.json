@@ -118,7 +118,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2021-02-22 14:34:58.455017",
+ "modified": "2021-02-25 21:36:23.075598",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",
@@ -133,7 +133,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Academic Admin",
    "share": 1,
    "write": 1
   },
@@ -145,7 +145,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Academic Admin",
+   "role": "HR Manager",
    "share": 1,
    "write": 1
   },

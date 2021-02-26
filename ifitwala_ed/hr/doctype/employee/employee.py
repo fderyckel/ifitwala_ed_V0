@@ -5,6 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
+from frappe.utils.nestedset import NestedSet
 from frappe.utils import getdate
 from frappe import _
 from frappe.utils import getdate, validate_email_address, today, add_years, format_datetime, cstr
@@ -14,7 +15,9 @@ from frappe.contacts.address_and_contact import load_address_and_contact
 class EmployeeUserDisabledError(frappe.ValidationError): pass
 class EmployeeLeftValidationError(frappe.ValidationError): pass
 
-class Employee(Document):
+class Employee(NestedSet):
+	nsm_parent_field = 'reports_to'
+
 	def onload(self):
 		load_address_and_contact(self)
 
@@ -35,6 +38,9 @@ class Employee(Document):
 			if existing_user_id:
 				remove_user_permission("Employee", self.name, existing_user_id)
 
+	def after_rename(self, old, new, merge):
+		self.db_set("employee", new)
+
 	def on_update(self):
 		if self.user_id:
 			self.update_user()
@@ -48,6 +54,10 @@ class Employee(Document):
 			frappe.throw(_("Date of Birth cannot be after today."))
 		if self.employee_date_of_birth and self.date_of_joining and getdate(self.employee_date_of_birth) >= getdate(self.date_of_joining):
 			frappe.throw(_("Date of Joining must be after Date of Birth"))
+		if self.notice_date and self.relieving_date and getdate(self.relieving_date) <  getdate(self.notice_date):
+			frappe.throw(_("Date of Notice {0} should be before Relieving Date {1}. Please adjust dates.").format(getdate(self.notice_date), getdate(self.relieving_date)))
+		if self.relieving_date and self.date_of_joining and getdate(self.relieving_date) <  getdate(self.date_of_joining):
+			frappe.throw(_("Date of Joining {0} should be before Relieving Date {1}. Please adjust dates.").format(getdate(self.date_of_joining), getdate(self.relieving_date)))
 
 	# call on validate. Broad check to make sure the email address has an appropriate format.
 	def validate_email(self):
@@ -132,7 +142,7 @@ class Employee(Document):
 						"attached_to_name": self.user_id
 						}).insert()
 				except frappe.DuplicateEntryError:
-					# already exists  
+					# already exists
 					pass
 		user.save()
 

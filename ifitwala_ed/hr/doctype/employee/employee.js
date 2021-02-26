@@ -16,12 +16,15 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 	},
 
 	employee_salutation: function() {
-		if(this.frm.doc.salutation) {
+		if(this.frm.doc.employee_salutation) {
 			this.frm.set_value("employee_gender", {
 				"Mr": "Male",
+				"Mrs": "Female",				
 				"Ms": "Female",
-				"Miss": "Female"
-			}[this.frm.doc.salutation]);
+				"Miss": "Female",
+				"Master": "Male",
+				"Madam": "Female"
+			}[this.frm.doc.employee_salutation]);
 		}
 	},
 

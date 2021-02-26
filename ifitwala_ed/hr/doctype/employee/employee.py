@@ -190,3 +190,34 @@ def create_user(employee, user = None, email=None):
 	})
 	user.insert()
 	return user.name
+
+@frappe.whitelist()
+def get_children(doctype, parent=None, school=None, is_root=False, is_tree=False):
+
+	filters = [['status', '!=', 'Left']]
+	if school and school != 'All Schools':
+		filters.append(['school', '=', school])
+
+	fields = ['name as value', 'employee_full_name as title']
+
+	if is_root:
+		parent = ''
+	if parent and school and parent!=school:
+		filters.append(['reports_to', '=', parent])
+	else:
+		filters.append(['reports_to', '=', ''])
+
+	employees = frappe.get_list(doctype, fields=fields,
+		filters=filters, order_by='name')
+
+	for employee in employees:
+		is_expandable = frappe.get_all(doctype, filters=[
+			['reports_to', '=', employee.get('value')]
+		])
+		employee.expandable = 1 if is_expandable else 0
+
+	return employees
+
+
+def on_doctype_update():
+	frappe.db.add_index("Employee", ["lft", "rgt"])

@@ -80,7 +80,7 @@ def create_academic_sessions():
 def create_designations():
 	data = [
 		{"doctype": "Designation", "designation_name": "Director"},
-		{"doctype": "Designation", "designation_name": "Principle"},
+		{"doctype": "Designation", "designation_name": "Principal"},
 		{"doctype": "Designation", "designation_name": "Assistant Principal"},
 		{"doctype": "Designation", "designation_name": "Nurse"},
 		{"doctype": "Designation", "designation_name": "Teacher"},

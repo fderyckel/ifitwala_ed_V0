@@ -60,14 +60,14 @@ class Employee(Document):
 	# also you can not be set as left if there are people reporting to you.
 	def validate_status(self):
 		if self.status == 'Left':
-			reports_to = frappe.db.get_all('Employee',
-				filters={'reports_to': self.name, 'status': "Active"},
-				fields=['name','employee_full_name']
-			)
+			reports_to = frappe.db.get_all('Employee', filters={'reports_to': self.name, 'status': "Active"}, fields=['name','employee_full_name'])
 			if reports_to:
 				link_to_employees = [frappe.utils.get_link_to_form('Employee', employee.name, label=employee.employee_full_name) for employee in reports_to]
-				frappe.throw(_("Employee status cannot be set to 'Left' as following employees are currently reporting to this employee.")
-					+ ', '.join(link_to_employees), EmployeeLeftValidationError)
+				message = _("The following employees are currently still reporting to {0}:").format(frappe.bold(self.employee_name))
+				message += "<br><br><ul><li>" + "</li><li>".join(link_to_employees)
+				message += "</li></ul><br>"
+				message += _("Please make sure the employees above report to another Active employee.")
+				frappe.throw(message, EmployeeLeftValidationError, _("Cannot Relieve Employee"))
 			if not self.relieving_date:
 				frappe.throw(_("Please enter relieving date."))
 
@@ -127,12 +127,12 @@ class Employee(Document):
 			if not user.user_image:
 				user.user_image = self.employee_image
 				try:
-					frappe.get_doc({"doctype": "File", "file_name": self.employee_image,
+					frappe.get_doc({"doctype": "File", "file_url": self.employee_image,
 						"attached_to_doctype": "User",
 						"attached_to_name": self.user_id
 						}).insert()
 				except frappe.DuplicateEntryError:
-					# already exists
+					# already exists  
 					pass
 		user.save()
 

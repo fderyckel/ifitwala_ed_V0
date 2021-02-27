@@ -1,7 +1,7 @@
 {
  "cards": [
   {
-   "card": "Total Student"
+   "card": "Total Enrolled Student"
   },
   {
    "card": "Total Employee"
@@ -31,7 +31,7 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "modified": "2021-02-26 20:24:52.471237",
+ "modified": "2021-02-27 14:28:09.912656",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Dashboard",

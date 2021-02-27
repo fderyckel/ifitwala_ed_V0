@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from frappe.utils.user import add_role
 
 class Instructor(Document):
 	def __setup__(self):
@@ -30,7 +31,7 @@ class Instructor(Document):
 			user.remove_roles("Instructor")
 		if self.status == "Active":
 			user = frappe.get_doc("User", self.user_id)
-			add_role(self.user_id, "Instructor")		
+			add_role(self.user_id, "Instructor")
 
 	def validate_duplicate_employee(self):
 		if self.employee and frappe.db.get_value("Instructor", {'employee': self.employee, 'name': ['!=', self.name]}, 'name'):

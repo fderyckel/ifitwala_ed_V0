@@ -35,7 +35,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2021-02-26 20:29:51.192757",
+ "modified": "2021-02-27 14:46:35.371092",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -43,12 +43,6 @@
  "pin_to_bottom": 0,
  "pin_to_top": 0,
  "shortcuts": [
-  {
-   "doc_view": "Dashboard",
-   "label": "Student Dashboard",
-   "link_to": "Students",
-   "type": "Dashboard"
-  },
   {
    "color": "Green",
    "doc_view": "List",

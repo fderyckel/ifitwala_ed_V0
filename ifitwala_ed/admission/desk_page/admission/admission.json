@@ -17,22 +17,15 @@
  "extends_another_page": 0,
  "hide_custom": 0,
  "idx": 0,
+ "is_default": 0,
  "is_standard": 1,
  "label": "Admission",
- "modified": "2021-01-24 14:18:23.892785",
+ "modified": "2021-02-27 14:48:00.919068",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Admission",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "",
-   "label": "Admission Dasboard",
-   "link_to": "Admission Dashboard",
-   "type": "Dashboard"
-  }
- ]
+ "shortcuts": []
 }

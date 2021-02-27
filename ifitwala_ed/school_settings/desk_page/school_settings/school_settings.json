@@ -35,7 +35,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2021-02-25 21:37:50.250904",
+ "modified": "2021-02-27 14:47:22.213355",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
@@ -54,11 +54,6 @@
    "label": "School Event",
    "link_to": "School Event",
    "type": "DocType"
-  },
-  {
-   "label": "School Dashboard",
-   "link_to": "School Dashboard",
-   "type": "Dashboard"
   }
  ]
 }

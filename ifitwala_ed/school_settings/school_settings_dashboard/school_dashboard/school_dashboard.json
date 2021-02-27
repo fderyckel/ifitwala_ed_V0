@@ -1,32 +1,27 @@
 {
  "cards": [
   {
-   "card": "Total Enrolled Student"
+   "card": "Total Student"
   },
   {
    "card": "Total Employee"
+  },
+  {
+   "card": "Total Instructors"
   }
  ],
  "charts": [
   {
-   "chart": "Student Gender Ratio",
-   "width": "Half"
-  },
-  {
-   "chart": "Employee Gender Ratio",
+   "chart": "Instructor By School",
    "width": "Half"
   },
   {
    "chart": "Enrollment by Program",
-   "width": "Half"
-  },
-  {
-   "chart": "Course Wise Enrollment",
    "width": "Full"
   },
   {
-   "chart": "Program Enrollments",
-   "width": "Half"
+   "chart": "Enrollment By Course",
+   "width": "Full"
   }
  ],
  "creation": "2020-09-16 17:35:23.121565",
@@ -36,7 +31,7 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "modified": "2020-09-20 06:42:14.833181",
+ "modified": "2021-02-26 20:24:52.471237",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Dashboard",

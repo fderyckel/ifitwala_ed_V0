@@ -30,7 +30,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Human Resources",
- "modified": "2021-02-01 21:36:41.698687",
+ "modified": "2021-02-26 18:57:41.243365",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
@@ -44,6 +44,12 @@
    "label": "Employee List",
    "link_to": "Employee",
    "type": "DocType"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "HR Dashboard",
+   "link_to": "HR Dashboard",
+   "type": "Dashboard"
   }
  ]
 }

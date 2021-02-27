@@ -6,11 +6,11 @@
  ],
  "charts": [
   {
-   "chart": "Student Gender Ratio",
+   "chart": "Student By Gender",
    "width": "Half"
   },
   {
-   "chart": "Student First Language",
+   "chart": "Student By First Language",
    "width": "Half"
   }
  ],
@@ -21,7 +21,7 @@
  "idx": 0,
  "is_default": 1,
  "is_standard": 1,
- "modified": "2021-02-23 17:21:51.307975",
+ "modified": "2021-02-26 20:29:31.733045",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Students",

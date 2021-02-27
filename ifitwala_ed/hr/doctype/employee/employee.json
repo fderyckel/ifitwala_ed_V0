@@ -32,6 +32,7 @@
   "date_of_joining",
   "status",
   "employment_type",
+  "designation",
   "column_break_28",
   "school",
   "reports_to",
@@ -356,6 +357,12 @@
    "ignore_user_permissions": 1,
    "label": "Employment Type",
    "options": "Employment Type"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation"
   }
  ],
  "image_field": "employee_image",
@@ -365,7 +372,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-02-25 21:30:39.990084",
+ "modified": "2021-02-26 19:38:44.604661",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

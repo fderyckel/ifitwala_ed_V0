@@ -9,6 +9,7 @@
  "field_order": [
   "employee",
   "user_id",
+  "gender",
   "column_break_3",
   "instructor_name",
   "school",
@@ -63,6 +64,7 @@
   },
   {
    "fetch_from": "employee.school",
+   "fetch_if_empty": 1,
    "fieldname": "school",
    "fieldtype": "Link",
    "label": "School",
@@ -85,11 +87,19 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Active\nInactive"
+  },
+  {
+   "fetch_from": "employee.employee_gender",
+   "fetch_if_empty": 1,
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2021-02-25 21:33:49.189463",
+ "modified": "2021-02-27 16:33:08.364046",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

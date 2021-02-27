@@ -35,7 +35,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2021-02-27 14:46:35.371092",
+ "modified": "2021-02-27 16:35:28.986517",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
@@ -54,10 +54,16 @@
   },
   {
    "color": "Grey",
-   "doc_view": "",
+   "doc_view": "List",
    "label": "Student Log",
    "link_to": "Student Log",
    "type": "DocType"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "Student Dashboard",
+   "link_to": "Student Dashboard",
+   "type": "Dashboard"
   }
  ]
 }

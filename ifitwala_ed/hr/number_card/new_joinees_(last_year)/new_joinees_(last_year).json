@@ -1,0 +1,23 @@
+{
+ "aggregate_function_based_on": "",
+ "creation": "2021-02-27 17:42:24.049416",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Employee",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Employee\",\"status\",\"=\",\"Active\",false],[\"Employee\",\"date_of_joining\",\"Timespan\",\"last year\",false]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "New Joinees (Last Year)",
+ "modified": "2021-02-27 17:42:24.049416",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "New Joinees (Last Year)",
+ "owner": "Administrator",
+ "report_function": "Sum",
+ "show_percentage_stats": 0,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}

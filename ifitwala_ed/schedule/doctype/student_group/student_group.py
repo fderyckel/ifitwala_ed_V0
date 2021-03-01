@@ -18,6 +18,7 @@ class StudentGroup(Document):
 
 	def validate(self):
 		self.validate_term()
+		self.validate_course()
 		self.validate_mandatory_fields()
 		self.validate_size()
 		self.validate_students()
@@ -33,6 +34,12 @@ class StudentGroup(Document):
 		if self.academic_year != term_year.academic_year:
 			frappe.throw(_("The term {0} does not belong to the academic year {1}.").format(self.academic_term, self.academic_year))
 
+	def validate_course(self):
+		courses = frappe.get_all("Program Course", fields = ["course_name"], filters = {"parent":self.program})
+		course_list = [course.course_name for course in courses]
+		if self.course not in course_list:
+			frappe.throw(_("{0} is not part of the {1} Program. Either select a different coures or the appropriate program.").format(self.course, self.program))
+
 	def validate_mandatory_fields(self):
 		if self.group_based_on == "Course" and not self.course:
 			frappe.throw(_("Please select a course."))
@@ -45,7 +52,7 @@ class StudentGroup(Document):
 	def validate_size(self):
 		if cint(self.maximum_size) < 0:
 			frappe.throw(_("Max number of student in this group cannot be negative."))
-		if self.maximum_size and len(self.students) > self.maximum_size:
+		if self.maximum_size and len(self.students) > cint(self.maximum_size):
 			frappe.throw(_("You can only enroll {0} students in this group.").format(self.maximum_size))
 
 	# you should not be able to make a group that include inactive students.

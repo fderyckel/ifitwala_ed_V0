@@ -38,7 +38,7 @@ class StudentGroup(Document):
 		courses = frappe.get_all("Program Course", fields = ["course_name"], filters = {"parent":self.program})
 		course_list = [course.course_name for course in courses]
 		if self.course not in course_list:
-			frappe.throw(_("{0} is not part of the {1} Program. Either select a different coures or the appropriate program.").format(self.course, self.program))
+			frappe.throw(_("{0} is not part of the {1} Program. Either select a different coures or the appropriate program.").format(self.course, get_link_to_form("Program", self.program)))
 
 	def validate_mandatory_fields(self):
 		if self.group_based_on == "Course" and not self.course:

@@ -15,7 +15,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "S_B",
-   "options": "Standards and Benchmarks",
+   "options": "Learning Standard",
    "reqd": 1
   },
   {
@@ -36,7 +36,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-01-03 10:42:04.014478",
+ "modified": "2021-02-28 20:09:36.692501",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit SB",

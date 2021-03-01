@@ -25,7 +25,7 @@
   "curriculum_section",
   "aims_and_objectives",
   "content_and_skills",
-  "standards_and_benchmark",
+  "learning_standard",
   "reflections_section",
   "prior_to_learning",
   "during_learning",
@@ -159,11 +159,6 @@
    "label": "Content and Skills"
   },
   {
-   "fieldname": "standards_and_benchmark",
-   "fieldtype": "Data",
-   "label": "Standards and Benchmark"
-  },
-  {
    "collapsible": 1,
    "fieldname": "differentiated_instructions_section",
    "fieldtype": "Section Break",
@@ -186,12 +181,19 @@
    "fetch_if_empty": 1,
    "fieldname": "color",
    "fieldtype": "Color",
-   "label": "Learning Unit Color"
+   "label": "Learning Unit Color",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "learning_standard",
+   "fieldtype": "Table",
+   "label": "Learning Standard",
+   "options": "Learning Standard"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-25 21:33:29.737994",
+ "modified": "2021-02-28 20:14:27.469959",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

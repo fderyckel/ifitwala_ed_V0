@@ -59,12 +59,14 @@
   {
    "fieldname": "academic_year",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Academic Year",
    "options": "Academic Year"
   },
   {
    "fieldname": "academic_term",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "in_standard_filter": 1,
    "label": "Academic Term",
    "options": "Academic Term"
@@ -78,6 +80,7 @@
   {
    "fieldname": "school_name",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "School Name",
    "options": "School"
   },
@@ -265,7 +268,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-18 13:05:32.267798",
+ "modified": "2021-02-27 20:52:49.426271",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",
@@ -293,8 +296,6 @@
    "share": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,

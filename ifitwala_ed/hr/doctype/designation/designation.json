@@ -9,8 +9,14 @@
  "engine": "InnoDB",
  "field_order": [
   "designation_name",
+  "school",
+  "section_break_3",
+  "reports_to",
   "description_section",
-  "job_description"
+  "position_summary",
+  "job_description",
+  "desired_competencies",
+  "qualifications"
  ],
  "fields": [
   {
@@ -29,11 +35,42 @@
   {
    "fieldname": "job_description",
    "fieldtype": "Text Editor",
-   "label": "Job Description"
+   "label": "Main Responsibilities"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "fieldname": "reports_to",
+   "fieldtype": "Link",
+   "label": "Reports to",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "position_summary",
+   "fieldtype": "Text",
+   "label": "Position Summary"
+  },
+  {
+   "fieldname": "desired_competencies",
+   "fieldtype": "Text Editor",
+   "label": "Desired Competencies"
+  },
+  {
+   "fieldname": "qualifications",
+   "fieldtype": "Text Editor",
+   "label": "Qualifications"
   }
  ],
  "links": [],
- "modified": "2020-12-04 10:29:32.527299",
+ "modified": "2021-02-28 20:40:07.948444",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Designation",
@@ -52,12 +89,14 @@
    "write": 1
   },
   {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "HR User",
+   "role": "HR Manager",
    "share": 1,
    "write": 1
   },
@@ -69,7 +108,17 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "HR Manager",
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
    "share": 1,
    "write": 1
   },

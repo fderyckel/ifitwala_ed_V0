@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "creation": "2020-11-15 20:10:08.111678",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "standard_abbreviation",
+  "main_domain",
+  "sub_domain",
+  "standard",
+  "organization",
+  "level",
+  "dok"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "main_domain",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Main Domain"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Read Only",
+   "label": "Organization"
+  },
+  {
+   "fieldname": "dok",
+   "fieldtype": "Read Only",
+   "label": "Depth of Knowledge"
+  },
+  {
+   "columns": 1,
+   "fieldname": "standard_abbreviation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Std.",
+   "options": "Standard and Benchmark"
+  },
+  {
+   "columns": 4,
+   "fieldname": "standard",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Standard"
+  },
+  {
+   "columns": 2,
+   "fieldname": "sub_domain",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Sub-domain"
+  },
+  {
+   "columns": 1,
+   "fieldname": "level",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Level"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-02-28 20:37:28.480380",
+ "modified_by": "Administrator",
+ "module": "Curriculum",
+ "name": "Learning Standard",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

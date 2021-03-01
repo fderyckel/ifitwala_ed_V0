@@ -3,7 +3,7 @@
   {
    "hidden": 0,
    "label": "Masters",
-   "links": "[\n    {\n        \"description\": \"Vanilla template for all learning unit\",\n        \"label\": \"Learning Unit\",\n        \"name\": \"Learning Unit\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Vanilla template for all Standards and Benchmark recording\",\n        \"label\": \"Standards and Benchmarks\",\n        \"name\": \"Standards and Benchmarks\",\n        \"type\": \"doctype\"\n    }    \n]"
+   "links": "[\n    {\n        \"description\": \"Vanilla template for all learning unit\",\n        \"label\": \"Learning Unit\",\n        \"name\": \"Learning Unit\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Vanilla template for all Standards and Benchmark recording\",\n        \"label\": \"Learning Standards\",\n        \"name\": \"Learning Standards\",\n        \"type\": \"doctype\"\n    }    \n]"
   }
  ],
  "category": "Modules",
@@ -16,9 +16,10 @@
  "extends_another_page": 0,
  "hide_custom": 0,
  "idx": 0,
+ "is_default": 0,
  "is_standard": 1,
  "label": "Curriculum",
- "modified": "2021-01-24 14:18:20.569553",
+ "modified": "2021-02-28 19:58:09.989837",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Curriculum",

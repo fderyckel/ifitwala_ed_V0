@@ -114,6 +114,7 @@
   {
    "fieldname": "cohort",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Cohort",
@@ -276,7 +277,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-25 21:28:49.733364",
+ "modified": "2021-02-27 20:16:00.630400",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

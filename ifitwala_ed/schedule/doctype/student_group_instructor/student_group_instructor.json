@@ -15,6 +15,7 @@
    "fieldname": "instructor",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Instructor",
    "options": "Instructor",
    "reqd": 1
@@ -24,6 +25,7 @@
    "fieldname": "instructor_name",
    "fieldtype": "Read Only",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Instructor Name",
    "read_only": 1
   },
@@ -41,12 +43,13 @@
    "fieldtype": "Data",
    "label": "User ID",
    "no_copy": 1,
+   "print_hide": 1,
    "read_only": 1
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2021-03-02 19:17:33.173622",
+ "modified": "2021-03-02 20:19:17.753986",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group Instructor",

@@ -31,7 +31,7 @@
   {
    "fieldname": "academic_year",
    "fieldtype": "Link",
-   "in_list_view": 1,
+   "ignore_user_permissions": 1,
    "in_standard_filter": 1,
    "label": "Academic Year",
    "options": "Academic Year",
@@ -51,10 +51,10 @@
    "description": "You can leave this blank and it will create the name automatically using the course name, program and academic term. ",
    "fieldname": "student_group_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Student Group Name",
    "no_copy": 1,
+   "print_hide": 1,
    "unique": 1
   },
   {
@@ -116,6 +116,7 @@
   {
    "fieldname": "instructors",
    "fieldtype": "Table",
+   "ignore_user_permissions": 1,
    "label": "Instructors",
    "no_copy": 1,
    "options": "Student Group Instructor"
@@ -123,6 +124,7 @@
   {
    "fieldname": "students",
    "fieldtype": "Table",
+   "ignore_user_permissions": 1,
    "label": "Students",
    "no_copy": 1,
    "options": "Student Group Student"
@@ -149,11 +151,12 @@
    "fieldname": "title",
    "fieldtype": "Data",
    "hidden": 1,
-   "label": "Title"
+   "label": "Title",
+   "print_hide": 1
   }
  ],
  "links": [],
- "modified": "2021-02-25 21:48:02.664869",
+ "modified": "2021-03-02 20:16:26.494554",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",
@@ -181,13 +184,9 @@
    "share": 1
   },
   {
-   "email": 1,
-   "export": 1,
-   "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Student",
-   "share": 1
+   "role": "Student"
   },
   {
    "email": 1,

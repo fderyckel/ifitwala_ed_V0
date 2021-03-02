@@ -25,6 +25,7 @@
    "fieldname": "student_name",
    "fieldtype": "Read Only",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Student Name",
    "read_only": 1
   },
@@ -43,14 +44,17 @@
   },
   {
    "fetch_from": "student.student_email",
+   "fetch_if_empty": 1,
    "fieldname": "user_id",
-   "fieldtype": "Read Only",
-   "label": "User ID"
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "User ID",
+   "print_hide": 1
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2021-03-02 18:48:04.218872",
+ "modified": "2021-03-02 20:17:55.406810",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group Student",

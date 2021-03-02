@@ -80,6 +80,43 @@ class StudentGroup(Document):
 			else:
 				roll_no_list.append(d.group_roll_number)
 
+def get_permission_query_conditions(user):
+	if not user:
+		user = frappe.session.user
+	current_user = frappe.get_doc("User", frappe.session.user)
+	roles = [role.role for role in current_user.roles]
+
+	if "Student" in roles:
+		return """(name in (select parent from `tabStudent Group Student` where user_id=%(user)s))""" % {
+			"user": frappe.db.escape(user),
+			}
+
+	if "Instructor" in roles:
+		return """(name in (select parent from `tabStudent Group Student` where user_id=%(user)s))""" % {
+				"user": frappe.db.escape(user),
+				}
+	super_viewer = ["Administrator", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker"]
+	for role in roles:
+		if role in super_viewer:
+			return "" 
+
+
+def group_has_permission():
+	current_user = frappe.get_doc("User", frappe.session.user)
+	roles = [role.role for role in current_user.roles]
+	super_viewer = ["Administrator", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker", "Admission Officer"]
+	for role in roles:
+		if role in super_viewer:
+			return True
+
+	if current_user.name in [s.user_id for s in students]:
+		return True
+
+	if current_user.name in [i.user_id for i in instructors]:
+		return True
+
+	return False
+
 @frappe.whitelist()
 def get_students(academic_year, group_based_on, academic_term=None, program=None, cohort=None, course=None):
 	enrolled_students = get_program_enrollment(academic_year, academic_term, program, cohort, course)

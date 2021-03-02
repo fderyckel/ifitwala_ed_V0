@@ -79,7 +79,7 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "Small Text",
+   "fieldtype": "Text",
    "label": "Description"
   },
   {
@@ -151,7 +151,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-02-25 21:35:18.653541",
+ "modified": "2021-03-02 17:52:21.095017",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

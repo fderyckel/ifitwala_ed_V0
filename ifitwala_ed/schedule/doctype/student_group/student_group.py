@@ -92,13 +92,13 @@ def get_permission_query_conditions(user):
 			}
 
 	if "Instructor" in roles:
-		return """(name in (select parent from `tabStudent Group Student` where user_id=%(user)s))""" % {
+		return """(name in (select parent from `tabStudent Group Instructor` where user_id=%(user)s))""" % {
 				"user": frappe.db.escape(user),
 				}
 	super_viewer = ["Administrator", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker"]
 	for role in roles:
 		if role in super_viewer:
-			return "" 
+			return ""
 
 
 def group_has_permission():

@@ -101,7 +101,7 @@ def get_permission_query_conditions(user):
 			return ""
 
 
-def group_has_permission(user=None, doc):
+def group_has_permission(user, doc):
 	current_user = frappe.get_doc("User", user)
 	roles = [role.role for role in current_user.roles]
 	super_viewer = ["Administrator", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker", "Admission Officer"]

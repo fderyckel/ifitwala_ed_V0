@@ -109,11 +109,11 @@ def group_has_permission(user, doc):
 		if role in super_viewer:
 			return True
 
-	if current_user.name in [i.user_id for i in doc.instructors]:
+	if current_user.name in [i.user_id.lower() for i in doc.instructors]:
 		return True
 
-	if current_user.name in [i.user_id for i in doc.students]:
-		return True  
+	if current_user.name in [i.user_id.lower() for i in doc.students]:
+		return True
 
 	return False
 

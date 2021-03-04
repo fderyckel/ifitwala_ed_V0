@@ -100,7 +100,7 @@ def get_chart_data(data):
 		datasets.append({"name": t, "values":values})
 
 	return {
-		"data": {"labels": labels, "datasets": datasets, "axis": [{"y": {"min": 150}}]},
+		"data": {"labels": labels, "datasets": datasets, "axis": ["y": {"min": 150}]},
 		"type": "bar",
 		"height": 300,
 		"axis": {"y": {"min": 150}}

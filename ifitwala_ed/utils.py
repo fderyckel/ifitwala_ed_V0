@@ -52,8 +52,9 @@ def validate_duplicate_student(students):
 
 		return None
 
-
+###############################
 # CMS - Course Management
+###############################
 
 # to return a list of all programs that can be displayed on the portal.
 def get_portal_programs():
@@ -80,8 +81,8 @@ def get_portal_courses(program):
 		return None
 
 	#portal_courses = [{"course":course,'has_access':allowed_course_access(course.name)} for course in course_list if allowed_course_access(course.name)]
-	portal_courses = [{"course":course,'has_access':allowed_course_access(course)} for course in published_courses if allowed_course_access(course)]
-	
+	portal_courses = [course for course in published_courses if allowed_course_access(course)]
+
 	return portal_courses
 
 # deciding if the current user is a student who has access to program or if it is a super-user

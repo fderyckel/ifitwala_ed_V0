@@ -21,6 +21,8 @@ class SchoolCalendar(Document):
             self.extend("terms", self.get_terms())
         ay = frappe.get_doc("Academic Year", self.academic_year)
         self.validate_dates()
+        if ay.school != self.school:
+            frappe.throw(_("The Academic Year {0} does not belong to the School {1}").format(get_link_to_form("Academic Year", self.academic_year), get_link_to_form("School", self.school)))
         self.total_holiday_days = len(self.holidays)
         self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date)
         self.total_instruction_days = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days

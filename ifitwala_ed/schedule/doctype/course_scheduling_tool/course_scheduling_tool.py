@@ -85,7 +85,7 @@ class CourseSchedulingTool(Document):
 
 		for student in self.students:
 			stud = frappe.get_doc("Student", student.student)
-			course_schedule.append("participants", {"participant":stud.student_email})
+			course_schedule.append("participants", {"participant": stud.student_email})
 
 		return course_schedule
 

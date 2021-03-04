@@ -67,6 +67,7 @@ def get_portal_programs():
 	return portal_programs
 
 # to return a list of all courses that can be displayed on the portal.
+# first get the list of published course that belong to a program
 def get_portal_courses(program):
 	published_courses = []
 	program_courses = frappe.get_all("Program Course", fields = ["course_name"], filters = {"parent": program})
@@ -78,9 +79,9 @@ def get_portal_courses(program):
 	if not published_courses:
 		return None
 
-	course_list = [frappe.get_doc("Course", course) for course in published_courses]
-	portal_courses = [{"course":course,'has_access':allowed_course_access(course.name)} for course in course_list if allowed_course_access(course.name)]
-
+	#portal_courses = [{"course":course,'has_access':allowed_course_access(course.name)} for course in course_list if allowed_course_access(course.name)]
+	portal_courses = [{"course":course,'has_access':allowed_course_access(course)} for course in published_courses if allowed_course_access(course)]
+	
 	return portal_courses
 
 # deciding if the current user is a student who has access to program or if it is a super-user

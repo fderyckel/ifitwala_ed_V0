@@ -66,6 +66,23 @@ def get_portal_programs():
 
 	return portal_programs
 
+# to return a list of all courses that can be displayed on the portal.
+def get_portal_courses(program):
+	published_courses = []
+	program_courses = frappe.get_all("Program Course", fields = ["course_name"], filters = {"parent": program})
+	for c in program_courses:
+		course = frappe.get_doc("Course", c.course_name)
+		if course.is_published == 1:
+			published_courses.append(course.name)
+
+	if not published_courses:
+		return None
+
+	course_list = [frappe.get_doc("Course", course) for course in published_courses]
+	portal_courses = [{"course":course,'has_access':allowed_course_access(course.name)} for course in course_list if allowed_course_access(course.name)]
+
+	return portal_courses
+
 # deciding if the current user is a student who has access to program or if it is a super-user
 def allowed_program_access(program, student=None):
 	if has_super_access():
@@ -73,6 +90,17 @@ def allowed_program_access(program, student=None):
 	if not student:
 		student = get_current_student()
 	if student and get_enrollment('program', program, student.name):
+		return True
+	else:
+		return False
+
+# deciding if the current user is a student who has access to course or if it is a super-user
+def allowed_course_access(course, student=None):
+	if has_super_access():
+		return True
+	if not student:
+		student = get_current_student()
+	if student and get_enrollment('course', course, student.name):
 		return True
 	else:
 		return False
@@ -103,9 +131,11 @@ def get_enrollment(master, document, student):
 		enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1})
 	#enrollments = frappe.get_all("Program Enrollment", filters={'student':student, 'program': document, 'docstatus': 1, 'academic_year':  current_year})
 	if master == 'course':
-		enrollments = frappe.get_all("Course Enrollment", filters={'student':student, 'course': document, 'academic_year':  current_year})
+		enrollments = frappe.get_all("Course Enrollment", filters={'student':student, 'course': document, 'status': 'current'})
 
-	if enrollments:
+	if enrollments and master == 'program':
+		return enrollments[0].name
+	elif enrollments and master == 'course':
 		return enrollments[0].name
 	else:
 		return None

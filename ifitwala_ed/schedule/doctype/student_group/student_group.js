@@ -33,7 +33,7 @@ frappe.ui.form.on('Student Group', {
 	},
 
 	refresh: function(frm) {
-		if (!frm.doc.__islocal) {
+		if (!frm.doc.__islocal && !in_list(frappe.user_roles, "Student")) {
 			var stud = frm.doc.name;
 			var guard =  frm.doc.name;
 

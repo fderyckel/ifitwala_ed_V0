@@ -13,6 +13,11 @@ frappe.ui.form.on('Learning Unit', {
         }
       });
     }
+	},
 
+	duration: function(frm) {
+		if (frm.doc.start_date && frm.doc.duration) {
+			frappe.set_value('end_date', frappe.datetime.add_days(frm.doc.start_date, frm.doc.duration * 7))
+		}
 	}
 });

@@ -15,9 +15,13 @@ frappe.ui.form.on('Learning Unit', {
     }
 	},
 
+	refresh: function(frm) {
+
+	},
+
 	duration: function(frm) {
 		if (frm.doc.start_date && frm.doc.duration) {
-			frappe.set_value('end_date', frappe.datetime.add_days(frm.doc.start_date, frm.doc.duration * 7))
+			frm.set_value('end_date', frappe.datetime.add_days(frm.doc.start_date, frm.doc.duration * 7))
 		}
 	}
 });

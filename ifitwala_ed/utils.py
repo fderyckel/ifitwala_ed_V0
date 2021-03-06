@@ -80,8 +80,8 @@ def get_portal_courses(program):
 	if not published_courses:
 		return None
 
-	#portal_courses = [{"course":course,'has_access':allowed_course_access(course.name)} for course in course_list if allowed_course_access(course.name)]
-	portal_courses = [course for course in published_courses if allowed_course_access(course)]
+	portal_courses = [{"course":course,'has_access':allowed_course_access(course)} for course in published_courses if allowed_course_access(course)]
+	#portal_courses = [course for course in published_courses if allowed_course_access(course)]
 
 	return portal_courses
 

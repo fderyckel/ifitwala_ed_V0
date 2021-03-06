@@ -20,7 +20,7 @@ def get_context(context):
     context.education_settings = frappe.get_single("Education Settings")
     context.program = get_program(program)
     context.featured_courses = get_featured_courses(program)
-    context.courses = [frappe.get_doc("Course", course) for course in context.featured_courses]
+    context.courses = get_allowed_courses(context.featured_courses)
     context.has_access =  utils.allowed_program_access(program)
 
 def get_program(program_name):
@@ -30,4 +30,11 @@ def get_program(program_name):
         frappe.throw(_("Program {0} does not exist").format(program_name))
 
 def get_featured_courses(program):
-        return utils.get_portal_courses(program)
+    return utils.get_portal_courses(program)
+
+def get_allowed_courses(featured_courses):
+    courses = []
+    for c in featured_courses:
+        courses.append(c.get("course"))
+
+    return [frappe.get_doc("Course", course) for course in courses]

@@ -156,7 +156,7 @@
   }
  ],
  "links": [],
- "modified": "2021-03-02 20:16:26.494554",
+ "modified": "2021-03-06 19:05:13.483007",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Group",
@@ -184,11 +184,6 @@
    "share": 1
   },
   {
-   "read": 1,
-   "report": 1,
-   "role": "Student"
-  },
-  {
    "email": 1,
    "export": 1,
    "print": 1,
@@ -203,17 +198,13 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Nurse",
+   "role": "Admission Officer",
    "share": 1
   },
   {
-   "email": 1,
-   "export": 1,
-   "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admission Officer",
-   "share": 1
+   "role": "Student"
   }
  ],
  "search_fields": "program, cohort, course",

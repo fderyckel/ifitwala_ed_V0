@@ -10,10 +10,10 @@
  "field_order": [
   "program",
   "start_date",
+  "end_date",
   "unit_status",
   "column_break_3",
   "course",
-  "end_date",
   "duration",
   "color",
   "section_break_6",
@@ -111,7 +111,7 @@
    "fieldname": "duration",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Duration"
+   "label": "Duration (in Weeks)"
   },
   {
    "collapsible": 1,
@@ -193,7 +193,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-28 20:14:27.469959",
+ "modified": "2021-03-06 19:41:35.763185",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

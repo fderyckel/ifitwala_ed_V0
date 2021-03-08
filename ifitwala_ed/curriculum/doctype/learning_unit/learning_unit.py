@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+import json
 from frappe import _
 from frappe.utils  import getdate, get_link_to_form
 from frappe.desk.reportview import get_match_cond, get_filters_cond
@@ -19,6 +20,28 @@ class LearningUnit(Document):
 			if self.course not in course_list:
 				frappe.throw(_("Course {0} not part of program {1}. Select Course and Program appropriately.").format(self.course, get_link_to_form("Program", self.program)))
 
+
+@frappe.whitelist()
+def add_lu_to_courses(lu, courses, mandatory=False):
+	courses = json.loads(courses)
+	for c in courses:
+		course = frappe.get_doc("Course", c)
+		course.append("units", {"learning_unit": lu})
+		course.flags.ignore_mandatory = True
+		course.save()
+	frappe.db.commit()
+	frappe.msgprint(_("Learning Unit {0} has been added to the selected courses successfully.").format(frappe.bold(lu)), title = _("Course updated"), indicator = "green")
+
+# use as a filter to choose which potential courses one can add a given LU to
+@frappe.whitelist()
+def get_courses_without_given_lu(lu):
+	courses = []
+	for c in frappe.get_all("Course", filters = {"status": "Active"}):
+		course = frappe.get_doc("Course", c.name)
+		units = [u.learning_unit for u in course.units]
+		if not units or lu not in units:
+			courses.append(course.name)
+	return courses
 
 
 # from JS. to filter out course that are only present in the program list of courses.

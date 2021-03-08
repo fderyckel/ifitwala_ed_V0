@@ -27,6 +27,14 @@ class Course(Document):
 			if total_weight != 100:
 				frappe.throw(_("The sum of the Criteria Weighting should be 100%.  Please adjust and try to save again."))
 
+	def get_learning_units(self):
+		lu_data = []
+		for unit in self.units:
+			unit_doc = frappe.get_doc("Learning Unit", unit.learning_unit)
+			if unit_doc.unit_name:
+				lu_data.append(unit_doc)
+		return lu_data
+
 
 @frappe.whitelist()
 def add_course_to_programs(course, programs, mandatory=False):

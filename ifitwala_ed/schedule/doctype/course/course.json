@@ -22,9 +22,9 @@
   "status",
   "section_break_4",
   "hero_image",
-  "column_break_6",
   "is_published",
   "description",
+  "units",
   "assessment_section",
   "default_grade_scale",
   "assessment_criteria"
@@ -61,15 +61,13 @@
   {
    "fieldname": "hero_image",
    "fieldtype": "Attach Image",
+   "hidden": 1,
    "label": "Hero Image"
   },
   {
    "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_6",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break",
+   "label": "Portal Settings"
   },
   {
    "default": "0",
@@ -147,11 +145,17 @@
    "fieldtype": "Color",
    "ignore_user_permissions": 1,
    "label": "Learning Unit Color"
+  },
+  {
+   "fieldname": "units",
+   "fieldtype": "Table",
+   "label": "Units",
+   "options": "Course Unit"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-03-02 17:52:21.095017",
+ "modified": "2021-03-07 20:29:12.359252",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

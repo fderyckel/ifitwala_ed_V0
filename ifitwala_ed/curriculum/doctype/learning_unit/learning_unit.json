@@ -32,7 +32,8 @@
   "after_learning",
   "differentiated_instructions_section",
   "differentiation",
-  "resources_section"
+  "resources_section",
+  "hero_image"
  ],
  "fields": [
   {
@@ -51,7 +52,7 @@
   },
   {
    "fieldname": "end_date",
-   "fieldtype": "Date",
+   "fieldtype": "Read Only",
    "label": "End Date",
    "no_copy": 1
   },
@@ -188,12 +189,18 @@
    "fieldname": "learning_standard",
    "fieldtype": "Table",
    "label": "Learning Standard",
-   "options": "Learning Standard"
+   "options": "Learning Unit Standard"
+  },
+  {
+   "fieldname": "hero_image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Hero Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-06 19:41:35.763185",
+ "modified": "2021-03-07 20:53:01.709881",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

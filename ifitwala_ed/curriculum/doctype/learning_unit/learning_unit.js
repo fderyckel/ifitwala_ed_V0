@@ -39,7 +39,7 @@ frappe.ui.form.on('Learning Unit', {
 				],
 				function(data) {
 					frappe.call({
-						method: 'ifitwala_ed.learning_unit.doctype.learning_unit.learning_unit.add_lu_to_courses',
+						method: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.add_lu_to_courses',
 						args: {'learning_unit': frm.doc.name, 'courses': data.courses},
 						callback: function(r) {
 							if (!r.exc) {
@@ -53,7 +53,7 @@ frappe.ui.form.on('Learning Unit', {
 			} else {
 				frappe.msgprint(__('This Learning Unit has already been added to the course.'));
 			}
-		}); 
+		});
 	},
 
 	duration: function(frm) {
@@ -66,7 +66,7 @@ frappe.ui.form.on('Learning Unit', {
 let get_courses_without_given_lu = function(lu) {
 	return frappe.call({
 		type: 'GET',
-		method: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.add_lu_to_courses',
+		method: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.get_courses_without_given_lu',
 		args: {'lu': lu}
 	});
 };

@@ -14,12 +14,12 @@ def get_context(context):
 		program = frappe.form_dict['program']
 		course_name = frappe.form_dict['name']
 	except KeyError:
-		frappe.local.flags.redirect_location = '/lms'
+		frappe.local.flags.redirect_location = '/cms'
 		raise frappe.Redirect
 
 	context.education_settings = frappe.get_single("Education Settings")
 	course = frappe.get_doc('Course', course_name)
 	context.program = program
 	context.course = course
-    context.learning_units = get_learning_units()
+    context.units = get_learning_units()
     context.has_access =  utils.allowed_course_access(context.course)

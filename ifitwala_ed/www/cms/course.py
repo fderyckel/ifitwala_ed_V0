@@ -21,5 +21,6 @@ def get_context(context):
 	course = frappe.get_doc('Course', course_name)
 	context.program = program
 	context.course = course
-    context.units = get_learning_units()
-    context.has_access =  utils.allowed_course_access(context.course)
+	context.units = get_learning_units()
+	context.has_program_access = utils.allowed_program_access(context.program)
+	context.has_access =  utils.allowed_course_access(context.course)

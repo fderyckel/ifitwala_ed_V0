@@ -38,20 +38,20 @@
 {% macro card(unit) %}
 <div class="col-sm-4 mb-4 text-left">
 	<div class="card h-100">
-		{% if has_access %}
-			<a href="/cms/topic?program={{ program }}&course={{ course.name }}&learning_unit={{ learning_unit.name }}" class="no-decoration no-underline">
+		{% if has_program_access %}
+			<a href="/cms/unit?program={{ program }}&course={{ course.name }}&learning_unit={{ unit.name }}" class="no-decoration no-underline">
 		{% else %}
 			<a href="/login#login">
 		{% endif %}
 			{% if learning_unit.hero_image %}
-			<div class="card-hero-img" style="background-image: url('{{ learning_unit.hero_image }}')"></div>
+			<div class="card-hero-img" style="background-image: url('{{ unit.hero_image }}')"></div>
 			{% else %}
 			<div class="card-image-wrapper text-center">
 				<div class="image-body"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
 			</div>
 			{% endif %}
 			<div class='card-body'>
-				<h5 class='card-title'>{{ learning_unit.unit_name }}</h5>
+				<h5 class='card-title'>{{ unit.unit_name }}</h5>
 			</div>
 		{% if has_access %}
 			</a>
@@ -67,7 +67,7 @@
 	{{ hero(course.course_name, course.description, has_access, {'name': 'Program', 'url': '/cms/program?program=' + program }) }}
 	<div class='container'>
 		<div class="row mt-5">
-			{% for learning_unit in units %}
+			{% for unit in units %}
 				{{ card(unit) }}
 			{% endfor %}
 			{% if units %}

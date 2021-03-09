@@ -1,6 +1,6 @@
 {
 	"css/ifitwala_ed.css": [
-		"public/less/ifitwala.less"
+		"public/less/ifitwala_ed.less"
 	],
 	"js/ifitwala_ed-web.min.js": [
 		"public/js/website_utils.js"

@@ -24,6 +24,7 @@
    "unique": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "maximum_mark",
    "fieldtype": "Int",
    "label": "Maximum Mark"
@@ -47,7 +48,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-24 13:23:48.462399",
+ "modified": "2021-03-08 21:07:35.325894",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Criteria",

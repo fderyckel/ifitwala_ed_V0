@@ -13,6 +13,10 @@
   "school",
   "column_break_4",
   "department",
+  "curriculum",
+  "units",
+  "default_grade_scale",
+  "assessment_criteria",
   "additional_information_section",
   "exclude_from_report",
   "exclude_from_transcript",
@@ -23,11 +27,7 @@
   "section_break_4",
   "hero_image",
   "is_published",
-  "description",
-  "units",
-  "assessment_section",
-  "default_grade_scale",
-  "assessment_criteria"
+  "description"
  ],
  "fields": [
   {
@@ -122,11 +122,6 @@
    "label": "Exclude from Transcript"
   },
   {
-   "fieldname": "assessment_section",
-   "fieldtype": "Section Break",
-   "label": "Assessment"
-  },
-  {
    "fieldname": "assessment_criteria",
    "fieldtype": "Table",
    "label": "Assessment Criteria",
@@ -151,11 +146,16 @@
    "fieldtype": "Table",
    "label": "Units",
    "options": "Course Unit"
+  },
+  {
+   "fieldname": "curriculum",
+   "fieldtype": "Section Break",
+   "label": "Curriculum"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-03-07 20:29:12.359252",
+ "modified": "2021-03-08 21:03:51.388546",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

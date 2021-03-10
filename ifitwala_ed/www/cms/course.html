@@ -39,11 +39,11 @@
 <div class="col-sm-4 mb-4 text-left">
 	<div class="card h-100">
 		{% if has_program_access %}
-			<a href="/cms/unit?program={{ program }}&course={{ course.name }}&learning_unit={{ unit.name }}" class="no-decoration no-underline">
+			<a href="/cms/unit?program={{ program }}&course={{ course.name }}&unit={{ unit.name }}" class="no-decoration no-underline">
 		{% else %}
 			<a href="/login#login">
 		{% endif %}
-			{% if learning_unit.hero_image %}
+			{% if unit.hero_image %}
 			<div class="card-hero-img" style="background-image: url('{{ unit.hero_image }}')"></div>
 			{% else %}
 			<div class="card-image-wrapper text-center">

@@ -54,6 +54,15 @@
 				<h5 class='card-title'>{{ unit.unit_name }}</h5>
 			</div>
 		{% if has_access %}
+			<div class='card-footer'>
+				{% if progress[unit.name].completed %}
+					<span class="indicator green">{{_('Completed')}}</span>
+				{% elif progress[unit.name].started %}
+					<span class="indicator orange">{{_('In Progress')}}</span>
+				{% else %}
+					<span class="indicator blue">{{_('Look Forward to it')}}</span>
+				{% endif %}
+			</div>
 			</a>
 		{% else %}
 			</a>

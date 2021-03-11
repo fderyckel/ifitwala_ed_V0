@@ -5,6 +5,7 @@
 from __future__ import unicode_literals, division
 import frappe
 from frappe import _
+from frappe.utils import getdate, today
 
 class OverlapError(frappe.ValidationError): pass
 
@@ -135,9 +136,38 @@ def get_enrollment(master, document, student):
 	if master == 'course':
 		enrollments = frappe.get_all("Course Enrollment", filters={'student':student, 'course': document, 'status': 'current'})
 
-	if enrollments and master == 'program':
+	if enrollments and master == "program":
 		return enrollments[0].name
-	elif enrollments and master == 'course':
+	elif enrollments and master == "course":
 		return enrollments[0].name
 	else:
 		return None
+
+def get_lu_progress(lu, course_name):
+	student = get_current_student()
+	if not student:
+		return None
+	units = frappe.get_all("Course Unit", filters = {"parent": course}, fields = ["learning_unit"], order_by="start_date")
+	for u in units:
+		unit = frappe.get_doc("Learning Unit", u.get("learning_unit"))
+		if getdate(unit.start_date) <= getdate(today()) <= getdate(unit.end_date):
+			return {'started': True, 'completed': False}
+		elif getdate(unit.end_date) < getdate(today()):
+			return {'started': True, 'completed': True}
+		else:
+		    return {'started': False, 'completed': False} 
+	return
+
+
+
+	get_or_create_course_enrollment(course_name, program)
+	progress = student.get_topic_progress(course_enrollment.name, topic)
+	if not progress:
+		return None
+	count = sum([activity['is_complete'] for activity in progress])
+	if count == 0:
+		return {'completed': False, 'started': False}
+	elif count == len(progress):
+		return {'completed': True, 'started': True}
+	elif count < len(progress):
+		return {'completed': False, 'started': True}

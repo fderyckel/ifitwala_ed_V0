@@ -4,20 +4,18 @@
 
 from __future__ import unicode_literals
 import frappe
-import ifitwala_ed.utils as utils 
+import ifitwala_ed.utils as utils
 
 no_cache = 1
 
 #always get context first for portal
-def get_context(context): 
-        context.education_settings = frappe.get_single("Education Settings") 
-        if not context.education_settings.enable_cms: 
-                frappe.local.flags.redirect_location = '/' 
+def get_context(context):
+        context.education_settings = frappe.get_single("Education Settings")
+        if not context.education_settings.enable_cms:
+                frappe.local.flags.redirect_location = '/'
                 raise frappe.Redirect
-                
-        context.featured_programs = get_featured_programs() 
-        
-def get_featured_programs(): 
-        return utils.get_portal_programs()
-  
-  
+
+        context.featured_programs = get_featured_programs()
+
+def get_featured_programs():
+        return utils.get_portal_programs() or []

@@ -25,3 +25,8 @@ def get_context(context):
 	context.units = course.get_learning_units()
 	context.has_program_access = utils.allowed_program_access(context.program)
 	context.has_access =  utils.allowed_course_access(context.course)
+	context.progress = get_lu_progress(context.units, course)
+
+def get_lu_progress(units, course):
+	progress = {unit.name: utils.get_lu_progress(unit, course.name) for unit in units}
+	return progress

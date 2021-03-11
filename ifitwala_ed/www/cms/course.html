@@ -55,7 +55,7 @@
 			</div>
 		{% if has_access %}
 			<div class='card-footer'>
-				{% if progress[unit.name].completed and progress[unit.name].started %}
+				{% if progress[unit.name].completed %}
 					<span class="indicator green">{{_('Completed')}}</span>
 				{% elif progress[unit.name].started %}
 					<span class="indicator orange">{{_('In Progress')}}</span>

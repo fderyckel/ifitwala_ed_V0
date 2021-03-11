@@ -28,5 +28,5 @@ def get_context(context):
 	context.progress = get_lu_progress(context.units)
 
 def get_lu_progress(units):
-	progress = {unit.name: utils.get_lu_timing(unit) for unit in units}
+	progress = {unit.name: utils.get_lu_timing(unit.name) for unit in units}
 	return progress

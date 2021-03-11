@@ -155,19 +155,5 @@ def get_lu_progress(lu, course_name):
 		elif getdate(unit.end_date) < getdate(today()):
 			return {'started': True, 'completed': True}
 		else:
-		    return {'started': False, 'completed': False} 
+		    return {'started': False, 'completed': False}
 	return
-
-
-
-	get_or_create_course_enrollment(course_name, program)
-	progress = student.get_topic_progress(course_enrollment.name, topic)
-	if not progress:
-		return None
-	count = sum([activity['is_complete'] for activity in progress])
-	if count == 0:
-		return {'completed': False, 'started': False}
-	elif count == len(progress):
-		return {'completed': True, 'started': True}
-	elif count < len(progress):
-		return {'completed': False, 'started': True}

@@ -143,11 +143,11 @@ def get_enrollment(master, document, student):
 	else:
 		return None
 
-def get_lu_progress(lu, course):
+def get_lu_timing(lu):
 	student = get_current_student()
 	if not student:
 		return None
-		
+
 	unit = frappe.get_doc("Learning Unit", lu)
 	if getdate(unit.start_date) <= getdate(today()) <= getdate(unit.end_date):
 		return {'started': True, 'completed': False}

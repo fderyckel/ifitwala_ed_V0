@@ -47,6 +47,11 @@ update_website_context  = ["ifitwala_ed.school_settings.doctype.education_settin
 # Website user home page (by function)
 # get_website_user_home_page = "ifitwala_ed.utils.get_home_page"
 
+standard_portal_menu_items = [
+	{"title": _("Personal Details"), "route": "/personal-details", "reference_doctype": "Student", "role": "Student"},
+	{"title": _("Addresses"), "route": "/addresses", "reference_doctype": "Address"}
+]
+
 # Generators
 # ----------
 
@@ -79,7 +84,7 @@ permission_query_conditions = {
 #
 has_permission = {
     "Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",
-    "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.event_has_permission",  
+    "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.event_has_permission",
     "Student Group": "ifitwala_ed.schedule.doctype.student_group.student_group.group_has_permission"
 }
 

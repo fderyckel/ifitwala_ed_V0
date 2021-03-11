@@ -53,7 +53,7 @@
 			<div class='card-body'>
 				<h5 class='card-title'>{{ unit.unit_name }}</h5>
 			</div>
-		{% if has_access %}
+		{% if has_program_access %}
 			<div class='card-footer'>
 				{% if progress[unit.name].started %}
 					<span class="indicator green">{{_('Completed')}}</span>

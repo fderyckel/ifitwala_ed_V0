@@ -33,7 +33,7 @@ class Course(Document):
 			unit_doc = frappe.get_doc("Learning Unit", unit.learning_unit)
 			if unit_doc.unit_name:
 				lu_data.append(unit_doc)
-		lu_data = lu_data.sort(key=lambda x: x.start_date)
+		#lu_data = lu_data.sort(key=lambda x: x.start_date)
 		return lu_data
 
 

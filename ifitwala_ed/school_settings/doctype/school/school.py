@@ -12,11 +12,11 @@ from frappe.cache_manager import clear_defaults_cache
 
 class School(NestedSet):
 	nsm_parent_field = 'parent_school'
-	
+
 	def validate(self):
 		self.validate_abbr()
 		self.validate_parent_school()
-	
+
 	def validate_abbr(self):
 		if not self.abbr:
 			self.abbr = ''.join([c[0] for c in self.school_name.split()]).upper()
@@ -31,10 +31,10 @@ class School(NestedSet):
 
 		if frappe.db.sql("select abbr from tabSchool where name!=%s and abbr=%s", (self.name, self.abbr)):
 			frappe.throw(_("Abbreviation already used for another school"))
-			
+
 	def on_update(self):
 		NestedSet.on_update(self)
-	
+
 	def after_rename(self, olddn, newdn, merge=False):
 		frappe.db.set(self, "school_name", newdn)
 
@@ -45,18 +45,18 @@ class School(NestedSet):
 
 	def abbreviate(self):
 		self.abbr = ''.join([c[0].upper() for c in self.school_name.split()])
-		
+
 	def on_trash(self):
 		NestedSet.validate_if_child_exists(self)
 		frappe.utils.nestedset.update_nsm(self)
-		
+
 	def validate_parent_school(self):
 		if self.parent_school:
 			is_group = frappe.get_value('School', self.parent_school, 'is_group')
 
 			if not is_group:
-				frappe.throw(_("Parent School must be a group company"))
-		
+				frappe.throw(_("Parent School must be a group school."))
+
 @frappe.whitelist()
 def enqueue_replace_abbr(school, old, new):
 	kwargs = dict(school=school, old=old, new=new)

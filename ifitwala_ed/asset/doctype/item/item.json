@@ -12,7 +12,11 @@
   "item_name",
   "image",
   "description",
-  "opening_stock"
+  "opening_stock",
+  "stock_uom",
+  "disabled",
+  "is_stock_item",
+  "is_fixed_asset"
  ],
  "fields": [
   {
@@ -40,12 +44,36 @@
    "fieldname": "opening_stock",
    "fieldtype": "Float",
    "label": "Opening Stock"
+  },
+  {
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Default Unit of Measure",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Data",
+   "label": "Disabled"
+  },
+  {
+   "fieldname": "is_stock_item",
+   "fieldtype": "Data",
+   "label": "Maintain Stock"
+  },
+  {
+   "fieldname": "is_fixed_asset",
+   "fieldtype": "Data",
+   "label": "Is Fixed Asset"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-22 23:23:00.256457",
+ "modified": "2021-03-13 18:36:37.984436",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Item",

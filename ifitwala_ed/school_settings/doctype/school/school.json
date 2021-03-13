@@ -23,6 +23,8 @@
   "column_break_13",
   "default_inventory_account",
   "stock_adjustment_account",
+  "accounting_settings_section",
+  "default_currency",
   "lft",
   "rgt",
   "old_parent"
@@ -144,12 +146,24 @@
   {
    "fieldname": "column_break_13",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "accounting_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting Settings"
+  },
+  {
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency",
+   "reqd": 1
   }
  ],
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-13 14:38:40.761966",
+ "modified": "2021-03-13 19:41:28.537919",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

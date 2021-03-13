@@ -20,7 +20,7 @@
   "recalculate_incomingoutgoing_rate",
   "section_break_11",
   "actual_quantity",
-  "actual_qty_after_transaction",
+  "qty_after_transaction",
   "incoming_rate",
   "outgoing_rate",
   "column_break_16",
@@ -141,15 +141,6 @@
    "width": "150px"
   },
   {
-   "fieldname": "actual_qty_after_transaction",
-   "fieldtype": "Float",
-   "in_filter": 1,
-   "label": "Actual Qty After Transaction",
-   "print_width": "150px",
-   "read_only": 1,
-   "width": "150px"
-  },
-  {
    "fieldname": "incoming_rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
@@ -243,13 +234,22 @@
   {
    "fieldname": "column_break_24",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qty_after_transaction",
+   "fieldtype": "Float",
+   "in_filter": 1,
+   "label": "Actual Qty After Transaction",
+   "print_width": "150px",
+   "read_only": 1,
+   "width": "150px"
   }
  ],
  "hide_toolbar": 1,
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-13 10:56:19.944901",
+ "modified": "2021-03-13 18:19:44.249473",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Stock Ledger Entry",

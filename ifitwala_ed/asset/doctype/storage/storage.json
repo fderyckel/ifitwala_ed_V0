@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "creation": "2021-03-13 09:16:43.465860",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "storage_type",
+  "parent_storage",
+  "column_break_3",
+  "school",
+  "is_group",
+  "disabled",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
+  },
+  {
+   "fieldname": "parent_storage",
+   "fieldtype": "Link",
+   "label": "Parent Storage",
+   "options": "Storage"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Storage"
+  },
+  {
+   "fieldname": "parent_storage",
+   "fieldtype": "Link",
+   "label": "Parent Storage",
+   "options": "Storage"
+  },
+  {
+   "fieldname": "storage_type",
+   "fieldtype": "Link",
+   "label": "Storage Type",
+   "options": "Storage Type"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2021-03-13 09:37:28.095669",
+ "modified_by": "Administrator",
+ "module": "Asset",
+ "name": "Storage",
+ "nsm_parent_field": "parent_storage",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

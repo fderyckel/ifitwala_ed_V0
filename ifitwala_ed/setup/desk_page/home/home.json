@@ -21,9 +21,10 @@
  "extends_another_page": 0,
  "hide_custom": 0,
  "idx": 0,
+ "is_default": 0,
  "is_standard": 1,
  "label": "Home",
- "modified": "2021-01-28 11:27:42.442061",
+ "modified": "2021-03-13 11:21:20.259243",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Home",
@@ -33,9 +34,9 @@
  "shortcuts": [
   {
    "color": "Grey",
-   "doc_view": "List",
-   "label": "Students",
-   "link_to": "Student",
+   "doc_view": "Calendar",
+   "label": "School Event",
+   "link_to": "School Event",
    "type": "DocType"
   },
   {
@@ -50,20 +51,6 @@
    "doc_view": "Calendar",
    "label": "Learning Unit",
    "link_to": "Learning Unit",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "Calendar",
-   "label": "Schedule",
-   "link_to": "Course Schedule",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "School Event",
-   "link_to": "School Event",
    "type": "DocType"
   }
  ]

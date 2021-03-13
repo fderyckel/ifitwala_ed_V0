@@ -3,7 +3,7 @@
   {
    "hidden": 0,
    "label": "School  & Departments",
-   "links": "[\n    {\n        \"description\": \"School Organization.\",\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"The various dpt. withing the school.\",\n        \"label\": \"Department\",\n        \"name\": \"Department\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"School Organization.\",\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"The various dpt. withing the school.\",\n        \"label\": \"Department\",\n        \"name\": \"Department\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Location, The map of your school.\",\n        \"label\": \"Location\",\n        \"name\": \"Location\",\n        \"type\": \"doctype\"\n    }     \n]"
   },
   {
    "hidden": 0,
@@ -18,7 +18,12 @@
   {
    "hidden": 0,
    "label": "School Settings",
-   "links": "[\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"Education Settings\",\n        \"name\": \"Education Settings\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Fine Tuning Privacy settings\",\n        \"label\": \"Privacy Settings\",\n        \"name\": \"Privacy Settings\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"Setting up current parameters for the school\",\n        \"label\": \"Education Settings\",\n        \"name\": \"Education Settings\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Fine Tuning Privacy settings\",\n        \"label\": \"Privacy Settings\",\n        \"name\": \"Privacy Settings\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"School Student Admission\",\n        \"label\": \"Student Admission\",\n        \"name\": \"Student Admission\",\n        \"type\": \"doctype\"\n    }      \n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Assets",
+   "links": "[\n    {\n        \"description\": \"Storage\",\n        \"label\": \"Storage\",\n        \"name\": \"Storage\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Item\",\n        \"label\": \"Item\",\n        \"name\": \"Items\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Storage Type\",\n        \"label\": \"Storage Type\",\n        \"name\": \"Storage Type\",\n        \"type\": \"doctype\"\n    }       \n]"
   }
  ],
  "category": "Modules",
@@ -35,7 +40,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2021-02-27 16:42:40.416849",
+ "modified": "2021-03-13 11:37:41.178511",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

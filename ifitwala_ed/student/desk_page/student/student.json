@@ -19,6 +19,11 @@
    "hidden": 0,
    "label": "Settings",
    "links": "[\n    {\n        \"description\": \"Setting up the log type\",\n        \"label\": \"Student Log Type\",\n        \"name\": \"Student Log Type\",\n        \"type\": \"doctype\"\n    },     \n    {\n        \"description\": \"Setting up the attendance codes\",\n        \"label\": \"Student Attendance Code\",\n        \"name\": \"Student Attendance Code\",\n        \"type\": \"doctype\"\n    }     \n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Student Application",
+   "links": "[\n    {\n        \"description\": \"Student Applicant.\",\n        \"label\": \"Student Applicant\",\n        \"name\": \"Student Applicant\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"School Student Admission.\",\n        \"label\": \"Student Admission\",\n        \"name\": \"Student Admission\",\n        \"type\": \"doctype\"\n    }    \n]"
   }
  ],
  "cards_label": "",
@@ -35,7 +40,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Student",
- "modified": "2021-02-27 16:35:28.986517",
+ "modified": "2021-03-13 11:31:51.986829",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",

@@ -19,10 +19,10 @@ def get_storage_account(storage, storage_account=None):
 		else:
 			account = frappe.db.sql("""
 				SELECT
-					account from `tabStorage`
+					account FROM `tabStorage`
 				WHERE
-					lft <= %s and rgt >= %s and school = %s
-					and account is not null and ifnull(account, '') !=''
+					lft <= %s AND rgt >= %s AND school = %s
+					AND account is not null AND ifnull(account, '') !=''
 				ORDER BY lft DESC limit 1""", (storage.lft, storage.rgt, storage.school), as_list=1)
 
 			account = account[0][0] if account else None

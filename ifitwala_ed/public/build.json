@@ -8,7 +8,7 @@
 	"css/ifitwala_ed-web.css": [
 		"public/scss/website.scss"
 	],
-	"js/ifitwala_ed.js": [
+	"js/ifitwala_ed.min.js": [
 		"public/js/utils.js",
 		"public/js/queries.js"
 	]

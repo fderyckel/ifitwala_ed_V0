@@ -9,16 +9,23 @@
  "engine": "InnoDB",
  "field_order": [
   "school_name",
-  "lft",
-  "rgt",
   "is_group",
-  "old_parent",
-  "parent_school",
   "abbr",
   "school_logo",
+  "column_break_4",
+  "parent_school",
   "change_abbr",
   "mission_vision_values_section",
-  "school_philosophy"
+  "school_philosophy",
+  "stock_settings_section",
+  "enable_perpetual_inventory",
+  "enable_perpetual_inventory_for_non_stock_items",
+  "column_break_13",
+  "default_inventory_account",
+  "stock_adjustment_account",
+  "lft",
+  "rgt",
+  "old_parent"
  ],
  "fields": [
   {
@@ -96,12 +103,53 @@
    "fieldname": "school_philosophy",
    "fieldtype": "Text Editor",
    "label": "School Philosophy"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "stock_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Settings"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_perpetual_inventory",
+   "fieldtype": "Check",
+   "label": "Enable Perpetual Inventory"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_perpetual_inventory_for_non_stock_items",
+   "fieldtype": "Check",
+   "label": "Enable Perpetual Inventory For Non Stock Items"
+  },
+  {
+   "fieldname": "default_inventory_account",
+   "fieldtype": "Link",
+   "label": "Default Inventory Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "stock_adjustment_account",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Stock Adjustment Account",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
   }
  ],
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-02-25 21:46:58.338425",
+ "modified": "2021-03-13 14:38:40.761966",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

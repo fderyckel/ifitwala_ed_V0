@@ -9,3 +9,4 @@ Asset
 Setup
 Curriculum
 Admission
+Accounting

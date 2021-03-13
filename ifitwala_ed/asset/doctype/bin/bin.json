@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "autoname": "MAT-BIN-.YYYY.-.#####",
+ "creation": "2021-03-13 13:30:19.043578",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "storage",
+  "item_code",
+  "actual_qty",
+  "ordered_qty",
+  "requested_qty",
+  "ma_rate",
+  "uom",
+  "fcfs_rate",
+  "valuation_rate",
+  "stock_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "storage",
+   "fieldtype": "Link",
+   "label": "Storage",
+   "options": "Storage"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fcfs_rate",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "FCFS Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Data",
+   "label": "Valuation Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_value",
+   "fieldtype": "Data",
+   "label": "Stock Value",
+   "read_only": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "actual_qty",
+   "fieldtype": "Float",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Actual Quantity",
+   "read_only": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "requested_qty",
+   "fieldtype": "Float",
+   "label": "Requested Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ma_rate",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Moving Average Rate",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "ordered_qty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Ordered Quantity",
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-03-13 13:43:45.691490",
+ "modified_by": "Administrator",
+ "module": "Asset",
+ "name": "Bin",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "item_code,storage",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

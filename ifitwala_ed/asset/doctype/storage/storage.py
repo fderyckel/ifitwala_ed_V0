@@ -159,3 +159,8 @@ def add_node():
 		args.parent_storage = None
 
 	frappe.get_doc(args).insert()
+
+@frappe.whitelist()
+def convert_to_group_or_ledger():
+	args = frappe.form_dict
+	return frappe.get_doc("Storage", args.docname).convert_to_group_or_ledger()

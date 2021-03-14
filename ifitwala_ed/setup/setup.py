@@ -8,24 +8,14 @@ from ifitwala_ed.setup.utils import insert_record
 
 
 def setup_education():
-	disable_desk_access_for_student_role()
+	#disable_desk_access_for_student_role()
+	create_student_role()
 	disable_desk_access_for_guardian_role()
-
-	#if frappe.db.exists("Academic Year", "2019-20"):
-	#	return
-	#create_academic_sessions()
-
-	if frappe.db.exists("Designation", "Director"):
-		return
+	create_academic_sessions()
 	create_designations()
-
-	if frappe.db.exists("Student Log Type", "Medical"):
-		return
 	create_log_type()
-
-	if frappe.db.exists("Student Attendance Code", "Present"):
-		return
 	create_attendance_code()
+	create_storage_type()
 
 def disable_desk_access_for_student_role():
 	try:
@@ -54,6 +44,7 @@ def create_student_role():
 		"desk_access": 0
 	})
 	student_role.insert()
+	student_role.save()
 
 def create_guardian_role():
 	guardian_role = frappe.get_doc({
@@ -92,7 +83,7 @@ def create_log_type():
 	data = [
 			{"doctype": "Student Log Type", "log_type": "Behaviour"},
 			{"doctype": "Student Log Type", "log_type": "Academic"},
-			{"doctype": "Student Log Type", "log_type": "Medical"},
+			{"doctype": "Student Log Type", "log_type": "Medical"}
 	]
 	insert_record(data)
 
@@ -103,6 +94,16 @@ def create_attendance_code():
 			{"doctype": "Student Attendance Code", "attendance_code": "Tardy"},
 			{"doctype": "Student Attendance Code", "attendance_code": "Excused Absence"},
 			{"doctype": "Student Attendance Code", "attendance_code": "Field Trip"},
-			{"doctype": "Student Attendance Code", "attendance_code": "Excused Tardy"},
+			{"doctype": "Student Attendance Code", "attendance_code": "Excused Tardy"}
+	]
+	insert_record(data)
+
+def create_storage_type():
+	data = [
+		{"doctype": "Storage Type", "storage_type_name": "Classroom"},
+		{"doctype": "Storage Type", "storage_type_name": "Office"},
+		{"doctype": "Storage Type", "storage_type_name": "School"},
+		{"doctype": "Storage Type", "storage_type_name": "Building"},
+		{"doctype": "Storage Type", "storage_type_name": "Storage"},
 	]
 	insert_record(data)

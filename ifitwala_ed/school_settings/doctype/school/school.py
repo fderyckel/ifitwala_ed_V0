@@ -17,6 +17,24 @@ class School(NestedSet):
 		self.validate_abbr()
 		self.validate_parent_school()
 
+	def on_update(self):
+		NestedSet.on_update(self)
+		if not frappe.db.sql("""SELECT name FROM `tabStorage` WHERE school=%s AND docstatus<2 LIMIT 1 """, self.name):
+			self.create_default_storage()
+			self.create_default_storage_account()
+
+	def on_trash(self):
+		NestedSet.validate_if_child_exists(self)
+		frappe.utils.nestedset.update_nsm(self)
+
+	def after_rename(self, olddn, newdn, merge=False):
+		frappe.db.set(self, "school_name", newdn)
+		frappe.db.sql("""UPDATE `tabDefaultValue` SET defvalue=%s WHERE defkey='School' AND defvalue=%s""", (newdn, olddn))
+		clear_defaults_cache()
+
+	def abbreviate(self):
+		self.abbr = ''.join([c[0].upper() for c in self.school_name.split()])
+
 	def validate_abbr(self):
 		if not self.abbr:
 			self.abbr = ''.join([c[0] for c in self.school_name.split()]).upper()
@@ -29,33 +47,47 @@ class School(NestedSet):
 		if not self.abbr.strip():
 			frappe.throw(_("Abbreviation is mandatory"))
 
-		if frappe.db.sql("select abbr from tabSchool where name!=%s and abbr=%s", (self.name, self.abbr)):
-			frappe.throw(_("Abbreviation already used for another school"))
-
-	def on_update(self):
-		NestedSet.on_update(self)
-
-	def after_rename(self, olddn, newdn, merge=False):
-		frappe.db.set(self, "school_name", newdn)
-
-		frappe.db.sql("""update `tabDefaultValue` set defvalue=%s
-			where defkey='School' and defvalue=%s""", (newdn, olddn))
-
-		clear_defaults_cache()
-
-	def abbreviate(self):
-		self.abbr = ''.join([c[0].upper() for c in self.school_name.split()])
-
-	def on_trash(self):
-		NestedSet.validate_if_child_exists(self)
-		frappe.utils.nestedset.update_nsm(self)
+		if frappe.db.sql("""SELECT abbr FROM `tabSchool` WHERE name!=%s AND abbr=%s""", (self.name, self.abbr)):
+			frappe.throw(_("Abbreviation {0} is already used for another school").format(self.abbr))
 
 	def validate_parent_school(self):
 		if self.parent_school:
 			is_group = frappe.get_value('School', self.parent_school, 'is_group')
-
 			if not is_group:
 				frappe.throw(_("Parent School must be a group school."))
+
+	def validate_perpetual_inventory(self):
+		if not self.get("__islocal"):
+			if cint(self.enable_perpetual_inventory) == 1 and not self.default_inventory_account:
+				frappe.msgprint(_("Set default inventory account for perpetual inventory"), alert=True, indicator='orange')
+
+	def create_default_storage(self):
+		if not frappe.db.exists("Storage", "{0} - {1}".format(self.name, self.abbr)):
+			storage = frappe.get_doc({
+				"doctype":"Storage",
+				"storage_name": self.name,
+				"is_group": 1,
+				"school": self.name,
+				"parent_warehouse": "{0} - {1}".format(self.parent_school, self.abbr),
+				"warehouse_type" : "School"
+				})
+				storage.flags.ignore_permissions = True
+				storage.flags.ignore_mandatory = True
+				storage.insert() 
+
+	def create_default_storage_account(self):
+		if not frappe.db.exists("Account", "Stock In Hand - {0}".format(self.abbr)):
+			account = frappe.get_doc({
+				"doctype": "Account",
+				"account_name": "Stock in Hand",
+				"is_group": 0,
+				"school": self.name,
+				"account_type": "Stock",
+				"account_currency": self.default_currency
+			})
+			account.flags.ignore_permissions = True
+			account.flags.ignore_mandatory = True
+			account.insert()
 
 @frappe.whitelist()
 def enqueue_replace_abbr(school, old, new):

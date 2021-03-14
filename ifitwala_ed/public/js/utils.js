@@ -4,9 +4,18 @@
 frappe.provide("ifitwala_ed");
 frappe.provide("ifitwala_ed.utils");
 
-
 $.extend(ifitwala_ed, {
-
+	get_presentation_currency_list: () => {
+		const docs = frappe.boot.docs;
+		let currency_list = docs.filter(d => d.doctype === ":Currency").map(d => d.name);
+		currency_list.unshift("");
+		return currency_list;
+	},
+	is_perpetual_inventory_enabled: function(school) {
+		if(school) {
+			return frappe.get_doc(":School", school).enable_perpetual_inventory
+		}
+	}
 });
 
 $.extend(ifitwala_ed.utils, {
@@ -33,7 +42,7 @@ $.extend(ifitwala_ed.utils, {
 		} else {
 			return options[0];
 		}
-	},
+	} 
 
 });
 

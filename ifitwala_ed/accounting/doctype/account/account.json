@@ -11,7 +11,7 @@
   "account_type",
   "school",
   "column_break_6",
-  "currency",
+  "account_currency",
   "root_type",
   "lft",
   "rgt",
@@ -98,24 +98,24 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "currency",
-   "fieldtype": "Currency",
-   "label": "Currency",
-   "options": "Currency"
-  },
-  {
    "fieldname": "root_type",
    "fieldtype": "Select",
    "in_standard_filter": 1,
    "label": "Root Type",
    "options": "\nAsset\nLiability\nIncome\nExpense\nEquity",
    "read_only": 1
+  },
+  {
+   "fieldname": "account_currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-13 13:20:39.989594",
+ "modified": "2021-03-14 12:43:21.556685",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Account",

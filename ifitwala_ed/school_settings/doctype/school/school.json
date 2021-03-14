@@ -148,6 +148,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "accounting_settings_section",
    "fieldtype": "Section Break",
    "label": "Accounting Settings"
@@ -163,7 +164,7 @@
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-13 19:41:28.537919",
+ "modified": "2021-03-14 12:52:19.841184",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

@@ -18,13 +18,13 @@ frappe.treeview_settings['Storage'] = {
 			label:__('New Storage Name'), reqd:true},
 		{fieldtype:'Check', fieldname:'is_group', label:__('Is Group'),
 			description: __("Child nodes can be only created under 'Group' type nodes")}
-	] 
+	]
 	ignore_fields:["parent_storage"],
-	//onrender: function(node) {
-	//	if (node.data && node.data.balance!==undefined) {
-	//		$('<span class="balance-area pull-right">'
-	//		+ format_currency(Math.abs(node.data.balance), node.data.school_currency)
-	//		+ '</span>').insertBefore(node.$ul);
-	//	}
-	//}
+	onrender: function(node) {
+		if (node.data && node.data.balance!==undefined) {
+			$('<span class="balance-area pull-right">'
+			+ format_currency(Math.abs(node.data.balance), node.data.school_currency)
+			+ '</span>').insertBefore(node.$ul);
+		}
+	}
 }

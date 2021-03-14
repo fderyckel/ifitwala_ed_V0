@@ -70,10 +70,10 @@ class School(NestedSet):
 				"school": self.name,
 				"parent_warehouse": "{0} - {1}".format(self.parent_school, self.abbr),
 				"warehouse_type" : "School"
-				})
-				storage.flags.ignore_permissions = True
-				storage.flags.ignore_mandatory = True
-				storage.insert() 
+			})
+			storage.flags.ignore_permissions = True
+			storage.flags.ignore_mandatory = True
+			storage.insert() 
 
 	def create_default_storage_account(self):
 		if not frappe.db.exists("Account", "Stock In Hand - {0}".format(self.abbr)):

@@ -5,19 +5,21 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "disable",
+  "disabled",
+  "school",
+  "account_type",
+  "parent_account",
+  "column_break_6",
+  "is_group",
   "account_name",
   "account_number",
-  "account_type",
-  "school",
-  "column_break_6",
   "account_currency",
   "root_type",
+  "tax_rate",
+  "freeze_account",
   "lft",
   "rgt",
-  "is_group",
-  "old_parent",
-  "parent_account"
+  "old_parent"
  ],
  "fields": [
   {
@@ -43,11 +45,6 @@
    "in_standard_filter": 1,
    "label": "Account Number",
    "read_only": 1
-  },
-  {
-   "fieldname": "disable",
-   "fieldtype": "Data",
-   "label": "Disable"
   },
   {
    "fieldname": "school",
@@ -85,7 +82,10 @@
    "fieldname": "old_parent",
    "fieldtype": "Link",
    "label": "Old Parent",
-   "options": "Account"
+   "no_copy": 1,
+   "options": "Account",
+   "print_hide": 1,
+   "read_only": 1
   },
   {
    "fieldname": "parent_account",
@@ -110,29 +110,35 @@
    "fieldtype": "Link",
    "label": "Currency",
    "options": "Currency"
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Float",
+   "label": "Rate"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disable"
+  },
+  {
+   "fieldname": "freeze_account",
+   "fieldtype": "Select",
+   "label": "Frozen",
+   "options": "No\nYes"
   }
  ],
- "index_web_pages_for_search": 1,
+ "icon": "fa fa-money",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-14 12:43:21.556685",
+ "modified": "2021-03-14 14:18:01.709728",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Account",
  "nsm_parent_field": "parent_account",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Accounts User",
-   "share": 1,
-   "write": 1
-  },
   {
    "create": 1,
    "delete": 1,
@@ -144,8 +150,20 @@
    "role": "Accounts Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
   }
  ],
+ "search_fields": "account_number",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

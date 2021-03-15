@@ -23,7 +23,12 @@
   {
    "hidden": 0,
    "label": "Assets",
-   "links": "[\n    {\n        \"description\": \"Storage\",\n        \"label\": \"Storage\",\n        \"name\": \"Storage\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Item\",\n        \"label\": \"Item\",\n        \"name\": \"Items\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Storage Type\",\n        \"label\": \"Storage Type\",\n        \"name\": \"Storage Type\",\n        \"type\": \"doctype\"\n    }       \n]"
+   "links": "[\n    {\n        \"description\": \"Storage\",\n        \"label\": \"Storage\",\n        \"name\": \"Storage\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Item\",\n        \"label\": \"Item\",\n        \"name\": \"Item\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Lending Note\",\n        \"label\": \"Lending Note\",\n        \"name\": \"Lending Note\",\n        \"type\": \"doctype\"\n    },     \n    {\n        \"description\": \"Storage Type\",\n        \"label\": \"Storage Type\",\n        \"name\": \"Storage Type\",\n        \"type\": \"doctype\"\n    }       \n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Accounting",
+   "links": "[\n    {\n        \"description\": \"Account\",\n        \"label\": \"Account\",\n        \"name\": \"Account\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Fees\",\n        \"label\": \"Fees\",\n        \"name\": \"Fees\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "category": "Modules",
@@ -40,7 +45,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2021-03-13 11:37:41.178511",
+ "modified": "2021-03-15 07:48:36.883920",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

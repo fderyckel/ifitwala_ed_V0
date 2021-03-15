@@ -121,7 +121,7 @@ class Account(NestedSet):
 				frappe.throw(_("Currency can not be changed after making entries using some other currency"))
 
 	def validate_root_school_and_sync_account_to_children(self):
-		# ignore validation while creating new compnay or while syncing to child companies
+		# ignore validation while creating new school or while syncing to child schools
 		if frappe.local.flags.ignore_root_school_validation or self.flags.ignore_root_school_validation:
 			return
 		ancestors = get_root_school(self.school)
@@ -140,7 +140,7 @@ class Account(NestedSet):
 			if parent_acc_number:
 				filters["account_number"] = parent_acc_number
 
-			for d in frappe.db.get_values('Account', filters=filters, fieldname=["company", "name"], as_dict=True):
+			for d in frappe.db.get_values('Account', filters=filters, fieldname=["school", "name"], as_dict=True):
 				parent_acc_name_map[d["school"]] = d["name"]
 
 			if not parent_acc_name_map: return
@@ -155,7 +155,7 @@ class Account(NestedSet):
 				frappe.throw(_("While creating account for Child School {0}, parent account {1} not found. Please create the parent account in corresponding COA")
 					.format(school_bold, parent_acc_name_bold), title=_("Account Not Found"))
 
-			# validate if parent of child company account to be added is a group
+			# validate if parent of child school account to be added is a group
 			if (frappe.db.get_value("Account", self.parent_account, "is_group")
 				and not frappe.db.get_value("Account", parent_acc_name_map[school], "is_group")):
 				msg = _("While creating account for Child School {0}, parent account {1} found as a ledger account.").format(school_bold, parent_acc_name_bold)
@@ -178,7 +178,7 @@ class Account(NestedSet):
 				doc.update({
 					"school": school,
 					# parent account's currency should be passed down to child account's curreny
-					# if it is None, it picks it up from default company currency, which might be unintended
+					# if it is None, it picks it up from default school currency, which might be unintended
 					"account_currency": self.account_currency,
 					"parent_account": parent_acc_name_map[school]
 				})
@@ -186,7 +186,7 @@ class Account(NestedSet):
 				doc.save()
 				frappe.msgprint(_("Account {0} is added in the child school {1}").format(doc.name, school))
 			elif child_account:
-				# update the parent company's value in child companies
+				# update the parent school's value in child schools
 				doc = frappe.get_doc("Account", child_account)
 				parent_value_changed = False
 				for field in ['account_type', 'account_currency', 'freeze_account', 'balance_must_be']:
@@ -208,6 +208,20 @@ class Account(NestedSet):
 
 @frappe.whitelist()
 def get_root_school(school):
-	# return the topmost company in the hierarchy
+	# return the topmost school in the hierarchy
 	ancestors = get_ancestors_of('School', school, "lft asc")
 	return [ancestors[0]] if ancestors else []
+
+
+def get_account_currency(account):
+	"""Helper function to get account currency"""
+	if not account:
+		return
+	def generator():
+		account_currency, school = frappe.get_cached_value("Account", account, ["account_currency", "school"])
+		if not account_currency:
+			account_currency = frappe.get_cached_value('School',  school,  "default_currency")
+
+		return account_currency
+
+	return frappe.local_cache("account_currency", account, generator)

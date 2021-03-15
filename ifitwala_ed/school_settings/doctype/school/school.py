@@ -3,14 +3,19 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe
+import frappe, os, json
 from frappe import _
-from frappe.utils import cint, today, formatdate
+from frappe.utils import cint, today, formatdate, get_timestamp
 from frappe.utils.nestedset import NestedSet, get_root_of
 from frappe.model.document import Document
 import frappe.defaults
 from frappe.cache_manager import clear_defaults_cache
 from frappe.contacts.address_and_contact import load_address_and_contact
+
+from past.builtins import cmp
+import functools
+
+from ifitwala_ed.accounting.doctype.account.account import get_account_currency
 
 class School(NestedSet):
 	nsm_parent_field = 'parent_school'
@@ -24,6 +29,7 @@ class School(NestedSet):
 			self.update_default_account = True
 
 		self.validate_abbr()
+		self.validate_default_accounts()
 		self.validate_currency()
 		self.validate_coa_input()
 		self.validate_perpetual_inventory()
@@ -81,6 +87,26 @@ class School(NestedSet):
 
 		if frappe.db.sql("""SELECT abbr FROM `tabSchool` WHERE name!=%s AND abbr=%s""", (self.name, self.abbr)):
 			frappe.throw(_("Abbreviation {0} is already used for another school").format(self.abbr))
+
+	def validate_default_accounts(self):
+		accounts = [
+			["Default Bank Account", "default_bank_account"], ["Default Cash Account", "default_cash_account"],
+			["Default Receivable Account", "default_receivable_account"], ["Default Payable Account", "default_payable_account"],
+			["Default Expense Account", "default_expense_account"], ["Default Income Account", "default_income_account"],
+			["Stock Received But Not Billed Account", "stock_received_but_not_billed"], ["Stock Adjustment Account", "stock_adjustment_account"],
+			["Expense Included In Valuation Account", "expenses_included_in_valuation"], ["Default Payroll Payable Account", "default_payroll_payable_account"]
+		]
+
+		for account in accounts:
+			if self.get(account[1]):
+				for_school = frappe.db.get_value("Account", self.get(account[1]), "school")
+				if for_school != self.name:
+					frappe.throw(_("Account {0} does not belong to school: {1}").format(self.get(account[1]), self.name))
+
+				if get_account_currency(self.get(account[1])) != self.default_currency:
+					error_message = _("{0} currency must be same as school's default currency. Please select another account.").format(frappe.bold(account[0]))
+					frappe.throw(error_message)
+
 
 	def validate_currency(self):
 		if self.is_new():
@@ -148,13 +174,13 @@ class School(NestedSet):
 		cc_list = [
 			{
 				'cost_center_name': self.name,
-				'company':self.name,
+				'school':self.name,
 				'is_group': 1,
 				'parent_cost_center':None
 			},
 			{
 				'cost_center_name':_('Main'),
-				'company':self.name,
+				'school':self.name,
 				'is_group':0,
 				'parent_cost_center':self.name + ' - ' + self.abbr
 			},

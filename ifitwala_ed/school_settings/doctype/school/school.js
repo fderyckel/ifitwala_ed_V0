@@ -11,12 +11,16 @@ frappe.ui.form.on('School', {
 			frm.set_value("abbr", abbr);
 		}
 	},
-	
+
 	refresh: function(frm) {
 		if(frm.doc.abbr && !frm.doc.__islocal) {
 			frm.set_df_property("abbr", "read_only", 1);
 		}
 
+		if(!frm.doc.__islocal) {
+			frappe.contacts.render_address_and_contact(frm);
+
+		}
 	}
 });
 

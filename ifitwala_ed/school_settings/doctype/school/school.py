@@ -5,23 +5,37 @@
 from __future__ import unicode_literals
 import frappe
 from frappe import _
+from frappe.utils import cint, today, formatdate
 from frappe.utils.nestedset import NestedSet, get_root_of
 from frappe.model.document import Document
 import frappe.defaults
 from frappe.cache_manager import clear_defaults_cache
+from frappe.contacts.address_and_contact import load_address_and_contact
 
 class School(NestedSet):
 	nsm_parent_field = 'parent_school'
 
+	def onload(self):
+		load_address_and_contact(self, "school")
+
 	def validate(self):
+		self.update_default_account = False
+		if self.is_new():
+			self.update_default_account = True
+
 		self.validate_abbr()
+		self.validate_currency()
+		self.validate_coa_input()
 		self.validate_parent_school()
 
 	def on_update(self):
 		NestedSet.on_update(self)
 		if not frappe.db.sql("""SELECT name FROM `tabStorage` WHERE school=%s AND docstatus<2 LIMIT 1 """, self.name):
-			self.create_default_storage()
-			self.create_default_storage_account()
+			if not frappe.local.flags.ignore_chart_of_accounts:
+				frappe.flags.country_change = True
+				self.create_default_accounts()
+				self.create_default_storage()
+			#self.create_default_storage_account()
 
 	def on_trash(self):
 		NestedSet.validate_if_child_exists(self)
@@ -34,6 +48,15 @@ class School(NestedSet):
 
 	def abbreviate(self):
 		self.abbr = ''.join([c[0].upper() for c in self.school_name.split()])
+
+	def check_if_transactions_exist(self):
+		exists = False
+		for doctype in ["Lending Note", "Fees"]:
+				if frappe.db.sql("""SELECT name FROM `tab%s` WHERE school=%s AND docstatus=1 LIMIT 1""" % (doctype, "%s"), self.name):
+						exists = True
+						break
+
+		return exists
 
 	def validate_abbr(self):
 		if not self.abbr:
@@ -50,6 +73,24 @@ class School(NestedSet):
 		if frappe.db.sql("""SELECT abbr FROM `tabSchool` WHERE name!=%s AND abbr=%s""", (self.name, self.abbr)):
 			frappe.throw(_("Abbreviation {0} is already used for another school").format(self.abbr))
 
+	def validate_currency(self):
+		if self.is_new():
+			return
+		self.previous_default_currency = frappe.get_cached_value('School',  self.name,  "default_currency")
+		if self.default_currency and self.previous_default_currency and self.default_currency != self.previous_default_currency and self.check_if_transactions_exist():
+				frappe.throw(_("Cannot change school's default currency, because there are existing transactions. Transactions must be cancelled to change the default currency."))
+
+	def validate_coa_input(self):
+		if self.create_chart_of_accounts_based_on == "Existing School":
+			self.chart_of_accounts = None
+			if not self.existing_school:
+				frappe.throw(_("Please select Existing School for creating Chart of Accounts"))
+		else:
+			self.existing_school = None
+			self.create_chart_of_accounts_based_on = "Standard Template"
+			if not self.chart_of_accounts:
+				self.chart_of_accounts = "Standard"
+
 	def validate_parent_school(self):
 		if self.parent_school:
 			is_group = frappe.get_value('School', self.parent_school, 'is_group')
@@ -60,6 +101,14 @@ class School(NestedSet):
 		if not self.get("__islocal"):
 			if cint(self.enable_perpetual_inventory) == 1 and not self.default_inventory_account:
 				frappe.msgprint(_("Set default inventory account for perpetual inventory"), alert=True, indicator='orange')
+
+	def create_default_accounts(self):
+		from ifitwala_ed.accounting.doctype.account.chart_of_accounts.chart_of_accounts import create_charts
+		frappe.local.flags.ignore_root_school_validation = True
+		create_charts(self.name, self.chart_of_accounts, self.existing_school)
+
+		frappe.db.set(self, "default_receivable_account", frappe.db.get_value("Account", {"school": self.name, "account_type": "Receivable", "is_group": 0}))
+		frappe.db.set(self, "default_payable_account", frappe.db.get_value("Account", {"school": self.name, "account_type": "Payable", "is_group": 0}))
 
 	def create_default_storage(self):
 		if not frappe.db.exists("Storage", "{0} - {1}".format(self.name, self.abbr)):
@@ -73,21 +122,7 @@ class School(NestedSet):
 			})
 			storage.flags.ignore_permissions = True
 			storage.flags.ignore_mandatory = True
-			storage.insert() 
-
-	def create_default_storage_account(self):
-		if not frappe.db.exists("Account", "Stock In Hand - {0}".format(self.abbr)):
-			account = frappe.get_doc({
-				"doctype": "Account",
-				"account_name": "Stock in Hand",
-				"is_group": 0,
-				"school": self.name,
-				"account_type": "Stock",
-				"account_currency": self.default_currency
-			})
-			account.flags.ignore_permissions = True
-			account.flags.ignore_mandatory = True
-			account.insert()
+			storage.insert()
 
 @frappe.whitelist()
 def enqueue_replace_abbr(school, old, new):

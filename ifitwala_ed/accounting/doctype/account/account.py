@@ -22,6 +22,7 @@ class Account(NestedSet):
 		self.validate_parent()
 		self.validate_root_details()
 		validate_field_number("Account", self.name, self.account_number, self.school, "account_number")
+		self.set_root_and_report_type()
 
 	def on_update(self):
 		if frappe.local.flags.ignore_on_update:
@@ -49,3 +50,22 @@ class Account(NestedSet):
 
 		if not self.parent_account and not self.is_group:
 			frappe.throw(_("The root account {0} must be a group").format(frappe.bold(self.name)))
+
+	def set_root_and_report_type(self):
+		if self.parent_account:
+			par = frappe.db.get_value("Account", self.parent_account, ["report_type", "root_type"], as_dict=1)
+			if par.report_type:
+				self.report_type = par.report_type
+			if par.root_type:
+				self.root_type = par.root_type
+
+		if self.is_group:
+			db_value = frappe.db.get_value("Account", self.name, ["report_type", "root_type"], as_dict=1)
+			if db_value:
+				if self.report_type != db_value.report_type:
+					frappe.db.sql("update `tabAccount` set report_type=%s where lft > %s and rgt < %s",(self.report_type, self.lft, self.rgt))
+				if self.root_type != db_value.root_type:
+					frappe.db.sql("update `tabAccount` set root_type=%s where lft > %s and rgt < %s",(self.root_type, self.lft, self.rgt))
+
+		if self.root_type and not self.report_type:
+			self.report_type = "Balance Sheet" if self.root_type in ("Asset", "Liability", "Equity") else "Profit and Loss"

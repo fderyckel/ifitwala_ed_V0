@@ -10,7 +10,6 @@ from .default_website import website_maker
 from ifitwala_ed.accounting.doctype.account.account import RootNotEditable
 
 
-
 def create_fiscal_year_and_school(args):
 	if (args.get('fy_start_date')):
 		curr_fiscal_year = get_fy_details(args.get('fy_start_date'), args.get('fy_end_date'))
@@ -30,9 +29,9 @@ def create_fiscal_year_and_school(args):
 			'default_currency':args.get('currency'),
 			'country': args.get('country'),
 			'create_chart_of_accounts_based_on': 'Standard Template',
-			'chart_of_accounts': args.get('chart_of_accounts'),
-			'domain': args.get('domains')[0]
+			'chart_of_accounts': args.get('chart_of_accounts')
 		}).insert()
+
 
 def create_bank_account(args):
 	if args.get("bank_account"):
@@ -74,8 +73,10 @@ def create_logo(args):
 			frappe.db.set_value("Website Settings", "Website Settings", "brand_html",
 				"<img src='{0}' style='max-width: 40px; max-height: 25px;'> {1}".format(fileurl, args.get("school_name")))
 
+
 def create_website(args):
 	website_maker(args)
+
 
 def get_fy_details(fy_start_date, fy_end_date):
 	start_year = getdate(fy_start_date).year

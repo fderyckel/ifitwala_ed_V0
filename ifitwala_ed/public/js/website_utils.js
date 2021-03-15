@@ -3,7 +3,7 @@
 
 if(!window.ifitwala_ed) window.ifitwala_ed = {};
 
-erpnext.subscribe_to_newsletter = function(opts, btn) {
+ifitwala_ed.subscribe_to_newsletter = function(opts, btn) {
 	return frappe.call({
 		type: "POST",
 		method: "frappe.email.doctype.newsletter.newsletter.subscribe",

@@ -36,7 +36,41 @@ def install(country=None):
 		{'doctype': "Party Type", "party_type": "Shareholder", "account_type": "Payable"},
 		{'doctype': "Party Type", "party_type": "Student", "account_type": "Receivable"},
 		{'doctype': "Party Type", "party_type": "Donor", "account_type": "Receivable"},
-    ] 
+
+		{"doctype": "Academic Year", "academic_year_name": "2020-21"},
+		{"doctype": "Academic Year", "academic_year_name": "2019-20"},
+		{"doctype": "Academic Year", "academic_year_name": "2018-19"},
+		{"doctype": "Academic Term", "academic_year": "2020-21", "term_name": "Semester 1"},
+		{"doctype": "Academic Term", "academic_year": "2020-21", "term_name": "Semester 2"},
+		{"doctype": "Academic Term", "academic_year": "2020-21", "term_name": "S1 - S2"},
+		{"doctype": "Academic Term", "academic_year": "2019-20", "term_name": "Semester 1"},
+		{"doctype": "Academic Term", "academic_year": "2019-20", "term_name": "Semester 2"},
+		{"doctype": "Academic Term", "academic_year": "2019-20", "term_name": "S1 - S2"},
+
+		{"doctype": "Designation", "designation_name": "Director"},
+		{"doctype": "Designation", "designation_name": "Principal"},
+		{"doctype": "Designation", "designation_name": "Assistant Principal"},
+		{"doctype": "Designation", "designation_name": "Nurse"},
+		{"doctype": "Designation", "designation_name": "Teacher"},
+		{"doctype": "Designation", "designation_name": "Teacher Assistant"},
+
+		{"doctype": "Student Log Type", "log_type": "Behaviour"},
+		{"doctype": "Student Log Type", "log_type": "Academic"},
+		{"doctype": "Student Log Type", "log_type": "Medical"},
+
+		{"doctype": "Student Attendance Code", "attendance_code": "Present"},
+		{"doctype": "Student Attendance Code", "attendance_code": "Absent"},
+		{"doctype": "Student Attendance Code", "attendance_code": "Tardy"},
+		{"doctype": "Student Attendance Code", "attendance_code": "Excused Absence"},
+		{"doctype": "Student Attendance Code", "attendance_code": "Field Trip"},
+		{"doctype": "Student Attendance Code", "attendance_code": "Excused Tardy"},
+
+		{"doctype": "Storage Type", "storage_type_name": "Classroom"},
+		{"doctype": "Storage Type", "storage_type_name": "Office"},
+		{"doctype": "Storage Type", "storage_type_name": "School"},
+		{"doctype": "Storage Type", "storage_type_name": "Building"},
+		{"doctype": "Storage Type", "storage_type_name": "Storage"},
+    ]
     make_records(records)
     set_more_defaults()
     update_global_search_doctypes()

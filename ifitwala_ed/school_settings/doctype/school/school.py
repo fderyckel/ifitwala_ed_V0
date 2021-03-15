@@ -26,6 +26,9 @@ class School(NestedSet):
 		self.validate_abbr()
 		self.validate_currency()
 		self.validate_coa_input()
+		self.validate_perpetual_inventory()
+		self.check_country_change()
+		self.set_chart_of_accounts()
 		self.validate_parent_school()
 
 	def on_update(self):
@@ -36,6 +39,13 @@ class School(NestedSet):
 				self.create_default_accounts()
 				self.create_default_storage()
 			#self.create_default_storage_account()
+		if not frappe.db.get_value("Cost Center", {"is_group": 0, "school": self.name}):
+			self.create_default_cost_center()
+
+		if not frappe.local.flags.ignore_chart_of_accounts:
+			self.set_default_accounts()
+			if self.default_cash_account:
+				self.set_mode_of_payment_account()
 
 	def on_trash(self):
 		NestedSet.validate_if_child_exists(self)
@@ -55,7 +65,6 @@ class School(NestedSet):
 				if frappe.db.sql("""SELECT name FROM `tab%s` WHERE school=%s AND docstatus=1 LIMIT 1""" % (doctype, "%s"), self.name):
 						exists = True
 						break
-
 		return exists
 
 	def validate_abbr(self):
@@ -91,16 +100,27 @@ class School(NestedSet):
 			if not self.chart_of_accounts:
 				self.chart_of_accounts = "Standard"
 
+	def validate_perpetual_inventory(self):
+		if not self.get("__islocal"):
+			if cint(self.enable_perpetual_inventory) == 1 and not self.default_inventory_account:
+				frappe.msgprint(_("Set default inventory account for perpetual inventory"), alert=True, indicator='orange')
+
+	def check_country_change(self):
+		frappe.flags.country_change = False
+		if not self.get('__islocal') and self.country != frappe.get_cached_value('School',  self.name,  'country'):
+			frappe.flags.country_change = True
+
+	def set_chart_of_accounts(self):
+		''' If parent school is set, chart of accounts will be based on that school '''
+		if self.parent_school:
+			self.create_chart_of_accounts_based_on = "Existing School"
+			self.existing_school = self.parent_school
+
 	def validate_parent_school(self):
 		if self.parent_school:
 			is_group = frappe.get_value('School', self.parent_school, 'is_group')
 			if not is_group:
 				frappe.throw(_("Parent School must be a group school."))
-
-	def validate_perpetual_inventory(self):
-		if not self.get("__islocal"):
-			if cint(self.enable_perpetual_inventory) == 1 and not self.default_inventory_account:
-				frappe.msgprint(_("Set default inventory account for perpetual inventory"), alert=True, indicator='orange')
 
 	def create_default_accounts(self):
 		from ifitwala_ed.accounting.doctype.account.chart_of_accounts.chart_of_accounts import create_charts
@@ -117,12 +137,100 @@ class School(NestedSet):
 				"storage_name": self.name,
 				"is_group": 1,
 				"school": self.name,
-				"parent_warehouse": "{0} - {1}".format(self.parent_school, self.abbr),
-				"warehouse_type" : "School"
+				"parent_storage": "{0} - {1}".format(self.parent_school, self.abbr),
+				"storage_type" : "School"
 			})
 			storage.flags.ignore_permissions = True
 			storage.flags.ignore_mandatory = True
 			storage.insert()
+
+	def create_default_cost_center(self):
+		cc_list = [
+			{
+				'cost_center_name': self.name,
+				'company':self.name,
+				'is_group': 1,
+				'parent_cost_center':None
+			},
+			{
+				'cost_center_name':_('Main'),
+				'company':self.name,
+				'is_group':0,
+				'parent_cost_center':self.name + ' - ' + self.abbr
+			},
+		]
+		for cc in cc_list:
+			cc.update({"doctype": "Cost Center"})
+			cc_doc = frappe.get_doc(cc)
+			cc_doc.flags.ignore_permissions = True
+
+			if cc.get("cost_center_name") == self.name:
+				cc_doc.flags.ignore_mandatory = True
+			cc_doc.insert()
+
+		frappe.db.set(self, "cost_center", _("Main") + " - " + self.abbr)
+		frappe.db.set(self, "round_off_cost_center", _("Main") + " - " + self.abbr)
+		frappe.db.set(self, "depreciation_cost_center", _("Main") + " - " + self.abbr)
+
+	def set_default_accounts(self):
+		default_accounts = {
+			"default_cash_account": "Cash",
+			"default_bank_account": "Bank",
+			"round_off_account": "Round Off",
+			"accumulated_depreciation_account": "Accumulated Depreciation",
+			"depreciation_expense_account": "Depreciation",
+			"capital_work_in_progress_account": "Capital Work in Progress",
+			"asset_received_but_not_billed": "Asset Received But Not Billed",
+			"expenses_included_in_asset_valuation": "Expenses Included In Asset Valuation"
+		}
+
+		if self.enable_perpetual_inventory:
+			default_accounts.update({
+				"stock_received_but_not_billed": "Stock Received But Not Billed",
+				"default_inventory_account": "Stock",
+				"stock_adjustment_account": "Stock Adjustment",
+				"expenses_included_in_valuation": "Expenses Included In Valuation",
+				"default_expense_account": "Cost of Goods Sold"
+			})
+
+		if self.update_default_account:
+			for default_account in default_accounts:
+				self._set_default_account(default_account, default_accounts.get(default_account))
+
+		if not self.default_income_account:
+			income_account = frappe.db.get_value("Account", {"account_name": _("Sales"), "school": self.name, "is_group": 0})
+			if not income_account:
+				income_account = frappe.db.get_value("Account", {"account_name": _("Sales Account"), "school": self.name})
+			self.db_set("default_income_account", income_account)
+
+		if not self.default_payable_account:
+			self.db_set("default_payable_account", self.default_payable_account)
+
+		if not self.write_off_account:
+			write_off_acct = frappe.db.get_value("Account", {"account_name": _("Write Off"), "school": self.name, "is_group": 0})
+			self.db_set("write_off_account", write_off_acct)
+
+		if not self.exchange_gain_loss_account:
+			exchange_gain_loss_acct = frappe.db.get_value("Account", {"account_name": _("Exchange Gain/Loss"), "school": self.name, "is_group": 0})
+			self.db_set("exchange_gain_loss_account", exchange_gain_loss_acct)
+
+		if not self.disposal_account:
+			disposal_acct = frappe.db.get_value("Account", {"account_name": _("Gain/Loss on Asset Disposal"), "school": self.name, "is_group": 0})
+			self.db_set("disposal_account", disposal_acct)
+
+	def set_mode_of_payment_account(self):
+		cash = frappe.db.get_value('Mode of Payment', {'type': 'Cash'}, 'name')
+		if cash and self.default_cash_account and not frappe.db.get_value('Mode of Payment Account', {'school': self.name, 'parent': cash}):
+			mode_of_payment = frappe.get_doc('Mode of Payment', cash)
+			mode_of_payment.append('accounts', {'school': self.name, 'default_account': self.default_cash_account})
+			mode_of_payment.save(ignore_permissions=True)
+
+	def _set_default_account(self, fieldname, account_type):
+		if self.get(fieldname):
+			return
+		account = frappe.db.get_value("Account", {"account_type": account_type, "is_group": 0, "school": self.name})
+		if account:
+			self.db_set(fieldname, account)
 
 @frappe.whitelist()
 def enqueue_replace_abbr(school, old, new):
@@ -154,10 +262,8 @@ def replace_abbr(school, old, new):
 def get_name_with_abbr(name, school):
 	school_abbr = frappe.db.get_value("School", school, "abbr")
 	parts = name.split(" - ")
-
 	if parts[-1].lower() != school_abbr.lower():
 		parts.append(school_abbr)
-
 	return " - ".join(parts)
 
 @frappe.whitelist()
@@ -166,12 +272,12 @@ def get_children(doctype, parent=None, school=None, is_root=False):
 		parent = ""
 
 	return frappe.db.sql("""
-		select
+		SELECT
 			name as value,
 			is_group as expandable
-		from
+		FROM
 			`tab{doctype}` comp
-		where
+		WHERE
 			ifnull(parent_school, "")={parent}
 		""".format(
 			doctype=doctype,

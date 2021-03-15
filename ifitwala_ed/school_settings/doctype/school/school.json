@@ -360,8 +360,9 @@
   },
   {
    "fieldname": "country",
-   "fieldtype": "Data",
-   "label": "Country"
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
   },
   {
    "fieldname": "depreciation_cost_center",
@@ -396,7 +397,7 @@
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-15 12:51:46.358562",
+ "modified": "2021-03-15 14:50:50.554432",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

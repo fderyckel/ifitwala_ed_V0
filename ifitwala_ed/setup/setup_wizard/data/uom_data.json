@@ -1,0 +1,75 @@
+[
+  {
+		"uom_name": "Unit",
+		"must_be_whole_number": 1
+	},
+	{
+		"uom_name": "Box",
+		"must_be_whole_number": 1
+	},	{
+		"uom_name": "Nos",
+		"must_be_whole_number": 1
+	},	{
+		"uom_name": "Pair",
+		"must_be_whole_number": 1
+	},	{
+		"uom_name": "Set",
+		"must_be_whole_number": 1
+	},
+	{
+		"uom_name": "Meter",
+		"must_be_whole_number": 0
+	},
+  {
+		"uom_name": "Centimeter",
+		"must_be_whole_number": 0
+	},
+  {
+		"uom_name": "Inch",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Kilometer",
+		"must_be_whole_number": 0
+	},
+  {
+		"uom_name": "Millimeter",
+		"must_be_whole_number": 0
+	},
+  {
+		"uom_name": "Teaspoon",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Day",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Hour",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Minute",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Second",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Millisecond",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Microsecond",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Nanosecond",
+		"must_be_whole_number": 0
+	},
+	{
+		"uom_name": "Week",
+		"must_be_whole_number": 0
+	},          
+]

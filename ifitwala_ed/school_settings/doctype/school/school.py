@@ -48,6 +48,10 @@ class School(NestedSet):
 		if not frappe.db.get_value("Cost Center", {"is_group": 0, "school": self.name}):
 			self.create_default_cost_center()
 
+		if not frappe.db.get_value("Department", {"school": self.name}):
+			from ifitwala_ed.setup.setup_wizard.operations.install_fixtures import install_post_school_fixtures
+			install_post_school_fixtures(frappe._dict({'school_name': self.name}))
+
 		if not frappe.local.flags.ignore_chart_of_accounts:
 			self.set_default_accounts()
 			if self.default_cash_account:

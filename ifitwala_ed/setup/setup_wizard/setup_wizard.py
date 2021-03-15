@@ -96,9 +96,8 @@ def setup_defaults(args):
 	fixtures.install_defaults(frappe._dict(args))
 
 def stage_four(args):
-	company_setup.create_website(args)
-	company_setup.create_email_digest()
-	company_setup.create_logo(args)
+	school_setup.create_website(args)
+	school_setup.create_logo(args)
 
 def fin(args):
 	frappe.local.message_log = []
@@ -123,8 +122,8 @@ def login_as_first_user(args):
 # Only for programmatical use
 def setup_complete(args=None):
 	stage_fixtures(args)
-	setup_company(args)
-	setup_post_company_fixtures(args)
+	setup_school(args)
+	setup_post_school_fixtures(args)
 	setup_defaults(args)
 	stage_four(args)
 	fin(args)

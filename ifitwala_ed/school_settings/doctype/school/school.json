@@ -29,6 +29,7 @@
   "default_currency",
   "existing_school",
   "column_break_21",
+  "country",
   "create_chart_of_accounts_based_on",
   "chart_of_accounts",
   "default_accounts_section",
@@ -36,20 +37,24 @@
   "write_off_account",
   "unrealized_exchange_gainloss_account",
   "unrealized_profit__loss_account",
+  "default_expense_claim_payable_account",
+  "depreciation_cost_center",
   "column_break_27",
   "default_cash_account",
   "default_cost_of_goods_sold_account",
   "round_off_account",
   "default_deferred_revenue_account",
   "default_deferred_expense_account",
+  "default_cost_center",
   "column_break_29",
+  "allow_account_creation_against_child_school",
   "default_payable_account",
   "default_receivable_account",
   "default_income_account",
   "exchange_gain__loss_account",
+  "round_off_cost_center",
   "lft",
   "rgt",
-  "default_expense_claim_payable_account",
   "old_parent"
  ],
  "fields": [
@@ -226,6 +231,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "default_accounts_section",
    "fieldtype": "Section Break",
    "label": "Default Accounts"
@@ -351,18 +357,64 @@
    "label": "Default Deferred Expense Account",
    "no_copy": 1,
    "options": "Account"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "depreciation_cost_center",
+   "fieldtype": "Link",
+   "label": "Asset Depreciation Cost Center",
+   "no_copy": 1,
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "default_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Cost Center",
+   "no_copy": 1,
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "round_off_cost_center",
+   "fieldtype": "Link",
+   "label": "Round Off Cost Center",
+   "no_copy": 1,
+   "options": "Cost Center"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.parent_school",
+   "fieldname": "allow_account_creation_against_child_school",
+   "fieldtype": "Check",
+   "label": "Allow Account Creation Against Child School"
   }
  ],
+ "icon": "fa fa-building",
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-15 08:59:20.018432",
+ "modified": "2021-03-15 12:51:46.358562",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",
  "nsm_parent_field": "parent_school",
  "owner": "Administrator",
  "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
   {
    "create": 1,
    "delete": 1,
@@ -382,16 +434,6 @@
    "read": 1,
    "report": 1,
    "role": "School IT",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Schedule Maker",
    "share": 1
   },
   {
@@ -409,16 +451,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Instructor",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Curriculum Coordinator",
+   "role": "Stock User",
    "share": 1
   }
  ],

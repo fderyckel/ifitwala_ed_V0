@@ -15,7 +15,9 @@
   "account_number",
   "account_currency",
   "root_type",
+  "report_type",
   "tax_rate",
+  "balance_must_be",
   "freeze_account",
   "lft",
   "rgt",
@@ -127,12 +129,26 @@
    "fieldtype": "Select",
    "label": "Frozen",
    "options": "No\nYes"
+  },
+  {
+   "fieldname": "report_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Report Type",
+   "options": "\nBalance Sheet\nProfit and Loss",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balance_must_be",
+   "fieldtype": "Select",
+   "label": "Balance must be",
+   "options": "\nDebit\nCredit"
   }
  ],
  "icon": "fa fa-money",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-14 14:18:01.709728",
+ "modified": "2021-03-15 12:31:34.004778",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Account",

@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_import": 1,
+ "creation": "2021-03-15 10:28:57.514291",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "cost_center_name",
+  "cost_center_number",
+  "parent_cost_center",
+  "school",
+  "column_break_5",
+  "disabled",
+  "is_group",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "cost_center_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cost Center Name",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_center_number",
+   "fieldtype": "Data",
+   "label": "Cost Center Number"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "School",
+   "options": "School",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "parent_cost_center",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Parent Cost Center",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "icon": "fa fa-money",
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2021-03-15 10:39:05.917950",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Cost Center",
+ "nsm_parent_field": "parent_cost_center",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor",
+   "share": 1
+  }
+ ],
+ "search_fields": "parent_cost_center, is_group",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -11,6 +11,7 @@ from ifitwala_ed.accounting.doctype.account.account import RootNotEditable
 
 def install(country=None):
 	records = [
+
 		# item group
 		{'doctype': 'Item Group', 'item_group_name': _('All Item Groups'), 'is_group': 1, 'parent_item_group': ''},
 		{'doctype': 'Item Group', 'item_group_name': _('Consumable'), 'is_group': 0, 'parent_item_group': _('All Item Groups') },
@@ -73,7 +74,6 @@ def install(country=None):
 	make_records(records)
 	set_more_defaults()
 	update_global_search_doctypes()
-
 
 def set_more_defaults():
 	add_uom_data()

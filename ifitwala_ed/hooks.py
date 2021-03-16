@@ -26,8 +26,8 @@ web_include_js = "/assets/js/ifitwala_ed-web.min.js"
 # setup wizard
 setup_wizard_requires = "assets/erpnext/js/setup_wizard.js"
 setup_wizard_stages = "ifitwala_ed.setup.setup_wizard.setup_wizard.get_setup_stages"
-before_install = "erpnext.setup.install.check_setup_wizard_not_completed"
-after_install = "erpnext.setup.install.after_install"
+before_install = "ifitwala_ed.setup.install.check_setup_wizard_not_completed"
+after_install = "ifitwala_ed.setup.install.after_install"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}

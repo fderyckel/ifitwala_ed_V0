@@ -35,7 +35,7 @@ def add_school_to_session_defaults():
 def add_standard_navbar_items():
 	navbar_settings = frappe.get_single("Navbar Settings")
 
-	erpnext_navbar_items = [
+	ifitwala_ed_navbar_items = [
 		{
 			'item_label': 'Documentation',
 			'item_type': 'Route',
@@ -59,7 +59,7 @@ def add_standard_navbar_items():
 	current_nabvar_items = navbar_settings.help_dropdown
 	navbar_settings.set('help_dropdown', [])
 
-	for item in erpnext_navbar_items:
+	for item in ifitwala_ed_navbar_items:
 		navbar_settings.append('help_dropdown', item)
 
 	for item in current_nabvar_items:

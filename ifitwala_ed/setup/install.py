@@ -12,11 +12,11 @@ from frappe.custom.doctype.custom_field.custom_field import create_custom_field
 
 def after_install():
 	frappe.get_doc({'doctype': "Role", "role_name": "Analytics"}).insert()
-    add_school_to_session_defaults()
-    add_standard_navbar_items()
-    add_all_roles_to("Administrator")
-    add_app_name()
-    frappe.db.commit()
+	add_school_to_session_defaults()
+	add_standard_navbar_items()
+	add_all_roles_to("Administrator")
+	add_app_name()
+	frappe.db.commit()
 
 
 def check_setup_wizard_not_completed():

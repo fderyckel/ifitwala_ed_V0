@@ -35,24 +35,24 @@
   "default_accounts_section",
   "default_bank_account",
   "write_off_account",
-  "unrealized_exchange_gainloss_account",
+  "unrealized_exchange_gain_loss_account",
   "unrealized_profit__loss_account",
   "default_expense_claim_payable_account",
   "depreciation_cost_center",
   "column_break_27",
   "default_cash_account",
-  "default_cost_of_goods_sold_account",
+  "default_expense_account",
   "round_off_account",
   "default_deferred_revenue_account",
   "default_deferred_expense_account",
   "default_cost_center",
   "column_break_29",
-  "allow_account_creation_against_child_school",
   "default_payable_account",
   "default_receivable_account",
   "default_income_account",
   "exchange_gain__loss_account",
   "round_off_cost_center",
+  "allow_account_creation_against_child_school",
   "lft",
   "rgt",
   "old_parent"
@@ -278,15 +278,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "unrealized_exchange_gainloss_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Unrealized Exchange Gain/Loss Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
    "fieldname": "round_off_account",
    "fieldtype": "Link",
    "label": "Round Off Account",
@@ -310,15 +301,6 @@
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
    "label": "Default Payable Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_cost_of_goods_sold_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Cost of Goods Sold Account",
    "no_copy": 1,
    "options": "Account"
   },
@@ -391,13 +373,31 @@
    "fieldname": "allow_account_creation_against_child_school",
    "fieldtype": "Check",
    "label": "Allow Account Creation Against Child School"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "default_expense_account",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Default Cost of Goods Sold Account",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "unrealized_exchange_gain_loss_account",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Unrealized Exchange Gain/Loss Account",
+   "no_copy": 1,
+   "options": "Account"
   }
  ],
  "icon": "fa fa-building",
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-15 14:50:50.554432",
+ "modified": "2021-03-16 08:36:40.275324",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

@@ -130,18 +130,16 @@ def install_post_school_fixtures(args=None):
 	make_records(records)
 
 def install_defaults(args=None):
-    # enable default currency
-    frappe.db.set_value("Currency", args.get("currency"), "enabled", 1)
-
+	# enable default currency
+	frappe.db.set_value("Currency", args.get("currency"), "enabled", 1)
 	global_defaults = frappe.get_doc("Global Defaults", "Global Defaults")
 	current_fiscal_year = frappe.get_all("Fiscal Year")[0]
-
 	global_defaults.update({
 		'current_fiscal_year': current_fiscal_year.name,
 		'default_currency': args.get('currency'),
 		'default_school':args.get('school_name'),
-		"country": args.get("country"),
-	})
+		"country": args.get("country") 
+		})
 
 	global_defaults.save()
 

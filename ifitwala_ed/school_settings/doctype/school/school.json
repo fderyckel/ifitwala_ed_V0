@@ -212,7 +212,7 @@
    "options": "\nStandard Template\nExisting School"
   },
   {
-   "depends_on": "eval:doc.create_chart_of_accounts_based_on===\"Existing Company\"",
+   "depends_on": "eval:doc.create_chart_of_accounts_based_on===\"Existing School\"",
    "fieldname": "existing_school",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
@@ -397,7 +397,7 @@
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-16 08:36:40.275324",
+ "modified": "2021-03-16 18:32:43.449207",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

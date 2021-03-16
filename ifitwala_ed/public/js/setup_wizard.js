@@ -1,7 +1,7 @@
 
 
 
-frappe.provide("ifitwala.setup");
+frappe.provide("ifitwala_ed.setup");
 
 frappe.pages['setup-wizard'].on_page_load = function(wrapper) {
 	if(frappe.sys_defaults.school) {

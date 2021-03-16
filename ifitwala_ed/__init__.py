@@ -13,3 +13,18 @@ def encode_school_abbr(name, school):
 		parts.append(school_abbr)
 
 	return " - ".join(parts)
+
+def get_default_school(user=None):
+	'''Get default school for user'''
+	from frappe.defaults import get_user_default_as_list
+
+	if not user:
+		user = frappe.session.user
+
+	schools = get_user_default_as_list(user, 'school')
+	if schools:
+		default_school = schools[0]
+	else:
+		default_school = frappe.db.get_single_value('Global Defaults', 'default_school')
+
+	return default_school

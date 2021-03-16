@@ -1,6 +1,4 @@
 
-
-
 frappe.provide("ifitwala_ed.setup");
 
 frappe.pages['setup-wizard'].on_page_load = function(wrapper) {

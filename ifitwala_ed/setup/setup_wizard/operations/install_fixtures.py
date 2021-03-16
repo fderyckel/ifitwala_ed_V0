@@ -69,11 +69,11 @@ def install(country=None):
 		{"doctype": "Storage Type", "storage_type_name": "Office"},
 		{"doctype": "Storage Type", "storage_type_name": "School"},
 		{"doctype": "Storage Type", "storage_type_name": "Building"},
-		{"doctype": "Storage Type", "storage_type_name": "Storage"},
-    ]
-    make_records(records)
-    set_more_defaults()
-    update_global_search_doctypes()
+		{"doctype": "Storage Type", "storage_type_name": "Storage"}
+	]
+	make_records(records)
+	set_more_defaults()
+	update_global_search_doctypes()
 
 
 def set_more_defaults():

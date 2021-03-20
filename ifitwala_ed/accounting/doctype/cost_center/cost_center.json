@@ -37,7 +37,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "School",
-   "options": "School",
+   "options": "Organization",
    "reqd": 1
   },
   {
@@ -91,7 +91,7 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-15 10:39:05.917950",
+ "modified": "2021-03-20 20:11:43.519146",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Cost Center",

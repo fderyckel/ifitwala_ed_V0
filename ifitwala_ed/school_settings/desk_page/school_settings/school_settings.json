@@ -3,17 +3,17 @@
   {
    "hidden": 0,
    "label": "School  & Departments",
-   "links": "[\n    {\n        \"description\": \"School Organization.\",\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"The various dpt. withing the school.\",\n        \"label\": \"Department\",\n        \"name\": \"Department\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Location, The map of your school.\",\n        \"label\": \"Location\",\n        \"name\": \"Location\",\n        \"type\": \"doctype\"\n    }     \n]"
+   "links": "[\n    {\n        \"description\": \"Organization' Structure.\",\n        \"label\": \"Organization\",\n        \"name\": \"Organization\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"The various dpt. withing the organization.\",\n        \"label\": \"Department\",\n        \"name\": \"Department\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Location, The map of your organization.\",\n        \"label\": \"Location\",\n        \"name\": \"Location\",\n        \"type\": \"doctype\"\n    }     \n]"
   },
   {
    "hidden": 0,
    "label": "Years & Terms",
-   "links": "[\n    {\n        \"description\": \"Setting up the academic year\",\n        \"label\": \"Academic Year\",\n        \"name\": \"Academic Year\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic terms\",\n        \"label\": \"Academic Term\",\n        \"name\": \"Academic Term\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the holidays list\",\n        \"label\": \"School Calendar\",\n        \"name\": \"School Calendar\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"Setting up the academic year\",\n        \"label\": \"Academic Year\",\n        \"name\": \"Academic Year\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the academic terms\",\n        \"label\": \"Academic Term\",\n        \"name\": \"Academic Term\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Setting up the holidays list\",\n        \"label\": \"Organization Calendar\",\n        \"name\": \"Organization Calendar\",\n        \"type\": \"doctype\"\n    }\n]"
   },
   {
    "hidden": 0,
    "label": "Collaboration",
-   "links": "[\n    {\n        \"description\": \"Meetings organized at school\",\n        \"label\": \"Meeting\",\n        \"name\": \"Meeting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Todo list\",\n        \"label\": \"Todo list\",\n        \"name\": \"ToDo\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your School Event List\",\n        \"label\": \"School Events\",\n        \"name\": \"School Event\",\n        \"type\": \"doctype\"\n    }\n    \n]"
+   "links": "[\n    {\n        \"description\": \"Meetings organized in your organization\",\n        \"label\": \"Meeting\",\n        \"name\": \"Meeting\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Todo list\",\n        \"label\": \"Todo list\",\n        \"name\": \"ToDo\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Your Organization Event List\",\n        \"label\": \"Organization Events\",\n        \"name\": \"Organization Event\",\n        \"type\": \"doctype\"\n    }\n    \n]"
   },
   {
    "hidden": 0,
@@ -23,7 +23,7 @@
   {
    "hidden": 0,
    "label": "Assets",
-   "links": "[\n    {\n        \"description\": \"Storage\",\n        \"label\": \"Storage\",\n        \"name\": \"Storage\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Item\",\n        \"label\": \"Item\",\n        \"name\": \"Item\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Lending Note\",\n        \"label\": \"Lending Note\",\n        \"name\": \"Lending Note\",\n        \"type\": \"doctype\"\n    },     \n    {\n        \"description\": \"Storage Type\",\n        \"label\": \"Storage Type\",\n        \"name\": \"Storage Type\",\n        \"type\": \"doctype\"\n    }       \n]"
+   "links": "[\n    {\n        \"description\": \"Location\",\n        \"label\": \"Location\",\n        \"name\": \"Location\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Item\",\n        \"label\": \"Item\",\n        \"name\": \"Item\",\n        \"type\": \"doctype\"\n    }, \n    {\n        \"description\": \"Lending Note\",\n        \"label\": \"Lending Note\",\n        \"name\": \"Lending Note\",\n        \"type\": \"doctype\"\n    },     \n    {\n        \"description\": \"Location Type\",\n        \"label\": \"Location Type\",\n        \"name\": \"Location Type\",\n        \"type\": \"doctype\"\n    }       \n]"
   },
   {
    "hidden": 0,
@@ -45,7 +45,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "School Settings",
- "modified": "2021-03-15 07:48:36.883920",
+ "modified": "2021-03-20 20:30:02.101592",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
@@ -56,13 +56,13 @@
   {
    "doc_view": "Tree",
    "label": "School",
-   "link_to": "School",
+   "link_to": "Organization",
    "type": "DocType"
   },
   {
    "doc_view": "Calendar",
    "label": "School Event",
-   "link_to": "School Event",
+   "link_to": "Organization Event",
    "type": "DocType"
   },
   {

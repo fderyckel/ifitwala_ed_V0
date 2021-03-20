@@ -71,7 +71,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "School",
-   "options": "School",
+   "options": "Organization",
    "reqd": 1
   },
   {
@@ -180,7 +180,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-25 21:45:32.470924",
+ "modified": "2021-03-20 20:11:40.657568",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Calendar",

@@ -12,7 +12,7 @@ from frappe.model.document import Document
 from frappe.desk.reportview import get_filters_cond
 from frappe.permissions import has_permission
 
-class SchoolEvent(Document):
+class OrganizationEvent(Document):
 	def validate(self):
 		self.validate_time()
 
@@ -47,7 +47,7 @@ def event_has_permission(doc, user):
 	return False
 
 @frappe.whitelist()
-def get_school_events(start, end, user=None, filters=None):
+def get_organization_events(start, end, user=None, filters=None):
 	if not user:
 		user = frappe.session.user
 

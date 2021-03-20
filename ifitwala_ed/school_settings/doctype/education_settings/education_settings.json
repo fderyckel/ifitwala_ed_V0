@@ -72,7 +72,7 @@
    "fieldname": "default_school",
    "fieldtype": "Link",
    "label": "Default School",
-   "options": "School"
+   "options": "Organization"
   },
   {
    "collapsible": 1,
@@ -120,7 +120,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-02-25 21:32:13.453333",
+ "modified": "2021-03-20 20:11:39.836809",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Education Settings",

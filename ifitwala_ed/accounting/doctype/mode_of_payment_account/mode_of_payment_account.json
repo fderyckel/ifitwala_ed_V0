@@ -5,29 +5,29 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "school",
+  "organization",
   "default_account"
  ],
  "fields": [
-  {
-   "fieldname": "school",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "School",
-   "options": "School"
-  },
   {
    "fieldname": "default_account",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Default Account",
    "options": "Account"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Organization",
+   "options": "Organization"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-03-15 11:10:49.397031",
+ "modified": "2021-03-20 20:36:03.946260",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Mode of Payment Account",

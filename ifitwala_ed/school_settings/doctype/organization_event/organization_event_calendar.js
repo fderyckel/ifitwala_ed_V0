@@ -1,7 +1,7 @@
 // Copyright (c) 2021, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.views.calendar['School Event'] = {
+frappe.views.calendar['Organization Event'] = {
   field_map:{
     'start': 'starts_on',
     'end': 'ends_on',

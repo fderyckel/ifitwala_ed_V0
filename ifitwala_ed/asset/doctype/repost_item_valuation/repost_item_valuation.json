@@ -107,7 +107,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "label": "School",
-   "options": "School"
+   "options": "Organization"
   },
   {
    "default": "0",
@@ -137,7 +137,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-03-13 17:55:52.329292",
+ "modified": "2021-03-20 20:11:43.304087",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Repost Item Valuation",

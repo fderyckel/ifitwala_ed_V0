@@ -195,7 +195,7 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "School",
-   "options": "School",
+   "options": "Organization",
    "remember_last_selected_value": 1,
    "reqd": 1
   },
@@ -372,7 +372,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-02-26 19:38:44.604661",
+ "modified": "2021-03-20 20:11:41.527283",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2020, ifitwala and Contributors
+# Copyright (c) 2021, ifitwala and Contributors
 # See license.txt
 from __future__ import unicode_literals
 
 # import frappe
 import unittest
 
-class TestSchoolEvent(unittest.TestCase):
+class TestDivision(unittest.TestCase):
 	pass

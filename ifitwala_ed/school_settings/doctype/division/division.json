@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "autoname": "field:division_name",
+ "creation": "2021-03-20 20:17:53.676530",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "division_name",
+  "division_lead",
+  "abbr",
+  "parent_division",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "division_name",
+   "fieldtype": "Data",
+   "label": "Division Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "division_lead",
+   "fieldtype": "Link",
+   "label": "Division lead",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Division"
+  },
+  {
+   "fieldname": "parent_division",
+   "fieldtype": "Link",
+   "label": "Parent Division",
+   "options": "Division"
+  },
+  {
+   "fieldname": "abbr",
+   "fieldtype": "Data",
+   "label": "Division Abbreviation"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2021-03-20 20:32:20.748633",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "Division",
+ "nsm_parent_field": "parent_division",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

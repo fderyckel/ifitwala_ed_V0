@@ -6,7 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "disabled",
-  "school",
+  "organization",
   "account_type",
   "parent_account",
   "column_break_6",
@@ -47,16 +47,6 @@
    "in_standard_filter": 1,
    "label": "Account Number",
    "read_only": 1
-  },
-  {
-   "fieldname": "school",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "School",
-   "options": "School",
-   "read_only": 1,
-   "remember_last_selected_value": 1,
-   "reqd": 1
   },
   {
    "fieldname": "lft",
@@ -143,12 +133,22 @@
    "fieldtype": "Select",
    "label": "Balance must be",
    "options": "\nDebit\nCredit"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1,
+   "remember_last_selected_value": 1,
+   "reqd": 1
   }
  ],
  "icon": "fa fa-money",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-15 12:31:34.004778",
+ "modified": "2021-03-20 20:35:26.958598",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Account",

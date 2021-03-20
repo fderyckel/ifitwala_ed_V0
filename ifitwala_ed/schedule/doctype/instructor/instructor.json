@@ -68,7 +68,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "label": "School",
-   "options": "School"
+   "options": "Organization"
   },
   {
    "fieldname": "column_break_3",
@@ -99,7 +99,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2021-02-27 16:33:08.364046",
+ "modified": "2021-03-20 20:11:41.909792",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Instructor",

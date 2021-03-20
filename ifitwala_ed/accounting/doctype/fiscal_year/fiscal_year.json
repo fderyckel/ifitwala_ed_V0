@@ -69,12 +69,12 @@
    "fieldname": "schools",
    "fieldtype": "Table",
    "label": "Schools",
-   "options": "Fiscal Year School"
+   "options": "Fiscal Year Organization"
   }
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-03-20 15:17:06.800566",
+ "modified": "2021-03-20 20:42:47.481497",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Fiscal Year",

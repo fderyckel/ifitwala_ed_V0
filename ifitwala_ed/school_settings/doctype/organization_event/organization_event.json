@@ -13,7 +13,7 @@
   "color",
   "all_day",
   "column_break_5",
-  "school",
+  "organization",
   "starts_on",
   "ends_on",
   "room",
@@ -97,12 +97,6 @@
    "options": "School Event Participant"
   },
   {
-   "fieldname": "school",
-   "fieldtype": "Link",
-   "label": "School",
-   "options": "School"
-  },
-  {
    "collapsible": 1,
    "fieldname": "references_section",
    "fieldtype": "Section Break",
@@ -134,14 +128,20 @@
    "in_standard_filter": 1,
    "label": "Room",
    "options": "Room"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-03 13:35:15.419241",
+ "modified": "2021-03-20 20:27:04.148797",
  "modified_by": "Administrator",
  "module": "School Settings",
- "name": "School Event",
+ "name": "Organization Event",
  "owner": "Administrator",
  "permissions": [
   {

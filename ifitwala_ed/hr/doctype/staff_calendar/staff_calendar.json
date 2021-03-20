@@ -105,7 +105,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "School",
-   "options": "School"
+   "options": "Organization"
   },
   {
    "fieldname": "total_working_day",
@@ -175,7 +175,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-02-25 21:44:56.921307",
+ "modified": "2021-03-20 20:11:40.434999",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Staff Calendar",

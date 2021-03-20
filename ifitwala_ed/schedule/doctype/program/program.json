@@ -48,7 +48,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "label": "School",
-   "options": "School"
+   "options": "Organization"
   },
   {
    "fieldname": "program_abbreviation",
@@ -109,7 +109,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-02-25 21:34:46.245335",
+ "modified": "2021-03-20 20:11:40.031952",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program",

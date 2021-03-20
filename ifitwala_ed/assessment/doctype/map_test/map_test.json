@@ -9,7 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "generic_info_section",
-  "school_name",
+  "organization_name",
   "student",
   "academic_year",
   "session_name",
@@ -76,13 +76,6 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Test date"
-  },
-  {
-   "fieldname": "school_name",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "School Name",
-   "options": "School"
   },
   {
    "fieldname": "test_duration",
@@ -265,10 +258,17 @@
    "fieldname": "norms_reference_data",
    "fieldtype": "Data",
    "label": "Norms Reference Data"
+  },
+  {
+   "fieldname": "organization_name",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Organization Name",
+   "options": "Organization"
   }
  ],
  "links": [],
- "modified": "2021-02-27 20:52:49.426271",
+ "modified": "2021-03-20 20:33:15.806685",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "MAP Test",
@@ -301,7 +301,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "School IT",
+   "role": "Organization IT",
    "share": 1,
    "write": 1
   },

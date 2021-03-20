@@ -25,7 +25,7 @@
   "minutes_section",
   "minutes",
   "title",
-  "school_event"
+  "organization_event"
  ],
  "fields": [
   {
@@ -113,22 +113,22 @@
    "options": "User"
   },
   {
-   "fieldname": "school_event",
-   "fieldtype": "Link",
-   "label": "School Event",
-   "options": "School Event",
-   "read_only": 1
-  },
-  {
    "fieldname": "room",
    "fieldtype": "Link",
    "label": "Room",
-   "options": "Room"
+   "options": "Location"
+  },
+  {
+   "fieldname": "organization_event",
+   "fieldtype": "Link",
+   "label": "Organization Event",
+   "options": "Organization Event",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-26 07:12:55.674420",
+ "modified": "2021-03-20 20:35:12.640255",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",

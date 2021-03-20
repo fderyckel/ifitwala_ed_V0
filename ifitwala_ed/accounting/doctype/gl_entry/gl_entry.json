@@ -182,7 +182,7 @@
    "fieldtype": "Link",
    "in_filter": 1,
    "label": "School",
-   "options": "School",
+   "options": "Organization",
    "search_index": 1
   },
   {
@@ -208,7 +208,7 @@
  "icon": "fa fa-list",
  "in_create": 1,
  "links": [],
- "modified": "2021-03-15 12:14:03.531484",
+ "modified": "2021-03-20 20:11:44.058481",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "GL Entry",

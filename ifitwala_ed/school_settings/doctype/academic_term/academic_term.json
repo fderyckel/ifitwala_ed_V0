@@ -14,11 +14,11 @@
   "column_break_3",
   "term_start_date",
   "term_end_date",
-  "title",
   "school_events_section",
   "at_start",
   "column_break_10",
-  "at_end"
+  "at_end",
+  "title"
  ],
  "fields": [
   {
@@ -63,7 +63,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "academic_year.school",
+   "fetch_from": "academic_year.organization",
    "fieldname": "school",
    "fieldtype": "Read Only",
    "in_list_view": 1,
@@ -81,7 +81,7 @@
    "fieldtype": "Link",
    "label": "Start of Term Event",
    "no_copy": 1,
-   "options": "School Event",
+   "options": "Organization Event",
    "print_hide": 1,
    "read_only": 1
   },
@@ -94,13 +94,13 @@
    "fieldtype": "Link",
    "label": "End of Term Event",
    "no_copy": 1,
-   "options": "School Event",
+   "options": "Organization Event",
    "print_hide": 1,
    "read_only": 1
   }
  ],
  "links": [],
- "modified": "2021-02-25 21:45:57.379859",
+ "modified": "2021-03-20 20:21:09.886347",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",
@@ -152,7 +152,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "School IT",
+   "role": "Organization IT",
    "share": 1
   },
   {

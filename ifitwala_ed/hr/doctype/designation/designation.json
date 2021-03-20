@@ -41,7 +41,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "label": "School",
-   "options": "School"
+   "options": "Organization"
   },
   {
    "fieldname": "reports_to",
@@ -70,7 +70,7 @@
   }
  ],
  "links": [],
- "modified": "2021-02-28 20:40:07.948444",
+ "modified": "2021-03-20 20:11:42.554882",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Designation",

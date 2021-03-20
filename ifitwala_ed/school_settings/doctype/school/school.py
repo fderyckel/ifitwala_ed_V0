@@ -39,18 +39,18 @@ class School(NestedSet):
 
 	def on_update(self):
 		NestedSet.on_update(self)
-		if not frappe.db.sql("""SELECT name FROM `tabStorage` WHERE school=%s AND docstatus<2 LIMIT 1 """, self.name):
+		if not frappe.db.sql("""SELECT name FROM `tabLocation` WHERE school=%s AND docstatus<2 LIMIT 1 """, self.name):
 			if not frappe.local.flags.ignore_chart_of_accounts:
 				frappe.flags.country_change = True
 				self.create_default_accounts()
-				self.create_default_storage()
-			#self.create_default_storage_account()
+				self.create_default_location()
+			#self.create_default_location_account()
 		if not frappe.db.get_value("Cost Center", {"is_group": 0, "school": self.name}):
 			self.create_default_cost_center()
 
-		if not frappe.db.get_value("Department", {"school": self.name}):
-			from ifitwala_ed.setup.setup_wizard.operations.install_fixtures import install_post_school_fixtures
-			install_post_school_fixtures(frappe._dict({'school_name': self.name}))
+		#if not frappe.db.get_value("Department", {"school": self.name}):
+		#	from ifitwala_ed.setup.setup_wizard.operations.install_fixtures import install_post_school_fixtures
+		#	install_post_school_fixtures(frappe._dict({'school_name': self.name}))
 
 		if not frappe.local.flags.ignore_chart_of_accounts:
 			self.set_default_accounts()
@@ -160,19 +160,19 @@ class School(NestedSet):
 		frappe.db.set(self, "default_receivable_account", frappe.db.get_value("Account", {"school": self.name, "account_type": "Receivable", "is_group": 0}))
 		frappe.db.set(self, "default_payable_account", frappe.db.get_value("Account", {"school": self.name, "account_type": "Payable", "is_group": 0}))
 
-	def create_default_storage(self):
-		if not frappe.db.exists("Storage", "{0} - {1}".format(self.name, self.abbr)):
-			storage = frappe.get_doc({
-				"doctype":"Storage",
-				"storage_name": self.name,
+	def create_default_location(self):
+		if not frappe.db.exists("Location", "{0} - {1}".format(self.name, self.abbr)):
+			location = frappe.get_doc({
+				"doctype":"Location",
+				"location_name": self.name,
 				"is_group": 1,
 				"school": self.name,
-				"parent_storage": "{0} - {1}".format(self.parent_school, self.abbr),
-				"storage_type" : "School"
+				"parent_location": "{0} - {1}".format(self.parent_school, self.abbr),
+				"location_type" : "School"
 			})
-			storage.flags.ignore_permissions = True
-			storage.flags.ignore_mandatory = True
-			storage.insert()
+			location.flags.ignore_permissions = True
+			location.flags.ignore_mandatory = True
+			location.insert()
 
 	def create_default_cost_center(self):
 		cc_list = [

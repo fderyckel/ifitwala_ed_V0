@@ -53,27 +53,7 @@
 		"must_be_whole_number": 0
 	},
 	{
-		"uom_name": "Ells (UK)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Ems(Pica)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Fathom",
-		"must_be_whole_number": 0
-	},
-	{
 		"uom_name": "Foot",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Furlong",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Hand",
 		"must_be_whole_number": 0
 	},
 	{
@@ -86,10 +66,6 @@
 	},
 	{
 		"uom_name": "Kilometer",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Link",
 		"must_be_whole_number": 0
 	},
 	{
@@ -289,43 +265,11 @@
 		"must_be_whole_number": 0
 	},
 	{
-		"uom_name": "Pood",
-		"must_be_whole_number": 0
-	},
-	{
 		"uom_name": "Pound",
 		"must_be_whole_number": 0
 	},
 	{
-		"uom_name": "Slug",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Stone",
-		"must_be_whole_number": 0
-	},
-	{
 		"uom_name": "Tonne",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Kip",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Barrel(Beer)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Barrel (Oil)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Bushel (UK)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Bushel (US Dry Level)",
 		"must_be_whole_number": 0
 	},
 	{
@@ -397,34 +341,6 @@
 		"must_be_whole_number": 0
 	},
 	{
-		"uom_name": "Peck",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Pint (UK)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Pint, Dry (US)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Pint, Liquid (US)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Quart (UK)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Quart Dry (US)",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Quart Liquid (US)",
-		"must_be_whole_number": 0
-	},
-	{
 		"uom_name": "Tablespoon (US)",
 		"must_be_whole_number": 0
 	},
@@ -485,14 +401,6 @@
 		"must_be_whole_number": 0
 	},
 	{
-		"uom_name": "Iches Of Water",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Inches Of Mercury",
-		"must_be_whole_number": 0
-	},
-	{
 		"uom_name": "Kilopascal",
 		"must_be_whole_number": 0
 	},
@@ -506,30 +414,6 @@
 	},
 	{
 		"uom_name": "Milibar",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Millimeter Of Mercury",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Millimeter Of Water",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Technical Atmosphere",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Torr",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Dyne",
-		"must_be_whole_number": 0
-	},
-	{
-		"uom_name": "Gram-Force",
 		"must_be_whole_number": 0
 	},
 	{

@@ -48,9 +48,9 @@ frappe.ui.form.on('School', {
 			disbale_coa_fields(frm);
 		}
 
+		frm.toggle_display('address_html', !frm.doc.__islocal);
 		if(!frm.doc.__islocal) {
 			frappe.contacts.render_address_and_contact(frm);
-
 		}
 	}
 });

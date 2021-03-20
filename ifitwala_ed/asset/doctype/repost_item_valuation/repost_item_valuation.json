@@ -11,12 +11,12 @@
   "voucher_type",
   "voucher_no",
   "item_code",
-  "storage",
+  "location",
   "posting_date",
   "posting_time",
   "column_break_9",
   "status",
-  "school",
+  "organization",
   "allow_negative_stock",
   "allow_zero_rate",
   "erros_section",
@@ -29,7 +29,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Based On",
-   "options": "Transaction\nItem and Storage",
+   "options": "Transaction\nItem and Location",
    "reqd": 1
   },
   {
@@ -70,14 +70,6 @@
    "options": "Item"
   },
   {
-   "depends_on": "eval:doc.based_on=='Item and Storage'",
-   "fieldname": "storage",
-   "fieldtype": "Link",
-   "label": "Storage",
-   "mandatory_depends_on": "eval:doc.based_on=='Item and Storage'",
-   "options": "Storage"
-  },
-  {
    "fieldname": "posting_date",
    "fieldtype": "Date",
    "label": "Posting Date"
@@ -103,13 +95,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "storage.school",
-   "fieldname": "school",
-   "fieldtype": "Link",
-   "label": "School",
-   "options": "Organization"
-  },
-  {
    "default": "0",
    "fieldname": "allow_negative_stock",
    "fieldtype": "Check",
@@ -132,12 +117,27 @@
    "label": "Error Log",
    "no_copy": 1,
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.based_on=='Item and Storage'",
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "mandatory_depends_on": "eval:doc.based_on=='Item and Storage'",
+   "options": "Location"
+  },
+  {
+   "fetch_from": "storage.school",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-03-20 20:11:43.304087",
+ "modified": "2021-03-20 21:03:19.559011",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Repost Item Valuation",

@@ -3,7 +3,7 @@
   {
    "hidden": 0,
    "label": "Student Admission",
-   "links": "[\n    {\n        \"description\": \"School Student Admission.\",\n        \"label\": \"Student Admission\",\n        \"name\": \"Student Admission\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Student Applicant.\",\n        \"label\": \"Student Applicant\",\n        \"name\": \"Student Applicant\",\n        \"type\": \"doctype\"\n    }\n]"
+   "links": "[\n    {\n        \"description\": \"Student Admission in your Organization.\",\n        \"label\": \"Student Admission\",\n        \"name\": \"Student Admission\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"description\": \"Student Applicant.\",\n        \"label\": \"Student Applicant\",\n        \"name\": \"Student Applicant\",\n        \"type\": \"doctype\"\n    }\n]"
   }
  ],
  "cards_label": "",
@@ -20,7 +20,7 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Admission",
- "modified": "2021-02-27 14:48:00.919068",
+ "modified": "2021-03-20 20:47:55.216011",
  "modified_by": "Administrator",
  "module": "Admission",
  "name": "Admission",

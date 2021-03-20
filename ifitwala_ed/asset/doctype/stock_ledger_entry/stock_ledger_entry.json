@@ -29,7 +29,7 @@
   "stock_value_difference",
   "stock_queue_fifo",
   "section_break_21",
-  "school",
+  "organization",
   "stock_uom",
   "column_break_24",
   "serial_no",
@@ -176,17 +176,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "school",
-   "fieldtype": "Link",
-   "in_filter": 1,
-   "label": "School",
-   "options": "School",
-   "print_width": "150px",
-   "read_only": 1,
-   "search_index": 1,
-   "width": "150px"
-  },
-  {
    "fieldname": "stock_uom",
    "fieldtype": "Link",
    "label": "Stock UOM",
@@ -243,13 +232,24 @@
    "read_only": 1,
    "search_index": 1,
    "width": "100px"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "print_width": "150px",
+   "read_only": 1,
+   "search_index": 1,
+   "width": "150px"
   }
  ],
  "hide_toolbar": 1,
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-20 13:51:16.764900",
+ "modified": "2021-03-20 20:57:24.569345",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Stock Ledger Entry",

@@ -8,10 +8,7 @@ from ifitwala_ed.setup.utils import insert_record
 from frappe.desk.doctype.global_search_settings.global_search_settings import update_global_search_doctypes
 
 def setup_education():
-	#disable_desk_access_for_student_role()
-	#create_student_role()
 	disable_desk_access_for_guardian_role()
-	#create_academic_sessions()
 	create_designations()
 	create_log_type()
 	create_attendance_code()
@@ -19,16 +16,6 @@ def setup_education():
 	add_other_records()
 	add_uom_data()
 	update_global_search_doctypes()
-
-#def disable_desk_access_for_student_role():
-#	try:
-#		student_role = frappe.get_doc("Role", "Student")
-#	except frappe.DoesNotExistError:
-#		create_student_role()
-#		return
-#
-#	student_role.desk_access = 0
-#	student_role.save()
 
 
 def disable_desk_access_for_guardian_role():
@@ -41,15 +28,6 @@ def disable_desk_access_for_guardian_role():
 	guardian_role.desk_access = 0
 	guardian_role.save()
 
-#def create_student_role():
-#	student_role = frappe.get_doc({
-#		"doctype": "Role",
-#		"role_name": "Student",
-#		"desk_access": 0
-#	})
-#	student_role.insert()
-#	student_role.save()
-
 def create_guardian_role():
 	guardian_role = frappe.get_doc({
 		"doctype": "Role",
@@ -57,20 +35,6 @@ def create_guardian_role():
 		"desk_access": 0
 	})
 	guardian_role.insert()
-
-#def create_academic_sessions():
-#	data = [
-#		{"doctype": "Academic Year", "academic_year_name": "2020-21"},
-#		{"doctype": "Academic Year", "academic_year_name": "2019-20"},
-#		{"doctype": "Academic Year", "academic_year_name": "2018-19"},
-#		{"doctype": "Academic Term", "academic_year": "2020-21", "term_name": "Semester 1"},
-#		{"doctype": "Academic Term", "academic_year": "2020-21", "term_name": "Semester 2"},
-#		{"doctype": "Academic Term", "academic_year": "2020-21", "term_name": "S1 - S2"},
-#		{"doctype": "Academic Term", "academic_year": "2019-20", "term_name": "Semester 1"},
-#		{"doctype": "Academic Term", "academic_year": "2019-20", "term_name": "Semester 2"},
-#		{"doctype": "Academic Term", "academic_year": "2019-20", "term_name": "S1 - S2"}
-#	]
-#	insert_record(data)
 
 def create_designations():
 	data = [

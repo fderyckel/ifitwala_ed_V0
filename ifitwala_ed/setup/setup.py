@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from ifitwala_ed.setup.utils import insert_record
-
+from frappe.desk.doctype.global_search_settings.global_search_settings import update_global_search_doctypes
 
 def setup_education():
 	#disable_desk_access_for_student_role()
@@ -15,7 +15,13 @@ def setup_education():
 	create_designations()
 	create_log_type()
 	create_attendance_code()
-	create_storage_type()
+	create_location_type()
+	update_global_search_doctypes()
+
+def set_more_defaults():
+	add_uom_data()
+	add_other_records()
+
 
 #def disable_desk_access_for_student_role():
 #	try:
@@ -26,6 +32,19 @@ def setup_education():
 #
 #	student_role.desk_access = 0
 #	student_role.save()
+
+def add_uom_data():
+	# add UOMs
+	uoms = json.loads(open(frappe.get_app_path("ifitwala_ed", "setup", "setup_wizard", "data", "uom_data.json")).read())
+	for d in uoms:
+		if not frappe.db.exists('UOM', _(d.get("uom_name"))):
+			uom_doc = frappe.get_doc({
+				"doctype": "UOM",
+				"uom_name": _(d.get("uom_name")),
+				"name": _(d.get("uom_name")),
+				"must_be_whole_number": d.get("must_be_whole_number")
+			}).insert(ignore_permissions=True)
+
 
 def disable_desk_access_for_guardian_role():
 	try:
@@ -98,7 +117,7 @@ def create_attendance_code():
 	]
 	insert_record(data)
 
-def create_storage_type():
+def create_location_type():
 	data = [
 		{"doctype": "Location Type", "storage_type_name": "Classroom"},
 		{"doctype": "Location Type", "storage_type_name": "Office"},
@@ -107,3 +126,29 @@ def create_storage_type():
 		{"doctype": "Location Type", "storage_type_name": "Storage"},
 	]
 	insert_record(data)
+
+def add_other_records(country=None):
+	records = [
+		# item group
+		{'doctype': 'Item Group', 'item_group_name': _('All Item Groups'), 'is_group': 1, 'parent_item_group': ''},
+
+		# Employment Type
+		{'doctype': 'Employment Type', 'employment_type_name': _('Full-time')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Part-time')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Probation')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Contract')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Intern')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Apprentice')},
+
+		# Mode of Payment
+		{'doctype': 'Mode of Payment', 'mode_of_payment': 'Check' if country=="United States" else _('Cheque'), 'type': 'Bank'},
+		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Cash'), 'type': 'Cash'},
+		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Credit Card'), 'type': 'Bank'},
+		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Wire Transfer'), 'type': 'Bank'},
+		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Bank Draft'), 'type': 'Bank'},
+
+		{'doctype': "Party Type", "party_type": "Supplier", "account_type": "Payable"},
+		{'doctype': "Party Type", "party_type": "Employee", "account_type": "Payable"},
+		{'doctype': "Party Type", "party_type": "Student", "account_type": "Receivable"},
+	]
+	insert_record(records)

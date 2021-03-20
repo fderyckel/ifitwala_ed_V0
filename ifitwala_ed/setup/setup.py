@@ -100,10 +100,10 @@ def create_attendance_code():
 
 def create_storage_type():
 	data = [
-		{"doctype": "Storage Type", "storage_type_name": "Classroom"},
-		{"doctype": "Storage Type", "storage_type_name": "Office"},
-		{"doctype": "Storage Type", "storage_type_name": "School"},
-		{"doctype": "Storage Type", "storage_type_name": "Building"},
-		{"doctype": "Storage Type", "storage_type_name": "Storage"},
+		{"doctype": "Location Type", "storage_type_name": "Classroom"},
+		{"doctype": "Location Type", "storage_type_name": "Office"},
+		{"doctype": "Location Type", "storage_type_name": "School"},
+		{"doctype": "Location Type", "storage_type_name": "Building"},
+		{"doctype": "Location Type", "storage_type_name": "Storage"},
 	]
 	insert_record(data)

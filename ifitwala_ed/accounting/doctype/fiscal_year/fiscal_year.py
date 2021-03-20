@@ -73,18 +73,18 @@ class FiscalYear(Document):
 
 		if existing_fiscal_years:
 			for existing in existing_fiscal_years:
-				school_for_existing = frappe.db.sql_list("""SELECT school FROM `tabFiscal Year School` WHERE parent=%s""", existing.name)
+				organization_for_existing = frappe.db.sql_list("""SELECT organization FROM `tabFiscal Year Organization` WHERE parent=%s""", existing.name)
 
 				overlap = False
-				if not self.get("schools") or not school_for_existing:
+				if not self.get("organizations") or not organization_for_existing:
 					overlap = True
 
-				for d in self.get("schools"):
-					if d.school in school_for_existing:
+				for d in self.get("organizations"):
+					if d.organization in organization_for_existing:
 						overlap = True
 
 				if overlap:
-					frappe.throw(_("Year start date or end date is overlapping with {0}. To avoid please set school").format(existing.name), frappe.NameError)
+					frappe.throw(_("Year start date or end date is overlapping with {0}. To avoid please set organization").format(existing.name), frappe.NameError)
 
 @frappe.whitelist()
 def check_duplicate_fiscal_year(doc):

@@ -9,8 +9,8 @@ from unidecode import unidecode
 from six import iteritems
 from frappe.utils.nestedset import rebuild_tree
 
-def create_charts(school, chart_template=None, existing_school=None, custom_chart=None):
-	chart = custom_chart or get_chart(chart_template, existing_school)
+def create_charts(organization, chart_template=None, existing_organization=None, custom_chart=None):
+	chart = custom_chart or get_chart(chart_template, existing_organization)
 	if chart:
 		accounts = []
 
@@ -30,14 +30,14 @@ def create_charts(school, chart_template=None, existing_school=None, custom_char
 					account = frappe.get_doc({
 						"doctype": "Account",
 						"account_name": account_name,
-						"school": school,
+						"organization": organization,
 						"parent_account": parent,
 						"is_group": is_group,
 						"root_type": root_type,
 						"report_type": report_type,
 						"account_number": account_number,
 						"account_type": child.get("account_type"),
-						"account_currency": child.get('account_currency') or frappe.db.get_value('School',  school,  "default_currency"),
+						"account_currency": child.get('account_currency') or frappe.db.get_value('Organization',  organization,  "default_currency"),
 						"tax_rate": child.get("tax_rate")
 					})
 
@@ -78,10 +78,10 @@ def identify_is_group(child):
 
 	return is_group
 
-def get_chart(chart_template, existing_school=None):
+def get_chart(chart_template, existing_organization=None):
 	chart = {}
-	if existing_school:
-		return get_account_tree_from_existing_school(existing_school)
+	if existing_organization:
+		return get_account_tree_from_existing_organization(existing_organization)
 
 	elif chart_template == "Standard":
 		from ifitwala_ed.accounting.doctype.account.chart_of_accounts.verified import standard_chart_of_accounts
@@ -138,9 +138,9 @@ def get_charts_for_country(country, with_standard=False):
 	return charts
 
 
-def get_account_tree_from_existing_school(existing_school):
+def get_account_tree_from_existing_organization(existing_organization):
 	all_accounts = frappe.get_all('Account',
-		filters={'school': existing_school},
+		filters={'organization': existing_organization},
 		fields = ["name", "account_name", "parent_account", "account_type", "is_group", "root_type", "tax_rate", "account_number"],
 		order_by="lft, rgt")
 

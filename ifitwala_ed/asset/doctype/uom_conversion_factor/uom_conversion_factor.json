@@ -7,8 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "category",
-  "from",
-  "to",
+  "from_uom",
+  "to_uom",
   "value"
  ],
  "fields": [
@@ -22,7 +22,14 @@
    "reqd": 1
   },
   {
-   "fieldname": "from",
+   "fieldname": "value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_uom",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
@@ -31,25 +38,18 @@
    "reqd": 1
   },
   {
-   "fieldname": "to",
+   "fieldname": "to_uom",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "To",
    "options": "UOM",
    "reqd": 1
-  },
-  {
-   "fieldname": "value",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Value",
-   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-20 16:02:15.185213",
+ "modified": "2021-03-20 16:04:41.043796",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "UOM Conversion Factor",

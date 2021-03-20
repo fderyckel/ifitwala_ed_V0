@@ -1,32 +1,34 @@
 {
  "actions": [],
- "autoname": "field:storage_type_name",
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:location_type_name",
  "creation": "2021-03-13 09:19:10.611890",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "storage_type_name",
+  "location_type_name",
   "description"
  ],
  "fields": [
   {
-   "fieldname": "storage_type_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Storage Type Name",
-   "reqd": 1,
-   "unique": 1
-  },
-  {
    "fieldname": "description",
    "fieldtype": "Small Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "location_type_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location Type Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-13 09:25:14.015084",
+ "modified": "2021-03-20 15:49:07.103086",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location Type",
@@ -46,6 +48,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "location_type_name",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

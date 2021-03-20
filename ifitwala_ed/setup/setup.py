@@ -16,12 +16,9 @@ def setup_education():
 	create_log_type()
 	create_attendance_code()
 	create_location_type()
-	update_global_search_doctypes()
-
-def set_more_defaults():
-	add_uom_data()
 	add_other_records()
-
+	add_uom_data()
+	update_global_search_doctypes()
 
 #def disable_desk_access_for_student_role():
 #	try:
@@ -32,18 +29,6 @@ def set_more_defaults():
 #
 #	student_role.desk_access = 0
 #	student_role.save()
-
-def add_uom_data():
-	# add UOMs
-	uoms = json.loads(open(frappe.get_app_path("ifitwala_ed", "setup", "setup_wizard", "data", "uom_data.json")).read())
-	for d in uoms:
-		if not frappe.db.exists('UOM', _(d.get("uom_name"))):
-			uom_doc = frappe.get_doc({
-				"doctype": "UOM",
-				"uom_name": _(d.get("uom_name")),
-				"name": _(d.get("uom_name")),
-				"must_be_whole_number": d.get("must_be_whole_number")
-			}).insert(ignore_permissions=True)
 
 
 def disable_desk_access_for_guardian_role():
@@ -126,6 +111,18 @@ def create_location_type():
 		{"doctype": "Location Type", "storage_type_name": "Storage"},
 	]
 	insert_record(data)
+
+def add_uom_data():
+	# add UOMs
+	uoms = json.loads(open(frappe.get_app_path("ifitwala_ed", "setup", "setup_wizard", "data", "uom_data.json")).read())
+	for d in uoms:
+		if not frappe.db.exists('UOM', _(d.get("uom_name"))):
+			uom_doc = frappe.get_doc({
+				"doctype": "UOM",
+				"uom_name": _(d.get("uom_name")),
+				"name": _(d.get("uom_name")),
+				"must_be_whole_number": d.get("must_be_whole_number")
+			}).insert(ignore_permissions=True)
 
 def add_other_records(country=None):
 	records = [

@@ -34,7 +34,7 @@
   "employment_type",
   "designation",
   "column_break_28",
-  "school",
+  "organization",
   "reports_to",
   "current_holiday_list",
   "data_19",
@@ -187,17 +187,6 @@
    "fieldname": "create_user_permission",
    "fieldtype": "Check",
    "label": "Create User Permission"
-  },
-  {
-   "fieldname": "school",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_preview": 1,
-   "in_standard_filter": 1,
-   "label": "School",
-   "options": "Organization",
-   "remember_last_selected_value": 1,
-   "reqd": 1
   },
   {
    "fieldname": "old_parent",
@@ -363,6 +352,17 @@
    "fieldtype": "Link",
    "label": "Designation",
    "options": "Designation"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "remember_last_selected_value": 1,
+   "reqd": 1
   }
  ],
  "image_field": "employee_image",
@@ -372,7 +372,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-03-20 20:11:41.527283",
+ "modified": "2021-03-20 21:27:50.620563",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

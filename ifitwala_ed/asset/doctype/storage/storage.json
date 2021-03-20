@@ -73,7 +73,7 @@
    "fieldname": "storage_type",
    "fieldtype": "Link",
    "label": "Storage Type",
-   "options": "Storage Type"
+   "options": "Location Type"
   },
   {
    "fieldname": "column_break_3",
@@ -101,7 +101,7 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-13 13:22:00.544854",
+ "modified": "2021-03-20 13:21:08.816094",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Storage",

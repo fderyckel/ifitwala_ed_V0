@@ -15,7 +15,10 @@
   "lft",
   "rgt",
   "old_parent",
-  "area"
+  "area",
+  "location_type",
+  "disabled",
+  "school"
  ],
  "fields": [
   {
@@ -79,12 +82,30 @@
    "fieldtype": "Float",
    "label": "area",
    "read_only": 1
+  },
+  {
+   "fieldname": "location_type",
+   "fieldtype": "Link",
+   "label": "Location Type",
+   "options": "Location Type"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2020-10-22 22:53:15.486461",
+ "modified": "2021-03-20 13:22:41.096391",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location",

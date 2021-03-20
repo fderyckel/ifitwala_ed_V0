@@ -1,7 +1,7 @@
 // Copyright (c) 2021, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Storage Type', {
+frappe.ui.form.on('Location Type', {
 	// refresh: function(frm) {
 
 	// }

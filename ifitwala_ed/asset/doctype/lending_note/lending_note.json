@@ -15,9 +15,9 @@
   "time",
   "return_against",
   "section_break_9",
-  "source_storage",
+  "source_location",
   "column_break_11",
-  "target_storage",
+  "target_location",
   "section_break_13",
   "scan_barcode",
   "items",
@@ -103,18 +103,8 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "source_storage",
-   "fieldtype": "Data",
-   "label": "Source Storage"
-  },
-  {
    "fieldname": "column_break_11",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "target_storage",
-   "fieldtype": "Data",
-   "label": "Target Storage"
   },
   {
    "fieldname": "section_break_13",
@@ -130,12 +120,22 @@
    "fieldtype": "Table",
    "label": "Items",
    "options": "Lending Note Item"
+  },
+  {
+   "fieldname": "source_location",
+   "fieldtype": "Data",
+   "label": "Source Location"
+  },
+  {
+   "fieldname": "target_location",
+   "fieldtype": "Data",
+   "label": "Target Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-03-15 07:36:35.798290",
+ "modified": "2021-03-20 13:27:01.203000",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Lending Note",

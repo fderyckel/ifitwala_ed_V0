@@ -6,7 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "storage",
+  "location",
   "item_code",
   "actual_qty",
   "ordered_qty",
@@ -18,12 +18,6 @@
   "stock_value"
  ],
  "fields": [
-  {
-   "fieldname": "storage",
-   "fieldtype": "Link",
-   "label": "Storage",
-   "options": "Storage"
-  },
   {
    "fieldname": "item_code",
    "fieldtype": "Link",
@@ -89,12 +83,18 @@
    "in_list_view": 1,
    "label": "Ordered Quantity",
    "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-13 13:43:45.691490",
+ "modified": "2021-03-20 13:24:27.187409",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Bin",
@@ -129,7 +129,7 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "item_code,storage",
+ "search_fields": "item_code,location",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

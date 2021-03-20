@@ -29,7 +29,7 @@
  "modified": "2021-03-13 09:25:14.015084",
  "modified_by": "Administrator",
  "module": "Asset",
- "name": "Storage Type",
+ "name": "Location Type",
  "owner": "Administrator",
  "permissions": [
   {

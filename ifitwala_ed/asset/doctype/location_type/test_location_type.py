@@ -6,5 +6,5 @@ from __future__ import unicode_literals
 # import frappe
 import unittest
 
-class TestStorageType(unittest.TestCase):
+class TestLocationType(unittest.TestCase):
 	pass

@@ -161,15 +161,19 @@ class School(NestedSet):
 		frappe.db.set(self, "default_payable_account", frappe.db.get_value("Account", {"school": self.name, "account_type": "Payable", "is_group": 0}))
 
 	def create_default_location(self):
-		if not frappe.db.exists("Location", "{0} - {1}".format(self.name, self.abbr)):
-			location = frappe.get_doc({
-				"doctype":"Location",
-				"location_name": self.name,
-				"is_group": 1,
-				"school": self.name,
-				"parent_location": "{0} - {1}".format(self.parent_school, self.abbr),
-				"location_type" : "School"
-			})
+		for loc_detail in [
+			{"location_name": _("All Locations"), "is_group": 1},
+			{"location_name": _("Classroom 1"), "is_group": 0, "location_type": "Classroom"},
+			{"location_name": _("Office 1"), "is_group": 0, "location_type": "Office"}]:
+			if not frappe.db.exists("Location", "{0} - {1}".format(loc_detail["location_name"], self.abbr)):
+				location = frappe.get_doc({
+					"doctype": "Location",
+					"location_name": loc_detail["location_name"],
+					"is_group": loc_detail["is_group"],
+					"school": self.name,
+					"parent_location": "{0} - {1}".format(_("All Locations"), self.abbr) if not loc_detail["is_group"] else "",
+					"location_type" : loc_detail["location_type"] if "location_type" in loc_detail else None
+				})
 			location.flags.ignore_permissions = True
 			location.flags.ignore_mandatory = True
 			location.insert()

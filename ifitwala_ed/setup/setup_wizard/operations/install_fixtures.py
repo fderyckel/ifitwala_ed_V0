@@ -1,7 +1,5 @@
 from __future__ import unicode_literals
-
 import frappe, os, json
-
 from frappe import _
 from frappe.desk.page.setup_wizard.setup_wizard import make_records
 from frappe.utils import cstr, getdate
@@ -16,12 +14,12 @@ def install(country=None):
 		{'doctype': 'Item Group', 'item_group_name': _('Consumable'), 'is_group': 0, 'parent_item_group': _('All Item Groups') },
 
 		# Employment Type
-		{'doctype': 'Employment Type', 'employee_type_name': _('Full-time')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Part-time')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Probation')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Contract')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Intern')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Apprentice')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Full-time')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Part-time')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Probation')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Contract')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Intern')},
+		{'doctype': 'Employment Type', 'employment_type_name': _('Apprentice')},
 
 		# Mode of Payment
 		{'doctype': 'Mode of Payment', 'mode_of_payment': 'Check' if country=="United States" else _('Cheque'), 'type': 'Bank'},
@@ -138,7 +136,7 @@ def install_defaults(args=None):
 		'current_fiscal_year': current_fiscal_year.name,
 		'default_currency': args.get('currency'),
 		'default_school':args.get('school_name'),
-		"country": args.get("country") 
+		"country": args.get("country")
 		})
 
 	global_defaults.save()

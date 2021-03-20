@@ -7,36 +7,36 @@ import frappe
 from frappe import _
 
 
-def get_storage_account(storage, storage_account=None):
-	account = storage.account
-	if not account and storage.parent_storage:
-		if storage_account:
-			if storage_account.get(storage.parent_storage):
-				account = storage_account.get(storage.parent_storage).account
+def get_location_account(location, location_account=None):
+	account = location.account
+	if not account and location.parent_location:
+		if location_account:
+			if location_account.get(location.parent_location):
+				account = location_account.get(location.parent_location).account
 			else:
 				from frappe.utils.nestedset import rebuild_tree
-				rebuild_tree("Storage", "parent_storage")
+				rebuild_tree("Location", "parent_location")
 		else:
 			account = frappe.db.sql("""
 				SELECT
-					account FROM `tabStorage`
+					account FROM `tabLocation`
 				WHERE
-					lft <= %s AND rgt >= %s AND school = %s
+					lft <= %s AND rgt >= %s AND organization = %s
 					AND account is not null AND ifnull(account, '') !=''
-				ORDER BY lft DESC limit 1""", (storage.lft, storage.rgt, storage.school), as_list=1)
+				ORDER BY lft DESC limit 1""", (location.lft, location.rgt, location.organization), as_list=1)
 
 			account = account[0][0] if account else None
 
-	if not account and storage.school:
-		account = get_school_default_inventory_account(storage.school)
+	if not account and location.organization:
+		account = get_organization_default_inventory_account(location.organization)
 
-	if not account and storage.school:
-		account = frappe.db.get_value('Account', {'account_type': 'Stock', 'is_group': 0, "school": storage.school}, 'name')
+	if not account and location.organization:
+		account = frappe.db.get_value('Account', {'account_type': 'Stock', 'is_group': 0, "organization": location.organization}, 'name')
 
-	if not account and storage.school and not storage.is_group:
-		frappe.throw(_("Please set Account in Storage {0} or Default Inventory Account in School {1}").format(storage.name, storage.school))
+	if not account and location.organization and not location.is_group:
+		frappe.throw(_("Please set Account in Location {0} or Default Inventory Account in Organization {1}").format(location.name, location.organization))
 
 	return account
 
-def get_school_default_inventory_account(school):
-	return frappe.get_cached_value('School', school, 'default_inventory_account')
+def get_organization_default_inventory_account(organization):
+	return frappe.get_cached_value('Organization', organization, 'default_inventory_account')

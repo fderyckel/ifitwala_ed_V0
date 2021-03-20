@@ -7,18 +7,18 @@ import frappe
 from frappe import _
 from frappe.utils import flt, cstr, nowdate, nowtime, get_link_to_form
 
-def get_stock_value_from_bin(storage=None, item_code=None):
+def get_stock_value_from_bin(location=None, item_code=None):
 	values = {}
 	conditions = ""
-	if storage:
-		conditions += """ AND `tabBin`.storage in (
-						SELECT w2.name FROM `tabstorage` w1
-						JOIN `tabstorage` w2 ON
-						w1.name = %(storage)s
+	if location:
+		conditions += """ AND `tabBin`.location in (
+						SELECT w2.name FROM `tablocation` w1
+						JOIN `tablocation` w2 ON
+						w1.name = %(location)s
 						AND w2.lft BETWEEN w1.lft AND w1.rgt
 						) """
 
-		values['storage'] = storage
+		values['location'] = location
 
 	if item_code:
 		conditions += " and `tabBin`.item_code = %(item_code)s"
@@ -32,13 +32,13 @@ def get_stock_value_from_bin(storage=None, item_code=None):
 
 	return stock_value
 
-def get_bin(item_code, storage):
-	bin = frappe.db.get_value("Bin", {"item_code": item_code, "storage": storage})
+def get_bin(item_code, location):
+	bin = frappe.db.get_value("Bin", {"item_code": item_code, "location": location})
 	if not bin:
 		bin_obj = frappe.get_doc({
 			"doctype": "Bin",
 			"item_code": item_code,
-			"storage": storage,
+			"location": location,
 		})
 		bin_obj.flags.ignore_permissions = 1
 		bin_obj.insert()

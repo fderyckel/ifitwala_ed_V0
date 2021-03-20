@@ -89,6 +89,24 @@ def add_uom_data():
 				"must_be_whole_number": d.get("must_be_whole_number")
 			}).insert(ignore_permissions=True)
 
+		# bootstrap uom conversion factors
+	uom_conversions = json.loads(open(frappe.get_app_path("ifitwala_ed", "setup", "setup_wizard", "data", "uom_conversion_data.json")).read())
+	for d in uom_conversions:
+		if not frappe.db.exists("UOM Category", _(d.get("category"))):
+			frappe.get_doc({
+				"doctype": "UOM Category",
+				"category_name": _(d.get("category"))
+			}).insert(ignore_permissions=True)
+
+		if not frappe.db.exists("UOM Conversion Factor", {"from_uom": _(d.get("from_uom")), "to_uom": _(d.get("to_uom"))}):
+			uom_conversion = frappe.get_doc({
+				"doctype": "UOM Conversion Factor",
+				"category": _(d.get("category")),
+				"from_uom": _(d.get("from_uom")),
+				"to_uom": _(d.get("to_uom")),
+				"value": d.get("value")
+			}).insert(ignore_permissions=True)
+
 def add_other_records(country=None):
 	records = [
 		# item group
@@ -102,7 +120,6 @@ def add_other_records(country=None):
 		{'doctype': 'Employment Type', 'employment_type_name': _('Intern')},
 		{'doctype': 'Employment Type', 'employment_type_name': _('Apprentice')},
 
-		# Mode of Payment
 		{'doctype': 'Mode of Payment', 'mode_of_payment': 'Check' if country=="United States" else _('Cheque'), 'type': 'Bank'},
 		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Cash'), 'type': 'Cash'},
 		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Credit Card'), 'type': 'Bank'},
@@ -112,5 +129,12 @@ def add_other_records(country=None):
 		{'doctype': "Party Type", "party_type": "Supplier", "account_type": "Payable"},
 		{'doctype': "Party Type", "party_type": "Employee", "account_type": "Payable"},
 		{'doctype': "Party Type", "party_type": "Student", "account_type": "Receivable"},
+
+		{'doctype': "UOM Category", "category_name": "Length"},
+		{'doctype': "UOM Category", "category_name": "Area"},
+		{'doctype': "UOM Category", "category_name": "Volume"},
+		{'doctype': "UOM Category", "category_name": "Density"},
+		{'doctype': "UOM Category", "category_name": "Mass"},
+		{'doctype': "UOM Category", "category_name": "Speed"},
 	]
 	insert_record(records)

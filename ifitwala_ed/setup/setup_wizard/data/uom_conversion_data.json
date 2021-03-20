@@ -1,0 +1,253 @@
+[
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Meter",
+		"abbr": "m",
+		"value": "1"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Centimeter",
+		"abbr": "cm",
+		"value": "100"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Decimeter",
+		"abbr": "dm",
+		"value": "10"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Foot",
+		"abbr": "ft",
+		"value": "3.28084"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Hectometer",
+		"abbr": "hm",
+		"value": "0.01"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Inch",
+		"abbr": "in",
+		"value": "39.370079"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Kilometer",
+		"abbr": "km",
+		"value": "0.001"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Micrometer",
+		"abbr": "µm",
+		"value": "1000000"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Mile",
+		"abbr": "mi",
+		"value": "0.000621"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Mile (Nautical)",
+		"abbr": "nmi(NM)",
+		"value": "0.00054"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Millimeter",
+		"abbr": "mm",
+		"value": "1000"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Nanometer",
+		"abbr": "nm",
+		"value": "1000000000"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Yard",
+		"abbr": "yd",
+		"value": "1.0936133"
+	},
+	{
+		"category": "Length",
+		"from_uom": "Meter",
+		"to_uom": "Arshin",
+		"value": "1.406074"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Square Meter",
+		"value": "1"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Centiarea",
+		"abbr": "CentArea",
+		"value": "1"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Square Kilometer",
+		"value": "0.000001"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Are",
+		"abbr": "a",
+		"value": "0.01"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Acre",
+		"abbr": "ac",
+		"value": "0.000247"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Hectare",
+		"abbr": "ha",
+		"value": "0.0001"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Square Yard",
+		"value": "1.195990"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Square Foot",
+		"value": "10.763910"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Square Inch",
+		"value": "1550.0031"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Square Centimeter",
+		"value": "10000"
+	},
+	{
+		"category": "Area",
+		"from_uom": "Square Meter",
+		"to_uom": "Square Mile",
+		"value": "0.000000386"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Meter/Second",
+		"abbr": "m/s",
+		"value": "1"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Inch/Minute",
+		"abbr": "ipm",
+		"value": "2362.204724"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Foot/Minute",
+		"abbr": "fpm",
+		"value": "196.850394"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Inch/Second",
+		"abbr": "ips",
+		"value": "39.370079"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Kilometer/Hour",
+		"abbr": "km/h",
+		"value": "3.6"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Foot/Second",
+		"abbr": "fps",
+		"value": "3.28084"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Mile/Hour",
+		"abbr": "mph",
+		"value": "2.236936"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Knot",
+		"abbr": "kn",
+		"value": "1.943844"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Mile/Minute",
+		"abbr": "mpm",
+		"value": "0.037283"
+	},
+	{
+		"category": "Speed",
+		"from_uom": "Meter/Second",
+		"to_uom": "Mile/Second",
+		"abbr": "mps",
+		"value": "0.000621"
+	},
+	{
+		"category": "Mass",
+		"from_uom": "Kg",
+		"to_uom": "Carat",
+		"abbr": "carat",
+		"value": "5000"
+	},
+	{
+		"category": "Mass",
+		"from_uom": "Kg",
+		"to_uom": "Gram",
+		"abbr": "g",
+		"value": "1000"
+	}
+]

@@ -47,8 +47,6 @@ class FiscalYear(Document):
 
 	def validate_dates(self):
 		if self.is_short_year:
-			# Fiscal Year can be shorter than one year, in some jurisdictions
-			# under certain circumstances. For example, in the USA and Germany.
 			return
 
 		if getdate(self.year_start_date) > getdate(self.year_end_date):

@@ -25,7 +25,7 @@
   {
    "default": "0",
    "fieldname": "is_short_year",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "label": "Is Short Year",
    "set_only_once": 1
   },
@@ -73,9 +73,8 @@
   }
  ],
  "icon": "fa fa-calendar",
- "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-15 11:59:42.056692",
+ "modified": "2021-03-20 15:17:06.800566",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Fiscal Year",

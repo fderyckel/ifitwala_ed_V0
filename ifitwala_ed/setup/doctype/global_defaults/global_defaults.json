@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "creation": "2021-03-20 14:44:23.895894",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "default_school",
+  "current_fiscal_year",
+  "country",
+  "default_distance_unit",
+  "default_currency",
+  "hide_currency_symbol",
+  "disable_rounded_total",
+  "disable_in_words"
+ ],
+ "fields": [
+  {
+   "fieldname": "default_school",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Default School",
+   "options": "School"
+  },
+  {
+   "fieldname": "current_fiscal_year",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Current Fiscal Year",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "default_distance_unit",
+   "fieldtype": "Link",
+   "label": "Default Distance Unit",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  },
+  {
+   "description": "Do not show any symbol like $ etc next to currencies.",
+   "fieldname": "hide_currency_symbol",
+   "fieldtype": "Select",
+   "label": "Hide Currency Symbol",
+   "options": "\nNo\nYes"
+  },
+  {
+   "default": "0",
+   "description": "If disable, 'Rounded Total' field will not be visible in any transaction. ",
+   "fieldname": "disable_rounded_total",
+   "fieldtype": "Check",
+   "label": "Disable Rounded Total"
+  },
+  {
+   "default": "0",
+   "description": "If disable, 'In Words' field will not be visible in any transaction. ",
+   "fieldname": "disable_in_words",
+   "fieldtype": "Check",
+   "label": "Disable In Words"
+  }
+ ],
+ "icon": "fa fa-cog",
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-03-20 15:04:31.317640",
+ "modified_by": "Administrator",
+ "module": "Setup",
+ "name": "Global Defaults",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "read_only": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

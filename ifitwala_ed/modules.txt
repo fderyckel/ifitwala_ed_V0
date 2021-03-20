@@ -10,3 +10,4 @@ Setup
 Curriculum
 Admission
 Accounting
+Purchase

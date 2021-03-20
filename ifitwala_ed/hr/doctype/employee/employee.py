@@ -159,7 +159,7 @@ class Employee(NestedSet):
 		if employee_user_permission_exists: return
 
 		add_user_permission("Employee", self.name, self.user_id)
-		set_user_permission_if_allowed("School", self.school, self.user_id)
+		set_user_permission_if_allowed("Organization", self.organization, self.user_id)
 
 
 
@@ -192,17 +192,17 @@ def create_user(employee, user = None, email=None):
 	return user.name
 
 @frappe.whitelist()
-def get_children(doctype, parent=None, school=None, is_root=False, is_tree=False):
+def get_children(doctype, parent=None, organization=None, is_root=False, is_tree=False):
 
 	filters = [['status', '!=', 'Left']]
-	if school and school != 'All Schools':
-		filters.append(['school', '=', school])
+	if organization and organization != 'All Organizations':
+		filters.append(['organization', '=', organization])
 
 	fields = ['name as value', 'employee_full_name as title']
 
 	if is_root:
 		parent = ''
-	if parent and school and parent!=school:
+	if parent and organization and parent!=organization:
 		filters.append(['reports_to', '=', parent])
 	else:
 		filters.append(['reports_to', '=', ''])

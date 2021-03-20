@@ -20,7 +20,7 @@ frappe.ui.form.on('School', {
 			return {
 				filters: {"is_group": 1}
 			}
-		);
+		});
 
 	},
 

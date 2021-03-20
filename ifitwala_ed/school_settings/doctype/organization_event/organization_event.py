@@ -31,7 +31,7 @@ class OrganizationEvent(Document):
 def get_permission_query_conditions(user):
 	if not user:
 		user = frappe.session.user
-	return """(name in (select parent from `tabSchool Event Participant`where participant=%(user)s) or owner=%(user)s)""" % {
+	return """(name in (select parent from `tabOrganization Event Participant`where participant=%(user)s) or owner=%(user)s)""" % {
 			"user": frappe.db.escape(user),
 		}
 
@@ -54,25 +54,25 @@ def get_organization_events(start, end, user=None, filters=None):
 	if isinstance(filters, string_types):
 		filters = json.loads(filters)
 
-	filter_condition = get_filters_cond('School Event', filters, [])
+	filter_condition = get_filters_cond('Organization Event', filters, [])
 
-	tables = ["`tabSchool Event`"]
-	if "`tabSchool Event Participants`" in filter_condition:
-		tables.append("`tabSchool Event Participants`")
-	events = frappe.db.sql(""" SELECT 	`tabSchool Event`.name, `tabSchool Event`.subject,
-										`tabSchool Event`.color, `tabSchool Event`.starts_on, `tabSchool Event`.ends_on,
-										`tabSchool Event`.owner, `tabSchool Event`.all_day, `tabSchool Event`.event_category,
-										`tabSchool Event`.school, `tabSchool Event`.room
+	tables = ["`tabOrganization Event`"]
+	if "`tabOrganization Event Participants`" in filter_condition:
+		tables.append("`tabOrganization Event Participants`")
+	events = frappe.db.sql(""" SELECT 	`tabOrganization Event`.name, `tabOrganization Event`.subject,
+										`tabOrganization Event`.color, `tabOrganization Event`.starts_on, `tabOrganization Event`.ends_on,
+										`tabOrganization Event`.owner, `tabOrganization Event`.all_day, `tabOrganization Event`.event_category,
+										`tabOrganization Event`.organization, `tabOrganization Event`.room
 								FROM {tables}
-								WHERE (	(date(`tabSchool Event`.starts_on) BETWEEN date(%(start)s) AND date(%(end)s))
-								  		OR (date(`tabSchool Event`.ends_on) BETWEEN date(%(start)s) AND date(%(end)s))
+								WHERE (	(date(`tabOrganization Event`.starts_on) BETWEEN date(%(start)s) AND date(%(end)s))
+								  		OR (date(`tabOrganization Event`.ends_on) BETWEEN date(%(start)s) AND date(%(end)s))
 											)
 								{filter_condition}
-								ORDER BY `tabSchool Event`.starts_on""".format(tables=", ".join(tables), filter_condition=filter_condition),
+								ORDER BY `tabOrganization Event`.starts_on""".format(tables=", ".join(tables), filter_condition=filter_condition),
 																	{ "start": start, "end": end, "user": user}, as_dict=1)
 	allowed_events = []
 	for event in events:
-		if frappe.get_doc("School Event", event.name).has_permission():
+		if frappe.get_doc("Organization Event", event.name).has_permission():
 			allowed_events.append(event)
 
 	return allowed_events

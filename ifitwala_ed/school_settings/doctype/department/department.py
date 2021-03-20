@@ -13,12 +13,12 @@ from frappe.email.doctype.email_group.email_group import add_subscribers
 class Department(Document):
 
 	def autoname(self):
-		self.name = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
+		self.name = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
 
 	def validate(self):
-		# You cannot have 2 dpt. of the same within the same school. OK in 2 different school.
+		# You cannot have 2 dpt. of the same within the same organization. OK in 2 different organization.
 		self.validate_duplicate()
-		self.title = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
+		self.title = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
 		found = []
 		for member in self.members:
 			if member.member in found:
@@ -32,9 +32,9 @@ class Department(Document):
 			frappe.msgprint(_("Added the Newsletter role to {0} as Department Lead.").format(self.department_lead))
 
 	def validate_duplicate(self):
-    		dpt = frappe.db.sql("""select name from `tabDepartment` where school= %s and department_name= %s and docstatus<2 and name != %s""", (self.school, self.department_name, self.name))
+    		dpt = frappe.db.sql("""select name from `tabDepartment` where organization= %s and department_name= %s and docstatus<2 and name != %s""", (self.organization, self.department_name, self.name))
     		if dpt:
-       			frappe.throw(_("A department within this school {0} and this name {1} already exisit. Please adjust the name as necessary.").format(self.school, self.department_name))
+       			frappe.throw(_("A department within this organization {0} and this name {1} already exisit. Please adjust the name as necessary.").format(self.organization, self.department_name))
 
 
 @frappe.whitelist()

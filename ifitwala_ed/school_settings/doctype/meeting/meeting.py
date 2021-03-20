@@ -46,11 +46,11 @@ class Meeting(Document):
 			frappe.throw(_("The start time of your meeting {0} has to be earlier than its end {1}. Please adjust the time.").format(self.from_time, self.to_time))
 
 	def create_calendar_events(self):
-		if self.school_event:
+		if self.organization_event:
 			return
 		default_color = frappe.get_single("Education Settings")
 		meeting_event = frappe.get_doc({
-			"doctype": "School Event",
+			"doctype": "Organization Event",
 			"owner": self.meeting_organizer,
 			"subject": self.meeting_name,
 			"starts_on": datetime.datetime.combine(getdate(self.date), get_time(self.from_time)),
@@ -64,7 +64,7 @@ class Meeting(Document):
 		for attendee in self.attendees:
 			meeting_event.append("participants", {"participant":attendee.attendee})
 		meeting_event.insert(ignore_permissions=True)
-		self.school_event = meeting_event.name
+		self.organization_event = meeting_event.name
 		self.save(ignore_permissions=True)
 
 	def sync_todos(self):
@@ -85,7 +85,7 @@ class Meeting(Document):
 					todo = frappe.get_doc({
 						"doctype": "ToDo",
 						"owner": self.meeting_organizer,
-						"status": "Open", 
+						"status": "Open",
 						"description": minute.discussion,
 						"reference_type": self.doctype,
 						"reference_name": self.name,

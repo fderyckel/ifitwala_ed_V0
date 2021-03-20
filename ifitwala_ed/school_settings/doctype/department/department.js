@@ -6,7 +6,7 @@ frappe.ui.form.on('Department', {
 		if (!frm.doc.__islocal) {
 			frm.add_custom_button(__('Update Dpt Member Email Group'), function() {
 				frappe.call({
-					method: 'ifitwala_ed.school_settings.doctype.department.department.update_dpt_email',
+					method: 'ifitwala_ed.organization_settings.doctype.department.department.update_dpt_email',
 					args: {
 						'doctype': 'Department',
 						'name': frm.doc.name

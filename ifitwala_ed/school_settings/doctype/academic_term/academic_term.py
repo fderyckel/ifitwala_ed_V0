@@ -44,27 +44,27 @@ class AcademicTerm(Document):
 
     def create_calendar_events(self):
         if self.at_start:
-            start_at = frappe.get_doc("School Event", self.at_start)
+            start_at = frappe.get_doc("Organization Event", self.at_start)
             if getdate(start_at.starts_on) != getdate(self.term_start_date):
                 start_at.db_set("starts_on", self.term_start_date)
                 start_at.db_set("ends_on", self.term_start_date)
-                frappe.msgprint(_("Date for the start of the term {0} has been updated on the School Event Calendar {1}").format(self.term_start_date, get_link_to_form("School Event", start_at.name)))
+                frappe.msgprint(_("Date for the start of the term {0} has been updated on the Organization Event Calendar {1}").format(self.term_start_date, get_link_to_form("Organization Event", start_at.name)))
 
         if self.at_end:
-            end_at = frappe.get_doc("School Event", self.at_end)
+            end_at = frappe.get_doc("Organization Event", self.at_end)
             if getdate(end_at.ends_on) != getdate(self.term_end_date):
                 end_at.db_set("starts_on", self.term_end_date)
                 end_at.db_set("ends_on", self.term_end_date)
-                frappe.msgprint(_("Date for the end of the term {0} has been updated on the School Event Calendar {1}").format(self.term_end_date, get_link_to_form("School Event", end_at.name)))
+                frappe.msgprint(_("Date for the end of the term {0} has been updated on the Organization Event Calendar {1}").format(self.term_end_date, get_link_to_form("Organization Event", end_at.name)))
 
         if not self.at_start:
             start_term = frappe.get_doc({
-                "doctype": "School Event",
+                "doctype": "Organization Event",
         	    "owner": frappe.session.user,
                 "subject": "Start of the " + cstr(self.name) + " Academic Term",
                 "starts_on": getdate(self.term_start_date),
                 "ends_on": getdate(self.term_start_date),
-                "school": self.school,
+                "organization": self.organization,
         	    "event_category": "Other",
         	    "event_type": "Public",
                 "all_day": "1",
@@ -74,16 +74,16 @@ class AcademicTerm(Document):
         	})
             start_term.insert()
             self.db_set("at_start", start_term.name)
-            frappe.msgprint(_("Date for the start of the term {0} has been created on the School Event Calendar {1}").format(self.term_start_date, get_link_to_form("School Event", start_term.name)))
+            frappe.msgprint(_("Date for the start of the term {0} has been created on the Organization Event Calendar {1}").format(self.term_start_date, get_link_to_form("Organization Event", start_term.name)))
 
         if not self.at_end:
             end_term = frappe.get_doc({
-                "doctype": "School Event",
+                "doctype": "Organization Event",
                 "owner": frappe.session.user,
         	    "subject": "End of the " + cstr(self.name) + " Academic Term",
         	    "starts_on": getdate(self.term_end_date),
         	    "ends_on": getdate(self.term_end_date),
-                "school": self.school,
+                "organization": self.organization,
                 "event_category": "Other",
                 "event_type": "Public",
                 "all_day": "1",
@@ -93,4 +93,4 @@ class AcademicTerm(Document):
         	})
             end_term.insert()
             self.db_set("at_end", end_term.name)
-            frappe.msgprint(_("Date for the end of the term {0} has been created on the School Event Calendar {1}").format(self.term_end_date, get_link_to_form("School Event", end_term.name)))
+            frappe.msgprint(_("Date for the end of the term {0} has been created on the Organization Event Calendar {1}").format(self.term_end_date, get_link_to_form("Organization Event", end_term.name)))

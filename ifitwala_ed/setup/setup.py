@@ -3,7 +3,7 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe
+import frappe, os, json
 from ifitwala_ed.setup.utils import insert_record
 from frappe.desk.doctype.global_search_settings.global_search_settings import update_global_search_doctypes
 

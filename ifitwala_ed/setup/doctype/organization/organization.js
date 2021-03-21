@@ -103,7 +103,7 @@ frappe.ui.form.on("Organization", {
 			}
 		}
 
-		erpnext.organization.set_chart_of_accounts_options(frm.doc);
+		ifitwala_ed.organization.set_chart_of_accounts_options(frm.doc);
 
 		if (!frappe.user.has_role('System Manager')) {
 			frm.get_field("delete_organization_transactions").hide();
@@ -122,13 +122,13 @@ frappe.ui.form.on("Organization", {
 	},
 
 	country: function(frm) {
-		erpnext.organization.set_chart_of_accounts_options(frm.doc);
+		ifitwala_ed.organization.set_chart_of_accounts_options(frm.doc);
 	},
 
 });
 
 
-erpnext.organization.set_chart_of_accounts_options = function(doc) {
+ifitwala_ed.organization.set_chart_of_accounts_options = function(doc) {
 	var selected_value = doc.chart_of_accounts;
 	if(doc.country) {
 		return frappe.call({
@@ -185,7 +185,7 @@ cur_frm.cscript.change_abbr = function() {
 	dialog.show();
 }
 
-erpnext.organization.setup_queries = function(frm) {
+ifitwala_ed.organization.setup_queries = function(frm) {
 	$.each([
 		["default_bank_account", {"account_type": "Bank"}],
 		["default_cash_account", {"account_type": "Cash"}],

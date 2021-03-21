@@ -18,7 +18,7 @@
   "change_abbr",
   "contact_html",
   "mission_vision_values_section",
-  "school_philosophy",
+  "organization_philosophy",
   "stock_settings_section",
   "enable_perpetual_inventory",
   "enable_perpetual_inventory_for_non_stock_items",
@@ -56,10 +56,12 @@
   "exchange_gain__loss_account",
   "round_off_cost_center",
   "expenses_included_in_valuation",
-  "allow_account_creation_against_child_school",
+  "allow_account_creation_against_child_organization",
   "lft",
   "rgt",
-  "old_parent"
+  "old_parent",
+  "date_of_incorporation",
+  "date_of_commencement"
  ],
  "fields": [
   {
@@ -106,11 +108,6 @@
    "fieldname": "mission_vision_values_section",
    "fieldtype": "Section Break",
    "label": "Mission Vision Values"
-  },
-  {
-   "fieldname": "school_philosophy",
-   "fieldtype": "Text Editor",
-   "label": "School Philosophy"
   },
   {
    "collapsible": 1,
@@ -177,7 +174,7 @@
    "fieldname": "create_chart_of_accounts_based_on",
    "fieldtype": "Select",
    "label": "Create Chart Of Accounts Based On",
-   "options": "\nStandard Template\nExisting School"
+   "options": "\nStandard Template\nExisting Organization"
   },
   {
    "depends_on": "eval:doc.create_chart_of_accounts_based_on===\"Standard Template\"",
@@ -336,13 +333,6 @@
    "options": "Cost Center"
   },
   {
-   "default": "0",
-   "depends_on": "eval:doc.parent_school",
-   "fieldname": "allow_account_creation_against_child_school",
-   "fieldtype": "Check",
-   "label": "Allow Account Creation Against Child School"
-  },
-  {
    "fieldname": "lft",
    "fieldtype": "Int",
    "hidden": 1,
@@ -429,13 +419,35 @@
    "ignore_user_permissions": 1,
    "label": "Existing Organization",
    "options": "Organization"
+  },
+  {
+   "fieldname": "organization_philosophy",
+   "fieldtype": "Text Editor",
+   "label": "Organization Philosophy"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.parent_organization",
+   "fieldname": "allow_account_creation_against_child_organization",
+   "fieldtype": "Check",
+   "label": "Allow Account Creation Against Child Organization"
+  },
+  {
+   "fieldname": "date_of_incorporation",
+   "fieldtype": "Date",
+   "label": "Date of Incorporation"
+  },
+  {
+   "fieldname": "date_of_commencement",
+   "fieldtype": "Date",
+   "label": "Date of Commencement"
   }
  ],
  "icon": "fa fa-building",
  "image_field": "organization_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-21 12:09:37.405243",
+ "modified": "2021-03-21 18:03:28.304218",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Organization",

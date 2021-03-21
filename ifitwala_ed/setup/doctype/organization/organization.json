@@ -27,7 +27,7 @@
   "stock_adjustment_account",
   "accounting_settings_section",
   "default_currency",
-  "existing_school",
+  "existing_organization",
   "column_break_21",
   "country",
   "create_chart_of_accounts_based_on",
@@ -39,6 +39,7 @@
   "unrealized_profit__loss_account",
   "default_expense_claim_payable_account",
   "depreciation_cost_center",
+  "stock_received_but_not_billed",
   "column_break_27",
   "default_cash_account",
   "default_expense_account",
@@ -46,12 +47,15 @@
   "default_deferred_revenue_account",
   "default_deferred_expense_account",
   "default_cost_center",
+  "service_received_but_not_billed",
   "column_break_29",
   "default_payable_account",
   "default_receivable_account",
   "default_income_account",
+  "default_payroll_payable_account",
   "exchange_gain__loss_account",
   "round_off_cost_center",
+  "expenses_included_in_valuation",
   "allow_account_creation_against_child_school",
   "lft",
   "rgt",
@@ -154,17 +158,10 @@
   {
    "fieldname": "default_currency",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Default Currency",
    "options": "Currency",
    "reqd": 1
-  },
-  {
-   "depends_on": "eval:doc.create_chart_of_accounts_based_on===\"Existing School\"",
-   "fieldname": "existing_school",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Existing School",
-   "options": "Organization"
   },
   {
    "fieldname": "column_break_21",
@@ -391,13 +388,54 @@
    "fieldtype": "Attach Image",
    "hidden": 1,
    "label": "Organization Logo"
+  },
+  {
+   "fieldname": "stock_received_but_not_billed",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Stock Received But Not Billed",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "fieldname": "service_received_but_not_billed",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Service Received But Not Billed",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "fieldname": "expenses_included_in_valuation",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Expenses Included In Valuation",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "default_payroll_payable_account",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Default Payroll Payable Account",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "depends_on": "eval:doc.create_chart_of_accounts_based_on===\"Existing Organization\"",
+   "fieldname": "existing_organization",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Existing Organization",
+   "options": "Organization"
   }
  ],
  "icon": "fa fa-building",
  "image_field": "organization_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-20 20:26:28.836372",
+ "modified": "2021-03-21 12:09:37.405243",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Organization",

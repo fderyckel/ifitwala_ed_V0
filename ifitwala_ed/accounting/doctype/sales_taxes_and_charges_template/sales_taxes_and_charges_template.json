@@ -14,7 +14,7 @@
   "organization",
   "tax_category",
   "section_break_7",
-  "sales_taxes_and_charges"
+  "taxes"
  ],
  "fields": [
   {
@@ -58,7 +58,7 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "sales_taxes_and_charges",
+   "fieldname": "taxes",
    "fieldtype": "Table",
    "label": "Sales Taxes and Charges",
    "options": "Sales Taxes and Charges"
@@ -67,7 +67,7 @@
  "icon": "fa fa-money",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-21 11:38:40.754619",
+ "modified": "2021-03-21 20:05:39.317822",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Taxes and Charges Template",

@@ -1,0 +1,132 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "charts_label": "",
+ "creation": "2020-09-13 22:21:28.407928",
+ "developer_mode_only": 0,
+ "disable_user_customization": 1,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "School Settings",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "School & Department",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "School",
+   "link_to": "School",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Department",
+   "link_to": "Department",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Location",
+   "link_to": "Location",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Year & Terms",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Academic Year",
+   "link_to": "Academic Year",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Academic Term",
+   "link_to": "Academic Term",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Organization Calendar",
+   "link_to": "Organization Calendar",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Collaboration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Meeting",
+   "link_to": "Meeting",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2021-04-28 12:35:13.128046",
+ "modified_by": "Administrator",
+ "module": "School Settings",
+ "name": "School Settings",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "doc_view": "Tree",
+   "label": "School",
+   "link_to": "Organization",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Calendar",
+   "label": "School Event",
+   "link_to": "Organization Event",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "School Dashboard",
+   "link_to": "School Dashboard",
+   "type": "Dashboard"
+  }
+ ]
+}

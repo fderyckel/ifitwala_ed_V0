@@ -120,7 +120,7 @@
   {
    "fieldname": "base_tax_amount_after_discount_amount",
    "fieldtype": "Currency",
-   "label": "Tax Amount After Discount Amount (Company Currency)"
+   "label": "Tax Amount After Discount Amount (Organization Currency)"
   },
   {
    "fieldname": "item_wise_tax_detail",
@@ -147,7 +147,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-05-03 16:32:27.674941",
+ "modified": "2021-05-03 16:59:40.394060",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Taxes and Charges",

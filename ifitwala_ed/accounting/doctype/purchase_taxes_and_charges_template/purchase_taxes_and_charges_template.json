@@ -12,7 +12,7 @@
   "is_default",
   "disabled",
   "column_break4",
-  "company",
+  "organization",
   "tax_category",
   "section_break6",
   "taxes"
@@ -46,16 +46,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Company",
-   "options": "Organization",
-   "remember_last_selected_value": 1,
-   "reqd": 1
-  },
-  {
    "fieldname": "tax_category",
    "fieldtype": "Link",
    "label": "Tax Category",
@@ -72,12 +62,22 @@
    "oldfieldname": "purchase_tax_details",
    "oldfieldtype": "Table",
    "options": "Purchase Taxes and Charges"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "remember_last_selected_value": 1,
+   "reqd": 1
   }
  ],
  "icon": "fa fa-money",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-03 16:30:30.729915",
+ "modified": "2021-05-03 17:02:22.759590",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Purchase Taxes and Charges Template",

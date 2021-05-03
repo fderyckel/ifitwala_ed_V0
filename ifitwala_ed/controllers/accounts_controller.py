@@ -3,7 +3,7 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe, erpnext
+import frappe, ifitwala_ed
 import json
 from frappe import _
 from frappe.utils import (today, flt, cint, fmt_money, formatdate, getdate, add_days, add_months, get_last_day, nowdate, get_link_to_form)
@@ -30,7 +30,7 @@ def validate_taxes_and_charges(tax):
 def validate_inclusive_tax(tax, doc):
 	def _on_previous_row_error(row_range):
 		frappe.throw(_("To include tax in row {0} in Item rate, taxes in rows {1} must also be included").format(tax.idx, row_range))
-        
+
 	if cint(getattr(tax, "included_in_print_rate", None)):
 		if tax.charge_type == "Actual":
 			# inclusive tax cannot be of type Actual

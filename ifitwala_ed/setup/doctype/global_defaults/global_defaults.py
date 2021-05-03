@@ -11,7 +11,7 @@ from frappe.model.document import Document
 keydict = {
 	# "key in defaults": "key in Global Defaults"
 	"fiscal_year": "current_fiscal_year",
-	'company': 'default_company',
+	'organization': 'default_organization',
 	'currency': 'default_currency',
 	"country": "country",
 	'hide_currency_symbol':'hide_currency_symbol',

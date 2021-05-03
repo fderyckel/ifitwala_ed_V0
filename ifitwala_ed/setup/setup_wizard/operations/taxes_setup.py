@@ -16,6 +16,13 @@ def create_sales_tax(args):
 				tax_data.get('account_name'),
 				tax_data.get('tax_rate'), sales_tax)
 
+def get_country_wise_tax(country):
+	data = {}
+	with open (os.path.join(os.path.dirname(__file__), "..", "data", "country_wise_tax.json")) as countrywise_tax:
+		data = json.load(countrywise_tax).get(country)
+
+	return data
+
 def make_tax_account_and_template(organization, account_name, tax_rate, template_name=None):
 	if not isinstance(account_name, (list, tuple)):
 		account_name = [account_name]
@@ -115,10 +122,3 @@ def get_tax_account_group(organization):
 				"account_type": "Tax", "organization": organization})
 
 	return tax_group
-
-def get_country_wise_tax(country):
-	data = {}
-	with open (os.path.join(os.path.dirname(__file__), "..", "data", "country_wise_tax.json")) as countrywise_tax:
-		data = json.load(countrywise_tax).get(country)
-
-	return data

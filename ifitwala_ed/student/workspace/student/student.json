@@ -1,24 +1,23 @@
 {
- "cards_label": "Schedule",
+ "cards_label": "",
  "category": "Modules",
  "charts": [],
- "creation": "2020-09-14 13:32:05.544248",
+ "creation": "2020-09-13 23:34:22.525108",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
  "docstatus": 0,
  "doctype": "Workspace",
  "extends_another_page": 0,
  "hide_custom": 0,
- "icon": "calendar",
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "label": "Schedule",
+ "label": "Student",
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Masters",
+   "label": "Students",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -26,8 +25,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Program",
-   "link_to": "Program",
+   "label": "Student",
+   "link_to": "Student",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -35,8 +34,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Courses",
-   "link_to": "Course",
+   "label": "Guardian",
+   "link_to": "Guardian",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -44,8 +43,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Student Cohort",
-   "link_to": "Student Cohort",
+   "label": "Student Log",
+   "link_to": "Student Log",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -53,25 +52,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Instructor",
-   "link_to": "Instructor",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Room",
-   "link_to": "Location",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Enrollment",
+   "label": "Health",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -79,8 +60,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Program Enrollment",
-   "link_to": "Program Enrollment",
+   "label": "Student Patient",
+   "link_to": "Student Patient",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -88,8 +69,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Course Enrollment",
-   "link_to": "Course Enrollment",
+   "label": "Health Visit",
+   "link_to": "Student Patient Visit",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -97,16 +78,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Student Group",
-   "link_to": "Student Group",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Tools",
+   "label": "Attendance",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -114,8 +86,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Program Enrollment Tool",
-   "link_to": "Program Enrollment Tool",
+   "label": "Student Attendance",
+   "link_to": "Student Attendance",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -123,28 +95,42 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Student Group Creation Tool",
-   "link_to": "Student Group Creation Tool",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Course Scheduling Tool",
-   "link_to": "Course Scheduling Tool",
+   "label": "Student Leave Application",
+   "link_to": "Student Leave Application",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2021-04-28 12:49:38.509478",
+ "modified": "2021-04-28 13:02:59.561876",
  "modified_by": "Administrator",
- "module": "Schedule",
- "name": "Schedule",
+ "module": "Student",
+ "name": "Student",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
- "shortcuts": []
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "format": "{} Enabled",
+   "label": "Student",
+   "link_to": "Student",
+   "stats_filter": "{\"enabled\":\"1\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Student Log",
+   "link_to": "Student Log",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "Student Dashboard",
+   "link_to": "Student Dashboard",
+   "type": "Dashboard"
+  }
+ ]
 }

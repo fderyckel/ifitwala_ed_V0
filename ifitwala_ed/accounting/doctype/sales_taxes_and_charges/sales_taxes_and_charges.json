@@ -98,7 +98,7 @@
   {
    "fieldname": "base_tax_amount",
    "fieldtype": "Currency",
-   "label": "Amount (Company Currency)",
+   "label": "Amount (Organization Currency)",
    "options": "Organization:organization:default_currency",
    "read_only": 1
   },
@@ -113,7 +113,7 @@
   {
    "fieldname": "base_total",
    "fieldtype": "Currency",
-   "label": "Total (Company Currency)",
+   "label": "Total (Organization Currency)",
    "options": "Organization:organization:default_currency",
    "read_only": 1
   },
@@ -147,7 +147,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-03-21 11:11:16.296525",
+ "modified": "2021-05-03 16:32:27.674941",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Taxes and Charges",

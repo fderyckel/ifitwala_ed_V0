@@ -9,7 +9,6 @@ from frappe.utils import cint, cstr
 from frappe.utils.nestedset import NestedSet
 from ifitwala_ed.accounting.utils import validate_field_number
 
-
 class CostCenter(NestedSet):
 	nsm_parent_field = 'parent_cost_center'
 

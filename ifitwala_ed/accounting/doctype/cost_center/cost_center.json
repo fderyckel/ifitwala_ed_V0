@@ -4,6 +4,7 @@
  "allow_import": 1,
  "creation": "2021-03-15 10:28:57.514291",
  "doctype": "DocType",
+ "document_type": "Setup",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -33,7 +34,10 @@
   {
    "fieldname": "cost_center_number",
    "fieldtype": "Data",
-   "label": "Cost Center Number"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cost Center Number",
+   "read_only": 1
   },
   {
    "fieldname": "lft",
@@ -60,8 +64,13 @@
   {
    "fieldname": "old_parent",
    "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
    "label": "Old Parent",
-   "options": "Cost Center"
+   "no_copy": 1,
+   "options": "Cost Center",
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "parent_cost_center",
@@ -86,8 +95,10 @@
    "fieldname": "organization",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Organization",
    "options": "Organization",
+   "remember_last_selected_value": 1,
    "reqd": 1
   },
   {
@@ -112,7 +123,7 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-04 13:53:15.928949",
+ "modified": "2021-05-04 16:50:09.527881",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Cost Center",
@@ -152,6 +163,5 @@
  ],
  "search_fields": "parent_cost_center, is_group",
  "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+ "sort_order": "DESC"
 }

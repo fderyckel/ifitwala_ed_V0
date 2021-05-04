@@ -232,7 +232,7 @@ class Organization(NestedSet):
 				'cost_center_name':_('Main'),
 				'organization':self.name,
 				'is_group':0,
-				'parent_cost_center':self.name
+				'parent_cost_center':self.name + ' - ' + self.abbr
 			},
 		]
 		for cc in cc_list:

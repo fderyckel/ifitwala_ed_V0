@@ -244,7 +244,7 @@ class Organization(NestedSet):
 				cc_doc.flags.ignore_mandatory = True
 			cc_doc.insert()
 
-		frappe.db.set(self, "cost_center", _("Main") + " - " + self.abbr)
+		frappe.db.set(self, "default_cost_center", _("Main") + " - " + self.abbr)
 		frappe.db.set(self, "round_off_cost_center", _("Main") + " - " + self.abbr)
 		frappe.db.set(self, "depreciation_cost_center", _("Main") + " - " + self.abbr)
 

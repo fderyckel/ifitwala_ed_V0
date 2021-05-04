@@ -53,7 +53,7 @@
   "default_receivable_account",
   "default_income_account",
   "default_payroll_payable_account",
-  "exchange_gain__loss_account",
+  "exchange_gain_loss_account",
   "round_off_cost_center",
   "expenses_included_in_valuation",
   "allow_account_creation_against_child_organization",
@@ -61,7 +61,12 @@
   "rgt",
   "old_parent",
   "date_of_incorporation",
-  "date_of_commencement"
+  "date_of_commencement",
+  "accumulated_depreciation_account",
+  "depreciation_expense_account",
+  "capital_work_in_progress_account",
+  "asset_received_but_not_billed",
+  "expenses_included_in_asset_valuation"
  ],
  "fields": [
   {
@@ -320,12 +325,6 @@
    "options": "Account"
   },
   {
-   "fieldname": "exchange_gain__loss_account",
-   "fieldtype": "Link",
-   "label": "Exchange Gain / Loss Account",
-   "options": "Account"
-  },
-  {
    "fieldname": "round_off_cost_center",
    "fieldtype": "Link",
    "label": "Round Off Cost Center",
@@ -441,13 +440,51 @@
    "fieldname": "date_of_commencement",
    "fieldtype": "Date",
    "label": "Date of Commencement"
+  },
+  {
+   "fieldname": "accumulated_depreciation_account",
+   "fieldtype": "Link",
+   "label": "Accumulated Depreciation Account",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "fieldname": "depreciation_expense_account",
+   "fieldtype": "Link",
+   "label": "Depreciation Expense Account",
+   "no_copy": 1,
+   "options": "Account"
+  },
+  {
+   "fieldname": "capital_work_in_progress_account",
+   "fieldtype": "Link",
+   "label": "Capital Work In Progress Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "asset_received_but_not_billed",
+   "fieldtype": "Link",
+   "label": "Asset Received But Not Billed",
+   "options": "Account"
+  },
+  {
+   "fieldname": "expenses_included_in_asset_valuation",
+   "fieldtype": "Link",
+   "label": "Expenses Included In Asset Valuation",
+   "options": "Account"
+  },
+  {
+   "fieldname": "exchange_gain_loss_account",
+   "fieldtype": "Link",
+   "label": "Exchange Gain / Loss Account",
+   "options": "Account"
   }
  ],
  "icon": "fa fa-building",
  "image_field": "organization_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-21 18:03:28.304218",
+ "modified": "2021-05-04 21:28:58.397735",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Organization",

@@ -71,7 +71,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Room",
-   "options": "Room",
+   "options": "Location",
    "reqd": 1
   },
   {
@@ -113,7 +113,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-22 08:07:55.165878",
+ "modified": "2021-05-04 21:59:48.174506",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",

@@ -10,9 +10,8 @@
  "engine": "InnoDB",
  "field_order": [
   "course_name",
-  "organization",
+  "school",
   "column_break_4",
-  "division",
   "department",
   "curriculum",
   "units",
@@ -145,24 +144,18 @@
    "label": "Curriculum"
   },
   {
-   "fieldname": "division",
-   "fieldtype": "Link",
-   "label": "Division",
-   "options": "Division"
-  },
-  {
    "columns": 2,
-   "fieldname": "organization",
+   "fieldname": "school",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Organization",
+   "label": "School",
    "options": "Organization"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-03-20 20:18:52.545084",
+ "modified": "2021-05-04 21:58:38.780716",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

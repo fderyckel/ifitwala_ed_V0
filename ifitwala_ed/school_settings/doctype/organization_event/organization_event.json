@@ -94,7 +94,7 @@
    "fieldtype": "Table",
    "ignore_user_permissions": 1,
    "label": "Participants",
-   "options": "School Event Participant"
+   "options": "Organization Event Participant"
   },
   {
    "collapsible": 1,
@@ -127,7 +127,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Room",
-   "options": "Room"
+   "options": "Location"
   },
   {
    "fieldname": "organization",
@@ -138,7 +138,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-20 20:27:04.148797",
+ "modified": "2021-05-04 22:04:52.076954",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Organization Event",

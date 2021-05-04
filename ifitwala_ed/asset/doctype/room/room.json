@@ -13,7 +13,6 @@
   "room_type",
   "column_break_4",
   "room_number",
-  "storage",
   "max_capacity",
   "equipments_section",
   "equipment"
@@ -73,17 +72,11 @@
    "fieldtype": "Table",
    "label": "Equipment",
    "options": "Room Equipment"
-  },
-  {
-   "fieldname": "storage",
-   "fieldtype": "Link",
-   "label": "Storage",
-   "options": "Storage"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-13 11:17:43.692148",
+ "modified": "2021-05-04 22:13:24.854211",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Room",

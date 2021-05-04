@@ -18,7 +18,7 @@
   "area",
   "location_type",
   "disabled",
-  "school"
+  "organization"
  ],
  "fields": [
   {
@@ -96,16 +96,16 @@
    "label": "Disabled"
   },
   {
-   "fieldname": "school",
+   "fieldname": "organization",
    "fieldtype": "Link",
-   "label": "School",
-   "options": "School"
+   "label": "Organization",
+   "options": "Organization"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-20 13:22:41.096391",
+ "modified": "2021-05-04 21:44:31.499424",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location",

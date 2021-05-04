@@ -17,6 +17,7 @@ from frappe.utils.nestedset import NestedSet
 from past.builtins import cmp
 import functools
 from ifitwala_ed.accounting.doctype.account.account import get_account_currency
+from ifitwala_ed.setup.setup_wizard.operations.taxes_setup import setup_taxes_and_charges
 
 class Organization(NestedSet):
 	nsm_parent_field = 'parent_organization'
@@ -311,11 +312,7 @@ class Organization(NestedSet):
 
 	@frappe.whitelist()
 	def create_default_tax_template(self):
-		from ifitwala_ed.setup.setup_wizard.operations.taxes_setup import create_sales_tax
-		create_sales_tax({
-			'country': self.country,
-			'organization_name': self.name
-		})
+		setup_taxes_and_charges(self.name, self.country)
 
 
 

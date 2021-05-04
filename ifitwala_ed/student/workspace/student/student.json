@@ -9,6 +9,7 @@
  "doctype": "Workspace",
  "extends_another_page": 0,
  "hide_custom": 0,
+ "icon": "education",
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
@@ -102,13 +103,13 @@
    "type": "Link"
   }
  ],
- "modified": "2021-04-28 13:02:59.561876",
+ "modified": "2021-05-04 15:11:11.142962",
  "modified_by": "Administrator",
  "module": "Student",
  "name": "Student",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 0,
+ "pin_to_top": 1,
  "shortcuts": [
   {
    "color": "Green",

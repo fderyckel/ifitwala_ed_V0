@@ -9,7 +9,7 @@
  "field_order": [
   "title",
   "is_default",
-  "disable",
+  "disabled",
   "column_break_4",
   "organization",
   "tax_category",
@@ -29,12 +29,6 @@
    "fieldname": "is_default",
    "fieldtype": "Check",
    "label": "Default"
-  },
-  {
-   "default": "0",
-   "fieldname": "disable",
-   "fieldtype": "Check",
-   "label": "Disable"
   },
   {
    "fieldname": "column_break_4",
@@ -62,12 +56,18 @@
    "fieldtype": "Table",
    "label": "Sales Taxes and Charges",
    "options": "Sales Taxes and Charges"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
   }
  ],
  "icon": "fa fa-money",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-21 20:05:39.317822",
+ "modified": "2021-05-04 15:24:39.719833",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Taxes and Charges Template",

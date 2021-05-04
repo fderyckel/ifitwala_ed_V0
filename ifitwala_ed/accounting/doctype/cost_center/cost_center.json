@@ -10,10 +10,11 @@
   "cost_center_name",
   "cost_center_number",
   "parent_cost_center",
-  "school",
+  "organization",
   "column_break_5",
   "disabled",
   "is_group",
+  "enable_distributed_cost_center",
   "lft",
   "rgt",
   "old_parent"
@@ -31,14 +32,6 @@
    "fieldname": "cost_center_number",
    "fieldtype": "Data",
    "label": "Cost Center Number"
-  },
-  {
-   "fieldname": "school",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "School",
-   "options": "Organization",
-   "reqd": 1
   },
   {
    "fieldname": "lft",
@@ -71,6 +64,7 @@
   {
    "fieldname": "parent_cost_center",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "in_list_view": 1,
    "label": "Parent Cost Center",
    "options": "Cost Center",
@@ -85,13 +79,27 @@
    "fieldname": "disabled",
    "fieldtype": "Check",
    "label": "Disabled"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_distributed_cost_center",
+   "fieldtype": "Check",
+   "label": "Enable Distributed Cost Center"
   }
  ],
  "icon": "fa fa-money",
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-20 20:11:43.519146",
+ "modified": "2021-05-04 11:48:41.974462",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Cost Center",

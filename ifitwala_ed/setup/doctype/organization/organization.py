@@ -309,6 +309,7 @@ class Organization(NestedSet):
 			})
 			mode_of_payment.save(ignore_permissions=True)
 
+	@frappe.whitelist()
 	def create_default_tax_template(self):
 		from ifitwala_ed.setup.setup_wizard.operations.taxes_setup import create_sales_tax
 		create_sales_tax({

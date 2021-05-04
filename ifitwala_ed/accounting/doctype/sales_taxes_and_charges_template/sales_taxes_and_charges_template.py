@@ -11,7 +11,7 @@ from ifitwala_ed.controllers.accounts_controller import validate_taxes_and_charg
 
 class SalesTaxesandChargesTemplate(Document):
 	def validate(self):
-		valdiate_taxes_and_charges_template(self)
+		validate_taxes_and_charges_template(self)
 
 	def autoname(self):
 		if self.organization and self.title:
@@ -23,10 +23,7 @@ class SalesTaxesandChargesTemplate(Document):
 			if data.charge_type == 'On Net Total' and flt(data.rate) == 0.0:
 				data.rate = frappe.db.get_value('Account', data.account_head, 'tax_rate')
 
-def valdiate_taxes_and_charges_template(doc):
-	# default should not be disabled
-	# if not doc.is_default and not frappe.get_all(doc.doctype, filters={"is_default": 1}):
-	# 	doc.is_default = 1
+def validate_taxes_and_charges_template(doc):
 
 	if doc.is_default == 1:
 		frappe.db.sql("""UPDATE `tab{0}` SET is_default = 0 WHERE is_default = 1 AND name != %s AND organization = %s""".format(doc.doctype), (doc.name, doc.organization))

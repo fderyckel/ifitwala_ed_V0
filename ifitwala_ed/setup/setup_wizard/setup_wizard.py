@@ -6,10 +6,10 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 
-from .operations import install_fixtures as fixtures, school_setup
+from .operations import install_fixtures as fixtures, organization_setup
 
 def get_setup_stages(args=None):
-	if frappe.db.sql("select name from tabSchool"):
+	if frappe.db.sql("select name from tabOrganization"):
 		stages = [
 			{
 				'status': _('Wrapping up'),
@@ -37,13 +37,13 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Setting up school'),
-				'fail_msg': _('Failed to setup school'),
+				'status': _('Setting up organization'),
+				'fail_msg': _('Failed to setup organization'),
 				'tasks': [
 					{
-						'fn': setup_school,
+						'fn': setup_organization,
 						'args': args,
-						'fail_msg': _("Failed to setup school")
+						'fail_msg': _("Failed to setup organization")
 					}
 				]
 			},
@@ -52,9 +52,9 @@ def get_setup_stages(args=None):
 				'fail_msg': 'Failed to set defaults',
 				'tasks': [
 					{
-						'fn': setup_post_school_fixtures,
+						'fn': setup_post_organization_fixtures,
 						'args': args,
-						'fail_msg': _("Failed to setup post school fixtures")
+						'fail_msg': _("Failed to setup post organization fixtures")
 					},
 					{
 						'fn': setup_defaults,
@@ -86,23 +86,23 @@ def get_setup_stages(args=None):
 def stage_fixtures(args):
 	fixtures.install(args.get('country'))
 
-def setup_school(args):
-	fixtures.install_school(args)
+def setup_organization(args):
+	fixtures.install_organization(args)
 
-def setup_post_school_fixtures(args):
-	fixtures.install_post_school_fixtures(args)
+def setup_post_organization_fixtures(args):
+	fixtures.install_post_organization_fixtures(args)
 
 def setup_defaults(args):
 	fixtures.install_defaults(frappe._dict(args))
 
 def stage_four(args):
-	school_setup.create_website(args)
-	school_setup.create_logo(args)
+	organization_setup.create_website(args)
+	organization_setup.create_logo(args)
+
 
 def fin(args):
 	frappe.local.message_log = []
 	login_as_first_user(args)
-
 
 def login_as_first_user(args):
 	if args.get("email") and hasattr(frappe.local, "login_manager"):
@@ -112,8 +112,8 @@ def login_as_first_user(args):
 # Only for programmatical use
 def setup_complete(args=None):
 	stage_fixtures(args)
-	setup_school(args)
-	setup_post_school_fixtures(args)
+	setup_organization(args)
+	setup_post_organization_fixtures(args)
 	setup_defaults(args)
 	stage_four(args)
 	fin(args)

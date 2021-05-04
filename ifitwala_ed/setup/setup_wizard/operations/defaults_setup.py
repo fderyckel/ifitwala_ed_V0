@@ -15,14 +15,14 @@ def set_default_settings(args):
 	global_defaults.update({
 		'current_fiscal_year': get_fy_details(args.get('fy_start_date'), args.get('fy_end_date')),
 		'default_currency': args.get('currency'),
-		'default_school':args.get('school_name')	,
+		'default_organization':args.get('organization_name')	,
 		"country": args.get("country"),
 	})
 
 	global_defaults.save()
 
 	system_settings = frappe.get_doc("System Settings")
-	system_settings.email_footer_address = args.get("school_name")
+	system_settings.email_footer_address = args.get("organization_name")
 	system_settings.save()
 
 
@@ -36,7 +36,7 @@ def create_employee_for_self(args):
 		"employee_full_name": " ".join(filter(None, [args.get("first_name"), args.get("last_name")])),
 		"user_id": frappe.session.user,
 		"status": "Active",
-		"school": args.get("school_name")
+		"organization": args.get("organization_name")
 	})
 	emp.flags.ignore_mandatory = True
 	emp.insert(ignore_permissions = True)

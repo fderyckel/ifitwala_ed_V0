@@ -2,7 +2,7 @@
 frappe.provide("ifitwala_ed.setup");
 
 frappe.pages['setup-wizard'].on_page_load = function(wrapper) {
-	if(frappe.sys_defaults.school) {
+	if(frappe.sys_defaults.organization) {
 		frappe.set_route("desk");
 		return;
 	}
@@ -28,14 +28,14 @@ ifitwala_ed.setup.slides_settings = [
 				align: 'center'
 			},
 			{
-				fieldname: 'school_name',
-				label: __('School Name'),
+				fieldname: 'organisation_name',
+				label: __('Organisation Name'),
 				fieldtype: 'Data',
 				reqd: 1
 			},
 			{
-				fieldname: 'school_abbr',
-				label: __('School Abbreviation'),
+				fieldname: 'organization_abbr',
+				label: __('Organisation Abbreviation'),
 				fieldtype: 'Data'
 			}
 		],
@@ -43,28 +43,28 @@ ifitwala_ed.setup.slides_settings = [
 			this.bind_events(slide);
 		},
 		bind_events: function (slide) {
-			slide.get_input("school_name").on("change", function () {
+			slide.get_input("organisation_name").on("change", function () {
 				var parts = slide.get_input("school_name").val().split(" ");
 				var abbr = $.map(parts, function (p) { return p ? p.substr(0, 1) : null }).join("");
-				slide.get_field("school_abbr").set_value(abbr.slice(0, 5).toUpperCase());
-			}).val(frappe.boot.sysdefaults.school_name || "").trigger("change");
+				slide.get_field("organisation_abbr").set_value(abbr.slice(0, 5).toUpperCase());
+			}).val(frappe.boot.sysdefaults.organisation_name || "").trigger("change");
 
-			slide.get_input("school_abbr").on("change", function () {
-				if (slide.get_input("school_abbr").val().length > 5) {
-					frappe.msgprint(__("School Abbreviation cannot have more than 5 characters"));
-					slide.get_field("school_abbr").set_value("");
+			slide.get_input("organisation_abbr").on("change", function () {
+				if (slide.get_input("organisation_abbr").val().length > 5) {
+					frappe.msgprint(__("Organisation Abbreviation cannot have more than 5 characters"));
+					slide.get_field("organisation_abbr").set_value("");
 				}
 			});
 		},
 		validate: function() {
-			if ((this.values.school_name || "").toLowerCase() == "school") {
-				frappe.msgprint(__("School Name cannot be School"));
+			if ((this.values.organisation_name || "").toLowerCase() == "organisation") {
+				frappe.msgprint(__("Organisation Name cannot be Organisation"));
 				return false;
 			}
-			if (!this.values.school_abbr) {
+			if (!this.values.organisation_abbr) {
 				return false;
 			}
-			if (this.values.school_abbr.length > 5) {
+			if (this.values.organisation_abbr.length > 5) {
 				return false;
 			}
 			return true;

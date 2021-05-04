@@ -11,8 +11,8 @@ from frappe.utils import nowdate
 class website_maker(object):
 	def __init__(self, args):
 		self.args = args
-		self.school = args.school_name
-		self.tagline = args.school_tagline
+		self.organization = args.organization_name
+		self.tagline = args.organization_tagline
 		self.user = args.get('email')
 		self.make_web_page()
 		self.make_website_settings()
@@ -21,7 +21,7 @@ class website_maker(object):
 	def make_web_page(self):
 		# home page
 		homepage = frappe.get_doc('Homepage', 'Homepage')
-		homepage.school = self.school
+		homepage.organization = self.organization
 		homepage.tag_line = self.tagline
 		homepage.setup_items()
 		homepage.save()
@@ -30,8 +30,8 @@ class website_maker(object):
 		# update in home page in settings
 		website_settings = frappe.get_doc("Website Settings", "Website Settings")
 		website_settings.home_page = 'home'
-		website_settings.brand_html = self.school
-		website_settings.copyright = self.school
+		website_settings.brand_html = self.organization
+		website_settings.copyright = self.organization
 		website_settings.top_bar_items = []
 		website_settings.append("top_bar_items", {
 			"doctype": "Top Bar Item",

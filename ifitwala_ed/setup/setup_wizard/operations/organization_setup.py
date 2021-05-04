@@ -10,7 +10,7 @@ from .default_website import website_maker
 from ifitwala_ed.accounting.doctype.account.account import RootNotEditable
 
 
-def create_fiscal_year_and_school(args):
+def create_fiscal_year_and_organization(args):
 	if (args.get('fy_start_date')):
 		curr_fiscal_year = get_fy_details(args.get('fy_start_date'), args.get('fy_end_date'))
 		frappe.get_doc({
@@ -20,12 +20,12 @@ def create_fiscal_year_and_school(args):
 			'year_end_date': args.get('fy_end_date'),
 		}).insert()
 
-	if (args.get('school_name')):
+	if (args.get('organization_name')):
 		frappe.get_doc({
 			"doctype":"School",
-			'school_name':args.get('school_name'),
+			'organization_name':args.get('organization_name'),
 			'enable_perpetual_inventory': 1,
-			'abbr':args.get('school_abbr'),
+			'abbr':args.get('organization_abbr'),
 			'default_currency':args.get('currency'),
 			'country': args.get('country'),
 			'create_chart_of_accounts_based_on': 'Standard Template',
@@ -35,17 +35,17 @@ def create_fiscal_year_and_school(args):
 
 def create_bank_account(args):
 	if args.get("bank_account"):
-		school_name = args.get('school_name')
+		organization_name = args.get('organization_name')
 		bank_account_group =  frappe.db.get_value("Account",
 			{"account_type": "Bank", "is_group": 1, "root_type": "Asset",
-				"school": school_name})
+				"organization": organization_name})
 		if bank_account_group:
 			bank_account = frappe.get_doc({
 				"doctype": "Account",
 				'account_name': args.get("bank_account"),
 				'parent_account': bank_account_group,
 				'is_group':0,
-				'school': school_name,
+				'organization': organization_name,
 				"account_type": "Bank",
 			})
 			try:
@@ -71,7 +71,7 @@ def create_logo(args):
 			_file.save()
 			fileurl = _file.file_url
 			frappe.db.set_value("Website Settings", "Website Settings", "brand_html",
-				"<img src='{0}' style='max-width: 40px; max-height: 25px;'> {1}".format(fileurl, args.get("school_name")))
+				"<img src='{0}' style='max-width: 40px; max-height: 25px;'> {1}".format(fileurl, args.get("organization_name")))
 
 
 def create_website(args):

@@ -49,11 +49,11 @@ def install(country=None):
 		{"doctype": "Student Attendance Code", "attendance_code": "Field Trip"},
 		{"doctype": "Student Attendance Code", "attendance_code": "Excused Tardy"},
 
-		{"doctype": "Storage Type", "storage_type_name": "Classroom"},
-		{"doctype": "Storage Type", "storage_type_name": "Office"},
-		{"doctype": "Storage Type", "storage_type_name": "School"},
-		{"doctype": "Storage Type", "storage_type_name": "Building"},
-		{"doctype": "Storage Type", "storage_type_name": "Storage"}
+		{"doctype": "Location Type", "location_type_name": "Classroom"},
+		{"doctype": "Location Type", "location_type_name": "Office"},
+		{"doctype": "Location Type", "location_type_name": "School"},
+		{"doctype": "Location Type", "location_type_name": "Building"},
+		{"doctype": "Location Type", "location_type_name": "Storage"}
 	]
 	make_records(records)
 	set_more_defaults()
@@ -75,8 +75,26 @@ def add_uom_data():
 				"must_be_whole_number": d.get("must_be_whole_number")
 			}).insert(ignore_permissions=True)
 
+		# bootstrap uom conversion factors
+	uom_conversions = json.loads(open(frappe.get_app_path("ifitwala_ed", "setup", "setup_wizard", "data", "uom_conversion_data.json")).read())
+	for d in uom_conversions:
+		if not frappe.db.exists("UOM Category", _(d.get("category"))):
+			frappe.get_doc({
+				"doctype": "UOM Category",
+				"category_name": _(d.get("category"))
+			}).insert(ignore_permissions=True)
 
-def install_school(args):
+		if not frappe.db.exists("UOM Conversion Factor", {"from_uom": _(d.get("from_uom")), "to_uom": _(d.get("to_uom"))}):
+			uom_conversion = frappe.get_doc({
+				"doctype": "UOM Conversion Factor",
+				"category": _(d.get("category")),
+				"from_uom": _(d.get("from_uom")),
+				"to_uom": _(d.get("to_uom")),
+				"value": d.get("value")
+			}).insert(ignore_permissions=True)
+
+
+def install_organization(args):
 	records = [
 		# Fiscal Year
 		{
@@ -86,12 +104,12 @@ def install_school(args):
 			'year_end_date': args.fy_end_date
 		},
 
-		# School
+		# Organization
 		{
-			"doctype":"School",
-			'school_name': args.school_name,
+			"doctype":"Organization",
+			'organization_name': args.organization_name,
 			'enable_perpetual_inventory': 1,
-			'abbr': args.school_abbr,
+			'abbr': args.organization_abbr,
 			'default_currency': args.currency,
 			'country': args.country,
 			'create_chart_of_accounts_based_on': 'Standard Template',
@@ -102,14 +120,14 @@ def install_school(args):
 	make_records(records)
 
 
-def install_post_school_fixtures(args=None):
+def install_post_organization_fixtures(args=None):
 	records = [
 		# Department
 		{'doctype': 'Department', 'department_name': _('All Departments'), 'is_group': 1, 'parent_department': ''},
-		{'doctype': 'Department', 'department_name': _('Accounts'), 'parent_department': _('All Departments'), 'school': args.school_name},
-		{'doctype': 'Department', 'department_name': _('Operations'), 'parent_department': _('All Departments'), 'school': args.school_name},
-		{'doctype': 'Department', 'department_name': _('Human Resources'), 'parent_department': _('All Departments'), 'school': args.school_name},
-		{'doctype': 'Department', 'department_name': _('Legal'), 'parent_department': _('All Departments'), 'school': args.school_name},
+		{'doctype': 'Department', 'department_name': _('Accounts'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
+		{'doctype': 'Department', 'department_name': _('Operations'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
+		{'doctype': 'Department', 'department_name': _('Human Resources'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
+		{'doctype': 'Department', 'department_name': _('Legal'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
 	]
 	make_records(records)
 
@@ -121,32 +139,32 @@ def install_defaults(args=None):
 	global_defaults.update({
 		'current_fiscal_year': current_fiscal_year.name,
 		'default_currency': args.get('currency'),
-		'default_school':args.get('school_name'),
+		'default_organization':args.get('organization_name'),
 		"country": args.get("country")
 		})
 
 	global_defaults.save()
 
 	system_settings = frappe.get_doc("System Settings")
-	system_settings.email_footer_address = args.get("school_name")
+	system_settings.email_footer_address = args.get("organization_name")
 	system_settings.save()
 
 	if args.bank_account:
-		school_name = args.school_name
-		bank_account_group =  frappe.db.get_value("Account", {"account_type": "Bank", "is_group": 1, "root_type": "Asset", "school": school_name})
+		organization_name = args.organization_name
+		bank_account_group =  frappe.db.get_value("Account", {"account_type": "Bank", "is_group": 1, "root_type": "Asset", "organization": organization_name})
 		if bank_account_group:
 			bank_account = frappe.get_doc({
 				"doctype": "Account",
 				'account_name': args.bank_account,
 				'parent_account': bank_account_group,
 				'is_group':0,
-				'school': school_name,
+				'organization': organization_name,
 				"account_type": "Bank",
 			})
 			try:
 				doc = bank_account.insert()
 
-				frappe.db.set_value("School", args.school_name, "default_bank_account", bank_account.name, update_modified=False)
+				frappe.db.set_value("Organization", args.organization_name, "default_bank_account", bank_account.name, update_modified=False)
 
 			except RootNotEditable:
 				frappe.throw(_("Bank account cannot be named as {0}").format(args.bank_account))

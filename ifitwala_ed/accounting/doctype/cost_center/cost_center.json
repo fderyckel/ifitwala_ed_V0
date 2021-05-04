@@ -14,7 +14,9 @@
   "column_break_5",
   "disabled",
   "is_group",
+  "section_break_8",
   "enable_distributed_cost_center",
+  "distributed_cost_center",
   "lft",
   "rgt",
   "old_parent"
@@ -93,13 +95,24 @@
    "fieldname": "enable_distributed_cost_center",
    "fieldtype": "Check",
    "label": "Enable Distributed Cost Center"
+  },
+  {
+   "depends_on": "enable_distributed_cost_center",
+   "fieldname": "distributed_cost_center",
+   "fieldtype": "Table",
+   "label": "Distributed Cost Center",
+   "options": "Distributed Cost Center"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
   }
  ],
  "icon": "fa fa-money",
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-04 11:48:41.974462",
+ "modified": "2021-05-04 13:53:15.928949",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Cost Center",

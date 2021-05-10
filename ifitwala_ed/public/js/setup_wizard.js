@@ -44,7 +44,7 @@ ifitwala_ed.setup.slides_settings = [
 		},
 		bind_events: function (slide) {
 			slide.get_input("organisation_name").on("change", function () {
-				var parts = slide.get_input("school_name").val().split(" ");
+				var parts = slide.get_input("organization_name").val().split(" ");
 				var abbr = $.map(parts, function (p) { return p ? p.substr(0, 1) : null }).join("");
 				slide.get_field("organisation_abbr").set_value(abbr.slice(0, 5).toUpperCase());
 			}).val(frappe.boot.sysdefaults.organisation_name || "").trigger("change");
@@ -77,10 +77,10 @@ ifitwala_ed.setup.slides_settings = [
 		icon: "fa fa-building",
 		// help: frappe.setup.domains.includes('Education') ?
 		// 	__('The name of the institute for which you are setting up this system.') :
-		// 	__('The name of your school for which you are setting up this system.')),
+		// 	__('The name of your organization for which you are setting up this system.')),
 		fields: [
 			{
-				fieldname: 'school_tagline',
+				fieldname: 'organization_tagline',
 				label: __('What does it do?'),
 				fieldtype: 'Data',
 				placeholder: __('e.g. "Inspire Learners to build a better future"'),

@@ -127,6 +127,9 @@ doc_events = {
     }
 }
 
+
+after_migrate = ["ifitwala_ed.setup.install.update_select_perm_after_install"]
+
 # Scheduled Tasks
 # ---------------
 

@@ -1,2 +1,3 @@
 frappe
 Unidecode==1.2.0
+braintree==3.57.1

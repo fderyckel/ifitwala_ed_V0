@@ -13,9 +13,6 @@ with open('ifitwala_ed/__init__.py', 'rb') as f:
 	version = str(ast.literal_eval(_version_re.search(
 		f.read().decode('utf-8')).group(1)))
 
-# get version from __version__ variable in ifitwala_ed/__init__.py
-from ifitwala_ed import __version__ as version
-
 setup(
 	name='ifitwala_ed',
 	version=version,

@@ -28,14 +28,14 @@ ifitwala_ed.setup.slides_settings = [
 				align: 'center'
 			},
 			{
-				fieldname: 'organisation_name',
-				label: __('Organisation Name'),
+				fieldname: 'organization_name',
+				label: __('Organization Name'),
 				fieldtype: 'Data',
 				reqd: 1
 			},
 			{
 				fieldname: 'organization_abbr',
-				label: __('Organisation Abbreviation'),
+				label: __('Organization Abbreviation'),
 				fieldtype: 'Data'
 			}
 		],

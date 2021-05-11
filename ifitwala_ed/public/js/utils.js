@@ -11,9 +11,9 @@ $.extend(ifitwala_ed, {
 		currency_list.unshift("");
 		return currency_list;
 	},
-	is_perpetual_inventory_enabled: function(school) {
-		if(school) {
-			return frappe.get_doc(":School", school).enable_perpetual_inventory
+	is_perpetual_inventory_enabled: function(organization) {
+		if(organization) {
+			return frappe.get_doc(":School", organization).enable_perpetual_inventory
 		}
 	}
 });
@@ -42,7 +42,7 @@ $.extend(ifitwala_ed.utils, {
 		} else {
 			return options[0];
 		}
-	} 
+	}
 
 });
 

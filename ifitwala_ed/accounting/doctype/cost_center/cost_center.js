@@ -88,7 +88,7 @@ frappe.ui.form.on('Cost Center', {
 				}
 				frappe.dom.freeze();
 				frappe.call({
-					method: "erpnext.accounts.utils.update_cost_center",
+					method: "ifitwala_ed.accounts.utils.update_cost_center",
 					args: {
 						docname: frm.doc.name,
 						cost_center_name: data.cost_center_name,

@@ -71,9 +71,13 @@ def create_location_type():
 	data = [
 		{"doctype": "Location Type", "location_type_name": "Classroom"},
 		{"doctype": "Location Type", "location_type_name": "Office"},
-		{"doctype": "Location Type", "location_type_name": "School"},
+		{"doctype": "Location Type", "location_type_name": "Library"},
 		{"doctype": "Location Type", "location_type_name": "Building"},
 		{"doctype": "Location Type", "location_type_name": "Storage"},
+		{"doctype": "Location Type", "location_type_name": "Sport Court"},
+		{"doctype": "Location Type", "location_type_name": "Theatre"},
+		{"doctype": "Location Type", "location_type_name": "Auditorium"}s , 
+		{"doctype": "Location Type", "location_type_name": "Gym"},
 	]
 	insert_record(data)
 

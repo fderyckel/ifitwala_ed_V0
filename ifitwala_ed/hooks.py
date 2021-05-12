@@ -27,7 +27,7 @@ web_include_js = "/assets/js/ifitwala_ed-web.min.js"
 #setup_wizard_requires = "assets/ifitwala_ed/js/setup_wizard.js"
 #setup_wizard_stages = "ifitwala_ed.setup.setup_wizard.setup_wizard.get_setup_stages"
 #before_install = "ifitwala_ed.setup.install.check_setup_wizard_not_completed"
-#after_install = "ifitwala_ed.setup.install.after_install"
+after_install = "ifitwala_ed.setup.setup.setup_education"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}

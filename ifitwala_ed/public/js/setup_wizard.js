@@ -43,28 +43,28 @@ ifitwala_ed.setup.slides_settings = [
 			this.bind_events(slide);
 		},
 		bind_events: function (slide) {
-			slide.get_input("organisation_name").on("change", function () {
+			slide.get_input("organization_name").on("change", function () {
 				var parts = slide.get_input("organization_name").val().split(" ");
 				var abbr = $.map(parts, function (p) { return p ? p.substr(0, 1) : null }).join("");
-				slide.get_field("organisation_abbr").set_value(abbr.slice(0, 5).toUpperCase());
-			}).val(frappe.boot.sysdefaults.organisation_name || "").trigger("change");
+				slide.get_field("organization_abbr").set_value(abbr.slice(0, 5).toUpperCase());
+			}).val(frappe.boot.sysdefaults.organization_name || "").trigger("change");
 
-			slide.get_input("organisation_abbr").on("change", function () {
-				if (slide.get_input("organisation_abbr").val().length > 5) {
+			slide.get_input("organization_abbr").on("change", function () {
+				if (slide.get_input("organization_abbr").val().length > 5) {
 					frappe.msgprint(__("Organisation Abbreviation cannot have more than 5 characters"));
-					slide.get_field("organisation_abbr").set_value("");
+					slide.get_field("organization_abbr").set_value("");
 				}
 			});
 		},
 		validate: function() {
-			if ((this.values.organisation_name || "").toLowerCase() == "organisation") {
+			if ((this.values.organization_name || "").toLowerCase() == "organization") {
 				frappe.msgprint(__("Organisation Name cannot be Organisation"));
 				return false;
 			}
-			if (!this.values.organisation_abbr) {
+			if (!this.values.organization_abbr) {
 				return false;
 			}
-			if (this.values.organisation_abbr.length > 5) {
+			if (this.values.organization_abbr.length > 5) {
 				return false;
 			}
 			return true;
@@ -72,7 +72,7 @@ ifitwala_ed.setup.slides_settings = [
 	},
 	{
 		// Organisation
-		name: 'organisation',
+		name: 'organization',
 		title: __("Your Organization"),
 		icon: "fa fa-building",
 		// help: frappe.setup.domains.includes('Education') ?

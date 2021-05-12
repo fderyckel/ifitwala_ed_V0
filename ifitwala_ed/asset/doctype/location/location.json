@@ -2,23 +2,28 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:location_name",
  "creation": "2020-10-21 21:15:33.868108",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "warehouse_details_section",
   "location_name",
+  "phone_no",
+  "organization",
+  "section_break_3",
   "parent_location",
-  "is_container",
-  "is_group",
-  "lft",
-  "rgt",
-  "old_parent",
-  "area",
   "location_type",
+  "area",
+  "section_break_14",
+  "is_group",
+  "account",
+  "column_break_17",
   "disabled",
-  "organization"
+  "default_in_transit_location",
+  "old_parent",
+  "lft",
+  "rgt"
  ],
  "fields": [
   {
@@ -38,16 +43,10 @@
    "search_index": 1
   },
   {
-   "default": "0",
-   "fieldname": "is_container",
-   "fieldtype": "Check",
-   "label": "Is container"
-  },
-  {
    "bold": 1,
    "default": "0",
    "fieldname": "is_group",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Is group"
   },
@@ -100,12 +99,46 @@
    "fieldtype": "Link",
    "label": "Organization",
    "options": "Organization"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_in_transit_location",
+   "fieldtype": "Link",
+   "label": "Default In-Transit Location ",
+   "options": "Location"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No"
+  },
+  {
+   "fieldname": "warehouse_details_section",
+   "fieldtype": "Section Break",
+   "label": "Warehouse Details"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-04 21:44:31.499424",
+ "modified": "2021-05-12 15:58:14.573283",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location",

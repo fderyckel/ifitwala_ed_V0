@@ -15,6 +15,8 @@
   "parent_location",
   "location_type",
   "area",
+  "address_section",
+  "address_html",
   "section_break_14",
   "is_group",
   "account",
@@ -107,6 +109,7 @@
    "options": "Account"
   },
   {
+   "depends_on": "eval: doc.location_type !== 'Transit';",
    "fieldname": "default_in_transit_location",
    "fieldtype": "Link",
    "label": "Default In-Transit Location ",
@@ -133,12 +136,24 @@
   {
    "fieldname": "column_break_17",
    "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.location_type == 'Building';",
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "depends_on": "eval: doc.location_type == 'Building';",
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-12 15:58:14.573283",
+ "modified": "2021-05-12 21:31:06.622351",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location",

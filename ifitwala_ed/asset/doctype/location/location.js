@@ -2,8 +2,27 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Location', {
+	onload: function(frm) {
+		frm.set_query("default_in_transit_warehouse", function() {
+			return {
+				filters:{
+					'warehouse_type' : 'Transit',
+					'is_group': 0,
+					'company': frm.doc.company
+				}
+			};
+		});
+	},
+
 	refresh: function(frm) {
     frm.toggle_display('location_name', frm.doc.__islocal);
+		frm.toggle_display(['address_html','contact_html'], !frm.doc.__islocal);
+
+		if(!frm.doc.__islocal) {
+			frappe.contacts.render_address_and_contact(frm);
+		} else {
+			frappe.contacts.clear_address_and_contact(frm);
+		}
 
     if (cint(frm.doc.is_group) == 1) {
 			frm.add_custom_button(__('Group to Non-Group'),

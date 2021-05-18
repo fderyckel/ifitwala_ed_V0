@@ -8,6 +8,7 @@ from ifitwala_ed.asset import get_location_account
 from frappe.utils import cint, nowdate
 from frappe import _
 from frappe.utils.nestedset import NestedSet
+from frappe.contacts.address_and_contact import load_address_and_contact
 
 class Location(NestedSet):
 	nsm_parent_field = 'parent_location'
@@ -19,6 +20,9 @@ class Location(NestedSet):
 				self.name = self.location_name + suffix
 		else:
 			self.name = self.location_name
+
+		load_address_and_contact(self)
+
 
 	def onload(self):
 		'''load account name for General Ledger Report'''

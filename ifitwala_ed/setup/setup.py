@@ -76,8 +76,9 @@ def create_location_type():
 		{"doctype": "Location Type", "location_type_name": "Storage"},
 		{"doctype": "Location Type", "location_type_name": "Sport Court"},
 		{"doctype": "Location Type", "location_type_name": "Theatre"},
-		{"doctype": "Location Type", "location_type_name": "Auditorium"}s , 
+		{"doctype": "Location Type", "location_type_name": "Auditorium"}, 
 		{"doctype": "Location Type", "location_type_name": "Gym"},
+		{"doctype": "Location Type", "location_type_name": "Transit"},
 	]
 	insert_record(data)
 

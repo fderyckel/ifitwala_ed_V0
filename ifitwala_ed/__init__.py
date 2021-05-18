@@ -14,9 +14,9 @@ def get_default_organization(user=None):
 	if not user:
 		user = frappe.session.user
 
-	companies = get_user_default_as_list(user, 'organization')
-	if companies:
-		default_organization = companies[0]
+	organizations = get_user_default_as_list(user, 'organization')
+	if organizations:
+		default_organization = organizations[0]
 	else:
 		default_organization = frappe.db.get_single_value('Global Defaults', 'default_organization')
 

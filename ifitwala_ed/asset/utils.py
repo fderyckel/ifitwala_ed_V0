@@ -12,8 +12,8 @@ def get_stock_value_from_bin(location=None, item_code=None):
 	conditions = ""
 	if location:
 		conditions += """ AND `tabBin`.location in (
-						SELECT w2.name FROM `tablocation` w1
-						JOIN `tablocation` w2 ON
+						SELECT w2.name FROM `tabLocation` w1
+						JOIN `tabLocation` w2 ON
 						w1.name = %(location)s
 						AND w2.lft BETWEEN w1.lft AND w1.rgt
 						) """
@@ -43,6 +43,6 @@ def get_bin(item_code, location):
 		bin_obj.flags.ignore_permissions = 1
 		bin_obj.insert()
 	else:
-		bin_obj = frappe.get_cached_doc("Bin", bin)
+		bin_obj = frappe.get_doc('Bin', bin, for_update=True)
 	bin_obj.flags.ignore_permissions = True
 	return bin_obj

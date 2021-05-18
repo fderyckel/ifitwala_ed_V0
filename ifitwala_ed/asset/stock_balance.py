@@ -48,7 +48,7 @@ def get_ordered_qty(item_code, location):
 def get_balance_qty_from_sle(item_code, location):
 	balance_qty = frappe.db.sql("""
         SELECT qty_after_transaction FROM `tabStock Ledger Entry`
-		WHERE item_code=%s AND warehouse=%s AND is_cancelled=0
+		WHERE item_code=%s AND location=%s AND is_cancelled=0
 		ORDER BY posting_date DESC, posting_time DESC, creation DESC
 		limit 1""", (item_code, location))
 

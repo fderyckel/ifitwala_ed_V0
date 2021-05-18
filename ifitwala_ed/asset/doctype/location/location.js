@@ -3,12 +3,12 @@
 
 frappe.ui.form.on('Location', {
 	onload: function(frm) {
-		frm.set_query("default_in_transit_warehouse", function() {
+		frm.set_query("default_in_transit_location", function() {
 			return {
 				filters:{
-					'warehouse_type' : 'Transit',
+					'location_type' : 'Transit',
 					'is_group': 0,
-					'company': frm.doc.company
+					'organization': frm.doc.organization
 				}
 			};
 		});

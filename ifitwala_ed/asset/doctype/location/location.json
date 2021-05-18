@@ -7,7 +7,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "warehouse_details_section",
+  "location_details_section",
   "location_name",
   "phone_no",
   "organization",
@@ -31,7 +31,6 @@
   {
    "fieldname": "location_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Location Name",
    "no_copy": 1,
    "reqd": 1,
@@ -121,11 +120,6 @@
    "label": "Phone No"
   },
   {
-   "fieldname": "warehouse_details_section",
-   "fieldtype": "Section Break",
-   "label": "Warehouse Details"
-  },
-  {
    "fieldname": "section_break_3",
    "fieldtype": "Column Break"
   },
@@ -138,6 +132,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "collapsible": 1,
    "depends_on": "eval: doc.location_type == 'Building';",
    "fieldname": "address_section",
    "fieldtype": "Section Break",
@@ -148,12 +143,18 @@
    "fieldname": "address_html",
    "fieldtype": "HTML",
    "label": "Address HTML"
+  },
+  {
+   "fieldname": "location_details_section",
+   "fieldtype": "Section Break",
+   "label": "Location Details"
   }
  ],
+ "icon": "fa fa-building",
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-12 21:31:06.622351",
+ "modified": "2021-05-18 12:37:33.298766",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location",
@@ -214,5 +215,6 @@
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "location_name",
  "track_changes": 1
 }

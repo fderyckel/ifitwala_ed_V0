@@ -121,7 +121,7 @@ class Organization(NestedSet):
 			frappe.throw(_("Abbreviation is mandatory"))
 
 		if frappe.db.sql("SELECT abbr FROM tabOrganization WHERE name!=%s and abbr=%s", (self.name, self.abbr)):
-			frappe.throw(_("Abbreviation already used for another organization"))
+			frappe.throw(_("Abbreviation already used for another organization."))
 
 	def validate_default_accounts(self):
 		accounts = [

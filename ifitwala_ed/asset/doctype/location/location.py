@@ -3,7 +3,7 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe
+import frappe, ifitwala_ed
 from ifitwala_ed.asset import get_location_account
 from frappe.utils import cint, nowdate
 from frappe import _
@@ -21,8 +21,6 @@ class Location(NestedSet):
 		else:
 			self.name = self.location_name
 
-		load_address_and_contact(self)
-
 
 	def onload(self):
 		'''load account name for General Ledger Report'''
@@ -30,6 +28,9 @@ class Location(NestedSet):
 			account = self.account or get_location_account(self)
 			if account:
 				self.set_onload('account', account)
+
+		load_address_and_contact(self)
+
 
 	def on_update(self):
 		self.update_nsm_model()
@@ -147,7 +148,7 @@ def get_children(doctype, parent=None, organization=None, is_root=False):
 
 	locations = frappe.get_list(doctype, fields=fields, filters=filters, order_by='name')
 
-	# return warehouses
+	# return locations
 	for sto in locations:
 		sto["balance"] = get_stock_value_from_bin(location=sto.value)
 		if organization:
@@ -168,3 +169,25 @@ def add_node():
 def convert_to_group_or_ledger():
 	args = frappe.form_dict
 	return frappe.get_doc("Location", args.docname).convert_to_group_or_ledger()
+
+def get_child_locations(location):
+	lft, rgt = frappe.get_cached_value("Location", location, ["lft", "rgt"])
+
+	return frappe.db.sql_list("""SELECT name FROM `tabLocation` WHERE lft >= %s AND rgt <= %s""", (lft, rgt))
+
+def get_locations_based_on_account(account, organization=None):
+	locations = []
+	for d in frappe.get_all("Location", fields = ["name", "is_group"],
+		filters = {"account": account}):
+		if d.is_group:
+			locations.extend(get_child_locations(d.name))
+		else:
+			locations.append(d.name)
+
+	if (not locations and organization and frappe.get_cached_value("Organization", organization, "default_inventory_account") == account):
+		locations = [d.name for d in frappe.get_all("Location", filters={'is_group': 0})]
+
+	if not locations:
+		frappe.throw(_("Location not found against the account {0}").format(account))
+
+	return locations

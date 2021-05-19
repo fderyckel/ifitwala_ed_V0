@@ -120,10 +120,9 @@
   }
  ],
  "icon": "fa fa-money",
- "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-04 16:50:09.527881",
+ "modified": "2021-05-19 13:54:40.952114",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Cost Center",

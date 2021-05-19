@@ -172,8 +172,10 @@
   {
    "fieldname": "country",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Country",
-   "options": "Country"
+   "options": "Country",
+   "reqd": 1
   },
   {
    "fieldname": "create_chart_of_accounts_based_on",
@@ -484,7 +486,7 @@
  "image_field": "organization_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-04 21:28:58.397735",
+ "modified": "2021-05-18 20:09:47.727315",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Organization",

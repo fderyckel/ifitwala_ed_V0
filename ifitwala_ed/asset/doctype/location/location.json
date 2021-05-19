@@ -4,6 +4,7 @@
  "allow_rename": 1,
  "creation": "2020-10-21 21:15:33.868108",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -33,12 +34,13 @@
    "fieldtype": "Data",
    "label": "Location Name",
    "no_copy": 1,
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
+   "bold": 1,
    "fieldname": "parent_location",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Parent Location",
    "options": "Location",
    "search_index": 1
@@ -84,8 +86,10 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval:(!doc.is_group);",
    "fieldname": "location_type",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Location Type",
    "options": "Location Type"
   },
@@ -98,8 +102,14 @@
   {
    "fieldname": "organization",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Organization",
-   "options": "Organization"
+   "options": "Organization",
+   "read_only_depends_on": "eval: !doc.__islocal",
+   "remember_last_selected_value": 1,
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "account",
@@ -154,7 +164,7 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-18 12:37:33.298766",
+ "modified": "2021-05-18 20:03:09.048277",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location",
@@ -213,8 +223,8 @@
   }
  ],
  "show_name_in_global_search": 1,
- "sort_field": "modified",
- "sort_order": "DESC",
+ "sort_field": "location_name",
+ "sort_order": "ASC",
  "title_field": "location_name",
  "track_changes": 1
 }

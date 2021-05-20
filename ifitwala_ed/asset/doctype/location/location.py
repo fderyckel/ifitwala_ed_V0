@@ -66,9 +66,9 @@ class Location(NestedSet):
 				frappe.throw(_("Location {0} cannot be deleted as quantity exist for Item {1}.").format(self.name, bin['item_code']))
 
 		if self.check_if_sle_exists():
-			throw(_("Location can not be deleted as stock ledger entry exists for this location."))
+			frappe.throw(_("Location can not be deleted as stock ledger entry exists for this location."))
 		if self.check_if_child_exists():
-			throw(_("Child location exists for this location. You can not delete this location."))
+			frappe.throw(_("Child location exists for this location. You can not delete this location."))
 
 		self.update_nsm_model()
 
@@ -125,7 +125,7 @@ class Location(NestedSet):
 
 	def convert_to_group(self):
 		if self.check_if_sle_exists():
-			throw(_("Location with existing transaction can not be converted to group."))
+			frappe.throw(_("Location with existing transaction can not be converted to group."))
 		else:
 			self.is_group = 1
 			self.save()

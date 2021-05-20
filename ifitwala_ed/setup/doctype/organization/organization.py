@@ -56,6 +56,7 @@ class Organization(NestedSet):
 				frappe.flags.country_change = True
 				self.create_default_accounts()
 				self.create_default_locations()
+				self.create_default_school()
 
 		if frappe.flags.country_change:
 			self.create_default_tax_template()
@@ -219,6 +220,16 @@ class Organization(NestedSet):
 				location.flags.ignore_permissions = True
 				location.flags.ignore_mandatory = True
 				location.insert()
+
+	def create_default_school(self):
+		if not frappe.db.exists("School", self.name):
+			school = frappe.get_doc({
+				"doctype": "School",
+				"school_name": self.name,
+				"is_group": 1,
+				"organization": self.name,
+				"abbr": self.abbr
+			})
 
 	def create_default_cost_center(self):
 		cc_list = [

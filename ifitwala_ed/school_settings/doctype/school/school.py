@@ -24,38 +24,15 @@ class School(NestedSet):
 		load_address_and_contact(self, "school")
 
 	def validate(self):
-		self.update_default_account = False
-		if self.is_new():
-			self.update_default_account = True
-
 		self.validate_abbr()
-		self.validate_default_accounts()
-		self.validate_currency()
-		self.validate_coa_input()
-		self.validate_perpetual_inventory()
-		self.check_country_change()
-		self.set_chart_of_accounts()
 		self.validate_parent_school()
 
 	def on_update(self):
 		NestedSet.on_update(self)
-		if not frappe.db.sql("""SELECT name FROM `tabLocation` WHERE school=%s AND docstatus<2 LIMIT 1 """, self.name):
-			if not frappe.local.flags.ignore_chart_of_accounts:
-				frappe.flags.country_change = True
-				self.create_default_accounts()
-				self.create_default_location()
-			#self.create_default_location_account()
-		if not frappe.db.get_value("Cost Center", {"is_group": 0, "school": self.name}):
-			self.create_default_cost_center()
-
-		#if not frappe.db.get_value("Department", {"school": self.name}):
-		#	from ifitwala_ed.setup.setup_wizard.operations.install_fixtures import install_post_school_fixtures
-		#	install_post_school_fixtures(frappe._dict({'school_name': self.name}))
-
-		if not frappe.local.flags.ignore_chart_of_accounts:
-			self.set_default_accounts()
-			if self.default_cash_account:
-				self.set_mode_of_payment_account()
+		#if not frappe.db.sql("""SELECT name FROM `tabLocation` WHERE school=%s AND docstatus<2 LIMIT 1 """, self.name):
+		#	self.create_default_location()
+		#if not frappe.db.get_value("Cost Center", {"is_group": 0, "school": self.name}):
+		#	self.create_default_cost_center()
 
 	def on_trash(self):
 		NestedSet.validate_if_child_exists(self)
@@ -63,19 +40,7 @@ class School(NestedSet):
 
 	def after_rename(self, olddn, newdn, merge=False):
 		frappe.db.set(self, "school_name", newdn)
-		frappe.db.sql("""UPDATE `tabDefaultValue` SET defvalue=%s WHERE defkey='School' AND defvalue=%s""", (newdn, olddn))
 		clear_defaults_cache()
-
-	def abbreviate(self):
-		self.abbr = ''.join([c[0].upper() for c in self.school_name.split()])
-
-	def check_if_transactions_exist(self):
-		exists = False
-		for doctype in ["Lending Note", "Fees"]:
-				if frappe.db.sql("""SELECT name FROM `tab%s` WHERE school=%s AND docstatus=1 LIMIT 1""" % (doctype, "%s"), self.name):
-						exists = True
-						break
-		return exists
 
 	def validate_abbr(self):
 		if not self.abbr:
@@ -90,61 +55,7 @@ class School(NestedSet):
 			frappe.throw(_("Abbreviation is mandatory"))
 
 		if frappe.db.sql("""SELECT abbr FROM `tabSchool` WHERE name!=%s AND abbr=%s""", (self.name, self.abbr)):
-			frappe.throw(_("Abbreviation {0} is already used for another school").format(self.abbr))
-
-	def validate_default_accounts(self):
-		accounts = [
-			["Default Bank Account", "default_bank_account"], ["Default Cash Account", "default_cash_account"],
-			["Default Receivable Account", "default_receivable_account"], ["Default Payable Account", "default_payable_account"],
-			["Default Expense Account", "default_expense_account"], ["Default Income Account", "default_income_account"],
-			["Stock Received But Not Billed Account", "stock_received_but_not_billed"], ["Stock Adjustment Account", "stock_adjustment_account"],
-			["Expense Included In Valuation Account", "expenses_included_in_valuation"], ["Default Payroll Payable Account", "default_payroll_payable_account"]
-		]
-
-		for account in accounts:
-			if self.get(account[1]):
-				for_school = frappe.db.get_value("Account", self.get(account[1]), "school")
-				if for_school != self.name:
-					frappe.throw(_("Account {0} does not belong to school: {1}").format(self.get(account[1]), self.name))
-
-				if get_account_currency(self.get(account[1])) != self.default_currency:
-					error_message = _("{0} currency must be same as school's default currency. Please select another account.").format(frappe.bold(account[0]))
-					frappe.throw(error_message)
-
-
-	def validate_currency(self):
-		if self.is_new():
-			return
-		self.previous_default_currency = frappe.get_cached_value('School',  self.name,  "default_currency")
-		if self.default_currency and self.previous_default_currency and self.default_currency != self.previous_default_currency and self.check_if_transactions_exist():
-				frappe.throw(_("Cannot change school's default currency, because there are existing transactions. Transactions must be cancelled to change the default currency."))
-
-	def validate_coa_input(self):
-		if self.create_chart_of_accounts_based_on == "Existing School":
-			self.chart_of_accounts = None
-			if not self.existing_school:
-				frappe.throw(_("Please select Existing School for creating Chart of Accounts"))
-		else:
-			self.existing_school = None
-			self.create_chart_of_accounts_based_on = "Standard Template"
-			if not self.chart_of_accounts:
-				self.chart_of_accounts = "Standard"
-
-	def validate_perpetual_inventory(self):
-		if not self.get("__islocal"):
-			if cint(self.enable_perpetual_inventory) == 1 and not self.default_inventory_account:
-				frappe.msgprint(_("Set default inventory account for perpetual inventory"), alert=True, indicator='orange')
-
-	def check_country_change(self):
-		frappe.flags.country_change = False
-		if not self.get('__islocal') and self.country != frappe.get_cached_value('School',  self.name,  'country'):
-			frappe.flags.country_change = True
-
-	def set_chart_of_accounts(self):
-		''' If parent school is set, chart of accounts will be based on that school '''
-		if self.parent_school:
-			self.create_chart_of_accounts_based_on = "Existing School"
-			self.existing_school = self.parent_school
+			frappe.throw(_("Abbreviation {0} is already used for another school.").format(self.abbr))
 
 	def validate_parent_school(self):
 		if self.parent_school:
@@ -152,17 +63,9 @@ class School(NestedSet):
 			if not is_group:
 				frappe.throw(_("Parent School must be a group school."))
 
-	def create_default_accounts(self):
-		from ifitwala_ed.accounting.doctype.account.chart_of_accounts.chart_of_accounts import create_charts
-		frappe.local.flags.ignore_root_school_validation = True
-		create_charts(self.name, self.chart_of_accounts, self.existing_school)
-
-		frappe.db.set(self, "default_receivable_account", frappe.db.get_value("Account", {"school": self.name, "account_type": "Receivable", "is_group": 0}))
-		frappe.db.set(self, "default_payable_account", frappe.db.get_value("Account", {"school": self.name, "account_type": "Payable", "is_group": 0}))
-
 	def create_default_location(self):
 		for loc_detail in [
-			{"location_name": _("All Locations"), "is_group": 1},
+			{"location_name": self.name, "is_group": 1},
 			{"location_name": _("Classroom 1"), "is_group": 0, "location_type": "Classroom"},
 			{"location_name": _("Office 1"), "is_group": 0, "location_type": "Office"}]:
 			if not frappe.db.exists("Location", "{0} - {1}".format(loc_detail["location_name"], self.abbr)):
@@ -170,6 +73,7 @@ class School(NestedSet):
 					"doctype": "Location",
 					"location_name": loc_detail["location_name"],
 					"is_group": loc_detail["is_group"],
+					"organization": self.organization,
 					"school": self.name,
 					"parent_location": "{0} - {1}".format(_("All Locations"), self.abbr) if not loc_detail["is_group"] else "",
 					"location_type" : loc_detail["location_type"] if "location_type" in loc_detail else None

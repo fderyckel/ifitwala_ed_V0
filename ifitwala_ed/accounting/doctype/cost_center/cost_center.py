@@ -12,6 +12,10 @@ from ifitwala_ed.accounting.utils import validate_field_number
 class CostCenter(NestedSet):
 	nsm_parent_field = 'parent_cost_center'
 
+	def autoname(self):
+		from ifitwala_ed.accounting.utils import get_autoname_with_number
+		self.name = get_autoname_with_number(self.cost_center_number, self.cost_center_name, None, self.organization)
+
 	def validate(self):
 		self.validate_mandatory()
 		self.validate_parent_cost_center()
@@ -92,7 +96,7 @@ class CostCenter(NestedSet):
 			self.is_group = 0
 			self.save()
 			return 1
-			
+
 	@frappe.whitelist()
 	def convert_ledger_to_group(self):
 		if cint(self.enable_distributed_cost_center):

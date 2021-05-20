@@ -238,13 +238,13 @@ class Organization(NestedSet):
 				'organization':self.name,
 				'is_group': 1,
 				'parent_cost_center':None
-			}#,
-			#{
-			#	'cost_center_name':_('Main'),
-			#	'organization':self.name,
-			#	'is_group':0,
-			#	'parent_cost_center':self.name + ' - ' + self.abbr
-			#},
+			},
+			{
+				'cost_center_name':_('Main'),
+				'organization':self.name,
+				'is_group':0,
+				'parent_cost_center':self.name + ' - ' + self.abbr
+			},
 		]
 		for cc in cc_list:
 			cc.update({"doctype": "Cost Center"})

@@ -13,46 +13,20 @@
   "abbr",
   "school_logo",
   "address__html",
+  "organization",
   "column_break_4",
   "parent_school",
   "change_abbr",
   "contact_html",
   "mission_vision_values_section",
   "school_philosophy",
-  "stock_settings_section",
-  "enable_perpetual_inventory",
-  "enable_perpetual_inventory_for_non_stock_items",
-  "column_break_13",
-  "default_inventory_account",
-  "stock_adjustment_account",
-  "accounting_settings_section",
-  "default_currency",
-  "existing_school",
-  "column_break_21",
-  "country",
-  "create_chart_of_accounts_based_on",
-  "chart_of_accounts",
   "default_accounts_section",
-  "default_bank_account",
   "write_off_account",
-  "unrealized_exchange_gain_loss_account",
-  "unrealized_profit__loss_account",
-  "default_expense_claim_payable_account",
-  "depreciation_cost_center",
-  "column_break_27",
-  "default_cash_account",
-  "default_expense_account",
-  "round_off_account",
-  "default_deferred_revenue_account",
-  "default_deferred_expense_account",
+  "default_inventory_account",
+  "column_break_13",
   "default_cost_center",
+  "stock_adjustment_account",
   "column_break_29",
-  "default_payable_account",
-  "default_receivable_account",
-  "default_income_account",
-  "exchange_gain__loss_account",
-  "round_off_cost_center",
-  "allow_account_creation_against_child_school",
   "lft",
   "rgt",
   "old_parent"
@@ -136,25 +110,6 @@
    "label": "School Philosophy"
   },
   {
-   "collapsible": 1,
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "stock_settings_section",
-   "fieldtype": "Section Break",
-   "label": "Stock Settings"
-  },
-  {
-   "default": "1",
-   "fieldname": "enable_perpetual_inventory",
-   "fieldtype": "Check",
-   "label": "Enable Perpetual Inventory"
-  },
-  {
-   "default": "0",
-   "fieldname": "enable_perpetual_inventory_for_non_stock_items",
-   "fieldtype": "Check",
-   "label": "Enable Perpetual Inventory For Non Stock Items"
-  },
-  {
    "fieldname": "default_inventory_account",
    "fieldtype": "Link",
    "label": "Default Inventory Account",
@@ -177,19 +132,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "collapsible": 1,
-   "fieldname": "accounting_settings_section",
-   "fieldtype": "Section Break",
-   "label": "Accounting Settings"
-  },
-  {
-   "fieldname": "default_currency",
-   "fieldtype": "Link",
-   "label": "Default Currency",
-   "options": "Currency",
-   "reqd": 1
-  },
-  {
    "depends_on": "eval: !doc.__islocal",
    "fieldname": "address__html",
    "fieldtype": "HTML",
@@ -206,59 +148,10 @@
    "print_hide": 1
   },
   {
-   "fieldname": "create_chart_of_accounts_based_on",
-   "fieldtype": "Select",
-   "label": "Create Chart Of Accounts Based On",
-   "options": "\nStandard Template\nExisting School"
-  },
-  {
-   "depends_on": "eval:doc.create_chart_of_accounts_based_on===\"Existing School\"",
-   "fieldname": "existing_school",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Existing School",
-   "options": "School"
-  },
-  {
-   "depends_on": "eval:doc.create_chart_of_accounts_based_on===\"Standard Template\"",
-   "fieldname": "chart_of_accounts",
-   "fieldtype": "Select",
-   "label": "Chart Of Accounts Template",
-   "no_copy": 1
-  },
-  {
-   "fieldname": "column_break_21",
-   "fieldtype": "Column Break"
-  },
-  {
    "collapsible": 1,
    "fieldname": "default_accounts_section",
    "fieldtype": "Section Break",
-   "label": "Default Accounts"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_bank_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Bank Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_cash_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Cash Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "fieldname": "default_receivable_account",
-   "fieldtype": "Link",
-   "label": "Default Receivable Account",
-   "options": "Account"
+   "label": "Default Accounting"
   },
   {
    "fieldname": "write_off_account",
@@ -270,88 +163,8 @@
    "options": "Account"
   },
   {
-   "fieldname": "column_break_27",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_29",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "round_off_account",
-   "fieldtype": "Link",
-   "label": "Round Off Account",
-   "options": "Account"
-  },
-  {
-   "fieldname": "unrealized_profit__loss_account",
-   "fieldtype": "Link",
-   "label": "Unrealized Profit / Loss Account",
-   "options": "Account"
-  },
-  {
-   "fieldname": "exchange_gain__loss_account",
-   "fieldtype": "Link",
-   "label": "Exchange Gain / Loss Account",
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_payable_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Payable Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_income_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Income Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_deferred_revenue_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Deferred Revenue Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_expense_claim_payable_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Expense Claim Payable Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_deferred_expense_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Deferred Expense Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "fieldname": "country",
-   "fieldtype": "Link",
-   "label": "Country",
-   "options": "Country"
-  },
-  {
-   "fieldname": "depreciation_cost_center",
-   "fieldtype": "Link",
-   "label": "Asset Depreciation Cost Center",
-   "no_copy": 1,
-   "options": "Cost Center"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "default_cost_center",
@@ -361,43 +174,17 @@
    "options": "Cost Center"
   },
   {
-   "fieldname": "round_off_cost_center",
+   "fieldname": "organization",
    "fieldtype": "Link",
-   "label": "Round Off Cost Center",
-   "no_copy": 1,
-   "options": "Cost Center"
-  },
-  {
-   "default": "0",
-   "depends_on": "eval:doc.parent_school",
-   "fieldname": "allow_account_creation_against_child_school",
-   "fieldtype": "Check",
-   "label": "Allow Account Creation Against Child School"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "default_expense_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default Cost of Goods Sold Account",
-   "no_copy": 1,
-   "options": "Account"
-  },
-  {
-   "depends_on": "eval:!doc.__islocal",
-   "fieldname": "unrealized_exchange_gain_loss_account",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Unrealized Exchange Gain/Loss Account",
-   "no_copy": 1,
-   "options": "Account"
+   "label": "Organization",
+   "options": "Organization"
   }
  ],
  "icon": "fa fa-building",
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-03-16 18:32:43.449207",
+ "modified": "2021-05-20 07:59:53.637710",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",
@@ -412,13 +199,21 @@
    "print": 1,
    "read": 1,
    "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
    "role": "Accounts Manager",
    "share": 1,
    "write": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,

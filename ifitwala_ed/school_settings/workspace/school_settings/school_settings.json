@@ -9,7 +9,7 @@
  "doctype": "Workspace",
  "extends_another_page": 0,
  "hide_custom": 0,
- "icon": "building",
+ "icon": "setting",
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
@@ -28,6 +28,15 @@
    "is_query_report": 0,
    "label": "Organization",
    "link_to": "Organization",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "School",
+   "link_to": "School",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -156,7 +165,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-05-04 15:16:59.852911",
+ "modified": "2021-05-19 15:21:16.626464",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

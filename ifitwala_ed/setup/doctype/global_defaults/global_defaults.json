@@ -6,7 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "default_school",
+  "default_organization",
   "current_fiscal_year",
   "country",
   "default_distance_unit",
@@ -16,13 +16,6 @@
   "disable_in_words"
  ],
  "fields": [
-  {
-   "fieldname": "default_school",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Default School",
-   "options": "School"
-  },
   {
    "fieldname": "current_fiscal_year",
    "fieldtype": "Link",
@@ -48,7 +41,8 @@
    "fieldname": "default_currency",
    "fieldtype": "Link",
    "label": "Default Currency",
-   "options": "Currency"
+   "options": "Currency",
+   "reqd": 1
   },
   {
    "description": "Do not show any symbol like $ etc next to currencies.",
@@ -70,6 +64,13 @@
    "fieldname": "disable_in_words",
    "fieldtype": "Check",
    "label": "Disable In Words"
+  },
+  {
+   "fieldname": "default_organization",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Default Organization",
+   "options": "Organization"
   }
  ],
  "icon": "fa fa-cog",
@@ -77,7 +78,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-03-20 15:04:31.317640",
+ "modified": "2021-05-19 14:54:42.514041",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Global Defaults",

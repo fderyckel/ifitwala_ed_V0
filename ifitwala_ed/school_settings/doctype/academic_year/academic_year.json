@@ -11,10 +11,9 @@
  "engine": "InnoDB",
  "field_order": [
   "academic_year_name",
-  "organization",
+  "school",
   "year_start_date",
   "column_break_3",
-  "division",
   "year_end_date",
   "section_break_7",
   "ay_start",
@@ -72,7 +71,7 @@
    "fieldtype": "Link",
    "label": "Start of Year Event",
    "no_copy": 1,
-   "options": "Organization Event",
+   "options": "School Event",
    "print_hide": 1,
    "read_only": 1
   },
@@ -81,7 +80,7 @@
    "fieldtype": "Link",
    "label": "End of Year Event",
    "no_copy": 1,
-   "options": "Organization Event",
+   "options": "School Event",
    "print_hide": 1,
    "read_only": 1
   },
@@ -92,25 +91,19 @@
   {
    "allow_in_quick_entry": 1,
    "columns": 3,
-   "fieldname": "organization",
+   "fieldname": "school",
    "fieldtype": "Link",
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Organization",
-   "options": "Organization",
+   "label": "School",
+   "options": "School",
    "reqd": 1
-  },
-  {
-   "fieldname": "division",
-   "fieldtype": "Link",
-   "label": "Division",
-   "options": "Division"
   }
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-03-20 20:21:24.172360",
+ "modified": "2021-05-19 15:35:09.541178",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

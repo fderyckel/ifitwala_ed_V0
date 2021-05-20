@@ -12,6 +12,7 @@
   "location_name",
   "phone_no",
   "organization",
+  "school",
   "section_break_3",
   "parent_location",
   "location_type",
@@ -158,13 +159,19 @@
    "fieldname": "location_details_section",
    "fieldtype": "Section Break",
    "label": "Location Details"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
   }
  ],
  "icon": "fa fa-building",
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-18 20:03:09.048277",
+ "modified": "2021-05-20 08:29:08.245679",
  "modified_by": "Administrator",
  "module": "Asset",
  "name": "Location",
@@ -180,6 +187,27 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
    "share": 1,
    "write": 1
   },
@@ -200,26 +228,6 @@
    "report": 1,
    "role": "Employee",
    "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Academic Admin",
-   "share": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Schedule Maker",
-   "share": 1,
-   "write": 1
   }
  ],
  "show_name_in_global_search": 1,

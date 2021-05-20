@@ -1,7 +1,7 @@
 {
  "actions": [],
- "autoname": "EVENT-.YYYY.-.#####",
- "creation": "2020-12-20 17:01:16.495801",
+ "autoname": "SEVENT-.YYYY.-.######",
+ "creation": "2021-05-19 15:33:35.355137",
  "doctype": "DocType",
  "document_type": "Document",
  "editable_grid": 1,
@@ -13,7 +13,7 @@
   "color",
   "all_day",
   "column_break_5",
-  "organization",
+  "school",
   "starts_on",
   "ends_on",
   "room",
@@ -38,7 +38,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Event Category",
-   "options": "\nMeeting\nProfessional Development\nAppointment\nOther"
+   "options": "\nMeeting\nCourse\nOther"
   },
   {
    "fieldname": "event_type",
@@ -50,6 +50,12 @@
    "fieldname": "color",
    "fieldtype": "Color",
    "label": "Color"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "All Day"
   },
   {
    "fieldname": "column_break_5",
@@ -69,6 +75,14 @@
    "label": "Ends on"
   },
   {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Room",
+   "options": "Location"
+  },
+  {
    "fieldname": "section_break_8",
    "fieldtype": "Section Break",
    "label": "Description"
@@ -82,12 +96,6 @@
    "fieldname": "participants_section",
    "fieldtype": "Section Break",
    "label": "Participants"
-  },
-  {
-   "default": "0",
-   "fieldname": "all_day",
-   "fieldtype": "Check",
-   "label": "All Day"
   },
   {
    "fieldname": "participants",
@@ -110,6 +118,10 @@
    "options": "DocType"
   },
   {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "reference_name",
    "fieldtype": "Dynamic Link",
    "in_standard_filter": 1,
@@ -118,30 +130,18 @@
    "options": "reference_type"
   },
   {
-   "fieldname": "column_break_16",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "room",
+   "fieldname": "school",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Room",
-   "options": "Location"
-  },
-  {
-   "fieldname": "organization",
-   "fieldtype": "Link",
-   "label": "Organization",
-   "options": "Organization"
+   "label": "School",
+   "options": "School"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-19 15:36:28.422711",
+ "modified": "2021-05-19 15:36:58.205564",
  "modified_by": "Administrator",
  "module": "School Settings",
- "name": "Organization Event",
+ "name": "School Event",
  "owner": "Administrator",
  "permissions": [
   {

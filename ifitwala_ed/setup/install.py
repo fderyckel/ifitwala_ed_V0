@@ -13,7 +13,7 @@ from six import iteritems
 
 def after_install():
 	frappe.get_doc({'doctype': "Role", "role_name": "Analytics"}).insert()
-	add_organization_to_session_defaults()
+	#add_organization_to_session_defaults()
 	add_standard_navbar_items()
 	add_all_roles_to("Administrator")
 	add_app_name()
@@ -101,7 +101,9 @@ def get_user_types_data():
 			'apply_user_permission_on': 'Employee',
 			'user_id_field': 'user_id',
 			'doctypes': {
-				'Employee': ['read', 'write']
+				'Employee': ['read', 'write'],
+				'Expense Claim': ['read', 'write', 'create', 'delete'],
+				'Leave Application': ['read', 'write', 'create', 'delete']
 			}
 		}
 	}

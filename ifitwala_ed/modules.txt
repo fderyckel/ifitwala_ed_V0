@@ -11,3 +11,4 @@ Curriculum
 Admission
 Accounting
 Purchase
+Payroll

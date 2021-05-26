@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:expense_type",
+ "creation": "2021-05-21 14:35:45.219417",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "deferred_expense_account",
+  "expense_type",
+  "accounts",
+  "description"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "deferred_expense_account",
+   "fieldtype": "Check",
+   "label": "Deferred Expense Account"
+  },
+  {
+   "fieldname": "expense_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Expense Claim Type",
+   "oldfieldname": "expense_type",
+   "oldfieldtype": "Data",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "accounts",
+   "fieldtype": "Table",
+   "label": "Accounts",
+   "options": "Expense Claim Account"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "oldfieldname": "description",
+   "oldfieldtype": "Small Text",
+   "width": "300px"
+  }
+ ],
+ "icon": "fa fa-flag",
+ "links": [],
+ "modified": "2021-05-21 14:35:45.219417",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Expense Claim Type",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Employee"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "ASC"
+}

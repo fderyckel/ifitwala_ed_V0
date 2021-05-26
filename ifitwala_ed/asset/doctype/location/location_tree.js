@@ -6,13 +6,15 @@ frappe.treeview_settings['Location'] = {
 	add_tree_node: "ifitwala_ed.asset.doctype.location.location.add_node",
 	get_tree_root: false,
 	root_label: "Locations",
-	filters: [{
-		fieldname: "organization",
-		fieldtype:"Select",
-		options: ifitwala_ed.utils.get_tree_options("organization"),
-		label: __("Organization"),
-		default: ifitwala_ed.utils.get_tree_default("organization")
-	}],
+	filters: [
+		{
+			fieldname: "organization",
+			fieldtype:"Select",
+			options: ifitwala_ed.utils.get_tree_options("organization"),
+			label: __("Organization"),
+			default: ifitwala_ed.utils.get_tree_default("organization")
+		}
+	],
 	fields:[
 		{fieldtype:'Data', fieldname: 'location_name',
 			label:__('New Location Name'), reqd:true},

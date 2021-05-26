@@ -15,7 +15,6 @@ frappe.ui.form.on('School', {
 	},
 
 	setup: function(frm) {
-		ifitwala_ed.school.setup_queries(frm);
 		frm.set_query("parent_school", function() {
 			return {
 				filters: {"is_group": 1}

@@ -15,6 +15,7 @@
   "year_start_date",
   "column_break_3",
   "year_end_date",
+  "organization",
   "section_break_7",
   "ay_start",
   "column_break_9",
@@ -99,11 +100,17 @@
    "label": "School",
    "options": "School",
    "reqd": 1
+  },
+  {
+   "fetch_from": "school.organization",
+   "fieldname": "organization",
+   "fieldtype": "Read Only",
+   "label": "Organization"
   }
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-05-19 15:35:09.541178",
+ "modified": "2021-05-27 12:28:28.949947",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Year",

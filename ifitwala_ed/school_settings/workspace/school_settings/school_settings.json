@@ -88,6 +88,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "School Calendar",
+   "link_to": "School Calendar",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Organization Calendar",
    "link_to": "Organization Calendar",
    "link_type": "DocType",
@@ -165,7 +174,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-05-27 16:46:32.677472",
+ "modified": "2021-05-27 20:19:31.777959",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

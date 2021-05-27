@@ -11,11 +11,11 @@
   "department_name",
   "department_lead",
   "enabled",
-  "division",
+  "school",
   "section_break_4",
   "organization",
   "lead_full_name",
-  "organization_abbreviation",
+  "school_abbreviation",
   "department_members_section",
   "members",
   "dpt_philosophy_section",
@@ -101,31 +101,31 @@
    "label": "Learning Unit Colors"
   },
   {
-   "fieldname": "division",
-   "fieldtype": "Link",
-   "label": "Division",
-   "options": "Division"
-  },
-  {
+   "fetch_from": "school.organization",
    "fieldname": "organization",
-   "fieldtype": "Link",
+   "fieldtype": "Read Only",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Organization",
-   "options": "Organization",
+   "label": "Organization"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School",
    "reqd": 1
   },
   {
-   "fetch_from": "organization.abbr",
-   "fieldname": "organization_abbreviation",
+   "fetch_from": "school.abbr",
+   "fieldname": "school_abbreviation",
    "fieldtype": "Read Only",
    "hidden": 1,
-   "label": "Organization Abbreviation"
+   "label": "School Abbreviation"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2021-03-20 20:24:09.498457",
+ "modified": "2021-05-27 20:08:00.559102",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

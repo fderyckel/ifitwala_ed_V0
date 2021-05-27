@@ -41,6 +41,7 @@ class SchoolCalendar(Document):
             if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
                 frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
 
+    @frappe.whitelist()
     def get_long_break_dates(self):
         ay = frappe.get_doc("Academic Year", self.academic_year)
         self.validate_break_dates()
@@ -53,6 +54,7 @@ class SchoolCalendar(Document):
             ch.holiday_date = d
             ch.idx = last_idx + i + 1
 
+    @frappe.whitelist()
     def get_weekly_off_dates(self):
         ay = frappe.get_doc("Academic Year", self.academic_year)
         self.validate_values()
@@ -60,13 +62,14 @@ class SchoolCalendar(Document):
         last_idx = max([cint(d.idx) for d in self.get("holidays")] or [0,])
         for i, d in enumerate(date_list):
             ch = self.append("holidays", {})
-            ch.description = self.weekly_off
+            ch.description = _(self.weekly_off)
             ch.holiday_date = d
             ch.color = self.weekend_color if self.weekend_color else ""
             ch.weekly_off = 1
             ch.idx = last_idx + i + 1
 
 	# logic for the button "clear_table"
+    @frappe.whitelist()
     def clear_table(self):
         self.set("holidays", [])
 

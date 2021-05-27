@@ -63,7 +63,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "academic_year.organization",
+   "fetch_from": "academic_year.school",
    "fieldname": "school",
    "fieldtype": "Read Only",
    "in_list_view": 1,
@@ -100,7 +100,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-19 15:34:37.933849",
+ "modified": "2021-05-27 17:15:35.244225",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Academic Term",

@@ -44,6 +44,41 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Leaves & Calendars",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Leave Application",
+   "link_to": "Leave Application",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Staff Calendar",
+   "link_to": "Staff Calendar",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Organization Event",
+   "link_to": "Organization Event",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Professional Growth - Reflection",
    "link_type": "DocType",
    "onboard": 0,
@@ -77,7 +112,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-04-28 12:44:14.031708",
+ "modified": "2021-05-27 13:28:48.494527",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",

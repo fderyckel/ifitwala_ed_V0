@@ -102,7 +102,7 @@
    "fieldtype": "Table",
    "ignore_user_permissions": 1,
    "label": "Participants",
-   "options": "Organization Event Participant"
+   "options": "School Event Participant"
   },
   {
    "collapsible": 1,
@@ -138,7 +138,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-19 15:36:58.205564",
+ "modified": "2021-05-27 13:51:15.012160",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Event",

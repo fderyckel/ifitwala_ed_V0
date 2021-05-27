@@ -1,7 +1,7 @@
 // Copyright (c) 2021, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.views.calendar['Organization Event'] = {
+frappe.views.calendar['School Event'] = {
   field_map:{
     'start': 'starts_on',
     'end': 'ends_on',
@@ -12,7 +12,7 @@ frappe.views.calendar['Organization Event'] = {
   },
   gantt: false,
   order_by: 'starts_on',
-  get_events_method: 'ifitwala_ed.school_settings.doctype.organization_event.organization_event.get_organization_events',
+  get_events_method: 'ifitwala_ed.school_settings.doctype.school_event.school_event.get_school_events',
   filters: [
     {
 			"fieldtype": "Select",

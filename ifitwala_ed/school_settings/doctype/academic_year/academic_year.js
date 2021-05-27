@@ -4,10 +4,10 @@
 frappe.ui.form.on('Academic Year', {
 	refresh: function(frm) {
 		if (!frm.doc.islocal) {
-			frm.add_custom_button(__('Create organization Calendar'), function() {
-				frm.events.start_organization_calendar(frm);
-				//frappe.route_options = { 'organization': 'organization', 'academic_year': 'title'};
-				//frappe.set_route('Form', 'Organization Calendar');
+			frm.add_custom_button(__('Create School Event'), function() {
+				frm.events.start_school_calendar(frm);
+				//frappe.route_options = { 'school': 'school', 'academic_year': 'title'};
+				//frappe.set_route('Form', 'School Calendar');
 			});
 		}
 	},
@@ -19,10 +19,10 @@ frappe.ui.form.on('Academic Year', {
 		}
 	},
 
-	start_organization_calendar: function(frm) {
+	start_school_calendar: function(frm) {
 		return frappe.call({
-			method: 'ifitwala_ed.organization_settings.doctype.academic_year.academic_year.start_organization_calendar',
-			args: {'organization': frm.doc.organization, 'academic_year':frm.doc.title},
+			method: 'ifitwala_ed.school_settings.doctype.academic_year.academic_year.start_school_calendar',
+			args: {'school': frm.doc.school, 'academic_year':frm.doc.title},
 			callback: function(r) {
 				var doc = frappe.model.sync(r.message);
 				frappe.set_route("Form", doc[0].doctype, doc[0].name);

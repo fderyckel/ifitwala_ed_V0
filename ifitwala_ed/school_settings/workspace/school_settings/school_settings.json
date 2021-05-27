@@ -165,7 +165,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-05-19 15:21:16.626464",
+ "modified": "2021-05-27 16:46:32.677472",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
@@ -182,6 +182,12 @@
   {
    "doc_view": "Calendar",
    "label": "School Event",
+   "link_to": "School Event",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Calendar",
+   "label": "Organization Event",
    "link_to": "Organization Event",
    "type": "DocType"
   },

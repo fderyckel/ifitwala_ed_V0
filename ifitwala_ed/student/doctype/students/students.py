@@ -11,7 +11,7 @@ from frappe.desk.form.linked_with import get_linked_doctypes
 from frappe.contacts.address_and_contact import load_address_and_contact, delete_contact_and_address
 
 
-class Student(Document):
+class Students(Document):
 	def onload(self):
 		load_address_and_contact(self)
 

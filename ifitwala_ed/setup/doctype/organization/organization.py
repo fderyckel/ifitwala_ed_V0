@@ -230,7 +230,10 @@ class Organization(NestedSet):
 				"organization": self.name,
 				"abbr": self.abbr
 			})
-
+			school.flags.ignore_permissions = True
+			school.flags.ignore_mandatory = True
+			school.insert()
+				
 	def create_default_cost_center(self):
 		cc_list = [
 			{

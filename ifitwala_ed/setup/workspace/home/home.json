@@ -14,7 +14,7 @@
  "is_standard": 1,
  "label": "Home",
  "links": [],
- "modified": "2021-05-19 15:37:56.472149",
+ "modified": "2021-05-28 20:23:18.994003",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Home",
@@ -41,6 +41,18 @@
    "label": "School Event",
    "link_to": "School Event",
    "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Student",
+   "link_to": "Students",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "Student Dashboard",
+   "link_to": "Student Dashboard",
+   "type": "Dashboard"
   }
  ]
 }

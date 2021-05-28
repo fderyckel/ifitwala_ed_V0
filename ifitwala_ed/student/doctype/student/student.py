@@ -77,7 +77,7 @@ class Student(Document):
 			student_user.flags.ignore_permissions = True
 			student_user.add_roles("Student")
 			student_user.save()
-			update_password_link = student_user.reset_password()
+			#update_password_link = student_user.reset_password()
 			frappe.msgprint(_("User {0} has been created").format(get_link_to_form("User", self.student_email)))
 
 	# Create student as patient
@@ -131,7 +131,7 @@ class Student(Document):
 					"student": self.name,
 					"course": course_name,
 					"program_enrollment": program_enrollment,
-					"enrollment_date": enrollment_date, 
+					"enrollment_date": enrollment_date,
 					"status": "Current"
 				})
 			enrollment.save(ignore_permissions=True)

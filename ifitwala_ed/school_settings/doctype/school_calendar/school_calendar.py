@@ -27,6 +27,7 @@ class SchoolCalendar(Document):
         self.total_number_day = date_diff(ay.year_end_date, ay.year_start_date)
         self.total_instruction_days = date_diff(ay.year_end_date, ay.year_start_date) - self.total_holiday_days
 
+    @frappe.whitelist()
     def get_terms(self):
         self.terms = []
         terms = frappe.get_list("Academic Term", filters = {"academic_year":self.academic_year}, fields=["name as term", "term_start_date as start", "term_end_date as end"])

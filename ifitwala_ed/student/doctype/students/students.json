@@ -1,0 +1,356 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "STUD-.YYYY.-.#####",
+ "creation": "2021-05-28 13:16:57.473498",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_info_section",
+  "student_id",
+  "student_first_name",
+  "student_middle_name",
+  "student_last_name",
+  "student_preferred_name",
+  "student_email",
+  "student_first_language",
+  "student_second_language",
+  "column_break_9",
+  "student_image",
+  "student_applicant",
+  "student_date_of_birth",
+  "student_gender",
+  "student_mobile_number",
+  "student_joining_date",
+  "student_nationality",
+  "student_second_nationality",
+  "cohort",
+  "section_break_14",
+  "contact_html",
+  "column_break_25",
+  "address_html",
+  "gardians_section",
+  "student_guardians",
+  "siblings_section",
+  "siblings",
+  "student_full_name",
+  "exit_section",
+  "student_exit_date",
+  "student_exit_reason",
+  "student_leaving_certificate",
+  "enabled",
+  "column_break_36",
+  "additional_comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_info_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Info"
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Data",
+   "label": "Student ID",
+   "unique": 1
+  },
+  {
+   "fieldname": "student_first_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "student_last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_preferred_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Preferred Name"
+  },
+  {
+   "description": "This is to be used as the username for the student to login.  If changed, you need to manually change the linked user.  ",
+   "fieldname": "student_email",
+   "fieldtype": "Data",
+   "label": "Student Email",
+   "options": "Email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "student_first_language",
+   "fieldtype": "Link",
+   "label": "First Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "student_second_language",
+   "fieldtype": "Link",
+   "label": "Second Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "in_preview": 1,
+   "label": "Image"
+  },
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "label": "Student Applicant",
+   "options": "Student Applicant"
+  },
+  {
+   "fieldname": "student_date_of_birth",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "student_gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "Female\nMale\nOther"
+  },
+  {
+   "fieldname": "student_mobile_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "student_joining_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Joining Date"
+  },
+  {
+   "fieldname": "student_nationality",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "student_second_nationality",
+   "fieldtype": "Link",
+   "label": "Second Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "cohort",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cohort",
+   "options": "Student Cohort"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break",
+   "label": "Home Address"
+  },
+  {
+   "depends_on": "eval: !doc.__islocal",
+   "fieldname": "contact_html",
+   "fieldtype": "HTML",
+   "label": "Contact HTML",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: !doc.__islocal",
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML",
+   "no_copy": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "gardians_section",
+   "fieldtype": "Section Break",
+   "label": "Gardian Details"
+  },
+  {
+   "fieldname": "student_guardians",
+   "fieldtype": "Table",
+   "label": "Student Guardian",
+   "options": "Student Guardian"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "siblings_section",
+   "fieldtype": "Section Break",
+   "label": "Siblings Details"
+  },
+  {
+   "fieldname": "siblings",
+   "fieldtype": "Table",
+   "label": "Siblings",
+   "options": "Student Sibling"
+  },
+  {
+   "fieldname": "student_full_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_global_search": 1,
+   "label": "Title"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "exit_section",
+   "fieldtype": "Section Break",
+   "label": "Exit"
+  },
+  {
+   "fieldname": "student_exit_date",
+   "fieldtype": "Date",
+   "label": "Exit Date"
+  },
+  {
+   "fieldname": "student_exit_reason",
+   "fieldtype": "Select",
+   "label": "Exit Reason",
+   "options": "\nGraduation\nMoving\nOther"
+  },
+  {
+   "fieldname": "student_leaving_certificate",
+   "fieldtype": "Data",
+   "label": "Leaving Certificate"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "additional_comments",
+   "fieldtype": "Text",
+   "label": "Additional Comments"
+  }
+ ],
+ "image_field": "student_image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-05-28 13:16:57.473498",
+ "modified_by": "Administrator",
+ "module": "Student",
+ "name": "Students",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admission Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Counselor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Schedule Maker",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "student_full_name",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "student_full_name",
+ "track_changes": 1
+}

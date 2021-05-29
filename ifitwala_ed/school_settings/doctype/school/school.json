@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "school_name",
+  "existing_school",
   "is_group",
   "abbr",
   "school_logo",
@@ -83,6 +84,7 @@
   {
    "fieldname": "abbr",
    "fieldtype": "Data",
+   "ignore_user_permissions": 1,
    "label": "School Abbreviation",
    "reqd": 1
   },
@@ -178,13 +180,21 @@
    "fieldtype": "Link",
    "label": "Organization",
    "options": "Organization"
+  },
+  {
+   "fieldname": "existing_school",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Existing School",
+   "no_copy": 1,
+   "options": "School"
   }
  ],
  "icon": "fa fa-building",
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-20 07:59:53.637710",
+ "modified": "2021-05-29 09:42:50.663480",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

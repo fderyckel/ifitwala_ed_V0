@@ -13,12 +13,23 @@ from frappe.email.doctype.email_group.email_group import add_subscribers
 class Department(Document):
 
 	def autoname(self):
-		self.name = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
+		if self.organization and not self.school:
+			self.name = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
+		if self.school:
+			self.name = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
+		if not self.organization and not self.school:
+			self.name = self.department_name
 
 	def validate(self):
 		# You cannot have 2 dpt. of the same within the same organization. OK in 2 different organization.
 		self.validate_duplicate()
-		self.title = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
+		if self.organization and not self.school:
+			self.title = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
+		if self.school:
+			self.title = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
+		if not self.organization and not self.school:
+			self.title = self.department_name
+
 		found = []
 		for member in self.members:
 			if member.member in found:

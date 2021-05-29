@@ -123,15 +123,15 @@
    "label": "School Abbreviation"
   },
   {
+   "fetch_from": "organization.abbr",
    "fieldname": "organization_abbreviation",
    "fieldtype": "Read Only",
-   "hidden": 1,
    "label": "Organization Abbreviation"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2021-05-29 09:21:23.408865",
+ "modified": "2021-05-29 10:50:32.796598",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

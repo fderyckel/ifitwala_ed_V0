@@ -2,6 +2,16 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Department', {
+	onload: function(frm) {
+		if (frm.doc.organization) {
+			frm.set_query('school', function() {
+				return {
+					'filters': {'organization': (frm.doc.organization)}
+				};
+			});
+		}
+	},
+
 	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
 			frm.add_custom_button(__('Update Dpt Member Email Group'), function() {
@@ -22,6 +32,24 @@ frappe.ui.form.on('Department', {
 			frm.add_custom_button(__('Meetings'), function() {
 				frappe.route_options = {'department': frm.doc.name};
 				frappe.set_route('List', 'Meeting');
+			});
+		}
+	},
+
+	organization: function(frm) {
+		if (frm.doc.school) {
+			frappe.call({
+				'method': 'frappe.client.get',
+				args: {
+					doctype: 'School',
+					name: frm.doc.school
+				},
+				callback: function(data) {
+					let values = {
+						'organization': data.message.organization
+					};
+					frm.set_value(values)
+				}
 			});
 		}
 	}

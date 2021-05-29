@@ -2,8 +2,8 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('School Calendar', {
-  onload: function(frm) {
 
+  onload: function(frm) {
     if (frm.doc.school) {
       frm.set_query('academic_year', function() {
         return {

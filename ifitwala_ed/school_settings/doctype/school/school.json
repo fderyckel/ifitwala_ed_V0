@@ -179,7 +179,8 @@
    "fieldname": "organization",
    "fieldtype": "Link",
    "label": "Organization",
-   "options": "Organization"
+   "options": "Organization",
+   "reqd": 1
   },
   {
    "fieldname": "existing_school",
@@ -194,7 +195,7 @@
  "image_field": "school_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-29 09:42:50.663480",
+ "modified": "2021-05-29 10:38:47.897952",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School",

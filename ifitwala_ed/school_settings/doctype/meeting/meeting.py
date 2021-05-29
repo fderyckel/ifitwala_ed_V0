@@ -34,6 +34,7 @@ class Meeting(Document):
 			else:
 				found.append(attendee.attendee)
 
+	@frappe.whitelist()
 	def get_attendees(self):
 		return frappe.db.sql("""select member as attendee, member_name as full_name from `tabDepartment Member` where parent = %s""", (self.department), as_dict=1)
 

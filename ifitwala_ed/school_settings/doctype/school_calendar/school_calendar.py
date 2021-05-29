@@ -42,7 +42,6 @@ class SchoolCalendar(Document):
             if not (getdate(ay.year_start_date) <= getdate(day.holiday_date) <= getdate(ay.year_end_date)):
                 frappe.throw(_("The holiday on {0} should be within your academic year {1} dates.").format(formatdate(day.holiday_date), get_link_to_form("Academic Year", self.academic_year)))
 
-    @frappe.whitelist()
     def get_long_break_dates(self):
         ay = frappe.get_doc("Academic Year", self.academic_year)
         self.validate_break_dates()
@@ -55,7 +54,6 @@ class SchoolCalendar(Document):
             ch.holiday_date = d
             ch.idx = last_idx + i + 1
 
-    @frappe.whitelist()
     def get_weekly_off_dates(self):
         ay = frappe.get_doc("Academic Year", self.academic_year)
         self.validate_values()

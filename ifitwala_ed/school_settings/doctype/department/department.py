@@ -70,3 +70,11 @@ def update_dpt_email(doctype, name):
         if m_mail:
             members_mail_list.append(m_mail)
     add_subscribers(name, members_mail_list)
+
+@frappe.whitelist()
+def create_prefilled_newsletter():
+	newsletter = frappe.new_doc("Newsletter")
+	newsletter.subject = ("{0} Newsletter").format(self.department_name)
+	newsletter.append("email_group", {"email_group":self.department_name})
+	newsletter.save()
+	return newsletter.name

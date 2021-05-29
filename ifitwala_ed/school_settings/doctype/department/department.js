@@ -25,8 +25,15 @@ frappe.ui.form.on('Department', {
 			}, __('Communication'));
 
 			frm.add_custom_button(__('Newsletter'), function() {
-				frappe.route_options = {'Newsletter Email Group.email_group': frm.doc.name};
-				frappe.set_route('List', 'Newsletter');
+				frappe.call({
+					method: 'ifitwala_ed.school_settings.doctype.department.department.create_prefilled_newsletter',
+					args: {},
+					callback: function(data) {
+						frappe.set_route('Form', 'Newsletter', data.message.name)
+					}
+				});
+				//frappe.route_options = {'Newsletter Email Group.email_group': frm.doc.name};
+				//frappe.set_route('List', 'Newsletter');
 			}, __('Communication'));
 
 			frm.add_custom_button(__('Meetings'), function() {

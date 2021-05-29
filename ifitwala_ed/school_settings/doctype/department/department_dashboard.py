@@ -12,10 +12,6 @@ def get_data():
 			{
 				'label': _('Meetings'),
 				'items': ['Meeting']
-			},
-			{
-				'label': _('Newsletter'),
-				'items': ['Newsletter']
 			}
 		]
 	}

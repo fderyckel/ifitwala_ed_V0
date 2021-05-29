@@ -36,7 +36,7 @@ frappe.ui.form.on('Department', {
 		}
 	},
 
-	organization: function(frm) {
+	school: function(frm) {
 		if (frm.doc.school) {
 			frappe.call({
 				'method': 'frappe.client.get',

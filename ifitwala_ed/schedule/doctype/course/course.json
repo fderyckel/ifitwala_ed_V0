@@ -150,12 +150,12 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "School",
-   "options": "Organization"
+   "options": "School"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-05-04 21:58:38.780716",
+ "modified": "2021-05-30 20:11:46.387969",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

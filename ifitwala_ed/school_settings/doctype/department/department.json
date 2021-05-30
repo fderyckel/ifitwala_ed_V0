@@ -67,6 +67,7 @@
   {
    "fieldname": "members",
    "fieldtype": "Table",
+   "ignore_user_permissions": 1,
    "label": "Members",
    "options": "Department Member"
   },
@@ -131,7 +132,7 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2021-05-29 10:50:32.796598",
+ "modified": "2021-05-29 12:51:04.346843",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department",

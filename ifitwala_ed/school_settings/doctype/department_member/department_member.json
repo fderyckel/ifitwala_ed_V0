@@ -15,7 +15,6 @@
    "fieldname": "member",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
-   "in_list_view": 1,
    "label": "Member",
    "options": "User",
    "reqd": 1
@@ -41,7 +40,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-12-19 11:40:18.407102",
+ "modified": "2021-05-29 12:51:57.282968",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Department Member",

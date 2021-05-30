@@ -8,9 +8,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "designation_name",
+  "organization",
   "school",
   "section_break_3",
+  "designation_name",
   "reports_to",
   "description_section",
   "position_summary",
@@ -41,7 +42,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "label": "School",
-   "options": "Organization"
+   "options": "School"
   },
   {
    "fieldname": "reports_to",
@@ -67,10 +68,16 @@
    "fieldname": "qualifications",
    "fieldtype": "Text Editor",
    "label": "Qualifications"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization"
   }
  ],
  "links": [],
- "modified": "2021-03-20 20:11:42.554882",
+ "modified": "2021-05-30 15:51:54.581198",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Designation",

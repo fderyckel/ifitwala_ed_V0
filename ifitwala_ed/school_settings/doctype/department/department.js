@@ -68,7 +68,7 @@ frappe.ui.form.on('Department Member', {
 	members_add: function(frm){
 		frm.fields_dict['members'].grid.get_field('member').get_query = function(doc){
 			let member_list = [];
-			if(!doc.__islocal) member_list.push(doc.member);
+			if(!doc.__islocal) member_list.push(doc.name);
 			$.each(doc.members, function(idx, val){
 				if (val.member) member_list.push(val.member);
 			});

@@ -5,11 +5,11 @@ frappe.provide("ifitwala_ed");
 frappe.provide("ifitwala_ed.utils");
 
 $.extend(ifitwala_ed, {
-	get_currency: function(company) {
-		if(!company && cur_frm)
-			company = cur_frm.doc.company;
-		if(company)
-			return frappe.get_doc(":Company", company).default_currency || frappe.boot.sysdefaults.currency;
+	get_currency: function(organization) {
+		if(!organization && cur_frm)
+			organization = cur_frm.doc.organization;
+		if(organization)
+			return frappe.get_doc(":Organization", organization).default_currency || frappe.boot.sysdefaults.currency;
 		else
 			return frappe.boot.sysdefaults.currency;
 	},
@@ -32,14 +32,14 @@ $.extend(ifitwala_ed, {
 		}
 	},
 
-	hide_company: function() {
-		if(cur_frm.fields_dict.company) {
-			var companies = Object.keys(locals[":Company"] || {});
+	hide_organization: function() {
+		if(cur_frm.fields_dict.organization) {
+			var companies = Object.keys(locals[":Organization"] || {});
 			if(companies.length === 1) {
-				if(!cur_frm.doc.company) cur_frm.set_value("company", companies[0]);
-				cur_frm.toggle_display("company", false);
-			} else if(erpnext.last_selected_company) {
-				if(!cur_frm.doc.company) cur_frm.set_value("company", erpnext.last_selected_company);
+				if(!cur_frm.doc.organization) cur_frm.set_value("organization", companies[0]);
+				cur_frm.toggle_display("organization", false);
+			} else if(erpnext.last_selected_organization) {
+				if(!cur_frm.doc.organization) cur_frm.set_value("organization", erpnext.last_selected_organization);
 			}
 		}
 	}

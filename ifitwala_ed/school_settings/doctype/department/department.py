@@ -74,9 +74,12 @@ def update_dpt_email(doctype, name):
     add_subscribers(name, members_mail_list)
 
 @frappe.whitelist()
-def create_prefilled_newsletter(name):
+def create_prefilled_newsletter(name, sender, as_dict=0):
 	newsletter = frappe.new_doc("Newsletter")
 	newsletter.subject = ("{0} Newsletter").format(name)
-	#newsletter.append("email_group", {"email_group":name})
-	newsletter.save()
-	return newsletter.name
+	newsletter.send_from = sender
+	newsletter.append("email_group", {"email_group":name})
+	if as_dict:
+		return newsletter.as_dict()
+	else:
+		return newsletter

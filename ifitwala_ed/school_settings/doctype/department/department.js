@@ -27,9 +27,16 @@ frappe.ui.form.on('Department', {
 			frm.add_custom_button(__('Newsletter'), function() {
 				frappe.call({
 					method: 'ifitwala_ed.school_settings.doctype.department.department.create_prefilled_newsletter',
-					args: {'name': frm.doc.name},
-					callback: function(data) {
-						frappe.set_route('Form', 'Newsletter', data.message.name)
+					args: {
+						'name': frm.doc.name,
+						'sender': frappe.session.user_email,
+						'as_dict': 1
+					},
+					callback: function(r) {
+						if (r.message) {
+							var doc = frappe.model.sync(r.message)[0];
+							frappe.set_route('Form', doc.doctype, doc.name)
+						}
 					}
 				});
 				//frappe.route_options = {'Newsletter Email Group.email_group': frm.doc.name};

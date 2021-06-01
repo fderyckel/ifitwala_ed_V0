@@ -78,5 +78,5 @@ def create_prefilled_newsletter(name):
 	newsletter = frappe.new_doc("Newsletter")
 	newsletter.subject = ("{0} Newsletter").format(name)
 	newsletter.append("email_group", {"email_group":name})
-	newsletter.save()
+	#newsletter.save()
 	return newsletter.name

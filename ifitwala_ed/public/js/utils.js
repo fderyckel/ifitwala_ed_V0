@@ -38,8 +38,8 @@ $.extend(ifitwala_ed, {
 			if(companies.length === 1) {
 				if(!cur_frm.doc.organization) cur_frm.set_value("organization", companies[0]);
 				cur_frm.toggle_display("organization", false);
-			} else if(erpnext.last_selected_organization) {
-				if(!cur_frm.doc.organization) cur_frm.set_value("organization", erpnext.last_selected_organization);
+			} else if(ifitwala_ed.last_selected_organization) {
+				if(!cur_frm.doc.organization) cur_frm.set_value("organization", ifitwala_ed.last_selected_organization);
 			}
 		}
 	}

@@ -35,6 +35,7 @@
   "designation",
   "column_break_28",
   "organization",
+  "school",
   "reports_to",
   "current_holiday_list",
   "data_19",
@@ -363,6 +364,12 @@
    "options": "Organization",
    "remember_last_selected_value": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "label": "School",
+   "options": "School"
   }
  ],
  "image_field": "employee_image",
@@ -372,7 +379,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-03-20 21:27:50.620563",
+ "modified": "2021-06-02 11:10:31.723676",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

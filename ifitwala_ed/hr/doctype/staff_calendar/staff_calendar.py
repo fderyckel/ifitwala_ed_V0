@@ -17,6 +17,7 @@ class StaffCalendar(Document):
         self.total_working_day = date_diff(self.to_date, self.from_date) - self.total_holidays + 1
 
 	#logic for the button (with button id name)
+    @frappe.whitelist()
     def get_weekly_off_dates(self):
         self.validate_values()
         date_list = self.get_weekly_off_dates_list(self.from_date, self.to_date)
@@ -29,6 +30,7 @@ class StaffCalendar(Document):
             ch.weekly_off = 1
             ch.idx = last_idx + i + 1
 
+    @frappe.whitelist()
     def get_long_break_dates(self):
         self.validate_break_values()
         date_list = self.get_long_break_dates_list(self.start_of_break, self.end_of_break)

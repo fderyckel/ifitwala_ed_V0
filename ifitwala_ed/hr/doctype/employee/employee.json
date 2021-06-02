@@ -379,7 +379,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-06-02 11:10:31.723676",
+ "modified": "2021-06-02 21:46:11.321589",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
@@ -402,6 +402,7 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,

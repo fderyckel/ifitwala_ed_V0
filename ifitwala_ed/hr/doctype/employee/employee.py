@@ -9,8 +9,9 @@ from frappe.utils.nestedset import NestedSet
 from frappe.utils import getdate
 from frappe import _
 from frappe.utils import getdate, validate_email_address, today, add_years, format_datetime, cstr
-from frappe.permissions import add_user_permission, remove_user_permission, set_user_permission_if_allowed, has_permission
+from frappe.permissions import add_user_permission, remove_user_permission, set_user_permission_if_allowed, has_permission, get_doc_permissions
 from frappe.contacts.address_and_contact import load_address_and_contact
+from ifitwala_ed.utilities.transaction_base import delete_events
 
 class EmployeeUserDisabledError(frappe.ValidationError): pass
 class EmployeeLeftValidationError(frappe.ValidationError): pass
@@ -46,7 +47,12 @@ class Employee(NestedSet):
 			self.update_user()
 			self.update_user_permissions()
 
+	def update_nsm_model(self):
+		frappe.utils.nestedset.update_nsm(self)
 
+	def on_trash(self):
+		self.update_nsm_model()
+		delete_events(self.doctype, self.name)
 
 	# call on validate.  Broad check to make sure birtdhdate, joining date are making sense.
 	def validate_date(self):
@@ -111,10 +117,6 @@ class Employee(NestedSet):
 			frappe.throw(_("User {0} is already assigned to Employee {1}").format(self.user_id, employee[0]), frappe.DuplicateEntryError)
 
 
-	def update_nsm_model(self):
-		frappe.utils.nestedset.update_nsm(self)
-
-
 	def update_user(self):
 		# add employee role if missing
 		user = frappe.get_doc("User", self.user_id)
@@ -128,6 +130,7 @@ class Employee(NestedSet):
 		user.middle_name = self.employee_middle_name
 		user.last_name = self.employee_last_name
 		user.full_name = self.employee_full_name
+
 
 		if self.employee_date_of_birth and privacy.dob_to_user==1:
 			user.birth_date = self.employee_date_of_birth
@@ -160,7 +163,6 @@ class Employee(NestedSet):
 
 		add_user_permission("Employee", self.name, self.user_id)
 		set_user_permission_if_allowed("Organization", self.organization, self.user_id)
-
 
 
 
@@ -221,3 +223,25 @@ def get_children(doctype, parent=None, organization=None, is_root=False, is_tree
 
 def on_doctype_update():
 	frappe.db.add_index("Employee", ["lft", "rgt"])
+
+def validate_employee_role(doc, method):
+	# called via User hook
+	if "Employee" in [d.role for d in doc.get("roles")]:
+		if not frappe.db.get_value("Employee", {"user_id": doc.name}):
+			frappe.msgprint(_("Please set User ID field in the Employee record to set Employee Role"))
+			doc.get("roles").remove(doc.get("roles", {"role": "Employee"})[0])
+
+def update_user_permissions(doc, method):
+	# called via User hook
+	if "Employee" in [d.role for d in doc.get("roles")]:
+		if not has_permission('User Permission', ptype='write', raise_exception=False): return
+		employee = frappe.get_doc("Employee", {"user_id": doc.name})
+		employee.update_user_permissions()
+
+
+def has_upload_permission(doc, ptype='read', user=None):
+	if not user:
+		user = frappe.session.user
+	if get_doc_permissions(doc, user=user, ptype=ptype).get(ptype):
+		return True
+	return doc.user_id == user

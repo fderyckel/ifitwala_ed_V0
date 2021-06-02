@@ -95,6 +95,10 @@ has_permission = {
     "Student Group": "ifitwala_ed.schedule.doctype.student_group.student_group.group_has_permission"
 }
 
+has_upload_permission = {
+	"Employee": "ifitwala_ed.hr.doctype.employee.employee.has_upload_permission"
+}
+
 default_roles = [
 	{'role': 'Student', 'doctype':'Student', 'email_field': 'student_email'},
 ]
@@ -114,7 +118,9 @@ default_roles = [
 doc_events = {
 
 	"User": {
-		"after_insert": "frappe.contacts.doctype.contact.contact.update_contact"
+		"after_insert": "frappe.contacts.doctype.contact.contact.update_contact",
+		"validate": "ifitwala_ed.hr.doctype.employee.employee.validate_employee_role",
+		"on_update": ["erpnext.hr.doctype.employee.employee.update_user_permissions"]
 	},
 
     "ToDo": {

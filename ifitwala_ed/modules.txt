@@ -12,3 +12,4 @@ Admission
 Accounting
 Purchase
 Payroll
+Portal

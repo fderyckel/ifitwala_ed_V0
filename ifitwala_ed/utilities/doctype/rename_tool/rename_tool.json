@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "creation": "2021-06-02 21:03:21.972493",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "select_doctype",
+  "file_to_rename",
+  "rename_log"
+ ],
+ "fields": [
+  {
+   "description": "Type of document to rename.",
+   "fieldname": "select_doctype",
+   "fieldtype": "Select",
+   "label": "Select DocType"
+  },
+  {
+   "description": "Attach .csv file with two columns, one for the old name and one for the new name",
+   "fieldname": "file_to_rename",
+   "fieldtype": "Attach",
+   "label": "File to Rename"
+  },
+  {
+   "fieldname": "rename_log",
+   "fieldtype": "HTML",
+   "label": "Rename Log"
+  }
+ ],
+ "hide_toolbar": 1,
+ "icon": "fa fa-magic",
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "max_attachments": 1,
+ "modified": "2021-06-02 21:03:21.972493",
+ "modified_by": "Administrator",
+ "module": "Utilities",
+ "name": "Rename Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

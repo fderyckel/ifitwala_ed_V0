@@ -5,6 +5,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "school",
   "organization",
   "designation",
   "from_date",
@@ -40,14 +41,20 @@
   {
    "fieldname": "organization",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Organization",
    "options": "Organization"
+  },
+  {
+   "fieldname": "school",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "School",
+   "options": "School"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2021-03-20 21:28:00.166574",
+ "modified": "2021-06-02 22:33:23.073872",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee Internal Work History",

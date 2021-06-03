@@ -62,7 +62,7 @@ def update_dpt_email(doctype, name):
     if not frappe.db.exists("Email Group"):
         d_mail_group = frappe.new_doc("Email Group")
         d_mail_group.title = name
-        d_mail_group.save()
+        d_mail_group.save(ignore_permissions=True)
     members_mail_list = []
     members = []
     if doctype == "Department":

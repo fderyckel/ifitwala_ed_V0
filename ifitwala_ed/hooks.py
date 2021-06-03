@@ -72,7 +72,7 @@ standard_portal_menu_items = [
 #after_install = "ifitwala_ed.setup.setup.setup_education"
 
 
-calendars = ["School Calendar", "Course Schedule"]
+calendars = ["School Event", "Course Schedule", "School Calendar", "Organization Event"]
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config

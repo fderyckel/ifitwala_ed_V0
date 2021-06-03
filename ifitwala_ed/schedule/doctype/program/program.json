@@ -47,6 +47,8 @@
   {
    "fieldname": "school",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "School",
    "options": "School"
   },
@@ -109,7 +111,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-05-30 20:12:19.298486",
+ "modified": "2021-06-03 15:43:44.060123",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program",

@@ -81,8 +81,6 @@
   {
    "fieldname": "date_of_joining",
    "fieldtype": "Date",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Date of Joining",
    "reqd": 1
   },
@@ -122,6 +120,7 @@
    "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "\nActive\nTemporary Leave\nLeft",
    "reqd": 1
@@ -209,8 +208,6 @@
   {
    "fieldname": "employee_salutation",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Salutation",
    "options": "Salutation"
   },
@@ -232,7 +229,6 @@
    "fieldname": "employee_last_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_standard_filter": 1,
    "label": "Last Name",
    "no_copy": 1,
    "reqd": 1
@@ -281,7 +277,6 @@
    "fieldname": "employee_mobile_phone",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Mobile Phone",
    "options": "Phone"
   },
@@ -351,15 +346,15 @@
   {
    "fieldname": "designation",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Designation",
    "options": "Designation"
   },
   {
    "fieldname": "organization",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Organization",
    "options": "Organization",
@@ -370,6 +365,7 @@
    "fieldname": "school",
    "fieldtype": "Link",
    "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "School",
    "options": "School"
   }
@@ -381,7 +377,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-06-02 22:35:03.548658",
+ "modified": "2021-06-03 07:09:45.054172",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

@@ -346,6 +346,7 @@
   {
    "fieldname": "designation",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
@@ -377,7 +378,7 @@
    "link_fieldname": "employee_full_name"
   }
  ],
- "modified": "2021-06-03 07:09:45.054172",
+ "modified": "2021-06-06 17:14:41.551681",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",

@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "autoname": "ASSEV-.YYYY.-######",
+ "creation": "2021-06-05 18:56:39.605114",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "assessment_name",
+  "course",
+  "unit",
+  "column_break_4",
+  "student_group",
+  "program",
+  "assessment_category",
+  "assessment_type",
+  "schedule_section",
+  "schedule_date",
+  "academic__year",
+  "academic_term",
+  "column_break_11",
+  "room",
+  "invigilator",
+  "section_break_8",
+  "assessment_details",
+  "evaluate_section",
+  "maximum_points",
+  "assessment_criteria",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Learning Unit"
+  },
+  {
+   "fieldname": "student_group",
+   "fieldtype": "Link",
+   "label": "Student Group",
+   "options": "Student Group"
+  },
+  {
+   "fieldname": "assessment_type",
+   "fieldtype": "Select",
+   "label": "Assessment Type",
+   "options": "Formative\nSummative"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program"
+  },
+  {
+   "fieldname": "assessment_category",
+   "fieldtype": "Link",
+   "label": "Assessment Category",
+   "options": "Assessment Category"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "assessment_details",
+   "fieldtype": "Text Editor",
+   "label": "Assessment Details"
+  },
+  {
+   "fieldname": "evaluate_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluate"
+  },
+  {
+   "fieldname": "maximum_points",
+   "fieldtype": "Float",
+   "label": "Maximum Points"
+  },
+  {
+   "fieldname": "assessment_criteria",
+   "fieldtype": "Table",
+   "label": "Assessment Criteria",
+   "options": "Assessment Event Criteria"
+  },
+  {
+   "fieldname": "assessment_name",
+   "fieldtype": "Data",
+   "label": "Assessment Name"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "schedule_date",
+   "fieldtype": "Data",
+   "label": "Schedule Date"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Location"
+  },
+  {
+   "fieldname": "invigilator",
+   "fieldtype": "Link",
+   "label": "Invigilator",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "academic__year",
+   "fieldtype": "Link",
+   "label": "Academic  Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "label": "Academic Term",
+   "options": "Academic Term"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Assessment Event",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-06-05 21:37:59.818821",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Assessment Event",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "assessment_name",
+ "track_changes": 1
+}

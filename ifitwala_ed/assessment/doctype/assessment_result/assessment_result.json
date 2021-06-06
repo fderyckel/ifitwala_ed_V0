@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2021-06-05 21:32:40.686655",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "assessment_event",
+  "program",
+  "course",
+  "academic_year",
+  "academic_term"
+ ],
+ "fields": [
+  {
+   "fieldname": "assessment_event",
+   "fieldtype": "Link",
+   "label": "Assessment Event",
+   "options": "Assessment Event"
+  },
+  {
+   "fetch_from": "assessment_event.program",
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "assessment_event.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Course",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "assessment_event.academic_year",
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "assessment_event.academic_term",
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "label": "Academic Term",
+   "options": "Academic Term",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-06-05 21:39:19.157663",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Assessment Result",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

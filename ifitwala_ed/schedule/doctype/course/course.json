@@ -13,6 +13,7 @@
   "school",
   "column_break_4",
   "department",
+  "course_group",
   "curriculum",
   "units",
   "default_grade_scale",
@@ -125,7 +126,7 @@
    "options": "Grade Scale"
   },
   {
-   "fetch_from": "department.learning_unit_color",
+   "fetch_from": "course_group.learning_unit_color",
    "fetch_if_empty": 1,
    "fieldname": "learning_unit_color",
    "fieldtype": "Color",
@@ -151,11 +152,17 @@
    "in_standard_filter": 1,
    "label": "School",
    "options": "School"
+  },
+  {
+   "fieldname": "course_group",
+   "fieldtype": "Link",
+   "label": "Course Group",
+   "options": "Course Group"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-05-30 20:11:46.387969",
+ "modified": "2021-06-06 13:11:30.511250",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

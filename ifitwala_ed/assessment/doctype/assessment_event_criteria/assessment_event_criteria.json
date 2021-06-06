@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "creation": "2021-06-05 20:44:46.780419",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "assessment_criteria",
+  "column_break_2",
+  "maximum_points"
+ ],
+ "fields": [
+  {
+   "fieldname": "assessment_criteria",
+   "fieldtype": "Link",
+   "label": "Assessment Criteria",
+   "options": "Assessment Criteria"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maximum_points",
+   "fieldtype": "Float",
+   "label": "Maximum Points"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-06-05 20:44:46.780419",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Assessment Event Criteria",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

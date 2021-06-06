@@ -10,6 +10,9 @@
  "field_order": [
   "assessment_criteria",
   "maximum_mark",
+  "course_group",
+  "assessment_color",
+  "column_break_3",
   "general_descriptor",
   "assessment_criteria_level_section",
   "levels"
@@ -44,11 +47,27 @@
    "fieldname": "general_descriptor",
    "fieldtype": "Text Editor",
    "label": "General Descriptor"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "course_group",
+   "fieldtype": "Link",
+   "label": "Course Group",
+   "options": "Course Group"
+  },
+  {
+   "description": "Default color used on the School Event Calendar",
+   "fieldname": "assessment_color",
+   "fieldtype": "Color",
+   "label": "Assessment Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-08 21:07:35.325894",
+ "modified": "2021-06-05 18:40:29.336676",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Criteria",

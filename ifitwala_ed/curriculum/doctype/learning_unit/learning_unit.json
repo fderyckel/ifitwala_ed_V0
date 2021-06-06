@@ -16,7 +16,7 @@
   "course",
   "duration",
   "color",
-  "division",
+  "school",
   "section_break_6",
   "unit_name",
   "statement_of_inquiry",
@@ -199,15 +199,15 @@
    "label": "Hero Image"
   },
   {
-   "fieldname": "division",
+   "fieldname": "school",
    "fieldtype": "Link",
-   "label": "Division",
-   "options": "Division"
+   "label": "School",
+   "options": "School"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-20 20:56:42.773572",
+ "modified": "2021-06-06 12:57:06.626541",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

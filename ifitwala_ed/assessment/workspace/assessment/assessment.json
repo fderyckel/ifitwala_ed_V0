@@ -1,5 +1,5 @@
 {
- "cards_label": "Schedule",
+ "cards_label": "Assessment",
  "category": "Modules",
  "charts": [],
  "creation": "2020-09-23 21:31:43.020498",
@@ -25,6 +25,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Assessment Category",
+   "link_to": "Assessment Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Assessment Criteria",
    "link_to": "Assessment Criteria",
    "link_type": "DocType",
@@ -43,10 +52,19 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Assessment Results",
+   "label": "Assessment",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assessment Event",
+   "link_to": "Assessment Event",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   },
   {
    "hidden": 0,
@@ -66,7 +84,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-04-28 12:26:43.473639",
+ "modified": "2021-06-05 21:14:49.216137",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment",

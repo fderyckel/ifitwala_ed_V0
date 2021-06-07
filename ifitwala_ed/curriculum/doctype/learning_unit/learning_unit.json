@@ -9,11 +9,13 @@
  "engine": "InnoDB",
  "field_order": [
   "program",
+  "academic_year",
   "start_date",
   "end_date",
   "unit_status",
   "column_break_3",
   "course",
+  "academic_term",
   "duration",
   "color",
   "school",
@@ -199,15 +201,32 @@
    "label": "Hero Image"
   },
   {
+   "fetch_from": "academic_year.school",
    "fieldname": "school",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "School",
-   "options": "School"
+   "options": "School",
+   "read_only": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Academic Term",
+   "options": "Academic Term"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-06 12:57:06.626541",
+ "modified": "2021-06-07 14:10:28.580017",
  "modified_by": "Administrator",
  "module": "Curriculum",
  "name": "Learning Unit",

@@ -62,7 +62,7 @@ frappe.ui.form.on('Department', {
 					let values = {
 						'organization': data.message.organization
 					};
-					frm.set_value(values)
+					frm.set_value(values); 
 				}
 			});
 		}

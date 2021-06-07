@@ -14,6 +14,14 @@ class LearningUnit(Document):
 	def validate(self):
 		if self.start_date and self.end_date and getdate(self.start_date) > getdate(self.end_date):
 			frappe.throw(_("The start of the unit {0} cannot be after its end {1}.  Please adjust the dates").format(self.start_date, self.end_date))
+
+		term = frappe.get_doc("Academic Term", self.academic_term)
+		if  term.academic_year !=  self.academic_year:
+			frappe.throw(_("The Academic Term {0} is not part of the Academic Year {1}. Please adjust.").format(self.academic_term, self.academic_year))
+		if self.start_date and  self.academic_term and (getdate(self.start_date) < get_date(term.term_start_date)):
+			frappe.throw(_("The start of the unit {0} cannot be earlier than the start of the semester. The start should be after {1}").format(self.start_date,  term.term_start_date))
+		if self.end_date and  self.academic_term and (getdate(self.end_date) > get_date(term.term_end_date)):
+			frappe.throw(_("The end of the unit {0} cannot be later than the end of the semester. The end should be before {1}").format(self.end_date,  term.term_end_date))
 		if self.program and self.course:
 			courses = frappe.get_list("Program Course", fields = ["course_name"], filters = {"parent": self.program})
 			course_list = [course.course_name for course in courses]

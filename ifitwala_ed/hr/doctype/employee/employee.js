@@ -19,7 +19,7 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 		if(this.frm.doc.employee_salutation) {
 			this.frm.set_value("employee_gender", {
 				"Mr": "Male",
-				"Mrs": "Female",				
+				"Mrs": "Female",
 				"Ms": "Female",
 				"Miss": "Female",
 				"Master": "Male",
@@ -31,6 +31,15 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 });
 
 frappe.ui.form.on('Employee', {
+	onload: function(frm) {
+		if (frm.doc.organization) {
+			frm.set_query('school', function() {
+				return {
+					'filters': {'organization': (frm.doc.organization)}
+				};
+			});
+		}
+	},
 
 	refresh: function(frm) {
 		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Employee'};
@@ -54,6 +63,24 @@ frappe.ui.form.on('Employee', {
 				frm.set_value("user_id", r.message)
 			}
 		});
+	},
+
+	school: function(frm) {
+		if (frm.doc.school) {
+			frappe.call({
+				'method': 'frappe.client.get',
+				args: {
+					doctype: 'School',
+					name: frm.doc.school
+				},
+				callback: function(data) {
+					let values = {
+						'organization': data.message.organization
+					};
+					frm.set_value(values); 
+				}
+			});
+		}
 	}
 });
 

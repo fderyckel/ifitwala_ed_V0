@@ -2,7 +2,6 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Student Group', {
-
 	onload: function(frm) {
 		frm.add_fetch('student', 'student_full_name', 'student_name');
 		// will filter the academic terms  based on the chosen academic year.
@@ -45,7 +44,7 @@ frappe.ui.form.on('Student Group', {
 						'name': frm.doc.name
 					}
 				});
-			}, __('Actions'));
+			}, __('Communication'));
 
 			frm.add_custom_button(__('Add a session'), function() {
 				frappe.route_options = { 'event_category': 'Course', 'event_type': 'Private', 'reference_type': 'Student Group',
@@ -53,24 +52,24 @@ frappe.ui.form.on('Student Group', {
 				frappe.set_route('List', 'School Event');
 			}, __('Tools'));
 
-			frm.add_custom_button(__('Course Scheduling Tool'), function() {
+			frm.add_custom_button(__('Add Assessment'), function() {
 				frappe.route_options = {'student_group': frm.doc.name};
-				frappe.set_route('Form', 'Course Scheduling Tool');
-			}, __('Tools'));
+				frappe.set_route('Form', 'Assessment Event');
+			});
 
 			frm.add_custom_button(__('Students Newsletter'), function() {
 				frappe.route_options = {
 					'Newsletter Email Group.email_group': stud.concat('|students')
 				};
 				frappe.set_route('List', 'Newsletter');
-			}, __('View'));
+			}, __('Communication'));
 
 			frm.add_custom_button(__('Guardians Newsletter'), function() {
 				frappe.route_options = {
 					'Newsletter Email Group.email_group': frm.doc.name.concat('|guardians')
 				};
 				frappe.set_route('List', 'Newsletter');
-			}, __('View'));
+			}, __('Communication'));
 
 		}
 	},

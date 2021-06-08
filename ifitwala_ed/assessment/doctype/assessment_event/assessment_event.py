@@ -16,7 +16,7 @@ class AssessmentEvent(Document):
 		for d in self.assessment_event_criteria:
 			max_score += d.maximum_points
 		if max_score != self.maximum_points:
-			frappe.throw(_("The sum of the scores of the assessment critera should be {0} and it should be {1}").format(self.maximum_points, max_score))
+			frappe.throw(_("The sum of the scores of the assessment critera should be {0} and it appears to be {1}").format(self.maximum_points, max_score))
 
 	#def validate_assessment_criteria(self):
 	#	assessment_criteria_list = frappe.db.sql("""

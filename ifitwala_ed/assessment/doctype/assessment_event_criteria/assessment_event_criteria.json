@@ -13,8 +13,10 @@
   {
    "fieldname": "assessment_criteria",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Assessment Criteria",
-   "options": "Assessment Criteria"
+   "options": "Assessment Criteria",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_2",
@@ -23,13 +25,15 @@
   {
    "fieldname": "maximum_points",
    "fieldtype": "Float",
-   "label": "Maximum Points"
+   "in_list_view": 1,
+   "label": "Maximum Points",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-06-05 20:44:46.780419",
+ "modified": "2021-06-08 21:36:16.111354",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Event Criteria",

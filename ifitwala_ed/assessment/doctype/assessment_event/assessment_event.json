@@ -1,17 +1,18 @@
 {
  "actions": [],
- "autoname": "ASSEV-.YYYY.-######",
+ "autoname": "ASSEV-.YYYY.-.######",
  "creation": "2021-06-05 18:56:39.605114",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "assessment_name",
-  "course",
+  "program",
   "unit",
+  "grade_scale",
   "column_break_4",
   "student_group",
-  "program",
+  "course",
   "assessment_category",
   "assessment_type",
   "schedule_section",
@@ -25,15 +26,18 @@
   "assessment_details",
   "evaluate_section",
   "maximum_points",
-  "assessment_criteria",
+  "assessment_event_criteria",
   "amended_from"
  ],
  "fields": [
   {
+   "fetch_from": "student_group.course",
    "fieldname": "course",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Course",
-   "options": "Course"
+   "options": "Course",
+   "read_only": 1
   },
   {
    "fieldname": "unit",
@@ -45,7 +49,8 @@
    "fieldname": "student_group",
    "fieldtype": "Link",
    "label": "Student Group",
-   "options": "Student Group"
+   "options": "Student Group",
+   "reqd": 1
   },
   {
    "fieldname": "assessment_type",
@@ -54,10 +59,12 @@
    "options": "Formative\nSummative"
   },
   {
+   "fetch_from": "student_group.program",
    "fieldname": "program",
    "fieldtype": "Link",
    "label": "Program",
-   "options": "Program"
+   "options": "Program",
+   "read_only": 1
   },
   {
    "fieldname": "assessment_category",
@@ -82,18 +89,14 @@
   {
    "fieldname": "maximum_points",
    "fieldtype": "Float",
-   "label": "Maximum Points"
-  },
-  {
-   "fieldname": "assessment_criteria",
-   "fieldtype": "Table",
-   "label": "Assessment Criteria",
-   "options": "Assessment Event Criteria"
+   "label": "Maximum Points",
+   "reqd": 1
   },
   {
    "fieldname": "assessment_name",
    "fieldtype": "Data",
-   "label": "Assessment Name"
+   "label": "Assessment Name",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_4",
@@ -107,7 +110,8 @@
   {
    "fieldname": "schedule_date",
    "fieldtype": "Data",
-   "label": "Schedule Date"
+   "label": "Schedule Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_11",
@@ -126,16 +130,20 @@
    "options": "Employee"
   },
   {
+   "fetch_from": "student_group.academic_year",
    "fieldname": "academic__year",
    "fieldtype": "Link",
    "label": "Academic  Year",
-   "options": "Academic Year"
+   "options": "Academic Year",
+   "read_only": 1
   },
   {
+   "fetch_from": "student_group.academic_term",
    "fieldname": "academic_term",
    "fieldtype": "Link",
    "label": "Academic Term",
-   "options": "Academic Term"
+   "options": "Academic Term",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -145,12 +153,27 @@
    "options": "Assessment Event",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fetch_from": "course.default_grade_scale",
+   "fieldname": "grade_scale",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Grade Scale",
+   "options": "Grade Scale",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assessment_event_criteria",
+   "fieldtype": "Table",
+   "label": "Assessment Criteria",
+   "options": "Assessment Event Criteria"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-05 21:37:59.818821",
+ "modified": "2021-06-08 21:39:41.820937",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Event",
@@ -164,9 +187,27 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Instructor",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1
   }
  ],
  "sort_field": "modified",

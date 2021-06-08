@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "autoname": "ASSRES-.YYYY.-#######",
  "creation": "2021-06-05 21:32:40.686655",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -9,7 +10,21 @@
   "program",
   "course",
   "academic_year",
-  "academic_term"
+  "academic_term",
+  "column_break_6",
+  "student",
+  "student_name",
+  "student_group",
+  "grade_scale",
+  "results_section",
+  "details",
+  "summary_section",
+  "maximum_score",
+  "total_score",
+  "grade",
+  "column_break_12",
+  "comment",
+  "amended_from"
  ],
  "fields": [
   {
@@ -49,11 +64,90 @@
    "label": "Academic Term",
    "options": "Academic Term",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Assessment Result",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Assessment Result Details"
+  },
+  {
+   "fieldname": "results_section",
+   "fieldtype": "Section Break",
+   "label": "Results"
+  },
+  {
+   "fieldname": "maximum_score",
+   "fieldtype": "Float",
+   "label": "Maximum Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_score",
+   "fieldtype": "Float",
+   "label": "Total Score"
+  },
+  {
+   "fieldname": "grade",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Grade",
+   "read_only": 1
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "label": "Student",
+   "options": "Student"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name"
+  },
+  {
+   "fieldname": "student_group",
+   "fieldtype": "Data",
+   "label": "Student Group"
+  },
+  {
+   "fieldname": "grade_scale",
+   "fieldtype": "Link",
+   "label": "Grade Scale",
+   "options": "Grade Scale"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2021-06-05 21:39:19.157663",
+ "modified": "2021-06-08 14:35:34.237740",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Result",
@@ -67,12 +161,41 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Instructor",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guardian",
+   "share": 1
   }
  ],
+ "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "student_name",
  "track_changes": 1
 }

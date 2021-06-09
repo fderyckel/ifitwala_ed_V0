@@ -132,7 +132,7 @@
    "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
   },
   {
-   "default": "#7575ff",
+   "fetch_from": "course.calendar_event_color",
    "fieldname": "color",
    "fieldtype": "Color",
    "label": "Color"
@@ -173,7 +173,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-05-04 21:59:33.482598",
+ "modified": "2021-06-09 17:31:01.935056",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

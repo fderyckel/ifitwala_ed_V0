@@ -9,7 +9,8 @@
  "engine": "InnoDB",
  "field_order": [
   "course_group_name",
-  "learning_unit_color"
+  "learning_unit_color",
+  "scheduled_course_color"
  ],
  "fields": [
   {
@@ -22,11 +23,16 @@
    "fieldname": "learning_unit_color",
    "fieldtype": "Color",
    "label": "Learning Unit Color"
+  },
+  {
+   "fieldname": "scheduled_course_color",
+   "fieldtype": "Color",
+   "label": "Scheduled Course Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-06 13:08:32.290955",
+ "modified": "2021-06-09 17:25:39.746882",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Group",

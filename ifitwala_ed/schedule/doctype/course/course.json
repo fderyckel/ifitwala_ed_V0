@@ -24,6 +24,7 @@
   "term_long",
   "column_break_8",
   "learning_unit_color",
+  "calendar_event_color",
   "status",
   "section_break_4",
   "hero_image",
@@ -158,11 +159,17 @@
    "fieldtype": "Link",
    "label": "Course Group",
    "options": "Course Group"
+  },
+  {
+   "fetch_from": "course_group.scheduled_course_color",
+   "fieldname": "calendar_event_color",
+   "fieldtype": "Color",
+   "label": "Calendar Event Color"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-06-06 13:11:30.511250",
+ "modified": "2021-06-09 17:29:10.809027",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

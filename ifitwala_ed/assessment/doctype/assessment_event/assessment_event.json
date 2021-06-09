@@ -109,8 +109,9 @@
   },
   {
    "fieldname": "schedule_date",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Schedule Date",
+   "options": "School Event",
    "reqd": 1
   },
   {
@@ -173,7 +174,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-08 21:39:41.820937",
+ "modified": "2021-06-09 17:11:00.114130",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Event",

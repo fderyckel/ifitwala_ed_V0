@@ -13,6 +13,7 @@ from ifitwala_ed.utils import OverlapError
 
 class CourseSchedulingTool(Document):
 
+	@frappe.whitelist()
 	def schedule_course(self):
 		course_schedules = []
 		course_schedules_errors = []

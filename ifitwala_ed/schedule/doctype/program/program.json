@@ -111,7 +111,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-06-03 15:43:44.060123",
+ "modified": "2021-06-11 18:28:17.485942",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program",
@@ -153,7 +153,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Instructor",
+   "role": "Curriculum Coordinator",
    "share": 1
   },
   {
@@ -162,7 +162,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Student",
+   "role": "Instructor",
    "share": 1
   }
  ],

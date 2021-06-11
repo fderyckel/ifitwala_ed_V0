@@ -12,7 +12,7 @@
  ],
  "fields": [
   {
-   "columns": 5,
+   "columns": 6,
    "fetch_from": "learning_unit.unit_name",
    "fieldname": "unit_name",
    "fieldtype": "Read Only",
@@ -36,7 +36,7 @@
    "label": "Start Date"
   },
   {
-   "columns": 2,
+   "columns": 1,
    "fieldname": "learning_unit",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -47,7 +47,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-03-07 20:34:21.544186",
+ "modified": "2021-06-11 21:29:25.042817",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Unit",

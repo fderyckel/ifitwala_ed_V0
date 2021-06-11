@@ -32,7 +32,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-09 17:25:39.746882",
+ "modified": "2021-06-11 19:19:19.414325",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Group",
@@ -51,6 +51,7 @@
    "write": 1
   },
   {
+   "create": 1,
    "email": 1,
    "export": 1,
    "print": 1,

@@ -3,6 +3,12 @@
 
 frappe.ui.form.on('Learning Unit', {
 	onload: function(frm) {
+		frm.set_query('academic_term', function() {
+			return {
+				filters: {'academic_year': frm.doc.academic_year}
+			};
+		});
+
     if (frm.doc.program) {
       frm.set_query ('course', function() {
         return {
@@ -10,9 +16,11 @@ frappe.ui.form.on('Learning Unit', {
           filters: {
             'program': frm.doc.program
           }
-        }; 
+        };
       });
     }
+
+
 	},
 
 	refresh: function(frm) {

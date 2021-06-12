@@ -7,11 +7,11 @@ frappe.ui.form.on('Learning Unit', {
 			return {
 				filters: {'academic_year': frm.doc.academic_year}
 			};
-		});
+		}); 
 	},
 
 	refresh: function(frm) {
-		frm.set_query('course', function() { 
+		frm.set_query('course', function() {
 			return {
 				query: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.get_courses',
 				filters: {

@@ -20,6 +20,8 @@
   "academic__year",
   "academic_term",
   "column_break_11",
+  "due_date",
+  "due_time",
   "room",
   "invigilator",
   "section_break_8",
@@ -111,8 +113,7 @@
    "fieldname": "schedule_date",
    "fieldtype": "Link",
    "label": "Schedule Date",
-   "options": "School Event",
-   "reqd": 1
+   "options": "School Event"
   },
   {
    "fieldname": "column_break_11",
@@ -169,12 +170,23 @@
    "fieldtype": "Table",
    "label": "Assessment Criteria",
    "options": "Assessment Event Criteria"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_time",
+   "fieldtype": "Time",
+   "label": "Due Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-09 17:11:00.114130",
+ "modified": "2021-06-12 15:54:53.680299",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Event",
@@ -211,6 +223,7 @@
    "share": 1
   }
  ],
+ "search_fields": "program, course",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "assessment_name",

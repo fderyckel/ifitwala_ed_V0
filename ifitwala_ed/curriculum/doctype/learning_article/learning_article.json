@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "autoname": "field:title",
+ "creation": "2021-06-11 22:06:25.455274",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "author",
+  "content",
+  "published_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "unique": 1
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Link",
+   "label": "Author",
+   "options": "Instructor"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Text Editor",
+   "label": "Content"
+  },
+  {
+   "fieldname": "published_date",
+   "fieldtype": "Date",
+   "label": "Published Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-06-11 22:08:58.703162",
+ "modified_by": "Administrator",
+ "module": "Curriculum",
+ "name": "Learning Article",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "published_date",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

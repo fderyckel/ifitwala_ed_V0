@@ -138,7 +138,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-27 13:51:15.012160",
+ "modified": "2021-06-12 15:41:00.568220",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Event",
@@ -178,6 +178,7 @@
    "share": 1
   }
  ],
+ "search_fields": "subject, event_category",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "subject",

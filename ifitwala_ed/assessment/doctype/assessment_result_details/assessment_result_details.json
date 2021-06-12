@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "creation": "2021-06-12 16:18:27.853736",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "assessment_criteria",
+  "maximum_score",
+  "column_break_3",
+  "score",
+  "grade"
+ ],
+ "fields": [
+  {
+   "fieldname": "assessment_criteria",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assessment Criteria",
+   "options": "Assessment Criteria",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "maximum_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Maximum Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Score",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "grade",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Grade"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-06-12 16:19:56.307732",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Assessment Result Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

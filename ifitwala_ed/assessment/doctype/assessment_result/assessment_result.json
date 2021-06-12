@@ -128,9 +128,11 @@
    "options": "Student"
   },
   {
+   "fetch_from": "student.student_full_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
-   "label": "Student Name"
+   "label": "Student Name",
+   "read_only": 1
   },
   {
    "fieldname": "student_group",
@@ -147,7 +149,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-08 14:35:34.237740",
+ "modified": "2021-06-12 16:26:19.408528",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Result",

@@ -17,7 +17,7 @@
   "assessment_type",
   "schedule_section",
   "schedule_date",
-  "academic__year",
+  "academic_year",
   "academic_term",
   "column_break_11",
   "due_date",
@@ -132,14 +132,6 @@
    "options": "Employee"
   },
   {
-   "fetch_from": "student_group.academic_year",
-   "fieldname": "academic__year",
-   "fieldtype": "Link",
-   "label": "Academic  Year",
-   "options": "Academic Year",
-   "read_only": 1
-  },
-  {
    "fetch_from": "student_group.academic_term",
    "fieldname": "academic_term",
    "fieldtype": "Link",
@@ -181,12 +173,20 @@
    "fieldname": "due_time",
    "fieldtype": "Time",
    "label": "Due Time"
+  },
+  {
+   "fetch_from": "student_group.academic_year",
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic  Year",
+   "options": "Academic Year",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-12 15:54:53.680299",
+ "modified": "2021-06-12 16:23:41.278024",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Event",

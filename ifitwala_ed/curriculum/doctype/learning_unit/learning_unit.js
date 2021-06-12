@@ -8,8 +8,11 @@ frappe.ui.form.on('Learning Unit', {
 				filters: {'academic_year': frm.doc.academic_year}
 			};
 		});
+	},
 
-    if (frm.doc.program) {
+	refresh: function(frm) {
+		
+		if (frm.doc.program) {
       frm.set_query ('course', function() {
         return {
           query: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.get_courses',
@@ -20,10 +23,6 @@ frappe.ui.form.on('Learning Unit', {
       });
     }
 
-
-	},
-
-	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
 			frm.add_custom_button(__('Add Learning Unit to Courses'), function() {
 				frm.trigger('add_lu_to_courses');

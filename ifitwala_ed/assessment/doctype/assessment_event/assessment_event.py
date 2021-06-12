@@ -23,3 +23,28 @@ class AssessmentEvent(Document):
 	#		SELECT aec.assessment_criteria
 	#		FROM `tabAssessment Event` ae, `tabAssessment Event Criteria` aec
 	#		WHERE ae.name = aec.parent AND ae.course = %s AND ae.student_group = %s"""(self.course, self.student_group))
+
+
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def get_courses(doctype, txt, searchfield, start, page_len, filters):
+	if not filters.get('program'):
+		frappe.msgprint(_("Please select a Program first."))
+		return []
+
+	return frappe.db.sql("""
+			SELECT course, course_name
+			FROM `tabProgram Course`
+			WHERE parent = %(program)s and course like %(txt)s {match_cond}
+		order by
+			if(locate(%(_txt)s, course), locate(%(_txt)s, course), 99999),
+			idx desc,
+			`tabProgram Course`.course asc
+		limit {start}, {page_len}""".format(
+			match_cond=get_match_cond(doctype),
+			start=start,
+			page_len=page_len), {
+				"txt": "%{0}%".format(txt),
+				"_txt": txt.replace('%', ''),
+				"program": filters['program']
+			})

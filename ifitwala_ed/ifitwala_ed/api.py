@@ -65,3 +65,7 @@ def update_email_group(doctype, name):
                 guardian_mail_list.append(g_mail)
     add_subscribers(name+"|students", student_mail_list)
     add_subscribers(name+"|guardians", guardian_mail_list)
+
+@frappe.whitelist()
+def get_assessment_criteria(course):
+    return frappe.get_list('Course Assessment Criteria', fields = ['assessment_criteria', "criteria_weighting"], filters = {"parent": course}, order_by = "idx")

@@ -10,7 +10,7 @@ frappe.ui.form.on('Learning Unit', {
           filters: {
             'program': frm.doc.program
           }
-        }
+        }; 
       });
     }
 	},
@@ -40,7 +40,7 @@ frappe.ui.form.on('Learning Unit', {
 				function(data) {
 					frappe.call({
 						method: 'ifitwala_ed.curriculum.doctype.learning_unit.learning_unit.add_lu_to_courses',
-						args: { 'lu': frm.doc.name, 'courses': data.courses }, 
+						args: { 'lu': frm.doc.name, 'courses': data.courses },
 						callback: function(r) {
 							if (!r.exc) {
 								frm.reload_doc();

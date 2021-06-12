@@ -6,7 +6,7 @@ frappe.ui.form.on('Program', {
 		frm.set_query('course', 'courses', function() {
 			return {
 				filters: {
-					status: 'Active'
+					'status': 'Active'
 				}
 			};
 		});

@@ -3,6 +3,7 @@
 
 frappe.ui.form.on('Program', {
 	onload: function(frm) {
+		// this part below is not working
 		frm.set_query('course', 'courses', function() {
 			return {
 				filters: {

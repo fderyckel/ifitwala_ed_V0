@@ -2,7 +2,7 @@
  "based_on": "",
  "chart_name": "Student By Gender",
  "chart_type": "Group By",
- "creation": "2021-02-27 15:28:30.486168",
+ "creation": "2021-06-16 15:28:30.486168",
  "custom_options": "{\"colors\":[\"#f14668\",\"#FFD880\", \"#6B011F\"], \n \"name\":[\"Female\", \"Male\", \"Other\"]}",
  "docstatus": 0,
  "doctype": "Dashboard Chart",

@@ -92,9 +92,9 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-11-16 14:30:01.418323",
+ "modified": "2020-06-16 14:30:01.418323",
  "modified_by": "Administrator",
- "module": "Student",
+ "module": "Students",
  "name": "Student Leave Application",
  "owner": "Administrator",
  "permissions": [

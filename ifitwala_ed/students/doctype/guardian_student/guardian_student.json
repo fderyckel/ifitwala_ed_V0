@@ -1,6 +1,6 @@
 {
  "actions": [],
- "creation": "2020-08-21 13:29:24.452806",
+ "creation": "2020-06-16 13:29:24.452806",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -39,7 +39,7 @@
  "links": [],
  "modified": "2020-11-26 08:30:36.486890",
  "modified_by": "Administrator",
- "module": "Student",
+ "module": "Students",
  "name": "Guardian Student",
  "owner": "Administrator",
  "permissions": [],

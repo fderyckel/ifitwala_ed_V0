@@ -277,9 +277,9 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-28 18:00:45.164897",
+ "modified": "2021-06-16 18:00:45.164897",
  "modified_by": "Administrator",
- "module": "Student",
+ "module": "Students",
  "name": "Student",
  "owner": "Administrator",
  "permissions": [

@@ -88,9 +88,9 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-10-29 10:28:49.756363",
+ "modified": "2020-06-16 10:28:49.756363",
  "modified_by": "Administrator",
- "module": "Student",
+ "module": "Students",
  "name": "Student Attendance",
  "owner": "Administrator",
  "permissions": [

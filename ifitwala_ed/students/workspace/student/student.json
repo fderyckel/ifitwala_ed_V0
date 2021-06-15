@@ -103,7 +103,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-06-16 20:19:51.249258",
+ "modified": "2021-06-15 23:36:14.373245",
  "modified_by": "Administrator",
  "module": "Students",
  "name": "Student",
@@ -116,7 +116,7 @@
    "doc_view": "List",
    "format": "{} Enabled",
    "label": "Student",
-   "link_to": "Students",
+   "link_to": "Student",
    "stats_filter": "{\"enabled\":\"1\"}",
    "type": "DocType"
   },

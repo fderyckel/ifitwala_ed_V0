@@ -150,12 +150,12 @@
   },
   {
    "fetch_from": "course.default_grade_scale",
+   "fetch_if_empty": 1,
    "fieldname": "grade_scale",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Grade Scale",
-   "options": "Grade Scale",
-   "read_only": 1
+   "options": "Grade Scale"
   },
   {
    "fieldname": "assessment_event_criteria",
@@ -186,7 +186,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-12 16:23:41.278024",
+ "modified": "2021-06-12 19:40:07.028610",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Event",
@@ -223,7 +223,7 @@
    "share": 1
   }
  ],
- "search_fields": "program, course",
+ "search_fields": "course",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "assessment_name",

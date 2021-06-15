@@ -13,7 +13,7 @@
  "label": "Total Enrolled Student",
  "modified": "2021-02-27 15:22:36.237268",
  "modified_by": "Administrator",
- "module": "Student",
+ "module": "Students",
  "name": "Total Enrolled Student",
  "owner": "Administrator",
  "report_function": "Sum",

@@ -245,7 +245,8 @@
   {
    "fieldname": "student_exit_date",
    "fieldtype": "Date",
-   "label": "Exit Date"
+   "label": "Exit Date",
+   "set_only_once": 1
   },
   {
    "fieldname": "student_exit_reason",
@@ -277,7 +278,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-17 13:17:57",
+ "modified": "2021-06-16 20:42:36.311221",
  "modified_by": "Administrator",
  "module": "Students",
  "name": "Student",
@@ -346,7 +347,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "search_fields": "student_full_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

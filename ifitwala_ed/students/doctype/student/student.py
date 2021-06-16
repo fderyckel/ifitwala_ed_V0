@@ -11,7 +11,7 @@ from frappe.desk.form.linked_with import get_linked_doctypes
 from frappe.contacts.address_and_contact import load_address_and_contact, delete_contact_and_address
 
 
-class Students(Document):
+class Student(Document):
 	def onload(self):
 		load_address_and_contact(self)
 
@@ -38,7 +38,7 @@ class Students(Document):
 
 
 	def update_student_name_in_linked_doctype(self):
-		linked_doctypes = get_linked_doctypes("Students")
+		linked_doctypes = get_linked_doctypes("Student")
 		for d in linked_doctypes:
 			meta = frappe.get_meta(d)
 			if not meta.issingle:

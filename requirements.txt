@@ -1,2 +1,2 @@
 frappe
-Unidecode==1.2.0 
+Unidecode~=1.2.0

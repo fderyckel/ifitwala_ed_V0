@@ -19,7 +19,7 @@ class Students(Document):
 		self.student_full_name = " ".join(filter(None, [self.student_first_name, self.student_middle_name, self.student_last_name]))
 		self.validate_email()
 
-		if frappe.get_value("Students", self.name, "student_full_name") != self.student_full_name:
+		if frappe.get_value("Student", self.name, "student_full_name") != self.student_full_name:
 			self.update_student_name_in_linked_doctype()
 
 		if self.student_date_of_birth and getdate(self.student_date_of_birth) >= getdate(today()):

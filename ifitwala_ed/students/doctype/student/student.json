@@ -277,10 +277,10 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-16 13:16:57.473498",
+ "modified": "2021-06-17 13:16:57",
  "modified_by": "Administrator",
  "module": "Students",
- "name": "Students",
+ "name": "Student",
  "owner": "Administrator",
  "permissions": [
   {

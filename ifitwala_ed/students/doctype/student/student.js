@@ -11,7 +11,7 @@ frappe.ui.form.on('Students', {
       };
     });
   },
-  
+
   refresh: function(frm) {
 		frappe.dynamic_link = {doc: frm.doc, fieldname: 'name', doctype: 'Students'};
 

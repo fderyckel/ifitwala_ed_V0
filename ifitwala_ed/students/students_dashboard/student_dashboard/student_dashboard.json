@@ -1,0 +1,33 @@
+{
+ "cards": [
+  {
+   "card": "Total Enrolled Student"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Student By Gender",
+   "width": "Half"
+  },
+  {
+   "chart": "Student By Nationality",
+   "width": "Half"
+  },
+  {
+   "chart": "Student By First Language",
+   "width": "Half"
+  }
+ ],
+ "creation": "2021-06-17 11:07:11.902702",
+ "dashboard_name": "Student Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2021-06-17 11:07:11.902702",
+ "modified_by": "Administrator",
+ "module": "Students",
+ "name": "Student Dashboard",
+ "owner": "Administrator"
+}

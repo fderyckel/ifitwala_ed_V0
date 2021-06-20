@@ -7,7 +7,7 @@ import frappe
 import  calendar
 from frappe import _
 import datetime
-from frappe.utils import getdate, get_link_to_form, get_weekday, add_days, get_time
+from frappe.utils import getdate, get_link_to_form, get_weekday, add_days, get_time, get_datetime_str
 from frappe.model.document import Document
 from ifitwala_ed.utils import OverlapError
 
@@ -72,7 +72,7 @@ class CourseSchedulingTool(Document):
 	def make_course_schedule(self, date):
 		course_schedule = frappe.get_doc({
 			"doctype": "School Event",
-			"subject": self.student_group.split("/")[0] + " " + str(date),
+			"subject": self.student_group.split("/")[0] + " " + get_datetime_str(date),
 			"event_category": "Course",
 			"event_type": "Private",
 			"room": self.room,

@@ -161,7 +161,7 @@
    "fieldname": "assessment_event_criteria",
    "fieldtype": "Table",
    "label": "Assessment Criteria",
-   "options": "Assessment Event Criteria"
+   "options": "Learning Task Criteria"
   },
   {
    "fieldname": "due_date",
@@ -186,7 +186,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-12 19:40:07.028610",
+ "modified": "2021-06-20 16:57:08.817588",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Event",

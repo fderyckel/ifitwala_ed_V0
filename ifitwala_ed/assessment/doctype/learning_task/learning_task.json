@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "ASSEV-.YYYY.-.######",
+ "autoname": "LT-.YYYY.-.######",
  "creation": "2021-06-05 18:56:39.605114",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -171,7 +171,7 @@
    "fieldname": "assessment_event_criteria",
    "fieldtype": "Table",
    "label": "Assessment Criteria",
-   "options": "Assessment Event Criteria"
+   "options": "Learning Task Criteria"
   },
   {
    "fieldname": "amended_from",
@@ -186,7 +186,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-20 16:40:05.071642",
+ "modified": "2021-06-20 16:57:09.080102",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Learning Task",

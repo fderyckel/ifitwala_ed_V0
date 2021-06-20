@@ -160,7 +160,6 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_preview": 1,
-   "in_standard_filter": 1,
    "label": "Nationality",
    "options": "Country"
   },
@@ -278,7 +277,7 @@
  "image_field": "student_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-16 20:42:36.311221",
+ "modified": "2021-06-20 17:15:46.559433",
  "modified_by": "Administrator",
  "module": "Students",
  "name": "Student",

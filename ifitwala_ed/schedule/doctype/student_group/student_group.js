@@ -47,14 +47,18 @@ frappe.ui.form.on('Student Group', {
 			}, __('Communication'));
 
 			frm.add_custom_button(__('Add a session'), function() {
-				frappe.route_options = { 'event_category': 'Course', 'event_type': 'Private', 'reference_type': 'Student Group',
-					'reference_name': frm.doc.name};
+				frappe.route_options = {
+					'event_category': 'Course',
+					'event_type': 'Private',
+					'reference_type': 'Student Group',
+					'reference_name': frm.doc.name
+				};
 				frappe.set_route('List', 'School Event');
 			}, __('Tools'));
 
 			frm.add_custom_button(__('Add Assessment'), function() {
 				frappe.route_options = {'student_group': frm.doc.name};
-				frappe.set_route('Form', 'Assessment Event');
+				frappe.set_route('Form', 'Learning Task');
 			});
 
 			frm.add_custom_button(__('Students Newsletter'), function() {

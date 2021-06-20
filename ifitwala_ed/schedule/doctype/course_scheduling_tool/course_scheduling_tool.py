@@ -60,9 +60,11 @@ class CourseSchedulingTool(Document):
 			if not self.get(f):
 				frappe.throw(_("{0} is a mandatory field. Please select an appropriate value.").format(self.meta.get_label(f)))
 
+	@frappe.whitelist()
 	def get_instructors(self):
 		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
+	@frappe.whitelist()
 	def get_students(self):
 		return frappe.db.sql("""select student, student_name from `tabStudent Group Student` where parent = %s""", (self.student_group), as_dict=1)
 

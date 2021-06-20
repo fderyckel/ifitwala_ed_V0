@@ -6,7 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "assessment_event",
+  "learning_task",
   "program",
   "course",
   "academic_year",
@@ -27,12 +27,6 @@
   "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "assessment_event",
-   "fieldtype": "Link",
-   "label": "Assessment Event",
-   "options": "Assessment Event"
-  },
   {
    "fetch_from": "assessment_event.program",
    "fieldname": "program",
@@ -144,12 +138,18 @@
    "fieldtype": "Link",
    "label": "Grade Scale",
    "options": "Grade Scale"
+  },
+  {
+   "fieldname": "learning_task",
+   "fieldtype": "Link",
+   "label": "Learning Task",
+   "options": "Learning Task"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-12 16:26:19.408528",
+ "modified": "2021-06-20 16:41:43.613513",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Result",

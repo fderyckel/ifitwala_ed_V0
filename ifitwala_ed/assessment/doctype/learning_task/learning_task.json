@@ -1,0 +1,231 @@
+{
+ "actions": [],
+ "autoname": "ASSEV-.YYYY.-.######",
+ "creation": "2021-06-05 18:56:39.605114",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "assessment_name",
+  "program",
+  "unit",
+  "grade_scale",
+  "column_break_4",
+  "student_group",
+  "course",
+  "assessment_category",
+  "assessment_type",
+  "schedule_section",
+  "schedule_date",
+  "academic_year",
+  "academic_term",
+  "column_break_11",
+  "due_date",
+  "due_time",
+  "room",
+  "invigilator",
+  "section_break_8",
+  "assessment_details",
+  "evaluate_section",
+  "maximum_points",
+  "assessment_event_criteria",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "assessment_name",
+   "fieldtype": "Data",
+   "label": "Assessment Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_group.program",
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program",
+   "options": "Program",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Learning Unit"
+  },
+  {
+   "fetch_from": "course.default_grade_scale",
+   "fetch_if_empty": 1,
+   "fieldname": "grade_scale",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Grade Scale",
+   "options": "Grade Scale"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_group",
+   "fieldtype": "Link",
+   "label": "Student Group",
+   "options": "Student Group",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_group.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Course",
+   "options": "Course",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assessment_category",
+   "fieldtype": "Link",
+   "label": "Assessment Category",
+   "options": "Assessment Category"
+  },
+  {
+   "fieldname": "assessment_type",
+   "fieldtype": "Select",
+   "label": "Assessment Type",
+   "options": "Formative\nSummative"
+  },
+  {
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "schedule_date",
+   "fieldtype": "Link",
+   "label": "Schedule Date",
+   "options": "School Event"
+  },
+  {
+   "fetch_from": "student_group.academic_year",
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic  Year",
+   "options": "Academic Year",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_group.academic_term",
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "label": "Academic Term",
+   "options": "Academic Term",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_time",
+   "fieldtype": "Time",
+   "label": "Due Time"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Location"
+  },
+  {
+   "fieldname": "invigilator",
+   "fieldtype": "Link",
+   "label": "Invigilator",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "assessment_details",
+   "fieldtype": "Text Editor",
+   "label": "Assessment Details"
+  },
+  {
+   "fieldname": "evaluate_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluate"
+  },
+  {
+   "fieldname": "maximum_points",
+   "fieldtype": "Float",
+   "label": "Maximum Points",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assessment_event_criteria",
+   "fieldtype": "Table",
+   "label": "Assessment Criteria",
+   "options": "Assessment Event Criteria"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Learning Task",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-06-20 16:40:05.071642",
+ "modified_by": "Administrator",
+ "module": "Assessment",
+ "name": "Learning Task",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Curriculum Coordinator",
+   "share": 1
+  }
+ ],
+ "search_fields": "course",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "assessment_name",
+ "track_changes": 1
+}

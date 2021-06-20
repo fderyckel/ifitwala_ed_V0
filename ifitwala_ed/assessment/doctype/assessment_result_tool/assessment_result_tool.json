@@ -5,21 +5,13 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "assessment_event",
+  "learning_task",
   "column_break_2",
   "student_group",
   "section_break_4",
   "result_html"
  ],
  "fields": [
-  {
-   "fieldname": "assessment_event",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Assessment Event",
-   "options": "Assessment Event",
-   "reqd": 1
-  },
   {
    "fieldname": "column_break_2",
    "fieldtype": "Column Break"
@@ -41,12 +33,20 @@
    "fieldname": "result_html",
    "fieldtype": "HTML",
    "label": "Result HTML"
+  },
+  {
+   "fieldname": "learning_task",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Learning Task",
+   "options": "Learning Task",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-08 14:42:19.044491",
+ "modified": "2021-06-20 16:41:17.725774",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment Result Tool",

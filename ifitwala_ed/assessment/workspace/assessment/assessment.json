@@ -60,8 +60,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Assessment Event",
-   "link_to": "Assessment Event",
+   "label": "Learning Task",
+   "link_to": "Learning Task",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -84,7 +84,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-06-05 21:14:49.216137",
+ "modified": "2021-06-20 16:44:20.789995",
  "modified_by": "Administrator",
  "module": "Assessment",
  "name": "Assessment",

@@ -47,6 +47,7 @@ class ProgramEnrollment(Document):
 			frappe.throw(_("This student {0} is already enrolled {1} in this program for this term.").format(enrollment[0].student_name, get_link_to_form("Program Enrollment", enrollment[0].name)))
 
 	# If a student is in a program and that program has required courses (non elective), then these courses are loaded automatically.
+	@frappe.whitelist()
 	def get_courses(self):
 		return frappe.db.sql("""select course from `tabProgram Course` where parent = %s and required = 1""", (self.program), as_dict=1)
 

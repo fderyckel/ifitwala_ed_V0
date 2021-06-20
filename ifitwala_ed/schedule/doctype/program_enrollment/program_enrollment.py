@@ -49,7 +49,10 @@ class ProgramEnrollment(Document):
 	# If a student is in a program and that program has required courses (non elective), then these courses are loaded automatically.
 	@frappe.whitelist()
 	def get_courses(self):
-		return frappe.db.sql("""select course from `tabProgram Course` where parent = %s and required = 1""", (self.program), as_dict=1)
+		return frappe.db.sql("""SELECT course
+								FROM `tabProgram Course`
+								WHERE parent = %s AND required = 1
+								ORDER BY idx""", (self.program), as_dict=1)
 
 	def validate_duplicate_course(self):
 		found = []

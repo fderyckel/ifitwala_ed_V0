@@ -24,6 +24,7 @@
    "fieldname": "student",
    "fieldtype": "Link",
    "label": "Student",
+   "no_copy": 1,
    "options": "Student",
    "reqd": 1
   },
@@ -108,7 +109,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-20 20:48:16.996568",
+ "modified": "2021-06-20 21:24:42.201372",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Program Enrollment",

@@ -72,7 +72,7 @@ class CourseSchedulingTool(Document):
 	def make_course_schedule(self, date):
 		course_schedule = frappe.get_doc({
 			"doctype": "School Event",
-			"subject": self.student_group.split("/")[0] + " " + get_datetime_str(date),
+			"subject": f'{self.student_group.split("/")[0]} {date}',
 			"event_category": "Course",
 			"event_type": "Private",
 			"room": self.room,

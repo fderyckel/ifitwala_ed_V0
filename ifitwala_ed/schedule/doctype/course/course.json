@@ -162,6 +162,7 @@
   },
   {
    "fetch_from": "course_group.scheduled_course_color",
+   "fetch_if_empty": 1,
    "fieldname": "calendar_event_color",
    "fieldtype": "Color",
    "label": "Calendar Event Color"
@@ -169,7 +170,7 @@
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-06-11 18:28:48.297839",
+ "modified": "2021-06-21 07:58:30.210500",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

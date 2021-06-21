@@ -10,7 +10,9 @@
  "field_order": [
   "course_group_name",
   "learning_unit_color",
-  "scheduled_course_color"
+  "scheduled_course_color",
+  "column_break_4",
+  "maximum_size_group"
  ],
  "fields": [
   {
@@ -28,11 +30,20 @@
    "fieldname": "scheduled_course_color",
    "fieldtype": "Color",
    "label": "Scheduled Course Color"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maximum_size_group",
+   "fieldtype": "Int",
+   "label": "Maximum Size Group"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-11 19:19:19.414325",
+ "modified": "2021-06-21 07:44:36.730443",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Group",

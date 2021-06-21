@@ -46,8 +46,10 @@ frappe.ui.form.on('Course Scheduling Tool', {
   color: function(frm) {
 	  if (frm.doc.student_group) {
 		  frappe.db.get_value('Course', {frm.doc.course}, 'calendar_event_color',
-	  		(r) => {frm.set_value('color', r.calendar_event_color);
-		});
+	  		(r) => {
+				frm.set_value('color', r.calendar_event_color);
+					}
+		  );
 	  }
   },
 

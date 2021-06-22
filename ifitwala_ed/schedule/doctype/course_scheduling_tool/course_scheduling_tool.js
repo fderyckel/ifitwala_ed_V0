@@ -54,6 +54,7 @@ frappe.ui.form.on('Course Scheduling Tool', {
 				  frm.set_value('calendar_event_color', data.message.calendar_event_color);
 			  }
 		  });
+		  frm.refresh_field('calendar_event_color');
   },
 
   student_group: function(frm) {

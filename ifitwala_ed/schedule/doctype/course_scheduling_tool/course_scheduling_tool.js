@@ -43,12 +43,27 @@ frappe.ui.form.on('Course Scheduling Tool', {
 		});
   },
 
+  calendar_event_color: function(frm) {
+	  if (frm.doc.course) {
+		  frappe.call({
+			  'method': 'frappe.client.get',
+			  args: {
+				  doctype: 'Course',
+				  name: frm.doc.course
+			  },
+			  callback: function(data) {
+				  frm.set_value('calendar_event_color', data.message.calendar_event_color);
+			  }
+		  });
+	  }
+  },
+
   student_group: function(frm) {
     frm.events.get_students(frm);
 	frm.events.get_instructors(frm);
   },
 
-	get_instructors: function(frm) {
+  get_instructors: function(frm) {
 		frm.set_value('instructors',[]);
 		frappe.call({
 			method: 'get_instructors',
@@ -73,4 +88,5 @@ frappe.ui.form.on('Course Scheduling Tool', {
       }
     })
   }
+
 });

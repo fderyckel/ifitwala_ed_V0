@@ -76,7 +76,7 @@ class CourseSchedulingTool(Document):
 			"event_category": "Course",
 			"event_type": "Private",
 			"room": self.room,
-			"color": self.color,
+			"color": self.calendar_event_color,
 			"starts_on": datetime.datetime.combine(getdate(date), get_time(self.from_time)),
 			"ends_on": datetime.datetime.combine(getdate(date), get_time(self.to_time)),
 			"reference_type": "Student Group",

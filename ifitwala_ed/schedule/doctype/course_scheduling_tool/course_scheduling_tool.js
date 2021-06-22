@@ -17,12 +17,12 @@ frappe.ui.form.on('Course Scheduling Tool', {
   refresh: function(frm) {
     frm.disable_save();
 
-	if (frm.doc.course) {
+	if (cur_frm.doc.course) {
 		frappe.call({
 			'method': 'frappe.client.get',
 			args: {
 				doctype: 'Course',
-				name: frm.doc.course
+				name: cur_frm.doc.course
 			},
 			callback: function(data) {
 				cur_frm.set_value('calendar_event_color', data.message.calendar_event_color);

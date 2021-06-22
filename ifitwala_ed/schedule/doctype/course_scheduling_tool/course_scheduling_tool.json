@@ -14,7 +14,7 @@
   "academic_year",
   "academic_term",
   "room",
-  "color",
+  "calendar_event_color",
   "timing_section",
   "from_time",
   "from_date",
@@ -132,13 +132,6 @@
    "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
   },
   {
-   "fetch_from": "course.calendar_event_color",
-   "fetch_if_empty": 1,
-   "fieldname": "color",
-   "fieldtype": "Color",
-   "label": "Color"
-  },
-  {
    "fieldname": "instructors_section",
    "fieldtype": "Section Break",
    "label": "Instructors Section"
@@ -168,13 +161,20 @@
    "label": "Every n  week",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fetch_from": "course.calendar_event_color",
+   "fetch_if_empty": 1,
+   "fieldname": "calendar_event_color",
+   "fieldtype": "Color",
+   "label": "Color"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-20 23:07:22.048782",
+ "modified": "2021-06-22 07:43:10.552697",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

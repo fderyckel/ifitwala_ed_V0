@@ -17,6 +17,17 @@ frappe.ui.form.on('Course Scheduling Tool', {
   refresh: function(frm) {
     frm.disable_save();
 
+	frappe.call({
+		'method': 'frappe.client.get',
+		args: {
+			doctype: 'Course',
+			name: frm.doc.course
+		},
+		callback: function(data) {
+			frm.set_value('calendar_event_color', data.message.calendar_event_color);
+		}
+	});
+
     frm.page.set_primary_action(__('Schedule Course'), () => {
 			frm.call('schedule_course')
 				.then(r => {
@@ -41,20 +52,6 @@ frappe.ui.form.on('Course Scheduling Tool', {
 					}
 				});
 		});
-  },
-
-  calendar_event_color: function(frm) {
-		  frappe.call({
-			  'method': 'frappe.client.get',
-			  args: {
-				  doctype: 'Course',
-				  name: frm.doc.course
-			  },
-			  callback: function(data) {
-				  frm.set_value('calendar_event_color', data.message.calendar_event_color);
-			  }
-		  });
-		  frm.refresh_field('calendar_event_color');
   },
 
   student_group: function(frm) {

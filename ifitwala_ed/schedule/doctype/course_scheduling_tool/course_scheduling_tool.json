@@ -163,8 +163,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "course.calendar_event_color",
-   "fetch_if_empty": 1,
    "fieldname": "calendar_event_color",
    "fieldtype": "Color",
    "label": "Color"
@@ -174,7 +172,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-22 07:43:10.552697",
+ "modified": "2021-06-22 08:09:09.017646",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

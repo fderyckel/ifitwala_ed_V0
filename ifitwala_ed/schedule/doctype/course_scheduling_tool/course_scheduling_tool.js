@@ -63,15 +63,15 @@ frappe.ui.form.on('Course Scheduling Tool', {
   },
 
   get_instructors: function(frm) {
-		frm.set_value('instructors',[]);
-		frappe.call({
-			method: 'get_instructors',
-			doc:frm.doc,
-			callback: function(r) {
-				if(r.message) {
-					frm.set_value('instructors', r.message);
-				}
-			}
+	  frm.set_value('instructors',[]);
+	  frappe.call({
+		  method: 'get_instructors',
+		  doc:frm.doc,
+		  callback: function(r) {
+			  if(r.message) {
+				  frm.set_value('instructors', r.message);
+			  }
+		  }
 		})
 	},
 

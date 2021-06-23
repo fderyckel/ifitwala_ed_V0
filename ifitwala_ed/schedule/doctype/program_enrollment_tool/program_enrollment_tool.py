@@ -51,6 +51,7 @@ class ProgramEnrollmentTool(Document):
 		else:
 			frappe.throw(_("There isn't any student enrolled for the mentioned academic year and program"))
 
+	@frappe.whitelist()
 	def enroll_students(self):
 		total = len(self.students)	# note how this gives the length (number of row) of a child table
 		term_start = frappe.get_doc("Academic Term", self.new_academic_term)

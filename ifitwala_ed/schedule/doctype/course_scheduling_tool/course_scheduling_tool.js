@@ -2,9 +2,14 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Course Scheduling Tool', {
+	setup: function(frm) {
+		frm.add_fetch('student_group', 'course', 'course'),
+		frm.add_fetch('student_group', 'program', 'program'),
+		frm.add_fetch('student_group', 'academic_term', 'academic_term'),
+		frm.add_fetch('student_group', 'academic_year', 'academic_year')
+	},
 
-  onload: function(frm) {
-
+	onload: function(frm) {
 		frm.set_query('student_group', function() {
 			return {
 				filters: {
@@ -12,7 +17,7 @@ frappe.ui.form.on('Course Scheduling Tool', {
 				}
 			};
 		});
-  },
+	},
 
   refresh: function(frm) {
     //frm.disable_save();

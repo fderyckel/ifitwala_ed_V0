@@ -67,7 +67,7 @@
    "fieldname": "members",
    "fieldtype": "Table",
    "label": "Members",
-   "options": "Department Member"
+   "options": "Team Member"
   },
   {
    "default": "1",
@@ -123,10 +123,10 @@
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2021-06-06 13:15:28.744411",
+ "modified": "2021-06-23 15:58:59.854908",
  "modified_by": "Administrator",
  "module": "School Settings",
- "name": "Department",
+ "name": "Team",
  "nsm_parent_field": "parent_department",
  "owner": "Administrator",
  "permissions": [

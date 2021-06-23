@@ -80,7 +80,7 @@
    "search_index": 1
   },
   {
-   "fetch_from": "employee.department",
+   "fetch_from": "employee.school",
    "fieldname": "school",
    "fieldtype": "Link",
    "label": "School",
@@ -251,7 +251,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 3,
- "modified": "2021-05-30 15:15:26.146165",
+ "modified": "2021-06-23 16:04:41.190861",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Leave Application",

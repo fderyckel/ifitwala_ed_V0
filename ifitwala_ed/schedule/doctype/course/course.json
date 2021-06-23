@@ -12,7 +12,7 @@
   "course_name",
   "school",
   "column_break_4",
-  "department",
+  "team",
   "course_group",
   "curriculum",
   "units",
@@ -41,15 +41,6 @@
    "label": "Course Name",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "columns": 3,
-   "fieldname": "department",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Department",
-   "options": "Department"
   },
   {
    "fieldname": "hero_image",
@@ -166,11 +157,20 @@
    "fieldname": "calendar_event_color",
    "fieldtype": "Color",
    "label": "Calendar Event Color"
+  },
+  {
+   "columns": 3,
+   "fieldname": "team",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Team",
+   "options": "Team"
   }
  ],
  "image_field": "hero_image",
  "links": [],
- "modified": "2021-06-21 07:58:30.210500",
+ "modified": "2021-06-23 16:02:33.124630",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course",

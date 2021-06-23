@@ -1,6 +1,6 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.listview_settings['Department'] = {
+frappe.listview_settings['Team'] = {
 	hide_name_column: true
 };

@@ -1,7 +1,7 @@
 // Copyright (c) 2020, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Department', {
+frappe.ui.form.on('Team', {
 	onload: function(frm) {
 		if (frm.doc.organization) {
 			frm.set_query('school', function() {
@@ -18,7 +18,7 @@ frappe.ui.form.on('Department', {
 				frappe.call({
 					method: 'ifitwala_ed.school_settings.doctype.department.department.update_dpt_email',
 					args: {
-						'doctype': 'Department',
+						'doctype': 'Team',
 						'name': frm.doc.name
 					}
 				});

@@ -10,51 +10,51 @@ from frappe.model.document import Document
 from frappe.email.doctype.email_group.email_group import add_subscribers
 
 
-class Department(Document):
+class Team(Document):
 
 	def autoname(self):
 		if self.organization and not self.school:
-			self.name = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
+			self.name = self.team_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
 		if self.school:
-			self.name = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
+			self.name = self.team_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
 		if not self.organization and not self.school:
-			self.name = self.department_name
+			self.name = self.team_name
 
 	def validate(self):
 		# You cannot have 2 dpt. of the same within the same organization. OK in 2 different organization.
 		self.validate_duplicate()
 		if self.organization and not self.school:
-			self.title = self.department_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
+			self.title = self.team_name + " - {}".format(self.organization_abbreviation) if self.organization_abbreviation else ""
 		if self.school:
-			self.title = self.department_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
+			self.title = self.team_name + " - {}".format(self.school_abbreviation) if self.school_abbreviation else ""
 		if not self.organization and not self.school:
-			self.title = self.department_name
+			self.title = self.team_name
 
 		found = []
 		for member in self.members:
 			if member.member in found:
-				frappe.throw(_("You have already added the member {0} to the Department. Please remove it.").format(member.member))
+				frappe.throw(_("You have already added the member {0} to the Team. Please remove it.").format(member.member))
 			found.append(member.member)
-		if self.department_lead and (self.department_lead not in found):
-			self.append("members", {"member": self.department_lead})
-			frappe.msgprint(_("{0} added as a member of the department.").format(self.department_lead))
-		if self.department_lead:
-			roles = frappe.get_roles(self.department_lead)
+		if self.team_lead and (self.team_lead not in found):
+			self.append("members", {"member": self.team_lead})
+			frappe.msgprint(_("{0} added as a member of the team.").format(self.team_lead))
+		if self.team_lead:
+			roles = frappe.get_roles(self.team_lead)
 			if "Newsletter Manager" not in roles:
-				add_role(self.department_lead, "Newsletter Manager")
-				frappe.msgprint(_("Added the Newsletter role to {0} as Department Lead.").format(self.department_lead))
+				add_role(self.team_lead, "Newsletter Manager")
+				frappe.msgprint(_("Added the Newsletter role to {0} as Team Lead.").format(self.team_lead))
 
 	def validate_duplicate(self):
-    		dpt = frappe.db.sql("""select name from `tabDepartment` where organization= %s and department_name= %s and docstatus<2 and name != %s""", (self.organization, self.department_name, self.name))
+    		dpt = frappe.db.sql("""select name from `tabTeam` where organization= %s and team_name= %s and docstatus<2 and name != %s""", (self.organization, self.team_name, self.name))
     		if dpt:
-       			frappe.throw(_("A department within this organization {0} and this name {1} already exisit. Please adjust the name as necessary.").format(self.organization, self.department_name))
+       			frappe.throw(_("A team within this organization {0} and this name {1} already exisit. Please adjust the name as necessary.").format(self.organization, self.team_name))
 
 
 @frappe.whitelist()
-def get_department_members(department):
+def get_team_members(team):
     """ Return the list of all members from a dpt"""
-    members = frappe.get_list("Department Member", fields = ["member", "member_name"],
-                filters = {"parent": department}, order_by = "member")
+    members = frappe.get_list("Team Member", fields = ["member", "member_name"],
+                filters = {"parent": team}, order_by = "member")
     return members
 
 @frappe.whitelist()
@@ -65,8 +65,8 @@ def update_dpt_email(doctype, name):
         d_mail_group.save(ignore_permissions=True)
     members_mail_list = []
     members = []
-    if doctype == "Department":
-        members = get_department_members(name)
+    if doctype == "Team":
+        members = get_team_members(name)
     for member in members:
         m_mail = frappe.get_value("Employee", {"user_id": member.member}, "employee_professional_email")
         if m_mail:

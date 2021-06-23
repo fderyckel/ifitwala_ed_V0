@@ -44,8 +44,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Department",
-   "link_to": "Department",
+   "label": "Team",
+   "link_to": "Team",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -98,7 +98,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Organization Calendar",
-   "link_to": "Organization Calendar",
+   "link_to": "Organization Event",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -174,7 +174,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-05-27 20:19:31.777959",
+ "modified": "2021-06-23 16:01:14.326092",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

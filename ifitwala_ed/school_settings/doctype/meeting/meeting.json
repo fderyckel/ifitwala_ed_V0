@@ -11,7 +11,7 @@
  "field_order": [
   "meeting_name",
   "status",
-  "department",
+  "team",
   "meeting_organizer",
   "column_break_4",
   "date",
@@ -38,12 +38,6 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "\nPlanned\nInvitation sent\nIn Progress\nCompleted\nCancelled"
-  },
-  {
-   "fieldname": "department",
-   "fieldtype": "Link",
-   "label": "Department",
-   "options": "Department"
   },
   {
    "fieldname": "column_break_4",
@@ -124,11 +118,17 @@
    "label": "Organization Event",
    "options": "Organization Event",
    "read_only": 1
+  },
+  {
+   "fieldname": "team",
+   "fieldtype": "Link",
+   "label": "Team",
+   "options": "Team"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-20 20:35:12.640255",
+ "modified": "2021-06-23 16:02:00.288995",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",

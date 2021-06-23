@@ -162,14 +162,15 @@
   {
    "fieldname": "calendar_event_color",
    "fieldtype": "Color",
-   "label": "Color"
+   "label": "Color",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-23 12:55:52.271380",
+ "modified": "2021-06-23 13:01:42.144433",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

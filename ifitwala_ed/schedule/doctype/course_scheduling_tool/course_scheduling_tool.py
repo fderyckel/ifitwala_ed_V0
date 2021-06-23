@@ -62,25 +62,29 @@ class CourseSchedulingTool(Document):
 
 	@frappe.whitelist()
 	def get_instructors(self):
-		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
+		return frappe.db.sql("""SELECT instructor, instructor_name FROM `tabStudent Group Instructor` WHERE parent = %s""", (self.student_group), as_dict=1)
 
 	@frappe.whitelist()
 	def get_students(self):
-		return frappe.db.sql("""select student, student_name from `tabStudent Group Student` where parent = %s""", (self.student_group), as_dict=1)
+		return frappe.db.sql("""SELECT student, student_name FROM `tabStudent Group Student` WHERE parent = %s""", (self.student_group), as_dict=1)
 
 
 	def make_course_schedule(self, date):
 		course_schedule = frappe.get_doc({
-			"doctype": "School Event",
-			"subject": f'{self.student_group.split("/")[0]} {getdate(date)}',
-			"event_category": "Course",
-			"event_type": "Private",
-			"room": self.room,
+			#"doctype": "Course Event",
+			"doctype": "Course Schedule",
+			#"subject": f'{self.student_group.split("/")[0]} {getdate(date)}',
+			#"event_category": "Course",
+			#"event_type": "Private",
+			"schedule_date": getdate(date),
+			"location": self.location,
 			"color": self.calendar_event_color,
-			"starts_on": datetime.datetime.combine(getdate(date), get_time(self.from_time)),
-			"ends_on": datetime.datetime.combine(getdate(date), get_time(self.to_time)),
-			"reference_type": "Student Group",
-			"reference_name": self.student_group,
+			#"starts_on": datetime.datetime.combine(getdate(date), get_time(self.from_time)),
+			#"ends_on": datetime.datetime.combine(getdate(date), get_time(self.to_time)),
+			"from_time": self.from_time,
+			"to_time": self.to_time
+			#"reference_type": "Student Group",
+			#"reference_name": self.student_group,
 		})
 		#part = []
 		for instructor in self.instructors:

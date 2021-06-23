@@ -15,7 +15,7 @@ frappe.ui.form.on('Course Scheduling Tool', {
   },
 
   refresh: function(frm) {
-    frm.disable_save();
+    //frm.disable_save();
 
 	if (frm.doc.course) {
 		frappe.call({

@@ -11,6 +11,7 @@ from frappe.utils import getdate, today
 class ProgramEnrollmentTool(Document):
 
 	# called by the button get_students on the form
+	@frappe.whitelist()
 	def get_students(self):
 		students = []
 		if not self.get_students_from:

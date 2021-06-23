@@ -42,7 +42,10 @@ def event_has_permission(doc, user):
 	#if doc.owner == user or user in [d.participant for d in doc.participants]:
 	if doc.event_type == "Private" and (doc.owner == user or user in [d.participant for d in doc.participants]):
 		return True
-
+	if doc.event_category == "Course":
+		stu_group = frappe.get_doc("Student Group", doc.reference_name)
+		if user in [ins.user_id for ins in stu_group.instructors] or user in [stu.user_id for stu in stu_group.students]:
+			return True
 	return False
 
 @frappe.whitelist()

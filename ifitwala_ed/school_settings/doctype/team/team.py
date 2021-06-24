@@ -59,6 +59,14 @@ def get_team_members(team):
 def get_permission_query_conditions(user):
 	if not user:
 		user = frappe.session.user
+
+	current_user = frappe.get_doc("User", frappe.session.user)
+	roles = [role.role for role in current_user.roles]
+	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker"]
+	for role in roles:
+		if role in super_viewer:
+			return ""
+
 	return """(name in (SELECT parent FROM `tabTeam Member` WHERE member=%(user)s))""" % {
 		"user": frappe.db.escape(user)
 		}

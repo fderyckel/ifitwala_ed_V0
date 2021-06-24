@@ -13,7 +13,7 @@
   "column_break_4",
   "academic_year",
   "academic_term",
-  "room",
+  "location",
   "calendar_event_color",
   "timing_section",
   "from_time",
@@ -71,13 +71,6 @@
    "label": "Academic Term",
    "options": "Academic Term",
    "read_only": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "room",
-   "fieldtype": "Link",
-   "label": "Room",
-   "options": "Location",
    "reqd": 1
   },
   {
@@ -164,13 +157,20 @@
    "fieldtype": "Color",
    "label": "Color",
    "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location",
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-23 13:01:42.144433",
+ "modified": "2021-06-23 16:41:17.241090",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",

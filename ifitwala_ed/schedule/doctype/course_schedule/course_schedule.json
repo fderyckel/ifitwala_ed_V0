@@ -10,10 +10,10 @@
   "student_group",
   "column_break_4",
   "course",
-  "color",
+  "calendar_event_color",
   "section_break_7",
   "schedule_date",
-  "room",
+  "location",
   "column_break_10",
   "from_time",
   "to_time",
@@ -47,12 +47,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "color",
-   "fieldtype": "Color",
-   "label": "Color",
-   "print_hide": 1
-  },
-  {
    "fieldname": "section_break_7",
    "fieldtype": "Section Break"
   },
@@ -63,15 +57,6 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Schedule Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "room",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Room",
-   "options": "Location",
    "reqd": 1
   },
   {
@@ -108,12 +93,27 @@
    "fieldtype": "Table",
    "in_standard_filter": 1,
    "label": "Instructors",
-   "options": "Course Schedule Instructor"
+   "options": "Course Schedule Participant"
+  },
+  {
+   "fieldname": "calendar_event_color",
+   "fieldtype": "Color",
+   "label": "Color",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Location",
+   "options": "Location",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-04 21:59:48.174506",
+ "modified": "2021-06-23 17:25:44.526033",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",

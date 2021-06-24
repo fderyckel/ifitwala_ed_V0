@@ -36,7 +36,7 @@ class Meeting(Document):
 
 	@frappe.whitelist()
 	def get_attendees(self):
-		return frappe.db.sql("""select member as attendee, member_name as full_name from `tabTeam Member` where parent = %s""", (self.department), as_dict=1)
+		return frappe.db.sql("""select member as attendee, member_name as full_name from `tabTeam Member` where parent = %s""", (self.team), as_dict=1)
 
 	def validate_date(self):
 		if getdate(self.date) < getdate(today()):

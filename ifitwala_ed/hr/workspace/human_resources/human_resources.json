@@ -112,7 +112,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-05-27 13:28:48.494527",
+ "modified": "2021-06-24 10:46:26.664980",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
@@ -124,6 +124,12 @@
    "color": "Grey",
    "doc_view": "List",
    "label": "Employee List",
+   "link_to": "Employee",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Tree",
+   "label": "Employee Tree",
    "link_to": "Employee",
    "type": "DocType"
   },

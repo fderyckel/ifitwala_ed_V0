@@ -174,7 +174,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-06-23 16:01:14.326092",
+ "modified": "2021-06-24 10:41:32.331617",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
@@ -184,8 +184,14 @@
  "shortcuts": [
   {
    "doc_view": "Tree",
-   "label": "School",
+   "label": "Organization",
    "link_to": "Organization",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Tree",
+   "label": "School",
+   "link_to": "School",
    "type": "DocType"
   },
   {

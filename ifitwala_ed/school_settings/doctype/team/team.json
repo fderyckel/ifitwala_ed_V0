@@ -8,8 +8,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "department_name",
-  "department_lead",
+  "team_name",
+  "team_lead",
   "enabled",
   "school",
   "section_break_4",
@@ -17,7 +17,7 @@
   "lead_full_name",
   "school_abbreviation",
   "organization_abbreviation",
-  "department_members_section",
+  "team_members_section",
   "members",
   "dpt_philosophy_section",
   "philosphy",
@@ -33,13 +33,6 @@
    "unique": 1
   },
   {
-   "fieldname": "department_lead",
-   "fieldtype": "Link",
-   "label": "Department Lead",
-   "options": "User",
-   "print_hide": 1
-  },
-  {
    "fetch_from": "department_lead.full_name",
    "fieldname": "lead_full_name",
    "fieldtype": "Data",
@@ -48,20 +41,8 @@
    "read_only": 1
   },
   {
-   "fieldname": "department_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "label": "Department Name",
-   "reqd": 1
-  },
-  {
    "fieldname": "section_break_4",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "department_members_section",
-   "fieldtype": "Section Break",
-   "label": "Department Members"
   },
   {
    "fieldname": "members",
@@ -119,11 +100,30 @@
    "fieldname": "organization_abbreviation",
    "fieldtype": "Read Only",
    "label": "Organization Abbreviation"
+  },
+  {
+   "fieldname": "team_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Team Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "team_lead",
+   "fieldtype": "Link",
+   "label": "Team Lead",
+   "options": "User",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "team_members_section",
+   "fieldtype": "Section Break",
+   "label": "Team Members"
   }
  ],
  "icon": "fa fa-sitemap",
  "links": [],
- "modified": "2021-06-23 15:58:59.854908",
+ "modified": "2021-06-24 10:28:44.341035",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Team",
@@ -206,7 +206,7 @@
   }
  ],
  "show_name_in_global_search": 1,
- "sort_field": "department_name",
+ "sort_field": "team_name",
  "sort_order": "ASC",
  "track_changes": 1
 }

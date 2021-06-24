@@ -52,16 +52,15 @@ class Team(Document):
 
 @frappe.whitelist()
 def get_team_members(team):
-    """ Return the list of all members from a dpt"""
-    members = frappe.get_list("Team Member", fields = ["member", "member_name"],
-                filters = {"parent": team}, order_by = "member")
+    """ Return the list of all members from a team"""
+    members = frappe.get_list("Team Member", fields = ["member", "member_name"], filters = {"parent": team}, order_by = "member")
     return members
 
 def get_permission_query_conditions(user):
 	if not user:
 		user = frappe.session.user
 	return """(name in (SELECT parent FROM `tabTeam Member` WHERE member=%(user)s))""" % {
-		"user": frappe.db.escape(user),
+		"user": frappe.db.escape(user)
 		}
 
 def team_has_permission(user, doc):

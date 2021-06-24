@@ -60,7 +60,7 @@ def get_team_members(team):
 def get_permission_query_conditions(user):
 	if not user:
 		user = frappe.session.user
-	return """(name in (SELECT parent FROM `tabTeam Member` WHERE member=%(user)s)""" % {
+	return """(name in (SELECT parent FROM `tabTeam Member` WHERE member=%(user)s))""" % {
 		"user": frappe.db.escape(user),
 		}
 

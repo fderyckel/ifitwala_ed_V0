@@ -107,7 +107,7 @@ class Organization(NestedSet):
 		frappe.db.sql("""UPDATE `tabSingles` SET value="" WHERE doctype='Global Defaults' AND field='default_organization' AND value=%s""", self.name)
 
 		frappe.db.sql("delete from tabEmployee where organization=%s", self.name)
-		frappe.db.sql("delete from tabDepartment where organization=%s", self.name)
+		frappe.db.sql("delete from tabTeam where organization=%s", self.name)
 
 
 ##########################################
@@ -233,7 +233,7 @@ class Organization(NestedSet):
 			school.flags.ignore_permissions = True
 			school.flags.ignore_mandatory = True
 			school.insert()
-				
+
 	def create_default_cost_center(self):
 		cc_list = [
 			{
@@ -356,7 +356,7 @@ def replace_abbr(organization, old, new):
 		for d in doc:
 			_rename_record(d)
 
-	for dt in ["Location", "Account", "Cost Center", "Department", "Sales Taxes and Charges Template"]:
+	for dt in ["Location", "Account", "Cost Center", "Team", "Sales Taxes and Charges Template"]:
 		_rename_records(dt)
 		frappe.db.commit()
 

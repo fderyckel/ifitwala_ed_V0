@@ -94,7 +94,7 @@ has_permission = {
     "Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.meeting_has_permission",
     "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.event_has_permission",
     "Student Group": "ifitwala_ed.schedule.doctype.student_group.student_group.group_has_permission"
-	#"Team": "ifitwala_ed.school_settings.doctype.team.team.team_has_permission"
+	"Team": "ifitwala_ed.school_settings.doctype.team.team.team_has_permission"
 }
 
 has_upload_permission = {

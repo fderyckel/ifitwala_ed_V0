@@ -57,6 +57,11 @@ def get_team_members(team):
                 filters = {"parent": team}, order_by = "member")
     return members
 
+def get_permission_query_conditions(user):
+	if not user:
+		user = frappe.session.user
+	return """(name in (SELECT parent FROM `tabTeam Member` WHERE member = %(user)s)""".format(user = frappe.db.escape(user))
+
 @frappe.whitelist()
 def update_dpt_email(doctype, name):
     if not frappe.db.exists("Email Group", name):

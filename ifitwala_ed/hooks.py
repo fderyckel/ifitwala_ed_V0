@@ -86,7 +86,8 @@ calendars = ["School Event", "Course Schedule", "School Calendar", "Organization
 permission_query_conditions = {
     "Meeting": "ifitwala_ed.school_settings.doctype.meeting.meeting.get_permission_query_conditions",
     "School Event": "ifitwala_ed.school_settings.doctype.school_event.school_event.get_permission_query_conditions",
-    "Student Group": "ifitwala_ed.schedule.doctype.student_group.student_group.get_permission_query_conditions"
+    "Student Group": "ifitwala_ed.schedule.doctype.student_group.student_group.get_permission_query_conditions",
+	"Team": "ifitwala_ed.schedule.doctype.team.team.get_permission_query_conditions"
 }
 #
 has_permission = {

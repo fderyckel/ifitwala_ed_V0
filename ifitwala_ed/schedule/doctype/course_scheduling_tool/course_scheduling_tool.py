@@ -21,7 +21,7 @@ class CourseSchedulingTool(Document):
 		reschedule_errors = []
 
 		self.validate_dates()
-		self.validate_mandatory_fields()
+		#self.validate_mandatory_fields()
 
 		date = getdate(self.from_date)
 		while date < getdate(self.to_date):

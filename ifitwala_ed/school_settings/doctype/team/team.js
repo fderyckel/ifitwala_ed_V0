@@ -14,9 +14,9 @@ frappe.ui.form.on('Team', {
 
 	refresh: function(frm) {
 		if (!frm.doc.__islocal) {
-			frm.add_custom_button(__('Update Dpt Member Email Group'), function() {
+			frm.add_custom_button(__('Update Team Member Email Group'), function() {
 				frappe.call({
-					method: 'ifitwala_ed.school_settings.doctype.department.department.update_dpt_email',
+					method: 'ifitwala_ed.school_settings.doctype.team.team.update_dpt_email',
 					args: {
 						'doctype': 'Team',
 						'name': frm.doc.name
@@ -26,7 +26,7 @@ frappe.ui.form.on('Team', {
 
 			frm.add_custom_button(__('Newsletter'), function() {
 				frappe.call({
-					method: 'ifitwala_ed.school_settings.doctype.department.department.create_prefilled_newsletter',
+					method: 'ifitwala_ed.school_settings.doctype.team.team.create_prefilled_newsletter',
 					args: {
 						'name': frm.doc.name,
 						'sender': frappe.session.user_email,
@@ -44,7 +44,7 @@ frappe.ui.form.on('Team', {
 			}, __('Communication'));
 
 			frm.add_custom_button(__('Meetings'), function() {
-				frappe.route_options = {'department': frm.doc.name};
+				frappe.route_options = {'team': frm.doc.name};
 				frappe.set_route('List', 'Meeting');
 			});
 		}
@@ -62,7 +62,7 @@ frappe.ui.form.on('Team', {
 					let values = {
 						'organization': data.message.organization
 					};
-					frm.set_value(values); 
+					frm.set_value(values);
 				}
 			});
 		}

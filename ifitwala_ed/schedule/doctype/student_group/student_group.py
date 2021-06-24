@@ -95,7 +95,7 @@ def get_permission_query_conditions(user):
 		return """(name in (select parent from `tabStudent Group Instructor` where user_id=%(user)s))""" % {
 				"user": frappe.db.escape(user),
 				}
-	super_viewer = ["Administrator", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker"]
+	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker"]
 	for role in roles:
 		if role in super_viewer:
 			return ""
@@ -104,7 +104,7 @@ def get_permission_query_conditions(user):
 def group_has_permission(user, doc):
 	current_user = frappe.get_doc("User", user)
 	roles = [role.role for role in current_user.roles]
-	super_viewer = ["Administrator", "Curriculum Coordinator", "System Manager", "Academic Admin", "Schedule Maker", "Admission Officer"]
+	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker", "Admission Officer"]
 	for role in roles:
 		if role in super_viewer:
 			return True

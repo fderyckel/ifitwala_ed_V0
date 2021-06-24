@@ -62,6 +62,18 @@ def get_permission_query_conditions(user):
 		user = frappe.session.user
 	return """(name in (SELECT parent FROM `tabTeam Member` WHERE member = %(user)s)""".format(user = frappe.db.escape(user))
 
+def team_has_permission(user, doc):
+	current_user = frappe.get_doc("User", user)
+	roles = [role.role for role in current_user.roles]
+	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker"]
+	for role in roles:
+		if role in super_viewer:
+			return True
+	if current_user.name in [i.member.lower() for i in doc.members]:
+		return True
+
+	return False
+
 @frappe.whitelist()
 def update_dpt_email(doctype, name):
     if not frappe.db.exists("Email Group", name):

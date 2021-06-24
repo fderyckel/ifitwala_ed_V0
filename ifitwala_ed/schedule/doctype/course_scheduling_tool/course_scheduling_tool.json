@@ -104,6 +104,7 @@
   },
   {
    "fetch_from": "academic_term.term_end_date",
+   "fetch_if_empty": 1,
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "Course End Date",
@@ -130,8 +131,7 @@
    "fieldname": "instructors",
    "fieldtype": "Table",
    "label": "Instructors",
-   "options": "Student Group Instructor",
-   "reqd": 1
+   "options": "Student Group Instructor"
   },
   {
    "fieldname": "students",
@@ -170,7 +170,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-23 16:41:17.241090",
+ "modified": "2021-06-24 17:39:39.703663",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Scheduling Tool",
@@ -209,6 +209,5 @@
  ],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+ "sort_order": "DESC"
 }

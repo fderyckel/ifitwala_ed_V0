@@ -174,7 +174,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-06-24 10:41:32.331617",
+ "modified": "2021-06-24 15:16:27.736619",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",
@@ -192,6 +192,12 @@
    "doc_view": "Tree",
    "label": "School",
    "link_to": "School",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Team",
+   "link_to": "Team",
    "type": "DocType"
   },
   {

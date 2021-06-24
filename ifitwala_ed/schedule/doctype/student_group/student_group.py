@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import cint
+from frappe.utils import cint, get_link_to_form
 from ifitwala_ed.utils import validate_duplicate_student
 
 class StudentGroup(Document):

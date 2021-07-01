@@ -18,7 +18,7 @@
   "from_time",
   "to_time",
   "instructors_section",
-  "instructors",
+  "participants",
   "title"
  ],
  "fields": [
@@ -89,13 +89,6 @@
    "label": "Instructors"
   },
   {
-   "fieldname": "instructors",
-   "fieldtype": "Table",
-   "in_standard_filter": 1,
-   "label": "Instructors",
-   "options": "Course Schedule Participant"
-  },
-  {
    "fieldname": "calendar_event_color",
    "fieldtype": "Color",
    "label": "Color",
@@ -109,11 +102,18 @@
    "label": "Location",
    "options": "Location",
    "reqd": 1
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Table",
+   "in_standard_filter": 1,
+   "label": "Participants",
+   "options": "Course Schedule Participant"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-23 17:25:44.526033",
+ "modified": "2021-06-24 18:29:46.953298",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",

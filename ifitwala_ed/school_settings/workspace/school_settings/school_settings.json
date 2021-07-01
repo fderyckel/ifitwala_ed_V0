@@ -18,7 +18,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "School & Department",
+   "label": "School & Teams",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -174,7 +174,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-06-24 15:16:27.736619",
+ "modified": "2021-06-24 18:19:05.949084",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "School Settings",

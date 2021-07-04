@@ -89,6 +89,8 @@
    "label": "Instructors"
   },
   {
+   "fetch_from": "course.calendar_event_color",
+   "fetch_if_empty": 1,
    "fieldname": "calendar_event_color",
    "fieldtype": "Color",
    "label": "Color",
@@ -113,7 +115,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-24 18:29:46.953298",
+ "modified": "2021-07-03 08:55:12.288307",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Course Schedule",

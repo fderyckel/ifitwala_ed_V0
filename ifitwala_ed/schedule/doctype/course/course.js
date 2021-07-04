@@ -3,7 +3,7 @@
 
 frappe.ui.form.on('Course', {
 	setup: function(frm) {
-		frm.add_fetch('department', 'school', 'school'); 
+		frm.add_fetch('team', 'school', 'school');
 	},
 
 	refresh: function(frm) {

@@ -120,16 +120,16 @@ def install_organization(args):
 	make_records(records)
 
 
-def install_post_organization_fixtures(args=None):
-	records = [
-		# Department
-		{'doctype': 'Department', 'department_name': _('All Departments'), 'is_group': 1, 'parent_department': ''},
-		{'doctype': 'Department', 'department_name': _('Accounts'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
-		{'doctype': 'Department', 'department_name': _('Operations'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
-		{'doctype': 'Department', 'department_name': _('Human Resources'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
-		{'doctype': 'Department', 'department_name': _('Legal'), 'parent_department': _('All Departments'), 'organization': args.organization_name},
-	]
-	make_records(records)
+#def install_post_organization_fixtures(args=None):
+#	records = [
+#		# Department
+#		{'doctype': 'Team', 'team_name': _('All Departments'), 'is_group': 1, 'parent_team': ''},
+#		{'doctype': 'Team', 'team_name': _('Accounts'), 'parent_team': _('All Departments'), 'organization': args.organization_name},
+#		{'doctype': 'Team', 'team_name': _('Operations'), 'parent_team': _('All Departments'), 'organization': args.organization_name},
+#		{'doctype': 'Team', 'team_name': _('Human Resources'), 'parent_team': _('All Departments'), 'organization': args.organization_name},
+#		{'doctype': 'Team', 'team_name': _('Legal'), 'parent_team': _('All Departments'), 'organization': args.organization_name},
+#	]
+#	make_records(records)
 
 def install_defaults(args=None):
 	# enable default currency

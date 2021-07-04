@@ -50,8 +50,8 @@ class CourseSchedule(Document):
 			for tructor in tructors:
 				validate_overlap_for(self, "Course Schedule", tructor.instructor)
 
-	def get_instructors(self):
-		return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
+	#def get_instructors(self):
+	#	return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 
 @frappe.whitelist()
@@ -60,7 +60,7 @@ def get_course_schedule_events(start, end, filters=None):
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)
 
-	data = frappe.db.sql(""" SELECT name, course, color,
+	data = frappe.db.sql(""" SELECT name, course, calendar_event_color,
 					timestamp(schedule_date, from_time) as from_datetime,
 					timestamp(schedule_date, to_time) as to_datetime,
 					room, student_group, 0 as 'all_day'

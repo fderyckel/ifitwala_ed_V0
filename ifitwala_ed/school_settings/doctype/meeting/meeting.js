@@ -11,7 +11,7 @@ frappe.ui.form.on('Meeting', {
 	refresh: function(frm) {
 	},
 
-	department: function(frm) {
+	team: function(frm) {
 		frm.events.get_attendees(frm);
 	},
 

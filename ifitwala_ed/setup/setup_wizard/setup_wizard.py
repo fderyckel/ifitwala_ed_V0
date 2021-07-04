@@ -89,8 +89,8 @@ def stage_fixtures(args):
 def setup_organization(args):
 	fixtures.install_organization(args)
 
-def setup_post_organization_fixtures(args):
-	fixtures.install_post_organization_fixtures(args)
+#def setup_post_organization_fixtures(args):
+#	fixtures.install_post_organization_fixtures(args)
 
 def setup_defaults(args):
 	fixtures.install_defaults(frappe._dict(args))

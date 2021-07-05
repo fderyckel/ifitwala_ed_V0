@@ -5,7 +5,7 @@ frappe.ui.form.on('Course Schedule', {
 
 	onload: function(frm) {
 		frm.add_fetch('student_group', 'course', 'course');
-		frm.add_fetch('course', 'calendar_event_color', 'calendar_event_color')
+		frm.add_fetch('course', 'calendar_event_color', 'calendar_event_color');
 	},
 
 	refresh: function(frm) {

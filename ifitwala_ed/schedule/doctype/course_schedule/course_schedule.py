@@ -43,8 +43,8 @@ class CourseSchedule(Document):
 
 		if self.student_group:
 			validate_overlap_for(self, "Course Schedule", "student_group")
-		if self.room:
-			validate_overlap_for(self, "Course Schedule", "room")
+		if self.location:
+			validate_overlap_for(self, "Course Schedule", "location")
 		if self.instructors:
 			tructors = frappe.get_list("Student Group Instructor", fields = ["instructor"], filters = {"parent": self.student_group})
 			for tructor in tructors:
@@ -63,7 +63,7 @@ def get_course_schedule_events(start, end, filters=None):
 	data = frappe.db.sql(""" SELECT name, course, calendar_event_color,
 					timestamp(schedule_date, from_time) as from_datetime,
 					timestamp(schedule_date, to_time) as to_datetime,
-					room, student_group, 0 as 'all_day'
+					location, student_group, 0 as 'all_day'
 			FROM `tabCourse Schedule`
 			WHERE ( schedule_date between %(start)s and %(end)s )
 			{conditions}""".format(conditions = conditions), {

@@ -27,9 +27,17 @@ class CourseSchedulingTool(Document):
 		while date < getdate(self.to_date):
 			if self.day == get_weekday(date):
 				course_schedule = self.make_course_schedule(date)
-				course_schedule.insert()
-				course_schedules.append(course_schedule)
+				try:
+					print('pass')
+					course_schedule.save()
+				except OverlapError:
+					print('fail')
+					course_schedules_errors.append(date)
+				else:
+					course_schedules.append(course_schedule)
+
 				date = add_days(date, self.n_week * 7)
+
 			else:
 				date = add_days(date, 1)
 

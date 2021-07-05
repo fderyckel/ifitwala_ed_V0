@@ -15,8 +15,8 @@ class CourseSchedule(Document):
 		self.set_title()
 		self.validate_date()
 		self.validate_overlap()
-		if not self.instructors:
-			self.extend("instructors", self.get_instructors())
+		#if not self.instructors:
+		#	self.extend("instructors", self.get_instructors())
 
 	# set up the course field if it is based on a course.
 	def validate_course(self):

@@ -55,7 +55,7 @@ class CourseSchedulingTool(Document):
 			frappe.throw(_("The start and end date of the course should be included in the selected academic term {1}.").format(get_link_to_form(self.academic_term)))
 
 	def validate_mandatory_fields(self):
-		fields = ['course', 'room', 'from_time', 'to_time', 'from_date', 'to_date']
+		fields = ['course', 'location', 'from_time', 'to_time', 'from_date', 'to_date']
 		for f in fields:
 			if not self.get(f):
 				frappe.throw(_("{0} is a mandatory field. Please select an appropriate value.").format(self.meta.get_label(f)))

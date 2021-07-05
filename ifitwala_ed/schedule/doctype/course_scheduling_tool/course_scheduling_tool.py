@@ -21,7 +21,7 @@ class CourseSchedulingTool(Document):
 		reschedule_errors = []
 
 		self.validate_dates()
-		#self.validate_mandatory_fields()
+		self.validate_mandatory_fields()
 
 		date = getdate(self.from_date)
 		while date < getdate(self.to_date):
@@ -70,22 +70,31 @@ class CourseSchedulingTool(Document):
 
 
 	def make_course_schedule(self, date):
-		course_schedule = frappe.get_doc({
+		course_schedule = frappe.new_doc("Course Schedule")
+		course_schedule.student_group = self.student_group
+		course_schedule.course = self.course
+		course_schedule.location = self.location
+		course_schedule.schedule_date = date
+		course_schedule.from_time = self.from_time
+		course_schedule.to_time = self.to_time
+		return course_schedule
+
+		#course_schedule = frappe.get_doc({
 			#"doctype": "Course Event",
-			"doctype": "Course Schedule",
+			#"doctype": "Course Schedule",
 			#"subject": f'{self.student_group.split("/")[0]} {getdate(date)}',
 			#"event_category": "Course",
 			#"event_type": "Private",
-			"schedule_date": getdate(date),
-			"location": self.location,
-			"color": self.calendar_event_color,
+			#"schedule_date": getdate(date),
+			#"location": self.location,
+			#"color": self.calendar_event_color,
 			#"starts_on": datetime.datetime.combine(getdate(date), get_time(self.from_time)),
 			#"ends_on": datetime.datetime.combine(getdate(date), get_time(self.to_time)),
-			"from_time": self.from_time,
-			"to_time": self.to_time
+			#"from_time": self.from_time,
+			#"to_time": self.to_time
 			#"reference_type": "Student Group",
 			#"reference_name": self.student_group,
-		})
+		#})
 		#part = []
 		#for instructor in self.instructors:
 		#	inst = frappe.get_doc("Instructor", instructor.instructor)
@@ -95,7 +104,7 @@ class CourseSchedulingTool(Document):
 		#	stud = frappe.get_doc("Student", student.student)
 		#	course_schedule.append("participants", {"participant": stud.user_id})
 
-		return course_schedule
+		#return course_schedule
 
 
 	def delete_course_schedule(self, rescheduled, reschedule_errors):

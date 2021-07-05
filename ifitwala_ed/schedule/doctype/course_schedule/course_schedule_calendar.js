@@ -27,12 +27,6 @@ frappe.views.calendar['Course Schedule'] = {
     },
     {
       "fieldtype": "Link",
-      "fieldname": "instructor",
-      "options": "Instructor",
-      "label": __("Instructor")
-    },
-    {
-      "fieldtype": "Link",
       "fieldname": "location",
       "options": "Location",
       "label": __("Room")

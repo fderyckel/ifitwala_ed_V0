@@ -3,11 +3,11 @@
 
 frappe.ui.form.on('Course Scheduling Tool', {
 	setup: function(frm) {
-		frm.add_fetch('student_group', 'course', 'course'),
-		frm.add_fetch('student_group', 'program', 'program'),
-		frm.add_fetch('student_group', 'academic_term', 'academic_term'),
-		frm.add_fetch('student_group', 'academic_year', 'academic_year'),
-		frm.add_fetch('course', 'calendar_event_color', 'calendar_event_color')
+		frm.add_fetch('student_group', 'course', 'course');
+		frm.add_fetch('student_group', 'program', 'program');
+		frm.add_fetch('student_group', 'academic_term', 'academic_term');
+		frm.add_fetch('student_group', 'academic_year', 'academic_year');
+		frm.add_fetch('course', 'calendar_event_color', 'calendar_event_color');
 	},
 
 	onload: function(frm) {

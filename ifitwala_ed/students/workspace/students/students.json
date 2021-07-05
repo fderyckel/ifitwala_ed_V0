@@ -67,12 +67,25 @@
    "type": "Link"
   }
  ],
- "modified": "2021-06-20 17:32:59.985807",
+ "modified": "2021-07-05 15:00:35.629736",
  "modified_by": "Administrator",
  "module": "Students",
  "name": "Students",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 1,
- "shortcuts": []
+ "shortcuts": [
+  {
+   "doc_view": "Dashboard",
+   "label": "Student Dashboard",
+   "link_to": "Student Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "doc_view": "Report Builder",
+   "label": "Contact Details",
+   "link_to": "Student Guardian Contact Details",
+   "type": "Report"
+  }
+ ]
 }

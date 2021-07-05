@@ -17,7 +17,7 @@
   "date",
   "from_time",
   "to_time",
-  "room",
+  "location",
   "agenda_section_section",
   "agenda",
   "attendees_section_section",
@@ -107,12 +107,6 @@
    "options": "User"
   },
   {
-   "fieldname": "room",
-   "fieldtype": "Link",
-   "label": "Room",
-   "options": "Location"
-  },
-  {
    "fieldname": "organization_event",
    "fieldtype": "Link",
    "label": "Organization Event",
@@ -124,11 +118,17 @@
    "fieldtype": "Link",
    "label": "Team",
    "options": "Team"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-23 16:02:00.288995",
+ "modified": "2021-07-05 15:42:07.749639",
  "modified_by": "Administrator",
  "module": "School Settings",
  "name": "Meeting",

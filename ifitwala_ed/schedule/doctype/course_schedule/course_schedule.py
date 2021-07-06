@@ -61,7 +61,8 @@ def get_course_schedule_events(start, end, filters=None):
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)
 
-	data = frappe.db.sql(""" SELECT name, course, calendar_event_color,
+	data = frappe.db.sql(""" SELECT name, course,
+					calendar_event_color as color,
 					timestamp(schedule_date, from_time) as from_datetime,
 					timestamp(schedule_date, to_time) as to_datetime,
 					location, student_group, 0 as 'all_day'

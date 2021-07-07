@@ -77,15 +77,20 @@ def get_course_schedule_events(start, end, filters=None):
 def get_permission_query_conditions(user):
 	if not user:
 		user = frappe.session.user
+
 	current_user = frappe.get_doc("User", frappe.session.user)
 	roles = [role.role for role in current_user.roles]
-	if "student" in roles:
+	sg_condition = False
+
+	if "Student" in roles:
 		allowed_student_group = []
 
 	if "Instructor" in roles:
 		student_groups = frappe.db.sql("""SELECT parent FROM `tabStudent Group Instructor` WHERE user_id=%s""", user, as_dict=1)
-		allowed_student_group = [group.parent for group in student_groups]
-		sg_condition = '''`tab.Course Schedule`.`student_group` in ({allowed_student_group})'''.format(allowed_student_group=','.join(allowed_student_group))
+		allowed_sg = [frappe.db.escape(sg.get('parent')) for sg in student_groups]
+		if allowed_sg:
+			sg_condition = '''`tab.Course Schedule`.`student_group` in ({allowed_sg})'''.format(allowed_sg=','.join(allowed_sg))
+
 		return ''' {sg_condition} '''.format(sg_condition=sg_condition)
 
 

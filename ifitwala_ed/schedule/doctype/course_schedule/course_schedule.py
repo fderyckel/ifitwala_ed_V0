@@ -46,14 +46,14 @@ class CourseSchedule(Document):
 		if self.location:
 			validate_overlap_for(self, "Course Schedule", "location")
 
-		#this will not work as we do not use the child table of course schedule
-		#instructors = frappe.get_list("Student Group Instructor", fields = ["instructor"], filters = {"parent": self.student_group})
-		#if instructors:
-		#	for inst in instructors:
-		#w		validate_overlap_for(self, "Course Schedule", "instructor", inst.instructor)
+		##this will not work as we do not use the child table of course schedule
+		##instructors = frappe.get_list("Student Group Instructor", fields = ["instructor"], filters = {"parent": self.student_group})
+		##if instructors:
+		##	for inst in instructors:
+		##w		validate_overlap_for(self, "Course Schedule", "instructor", inst.instructor)
 
-	#def get_instructors(self):
-	#	return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
+	##def get_instructors(self):
+	##	return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)
 
 
 @frappe.whitelist()
@@ -73,3 +73,23 @@ def get_course_schedule_events(start, end, filters=None):
 					"start":start,
 					"end": end}, as_dict=True)
 	return data
+
+def get_permission_query_conditions(user):
+	if not user:
+		user = frappe.session.user
+	current_user = frappe.get_doc("User", frappe.session.user)
+	roles = [role.role for role in current_user.roles]
+	if "student" in roles:
+		allowed_student_group = []
+
+	if "Instructor" in roles:
+		student_groups = frappe.db.sql("""SELECT parent FROM `tabStudent Group Instructor` WHERE user_id=%s""", user, as_dict=1)
+		allowed_student_group = [group.parent for group in student_groups]
+		sg_condition = '''`tab.Course Schedule`.`student_group` in ({allowed_student_group})'''.format(allowed_student_group=','.join(allowed_student_group))
+		return ''' {sg_condition} '''.format(sg_condition=sg_condition)
+
+
+	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker"]
+	for role in roles:
+		if role in super_viewer:
+			return ""

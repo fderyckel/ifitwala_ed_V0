@@ -58,8 +58,6 @@ class CourseSchedule(Document):
 
 @frappe.whitelist()
 def get_course_schedule_events(start, end, filters=None):
-	if not user:
-		user = frappe.session.user
 
 	current_user = frappe.get_doc("User", frappe.session.user)
 	roles = [role.role for role in current_user.roles]
@@ -71,7 +69,7 @@ def get_course_schedule_events(start, end, filters=None):
 			sg_condition =  ""
 
 	if "Instructor" in roles:
-		student_groups = frappe.db.sql("""SELECT parent FROM `tabStudent Group Instructor` WHERE user_id=%s""", user, as_dict=1)
+		student_groups = frappe.db.sql("""SELECT parent FROM `tabStudent Group Instructor` WHERE user_id=%s""", current_user.name, as_dict=1)
 		allowed_sg = [frappe.db.escape(sg.get('parent')) for sg in student_groups]
 		if allowed_sg:
 			sg_condition = '''`tabCourse Schedule`.`student_group` in ({allowed_sg})'''.format(allowed_sg=','.join(allowed_sg))

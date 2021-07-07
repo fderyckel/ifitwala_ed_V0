@@ -82,6 +82,7 @@ class CourseSchedulingTool(Document):
 		course_schedule.student_group = self.student_group
 		course_schedule.course = self.course
 		course_schedule.location = self.location
+		course_schedule.calendar_event_color = self.calendar_event_color,
 		course_schedule.schedule_date = date
 		course_schedule.from_time = self.from_time
 		course_schedule.to_time = self.to_time

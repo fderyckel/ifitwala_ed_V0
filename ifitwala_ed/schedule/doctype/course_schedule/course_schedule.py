@@ -46,10 +46,11 @@ class CourseSchedule(Document):
 		if self.location:
 			validate_overlap_for(self, "Course Schedule", "location")
 
-		instructors = frappe.get_list("Student Group Instructor", fields = ["instructor"], filters = {"parent": self.student_group})
-		if instructors:
-			for inst in instructors:
-				validate_overlap_for(self, "Course Schedule", "instructor", inst.instructor)
+		#this will not work as we do not use the child table of course schedule
+		#instructors = frappe.get_list("Student Group Instructor", fields = ["instructor"], filters = {"parent": self.student_group})
+		#if instructors:
+		#	for inst in instructors:
+		#w		validate_overlap_for(self, "Course Schedule", "instructor", inst.instructor)
 
 	#def get_instructors(self):
 	#	return frappe.db.sql("""select instructor, instructor_name from `tabStudent Group Instructor` where parent = %s""", (self.student_group), as_dict=1)

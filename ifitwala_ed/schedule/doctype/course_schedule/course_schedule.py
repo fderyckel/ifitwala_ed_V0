@@ -65,7 +65,7 @@ def get_course_schedule_events(start, end, filters=None):
 					calendar_event_color as color,
 					timestamp(schedule_date, from_time) as from_datetime,
 					timestamp(schedule_date, to_time) as to_datetime,
-					location, student_group, 0 as 'all_day'
+					location, student_group, 0 as 'allDay'
 			FROM `tabCourse Schedule`
 			WHERE ( schedule_date between %(start)s and %(end)s )
 			{conditions}""".format(conditions = conditions), {

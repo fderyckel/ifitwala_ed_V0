@@ -89,7 +89,7 @@ def get_permission_query_conditions(user):
 		student_groups = frappe.db.sql("""SELECT parent FROM `tabStudent Group Instructor` WHERE user_id=%s""", user, as_dict=1)
 		allowed_sg = [frappe.db.escape(sg.get('parent')) for sg in student_groups]
 		if allowed_sg:
-			sg_condition = '''`tab.Course Schedule`.`student_group` in ({allowed_sg})'''.format(allowed_sg=','.join(allowed_sg))
+			sg_condition = '''`tabCourse Schedule`.`student_group` in ({allowed_sg})'''.format(allowed_sg=','.join(allowed_sg))
 
 		return ''' {sg_condition} '''.format(sg_condition=sg_condition)
 

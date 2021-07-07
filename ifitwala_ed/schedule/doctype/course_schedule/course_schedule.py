@@ -58,6 +58,23 @@ class CourseSchedule(Document):
 
 @frappe.whitelist()
 def get_course_schedule_events(start, end, filters=None):
+	if not user:
+		user = frappe.session.user
+
+	current_user = frappe.get_doc("User", frappe.session.user)
+	roles = [role.role for role in current_user.roles]
+	sg_condition = False
+
+	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker"]
+	for role in roles:
+		if role in super_viewer:
+			sg_condition =  ""
+
+	if "Instructor" in roles:
+		student_groups = frappe.db.sql("""SELECT parent FROM `tabStudent Group Instructor` WHERE user_id=%s""", user, as_dict=1)
+		allowed_sg = [frappe.db.escape(sg.get('parent')) for sg in student_groups]
+		if allowed_sg:
+			sg_condition = '''`tabCourse Schedule`.`student_group` in ({allowed_sg})'''.format(allowed_sg=','.join(allowed_sg))
 
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)
@@ -69,7 +86,8 @@ def get_course_schedule_events(start, end, filters=None):
 					location, student_group, 0 as 'allDay'
 			FROM `tabCourse Schedule`
 			WHERE ( schedule_date between %(start)s and %(end)s )
-			{conditions}""".format(conditions = conditions), {
+			{conditions}
+			{sg_condition} """.format(conditions = conditions, sg_condition=sg_condition), {
 					"start":start,
 					"end": end}, as_dict=True)
 	return data

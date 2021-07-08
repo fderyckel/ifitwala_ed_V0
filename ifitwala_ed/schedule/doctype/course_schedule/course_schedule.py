@@ -85,6 +85,7 @@ def get_course_schedule_events(start, end, filters=None):
 			FROM `tabCourse Schedule`
 			WHERE ( schedule_date between %(start)s and %(end)s )
 			{conditions}
+			AND
 			{sg_condition} """.format(conditions = conditions, sg_condition=sg_condition), {
 					"start":start,
 					"end": end}, as_dict=True)

@@ -66,8 +66,6 @@
    "in_global_search": 1,
    "in_standard_filter": 1,
    "label": "From Employee",
-   "oldfieldname": "employee",
-   "oldfieldtype": "Link",
    "options": "Employee",
    "reqd": 1,
    "search_index": 1
@@ -78,8 +76,6 @@
    "fieldtype": "Data",
    "in_global_search": 1,
    "label": "Employee Name",
-   "oldfieldname": "employee_name",
-   "oldfieldtype": "Data",
    "read_only": 1,
    "width": "150px"
   },
@@ -126,8 +122,6 @@
    "fieldname": "expenses",
    "fieldtype": "Table",
    "label": "Expenses",
-   "oldfieldname": "expense_voucher_details",
-   "oldfieldtype": "Table",
    "options": "Expense Claim Detail",
    "reqd": 1
   },
@@ -151,8 +145,6 @@
    "fieldtype": "Currency",
    "label": "Total Sanctioned Amount",
    "no_copy": 1,
-   "oldfieldname": "total_sanctioned_amount",
-   "oldfieldtype": "Currency",
    "options": "Organization:organization:default_currency",
    "read_only": 1,
    "width": "160px"
@@ -189,8 +181,6 @@
    "in_list_view": 1,
    "label": "Total Claimed Amount",
    "no_copy": 1,
-   "oldfieldname": "total_claimed_amount",
-   "oldfieldtype": "Currency",
    "options": "Organization:organization:default_currency",
    "read_only": 1,
    "width": "160px"
@@ -214,8 +204,6 @@
    "fieldtype": "Date",
    "in_standard_filter": 1,
    "label": "Posting Date",
-   "oldfieldname": "posting_date",
-   "oldfieldtype": "Date",
    "reqd": 1
   },
   {
@@ -226,9 +214,7 @@
    "fieldname": "remark",
    "fieldtype": "Small Text",
    "label": "Remark",
-   "no_copy": 1,
-   "oldfieldname": "remark",
-   "oldfieldtype": "Small Text"
+   "no_copy": 1
   },
   {
    "allow_on_submit": 1,
@@ -244,8 +230,6 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Employees Email Id",
-   "oldfieldname": "email_id",
-   "oldfieldtype": "Data",
    "print_hide": 1
   },
   {
@@ -258,8 +242,6 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Organization",
-   "oldfieldname": "company",
-   "oldfieldtype": "Link",
    "options": "Organization",
    "remember_last_selected_value": 1,
    "reqd": 1
@@ -325,8 +307,6 @@
    "ignore_user_permissions": 1,
    "label": "Amended From",
    "no_copy": 1,
-   "oldfieldname": "amended_from",
-   "oldfieldtype": "Data",
    "options": "Expense Claim",
    "print_hide": 1,
    "read_only": 1,
@@ -357,7 +337,7 @@
  "icon": "fa fa-money",
  "is_submittable": 1,
  "links": [],
- "modified": "2021-05-22 14:22:27.979067",
+ "modified": "2021-07-08 14:22:27",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Expense Claim",

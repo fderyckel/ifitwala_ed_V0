@@ -23,8 +23,6 @@
    "fieldtype": "Data",
    "label": "Title",
    "no_copy": 1,
-   "oldfieldname": "title",
-   "oldfieldtype": "Data",
    "reqd": 1
   },
   {
@@ -59,8 +57,6 @@
    "fieldname": "taxes",
    "fieldtype": "Table",
    "label": "Purchase Taxes and Charges",
-   "oldfieldname": "purchase_tax_details",
-   "oldfieldtype": "Table",
    "options": "Purchase Taxes and Charges"
   },
   {
@@ -77,7 +73,7 @@
  "icon": "fa fa-money",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-03 17:02:22.759590",
+ "modified": "2021-07-03 17:02:22",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Purchase Taxes and Charges Template",

@@ -63,16 +63,17 @@ def get_course_schedule_events(start, end, filters=None):
 	roles = [role.role for role in current_user.roles]
 	sg_condition = False
 
-	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker"]
-	for role in roles:
-		if role in super_viewer:
-			sg_condition =  ""
-
 	if "Instructor" in roles:
 		student_groups = frappe.db.sql("""SELECT parent FROM `tabStudent Group Instructor` WHERE user_id=%s""", current_user.name, as_dict=1)
 		allowed_sg = [frappe.db.escape(sg.get('parent')) for sg in student_groups]
 		if allowed_sg:
 			sg_condition = '''`tabCourse Schedule`.`student_group` in ({allowed_sg})'''.format(allowed_sg=','.join(allowed_sg))
+
+	super_viewer = ["Administrator", "System Manager", "Academic Admin", "Schedule Maker"]
+	for role in roles:
+		if role in super_viewer:
+			sg_condition =  True
+
 
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)

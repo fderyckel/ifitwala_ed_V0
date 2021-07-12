@@ -18,6 +18,7 @@ class StudentAttendance(Document):
 		self.validate_student()
 		self.validate_duplicate()
 
+	## should be done at the JS level
 	def set_date(self):
 		if self.course_schedule:
 			self.date = frappe.db.get_value("Course Schedule", self.course_schedule, "schedule_date")

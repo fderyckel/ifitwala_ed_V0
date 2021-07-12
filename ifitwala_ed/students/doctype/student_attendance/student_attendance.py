@@ -32,7 +32,7 @@ class StudentAttendance(Document):
 				term_start_date, term_end_date = frappe.db.get_value("Academic Term", academic_term, ["term_start_date", "term_end_date"])
 				if term_start_date and term_end_date:
 					if getdate(term_start_date) <= getdate(self.date) <= getdate(term_end_date):
-						frappe.throw(_("Attendance date should be within the academic term {0} dates.").format(get_link_to_form(academic_term)))
+						frappe.throw(_("Attendance date should be within the academic term {0} dates.").format(get_link_to_form("Academic Term", academic_term)))
 
 
 	def validate_student(self):

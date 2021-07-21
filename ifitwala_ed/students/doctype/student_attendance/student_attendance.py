@@ -31,14 +31,14 @@ class StudentAttendance(Document):
 			if academic_term:
 				term_start_date, term_end_date = frappe.db.get_value("Academic Term", academic_term, ["term_start_date", "term_end_date"])
 				if term_start_date and term_end_date:
-					if getdate(term_start_date) <= getdate(self.date) <= getdate(term_end_date):
+					if not (getdate(term_start_date) <= getdate(self.date) <= getdate(term_end_date)):
 						frappe.throw(_("Attendance date should be within the academic term {0} dates.").format(get_link_to_form("Academic Term", academic_term)))
 
 
 	def validate_student(self):
 		student_group_students = [d.student for d in get_student_group_students(self.student_group)]
-		if student_group and self.student not in student_group_students:
-			frappe.throw(_("Student {0}: {1} does not belong to student group {2}").format(get_link_to_form(self.student), self.student_name, get_link_to_form(self.student_group)))
+		if self.student_group and self.student not in student_group_students:
+			frappe.throw(_("Student {0}: {1} does not belong to student group {2}").format(get_link_to_form("Student", self.student), self.student_name, get_link_to_form("Student Group", self.student_group)))
 
 	def set_student_group(self):
 		if self.course_schedule:

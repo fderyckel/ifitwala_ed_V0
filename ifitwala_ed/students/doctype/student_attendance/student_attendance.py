@@ -17,7 +17,7 @@ class StudentAttendance(Document):
 		self.set_student_group()
 		self.validate_student()
 		self.validate_duplicate()
-		self.validate_is_not_holiday()
+		# self.validate_is_not_holiday()  # not doing it as this should be handled when creating courses schedule
 
 	## should be done at the JS level
 	def set_date(self):
@@ -66,13 +66,3 @@ class StudentAttendance(Document):
 		if attendance_record:
 			record = get_link_to_form("Student Attendance", attendance_record)
 			frappe.throw(_("Student attendance {0} shows that attendance has already been taken for this student {1}").format(record, frappe.bold(self.student)), title=_("Duplicate entry"))
-
-	def validate_is_not_holiday(self):
-		school_calendar = frappe.get_value()
-		holiday_list = get_holiday_list()
-
-
-def get_holiday_list(school=None):
-	if not school:
-		school =
-	return

@@ -68,8 +68,11 @@ class StudentAttendance(Document):
 			frappe.throw(_("Student attendance {0} shows that attendance has already been taken for this student {1}").format(record, frappe.bold(self.student)), title=_("Duplicate entry"))
 
 	def validate_is_not_holiday(self):
+		school_calendar = frappe.get_value()
 		holiday_list = get_holiday_list()
 
 
 def get_holiday_list(school=None):
+	if not school:
+		school =
 	return

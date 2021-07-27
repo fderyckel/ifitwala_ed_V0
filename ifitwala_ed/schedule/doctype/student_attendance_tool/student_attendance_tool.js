@@ -8,7 +8,7 @@ frappe.ui.form.on('Student Attendance Tool', {
 			return {
 				'filters': {
 					'group_based_on': frm.doc.group_based_on,
-					'disabled': 0
+					'status': 'Active'
 				}
 			};
 		});
@@ -72,4 +72,15 @@ frappe.ui.form.on('Student Attendance Tool', {
 	}
 });
 
-education.StudentsEditor = class StudentsEditor { };
+education.StudentsEditor = class StudentsEditor {
+	constructor(frm, wrapper, students) {
+		this.wrapper = wrapper;
+		this.frm = frm;
+		if (students.length > 0) {
+			this.make(frm, students);
+		} else {
+			this.show_empty_state();
+		}
+	}
+
+};

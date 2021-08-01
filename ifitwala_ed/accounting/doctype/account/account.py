@@ -6,7 +6,6 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.utils import cint, cstr
-from frappe.utils.nestedset import NestedSet
 from frappe.utils.nestedset import NestedSet, get_ancestors_of, get_descendants_of
 
 class RootNotEditable(frappe.ValidationError): pass
@@ -14,6 +13,11 @@ class BalanceMismatchError(frappe.ValidationError): pass
 
 class Account(NestedSet):
 	nsm_parent_field = 'parent_account'
+	def on_update(self):
+		if frappe.local.flags.ignore_update_nsm:
+			return
+		else:
+			super(Account, self).on_update()
 
 	def autoname(self):
 		from ifitwala_ed.accounting.utils import get_autoname_with_number

@@ -32,55 +32,102 @@ frappe.ui.form.on('Student Attendance Tool', {
 		}
 	},
 
-	student_group: function(frm) {
-		if ((frm.doc.student_group && frm.doc.date) || frm.doc.course_schedule) {
-			var method = "ifitwala_ed.schedule.doctype.student_attendance_tool.student_attendance_tool.get_student_attendance_records";
+	//student_group: function(frm) {
+	//	if ((frm.doc.student_group && frm.doc.date) || frm.doc.course_schedule) {
+	//		var method = "ifitwala_ed.schedule.doctype.student_attendance_tool.student_attendance_tool.get_student_attendance_records";
 
-			frappe.call({
-				method: method,
-				args: {
-					based_on: frm.doc.based_on,
-					student_group: frm.doc.student_group,
-					date: frm.doc.date,
-					course_schedule: frm.doc.course_schedule
-				},
-				callback: function(r) {
-					frm.events.get_students(frm, r.message);
-				}
-			})
-		}
-	},
+	//		frappe.call({
+	//			method: method,
+	//			args: {
+	//				based_on: frm.doc.based_on,
+	//				student_group: frm.doc.student_group,
+	//				date: frm.doc.date,
+	//				course_schedule: frm.doc.course_schedule
+	//			},
+	//			callback: function(r) {
+	//				frm.events.get_students(frm, r.message);
+	//			}
+	//		})
+	//	}
+	//},
 
 	date: function(frm) {
 		if (frm.doc.date > frappe.datetime.get_today()) {
 			frappe.throw(__('Cannot mark attendance for future dates.'));
 		}
-		frm.trigger('student_group');
+		ifitwala_ed.student_attendance_tool.load_students(frm);
 	},
 
 	course_schedule: function(frm) {
-		frm.trigger('student_group');
+		ifitwala_ed.student_attendance_tool.load_students(frm);
 	},
 
-	get_students: function(frm, students) {
-		if (!frm.students_area) {
-			frm.students_area = $('<div>')
-				.appendTo(frm.fields_dict.students_html.wrapper);
-		}
-		students = students || [];
-		frm.students_editor = new education.StudentsEditor(frm, frm.students_area, students);
-	}
+	//get_students: function(frm, students) {
+	//	if (!frm.students_area) {
+	//		frm.students_area = $('<div>')
+	//			.appendTo(frm.fields_dict.students_html.wrapper);
+	//	}
+	//	students = students || [];
+	//	frm.students_editor = new education.StudentsEditor(frm, frm.students_area, students);
+	//}
 });
 
-education.StudentsEditor = class StudentsEditor {
-	constructor(frm, wrapper, students) {
+ifitwala_ed.student_attendance_tool = {
+	load_students(frm): function(frm) {
+		if ((frm.doc.student_group && frm.doc.date) || frm.doc.course_schedule) {
+			frappe.call({
+				method: 'ifitwala_ed.schedule.doctype.student_attendance_tool.student_attendance_tool.get_students',
+				args: {
+					based_on: frm.doc.based_on,
+					date: frm.doc.date,
+					student_group: frm.doc.student_group,
+					course_schedule: frm.doc.course_schedule
+				},
+				callback: function(r) {
+					if (r.message['unmarked'].length > 0) {
+						unhide_field('unmarked_attendance_section'); //Ihave added semi-colummn here
+						if (!frm.student_area) {
+							frm.student_area = $('<div>')
+								.appendTo(frm.fields_dict.students_html.wrapper);
+						}
+						frm.StudentSelector = new ifitwala_ed.StudentSelector(frm, frm.student_area, r.message['unmarked'])
+					}
+				}
+			});
+		}
+	}
+}
+
+
+ifitwala_ed.StudentSelector = class StudentSelector {
+	constructor(frm, wrapper, student) {
 		this.wrapper = wrapper;
 		this.frm = frm;
-		if (students.length > 0) {
-			this.make(frm, students);
-		} else {
-			this.show_empty_state();
-		}
+		this.make(frm, student);
+	}
+	make(frm, student) {
+		var me = this;
+		$(this.wrapper).empty();
+
+		var row;
+
 	}
 
 };
+
+
+
+
+
+//education.StudentsEditor = class StudentsEditor {
+//	constructor(frm, wrapper, students) {
+//		this.wrapper = wrapper;
+//		this.frm = frm;
+//		if (students.length > 0) {
+//			this.make(frm, students);
+//		} else {
+//			this.show_empty_state();
+//		}
+//	}
+//
+//};

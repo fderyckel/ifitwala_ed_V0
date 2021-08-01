@@ -9,6 +9,32 @@ class StudentAttendanceTool(Document):
 	pass
 
 @frappe.whitelist()
+def get_students(based_on, date=None, student_group=None, course_schedule=None):
+	attendance_not_marked = []
+	attendance_marked = []
+	filters = {}
+	if based_on == "Course Schedule":
+		student_group = frappe.db.get_value("Course Schedule", course_schedule, "student_group")
+		if student_group:
+			student_list = frappe.get_list("Student Group Student", fields = ["student", "student_name", "group_roll_number"], filters = {"parent": student_group, "active": 1}, order_by = "group_roll_number")
+	marked_student = {}
+	for stud in frappe.get_list("Student Attendance", fields=["student", "status"], filters = {"date":date}):
+		marked_student[stud['student']] = stud['status']
+
+	for student in student_list:
+		student['status'] = marked_student.get(student['student'])
+		if student['student'] not in marked_student:
+			attendance_not_marked.append(student)
+		else:
+			attendance_marked.append(student)
+	return {
+		"marked": attendance_marked,
+		"unmarked": attendance_not_marked
+	}
+
+
+
+@frappe.whitelist()
 def get_student_attendance_records(based_on, date=None, student_group=None, course_schedule=None):
 	student_list = []
 	student_attendance_list = []

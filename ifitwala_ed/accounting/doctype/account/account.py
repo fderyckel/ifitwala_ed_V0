@@ -19,7 +19,7 @@ class Account(NestedSet):
 		from ifitwala_ed.accounting.utils import get_autoname_with_number
 		self.name = get_autoname_with_number(self.account_number, self.account_name, None, self.organization)
 
-	def  validate(self):
+	def validate(self):
 		from ifitwala_ed.accounting.utils import validate_field_number
 		if frappe.local.flags.allow_unverified_charts:
 			return
@@ -115,7 +115,7 @@ class Account(NestedSet):
 
 	def validate_account_currency(self):
 		if not self.account_currency:
-			self.account_currency = frappe.get_cached_value('Organization',  self.organization,  "default_currency")
+			self.account_currency = frappe.get_cached_value('Organization', self.organization, "default_currency")
 		elif self.account_currency != frappe.db.get_value("Account", self.name, "account_currency"):
 			if frappe.db.get_value("GL Entry", {"account": self.name}):
 				frappe.throw(_("Currency can not be changed after making entries using some other currency"))
@@ -220,8 +220,11 @@ def get_account_currency(account):
 	def generator():
 		account_currency, organization = frappe.get_cached_value("Account", account, ["account_currency", "organization"])
 		if not account_currency:
-			account_currency = frappe.get_cached_value('Organization',  organization,  "default_currency")
+			account_currency = frappe.get_cached_value('Organization', organization, "default_currency")
 
 		return account_currency
 
 	return frappe.local_cache("account_currency", account, generator)
+
+def on_doctype_update():
+	frappe.db.add_index("Account", ["lft", "rgt"])

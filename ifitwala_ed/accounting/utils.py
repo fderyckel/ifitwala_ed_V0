@@ -3,11 +3,20 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe
+import frappe, ifitwala_ed
 from frappe import _
 import frappe.defaults
 from frappe.utils import nowdate, cstr, flt, cint, now, getdate
 from frappe.utils import formatdate, get_number_format_info
+from frappe.model.meta import get_field_precision
+
+class StockValueAndAccountBalanceOutOfSync(frappe.ValidationError): pass
+class FiscalYearError(frappe.ValidationError): pass
+
+
+@frappe.whitelist()
+def get_fiscal_year(date=None, fiscal_year=None, label="Date", verbose=1, organization=None, as_dict=False):
+	return get_fiscal_years(date, fiscal_year, label, verbose, organization, as_dict=as_dict)[0]
 
 def validate_field_number(doctype_name, docname, number_value, organization, field_name):
 	''' Validate if the number entered isn't already assigned to some other document. '''

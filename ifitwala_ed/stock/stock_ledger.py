@@ -68,7 +68,7 @@ def get_args_for_future_sle(row):
 	})
 
 def validate_serial_no(sle):
-	from ifitwala_ed.asset.doctype.serial_no.serial_no import get_serial_nos
+	from ifitwala_ed.stock.doctype.serial_no.serial_no import get_serial_nos
 	for sn in get_serial_nos(sle.serial_no):
 		args = copy.deepcopy(sle)
 		args.serial_no = sn

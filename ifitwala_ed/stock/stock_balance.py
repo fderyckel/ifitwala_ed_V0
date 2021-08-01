@@ -55,7 +55,7 @@ def get_balance_qty_from_sle(item_code, location):
 	return flt(balance_qty[0][0]) if balance_qty else 0.0
 
 def update_bin_qty(item_code, location, qty_dict=None):
-	from ifitwala_ed.asset.utils import get_bin
+	from ifitwala_ed.stock.utils import get_bin
 	bin = get_bin(item_code, location)
 	mismatch = False
 	for field, value in qty_dict.items():

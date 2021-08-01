@@ -22,9 +22,9 @@ _exceptions = frappe.local('stockledger_exceptions')
 # _exceptions = []
 
 def make_sl_entries(sl_entries, allow_negative_stock=False, via_landed_cost_voucher=False):
-	from erpnext.controllers.stock_controller import future_sle_exists
+	from ifitwala_ed.controllers.stock_controller import future_sle_exists
 	if sl_entries:
-		from erpnext.stock.utils import update_bin
+		from ifitwala_ed.stock.utils import update_bin
 
 		cancel = sl_entries[0].get("is_cancelled")
 		if cancel:

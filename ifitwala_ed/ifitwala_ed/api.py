@@ -12,21 +12,19 @@ import json
 
 @frappe.whitelist()
 def get_student_group_students(student_group, include_inactive=0):
-    """ Return the list of students from a student group"""
+	""" Return the list of students from a student group"""
+	if include_inactive:
+		students = frappe.get_list("Student Group Student", fields = ["student", "student_name"], filters = {"parent": student_group}, order_by = "group_roll_number")
+	else:
+		students = frappe.get_list("Student Group Student", fields = ["student", "student_name"], filters = {"parent": student_group, "active": 1}, order_by = "group_roll_number")
 
-    if include_inactive:
-        students = frappe.get_list("Student Group Student", fields = ["student", "student_name"],
-                filters = {"parent": student_group}, order_by = "group_roll_number")
-    else:
-        students = frappe.get_list("Student Group Student", fields = ["student", "student_name"],
-                filters = {"parent": student_group, "active": 1}, order_by = "group_roll_number")
-    return students
+	return students
 
 @frappe.whitelist()
 def get_student_guardians(student):
-    """ Return the list of guardians from that student"""
-    guardians = frappe.get_list("Student Guardian", fields = ["guardian"], filters = {"parent": student})
-    return guardians
+	""" Return the list of guardians from that student"""
+	guardians = frappe.get_list("Student Guardian", fields = ["guardian"], filters = {"parent": student})
+	return guardians
 
 @frappe.whitelist()
 def enroll_student(source_name):
@@ -68,4 +66,4 @@ def update_email_group(doctype, name):
 
 @frappe.whitelist()
 def get_assessment_criteria(course):
-    return frappe.get_list('Course Assessment Criteria', fields = ['assessment_criteria', "criteria_weighting"], filters = {"parent": course}, order_by = "idx")
+	return frappe.get_list('Course Assessment Criteria', fields = ['assessment_criteria', "criteria_weighting"], filters = {"parent": course}, order_by = "idx")

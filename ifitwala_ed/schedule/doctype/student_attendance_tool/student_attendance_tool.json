@@ -14,8 +14,10 @@
   "academic_term",
   "course_schedule",
   "date",
-  "attendance",
-  "students_html"
+  "unmarked_attendance_section",
+  "students_html",
+  "marked_attendance_section",
+  "marked_attendance_html"
  ],
  "fields": [
   {
@@ -79,21 +81,31 @@
    "reqd": 1
   },
   {
-   "depends_on": "eval: (doc.course_schedule \n|| (doc.student_group && doc.date))",
-   "fieldname": "attendance",
-   "fieldtype": "Section Break",
-   "label": "Attendance"
-  },
-  {
    "fieldname": "students_html",
    "fieldtype": "HTML",
    "label": "Students HTML"
+  },
+  {
+   "fieldname": "marked_attendance_section",
+   "fieldtype": "Section Break",
+   "label": "Marked Attendance"
+  },
+  {
+   "fieldname": "marked_attendance_html",
+   "fieldtype": "HTML",
+   "label": "Marked Attendance HTML"
+  },
+  {
+   "depends_on": "eval: (doc.course_schedule \n|| (doc.student_group && doc.date))",
+   "fieldname": "unmarked_attendance_section",
+   "fieldtype": "Section Break",
+   "label": "Unmarked Attendance"
   }
  ],
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-07-22 09:28:34.052018",
+ "modified": "2021-07-29 12:24:33.292779",
  "modified_by": "Administrator",
  "module": "Schedule",
  "name": "Student Attendance Tool",

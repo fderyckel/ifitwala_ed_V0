@@ -36,18 +36,18 @@ def repost_actual_qty(item_code, location, allow_zero_rate=False, allow_negative
 	})
 
 def get_requested_qty(item_code, location):
-    # skip the whole sum part as not needed yet in organization
-    requested_qty = 0
-    return requested_qty
+	# skip the whole sum part as not needed yet in organization
+	requested_qty = 0
+	return requested_qty
 
 def get_ordered_qty(item_code, location):
-    # skip the whole sum part as not needed yet in organization
-    ordered_qty = 0
-    return ordered_qty
+	# skip the whole sum part as not needed yet in organization
+	ordered_qty = 0
+	return ordered_qty
 
 def get_balance_qty_from_sle(item_code, location):
 	balance_qty = frappe.db.sql("""
-        SELECT qty_after_transaction FROM `tabStock Ledger Entry`
+		SELECT qty_after_transaction FROM `tabStock Ledger Entry`
 		WHERE item_code=%s AND location=%s AND is_cancelled=0
 		ORDER BY posting_date DESC, posting_time DESC, creation DESC
 		limit 1""", (item_code, location))

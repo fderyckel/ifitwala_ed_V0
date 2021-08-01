@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "creation": "2021-03-15 18:25:55.912807",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_group_name",
+  "parent_item_group",
+  "is_group",
+  "route",
+  "weightage",
+  "lft",
+  "rgt",
+  "old_parent",
+  "show_in_website"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_group_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Group Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "parent_item_group",
+   "fieldtype": "Link",
+   "label": "Parent Item Group",
+   "options": "Item Group"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "weightage",
+   "fieldtype": "Data",
+   "label": "Weightage"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "show_in_website",
+   "fieldtype": "Data",
+   "label": "Show in Website"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2021-08-01 23:18:24.408687",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Item Group",
+ "nsm_parent_field": "parent_item_group",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

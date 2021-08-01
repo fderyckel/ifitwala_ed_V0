@@ -15,3 +15,4 @@ Payroll
 Portal
 Utilities
 Buying
+Stock

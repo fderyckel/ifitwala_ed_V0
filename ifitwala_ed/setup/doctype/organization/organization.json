@@ -30,6 +30,7 @@
   "accounting_settings_section",
   "default_currency",
   "existing_organization",
+  "allow_account_creation_against_child_organization",
   "column_break_21",
   "country",
   "create_chart_of_accounts_based_on",
@@ -58,7 +59,6 @@
   "exchange_gain_loss_account",
   "round_off_cost_center",
   "expenses_included_in_valuation",
-  "allow_account_creation_against_child_organization",
   "lft",
   "rgt",
   "old_parent",
@@ -419,10 +419,9 @@
    "label": "Organization Philosophy"
   },
   {
-   "default": "0",
-   "depends_on": "eval:doc.parent_organization",
+   "depends_on": "eval:doc.parent_company",
    "fieldname": "allow_account_creation_against_child_organization",
-   "fieldtype": "Check",
+   "fieldtype": "Select",
    "label": "Allow Account Creation Against Child Organization"
   },
   {
@@ -486,7 +485,7 @@
  "image_field": "organization_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-19 14:06:03.514596",
+ "modified": "2021-08-04 18:16:55.011416",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Organization",

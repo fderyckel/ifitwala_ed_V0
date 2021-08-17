@@ -13,8 +13,26 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Accounts",
- "links": [],
- "modified": "2021-08-01 22:46:51.534828",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fiscal Year",
+   "link_to": "Fiscal Year",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2021-08-04 16:14:30.778703",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Accounts",

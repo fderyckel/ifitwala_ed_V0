@@ -12,7 +12,7 @@
   "is_short_year",
   "year_start_date",
   "year_end_date",
-  "schools",
+  "organization",
   "auto_created"
  ],
  "fields": [
@@ -66,15 +66,15 @@
    "unique": 1
   },
   {
-   "fieldname": "schools",
+   "fieldname": "organization",
    "fieldtype": "Table",
-   "label": "Schools",
+   "label": "Organizations",
    "options": "Fiscal Year Organization"
   }
  ],
  "icon": "fa fa-calendar",
  "links": [],
- "modified": "2021-03-20 20:42:47.481497",
+ "modified": "2021-08-04 16:56:26.857700",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Fiscal Year",

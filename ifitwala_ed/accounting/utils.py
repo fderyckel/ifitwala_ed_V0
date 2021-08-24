@@ -9,6 +9,8 @@ import frappe.defaults
 from frappe.utils import nowdate, cstr, flt, cint, now, getdate
 from frappe.utils import formatdate, get_number_format_info
 from frappe.model.meta import get_field_precision
+# imported to enable erpnext.accounts.utils.get_account_currency
+from ifitwala_ed.accounting.doctype.account.account import get_account_currency
 
 class StockValueAndAccountBalanceOutOfSync(frappe.ValidationError): pass
 class FiscalYearError(frappe.ValidationError): pass
@@ -137,6 +139,71 @@ def get_balance_on(account=None, date=None, party_type=None, party=None, organiz
 		# if bal is None, return 0
 		return flt(bal)
 
+@frappe.whitelist()
+def add_ac(args=None):
+	from frappe.desk.treeview import make_tree_args
+
+	if not args:
+		args = frappe.local.form_dict
+
+	args.doctype = "Account"
+	args = make_tree_args(**args)
+
+	ac = frappe.new_doc("Account")
+
+	if args.get("ignore_permissions"):
+		ac.flags.ignore_permissions = True
+		args.pop("ignore_permissions")
+
+	ac.update(args)
+
+	if not ac.parent_account:
+		ac.parent_account = args.get("parent")
+
+	ac.old_parent = ""
+	ac.freeze_account = "No"
+	if cint(ac.get("is_root")):
+		ac.parent_account = None
+		ac.flags.ignore_mandatory = True
+
+	ac.insert()
+
+	return ac.name
+
+@frappe.whitelist()
+def get_children(doctype, parent, organization, is_root=False):
+	from ifitwala_ed.accounting.report.financial_statements import sort_accounts
+
+	parent_fieldname = 'parent_' + doctype.lower().replace(' ', '_')
+	fields = [
+		'name as value',
+		'is_group as expandable'
+	]
+	filters = [['docstatus', '<', 2]]
+
+	filters.append(['ifnull(`{0}`,"")'.format(parent_fieldname), '=', '' if is_root else parent])
+
+	if is_root:
+		fields += ['root_type', 'report_type', 'account_currency'] if doctype == 'Account' else []
+		filters.append(['organization', '=', organization])
+
+	else:
+		fields += ['root_type', 'account_currency'] if doctype == 'Account' else []
+		fields += [parent_fieldname + ' as parent']
+
+	acc = frappe.get_list(doctype, fields=fields, filters=filters)
+
+	if doctype == 'Account':
+		sort_accounts(acc, is_root, key="value")
+		organization_currency = frappe.get_cached_value('Organization',  organization,  "default_currency")
+		for each in acc:
+			each["organization_currency"] = organization_currency
+			each["balance"] = flt(get_balance_on(each.get("value"), in_account_currency=False, organization=organization))
+
+			if each.account_currency != organization_currency:
+				each["balance_in_account_currency"] = flt(get_balance_on(each.get("value"), organization=organization))
+
+	return acc
 
 @frappe.whitelist()
 def get_coa(doctype, parent, is_root, chart=None):

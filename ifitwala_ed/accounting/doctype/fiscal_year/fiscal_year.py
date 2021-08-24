@@ -29,7 +29,6 @@ class FiscalYear(Document):
 
 		if not self.is_new():
 			year_start_end_dates = frappe.db.sql("""SELECT year_start_date, year_end_date FROM `tabFiscal Year` WHERE name=%s""", (self.name))
-
 			if year_start_end_dates:
 				if getdate(self.year_start_date) != year_start_end_dates[0][0] or getdate(self.year_end_date) != year_start_end_dates[0][1]:
 					frappe.throw(_("Cannot change Fiscal Year Start Date and Fiscal Year End Date once the Fiscal Year is saved."))
@@ -59,8 +58,10 @@ class FiscalYear(Document):
 			frappe.throw(_("Fiscal Year End Date should be one year after Fiscal Year Start Date"), FiscalYearIncorrectDate)
 
 	def validate_overlap(self):
-		existing_fiscal_years = frappe.db.sql("""select name from `tabFiscal Year`
-			where (
+		existing_fiscal_years = frappe.db.sql("""
+			SELECT name
+			FROM `tabFiscal Year`
+			WHERE (
 				(%(year_start_date)s between year_start_date and year_end_date)
 				or (%(year_end_date)s between year_start_date and year_end_date)
 				or (year_start_date between %(year_start_date)s and %(year_end_date)s)
@@ -93,27 +94,6 @@ def check_duplicate_fiscal_year(doc):
 	for fiscal_year, ysd, yed in year_start_end_dates:
 		if (getdate(doc.year_start_date) == ysd and getdate(doc.year_end_date) == yed) and (not frappe.flags.in_test):
 					frappe.throw(_("Fiscal Year Start Date and Fiscal Year End Date are already set in Fiscal Year {0}").format(fiscal_year))
-
-
-@frappe.whitelist()
-def auto_create_fiscal_year():
-	for d in frappe.db.sql("""select name from `tabFiscal Year` where year_end_date = date_add(current_date, interval 3 day)"""):
-		try:
-			current_fy = frappe.get_doc("Fiscal Year", d[0])
-
-			new_fy = frappe.copy_doc(current_fy, ignore_no_copy=False)
-
-			new_fy.year_start_date = add_days(current_fy.year_end_date, 1)
-			new_fy.year_end_date = add_years(current_fy.year_end_date, 1)
-
-			start_year = cstr(new_fy.year_start_date.year)
-			end_year = cstr(new_fy.year_end_date.year)
-			new_fy.year = start_year if start_year==end_year else (start_year + "-" + end_year)
-			new_fy.auto_created = 1
-
-			new_fy.insert(ignore_permissions=True)
-		except frappe.NameError:
-			pass
 
 def get_from_and_to_date(fiscal_year):
 	fields = [

@@ -19,6 +19,11 @@ class Account(NestedSet):
 		else:
 			super(Account, self).on_update()
 
+	def onload(self):
+		frozen_accounts_modifier = frappe.db.get_value("Accounts Settings", "Accounts Settings", "frozen_accounts_modifier")
+		if not frozen_accounts_modifier or frozen_accounts_modifier in frappe.get_roles():
+			self.set_onload("can_freeze_account", True)
+
 	def autoname(self):
 		from ifitwala_ed.accounting.utils import get_autoname_with_number
 		self.name = get_autoname_with_number(self.account_number, self.account_name, None, self.organization)
@@ -33,6 +38,7 @@ class Account(NestedSet):
 		self.validate_group_or_ledger()
 		self.set_root_and_report_type()
 		self.validate_mandatory()
+		self.validate_frozen_accounts_modifier()
 		self.validate_balance_must_be_debit_or_credit()
 		self.validate_account_currency()
 		self.validate_root_organization_and_sync_account_to_children()
@@ -46,7 +52,7 @@ class Account(NestedSet):
 	def on_trash(self):
 		# checks gl entries and if child exists
 		if self.check_gle_exists():
-			frappe.throw(_("Account with existing transaction can not be deleted"))
+			frappe.throw(_("Account with existing transaction can not be deleted."))
 		super(Account, self).on_trash(True)
 
 	def validate_parent(self):
@@ -70,6 +76,19 @@ class Account(NestedSet):
 		if not self.parent_account and not self.is_group:
 			frappe.throw(_("The root account {0} must be a group").format(frappe.bold(self.name)))
 
+	def validate_group_or_ledger(self):
+		if self.get("__islocal"):
+			return
+		existing_is_group = frappe.db.get_value("Account", self.name, "is_group")
+		if cint(self.is_group) != cint(existing_is_group):
+			if self.check_gle_exists():
+				frappe.throw(_("Account with existing transaction cannot be converted to ledger"))
+			elif self.is_group:
+				if self.account_type and not self.flags.exclude_account_type_check:
+					frappe.throw(_("Cannot covert to Group because Account Type is selected."))
+			elif self.check_if_child_exists():
+				frappe.throw(_("Account with child nodes cannot be set as ledger"))
+
 	def set_root_and_report_type(self):
 		if self.parent_account:
 			par = frappe.db.get_value("Account", self.parent_account, ["report_type", "root_type"], as_dict=1)
@@ -89,24 +108,18 @@ class Account(NestedSet):
 		if self.root_type and not self.report_type:
 			self.report_type = "Balance Sheet" if self.root_type in ("Asset", "Liability", "Equity") else "Profit and Loss"
 
-	def validate_group_or_ledger(self):
-		if self.get("__islocal"):
-			return
-		existing_is_group = frappe.db.get_value("Account", self.name, "is_group")
-		if cint(self.is_group) != cint(existing_is_group):
-			if self.check_gle_exists():
-				throw(_("Account with existing transaction cannot be converted to ledger"))
-			elif self.is_group:
-				if self.account_type and not self.flags.exclude_account_type_check:
-					throw(_("Cannot covert to Group because Account Type is selected."))
-			elif self.check_if_child_exists():
-				throw(_("Account with child nodes cannot be set as ledger"))
-
 	def validate_mandatory(self):
 		if not self.root_type:
 			frappe.throw(_("Root Type is mandatory"))
 		if not self.report_type:
 			frappe.throw(_("Report Type is mandatory"))
+
+	def validate_frozen_accounts_modifier(self):
+		old_value = frappe.db.get_value("Account", self.name, "freeze_account")
+		if old_value and old_value != self.freeze_account:
+			frozen_accounts_modifier = frappe.db.get_value('Accounts Settings', None, 'frozen_accounts_modifier')
+			if not frozen_accounts_modifier or frozen_accounts_modifier not in frappe.get_roles():
+					frappe.throw(_("You are not authorized to set Frozen value."))
 
 	def validate_balance_must_be_debit_or_credit(self):
 		from ifitwala_ed.accounting.utils import get_balance_on
@@ -201,6 +214,28 @@ class Account(NestedSet):
 				if parent_value_changed:
 					doc.save()
 
+	@frappe.whitelist()
+	def convert_group_to_ledger(self):
+		if self.check_if_child_exists():
+			frappe.throw(_("Account with child nodes cannot be converted to ledger"))
+		elif self.check_gle_exists():
+			frappe.throw(_("Account with existing transaction cannot be converted to ledger"))
+		else:
+			self.is_group = 0
+			self.save()
+			return 1
+
+	@frappe.whitelist()
+	def convert_ledger_to_group(self):
+		if self.check_gle_exists():
+			frappe.throw(_("Account with existing transaction can not be converted to group."))
+		elif self.account_type and not self.flags.exclude_account_type_check:
+			frappe.throw(_("Cannot convert to Group because Account Type is selected."))
+		else:
+			self.is_group = 1
+			self.save()
+			return 1
+
 	# Check if any previous balance exists
 	def check_gle_exists(self):
 		return frappe.db.get_value("GL Entry", {"account": self.name})
@@ -209,13 +244,15 @@ class Account(NestedSet):
 		return frappe.db.sql("""SELECT name FROM `tabAccount` WHERE parent_account = %s AND docstatus != 2""", self.name)
 
 
-
 @frappe.whitelist()
-def get_root_organization(organization):
-	# return the topmost organization in the hierarchy
-	ancestors = get_ancestors_of('Organization', organization, "lft asc")
-	return [ancestors[0]] if ancestors else []
-
+@frappe.validate_and_sanitize_search_inputs
+def get_parent_account(doctype, txt, searchfield, start, page_len, filters):
+	return frappe.db.sql("""
+		SELECT name
+		FROM tabAccount
+		WHERE is_group = 1 AND docstatus != 2 AND organization = %s AND %s like %s ORDER BY name LIMIT %s, %s""" %
+		("%s", searchfield, "%s", "%s", "%s"),
+		(filters["organization"], "%%%s%%" % txt, start, page_len), as_list=1)
 
 def get_account_currency(account):
 	"""Helper function to get account currency"""
@@ -229,6 +266,103 @@ def get_account_currency(account):
 		return account_currency
 
 	return frappe.local_cache("account_currency", account, generator)
+
+def get_account_autoname(account_number, account_name, organization):
+	# first validate if organization exists
+	organization = frappe.get_cached_value('Organization',  organization,  ["abbr", "name"], as_dict=True)
+	if not organization:
+		frappe.throw(_('Organization {0} does not exist').format(organization))
+	parts = [account_name.strip(), organization.abbr]
+	if cstr(account_number).strip():
+		parts.insert(0, cstr(account_number).strip())
+	return ' - '.join(parts)
+
+def validate_account_number(name, account_number, organization):
+	if account_number:
+		account_with_same_number = frappe.db.get_value("Account", {"account_number": account_number, "organization": organization, "name": ["!=", name]})
+		if account_with_same_number:
+			frappe.throw(_("Account Number {0} already used in account {1}").format(account_number, account_with_same_number))
+
+@frappe.whitelist()
+def update_account_number(name, account_name, account_number=None, from_descendant=False):
+	account = frappe.db.get_value("Account", name, "organization", as_dict=True)
+	if not account: return
+
+	old_acc_name, old_acc_number = frappe.db.get_value('Account', name, \
+				["account_name", "account_number"])
+
+	# check if account exists in parent organization
+	ancestors = get_ancestors_of("Organization", account.organization)
+	allow_independent_account_creation = frappe.get_value("Organization", account.organization, "allow_account_creation_against_child_organization")
+
+	if ancestors and not allow_independent_account_creation:
+		for ancestor in ancestors:
+			if frappe.db.get_value("Account", {'account_name': old_acc_name, 'organization': ancestor}, 'name'):
+				# same account in parent organization exists
+				allow_child_account_creation = _("Allow Account Creation Against Child Organization")
+
+				message = _("Account {0} exists in parent organization {1}.").format(frappe.bold(old_acc_name), frappe.bold(ancestor))
+				message += "<br>"
+				message += _("Renaming it is only allowed via parent organization {0}, to avoid mismatch.").format(frappe.bold(ancestor))
+				message += "<br><br>"
+				message += _("To overrule this, enable '{0}' in organization {1}").format(allow_child_account_creation, frappe.bold(account.organization))
+
+				frappe.throw(message, title=_("Rename Not Allowed"))
+
+	validate_account_number(name, account_number, account.organization)
+	if account_number:
+		frappe.db.set_value("Account", name, "account_number", account_number.strip())
+	else:
+		frappe.db.set_value("Account", name, "account_number", "")
+	frappe.db.set_value("Account", name, "account_name", account_name.strip())
+
+	if not from_descendant:
+		# Update and rename in child organization accounts as well
+		descendants = get_descendants_of('Organization', account.organization)
+		if descendants:
+			sync_update_account_number_in_child(descendants, old_acc_name, account_name, account_number, old_acc_number)
+
+	new_name = get_account_autoname(account_number, account_name, account.organization)
+	if name != new_name:
+		frappe.rename_doc("Account", name, new_name, force=1)
+		return new_name
+
+def sync_update_account_number_in_child(descendants, old_acc_name, account_name, account_number=None, old_acc_number=None):
+	filters = {
+		"organization": ["in", descendants],
+		"account_name": old_acc_name,
+	}
+	if old_acc_number:
+		filters["account_number"] = old_acc_number
+
+	for d in frappe.db.get_values('Account', filters=filters, fieldname=["organization", "name"], as_dict=True):
+			update_account_number(d["name"], account_name, account_number, from_descendant=True)
+
+@frappe.whitelist()
+def merge_account(old, new, is_group, root_type, organization):
+	# Validate properties before merging
+	if not frappe.db.exists("Account", new):
+		throw(_("Account {0} does not exist").format(new))
+
+	val = list(frappe.db.get_value("Account", new,
+		["is_group", "root_type", "organization"]))
+
+	if val != [cint(is_group), root_type, organization]:
+		throw(_("""Merging is only possible if following properties are same in both records. Is Group, Root Type, Organization"""))
+
+	if is_group and frappe.db.get_value("Account", new, "parent_account") == old:
+		frappe.db.set_value("Account", new, "parent_account",
+			frappe.db.get_value("Account", old, "parent_account"))
+
+	frappe.rename_doc("Account", old, new, merge=1, force=1)
+
+	return new
+
+@frappe.whitelist()
+def get_root_organization(organization):
+	# return the topmost organization in the hierarchy
+	ancestors = get_ancestors_of('Organization', organization, "lft asc")
+	return [ancestors[0]] if ancestors else []
 
 def on_doctype_update():
 	frappe.db.add_index("Account", ["lft", "rgt"])

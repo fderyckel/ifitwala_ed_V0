@@ -9,7 +9,7 @@ import frappe.defaults
 from frappe.utils import nowdate, cstr, flt, cint, now, getdate
 from frappe.utils import formatdate, get_number_format_info
 from frappe.model.meta import get_field_precision
-# imported to enable erpnext.accounts.utils.get_account_currency
+# imported to enable ifitwala_ed.accounting.utils.get_account_currency
 from ifitwala_ed.accounting.doctype.account.account import get_account_currency
 
 class StockValueAndAccountBalanceOutOfSync(frappe.ValidationError): pass

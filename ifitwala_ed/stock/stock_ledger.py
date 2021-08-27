@@ -71,7 +71,7 @@ def validate_serial_no(sle):
 	for sn in get_serial_nos(sle.serial_no):
 		args = copy.deepcopy(sle)
 		args.serial_no = sn
-		args.warehouse = ''
+		args.location = ''
 
 		vouchers = []
 		for row in get_stock_ledger_entries(args, '>'):

@@ -419,7 +419,7 @@
    "label": "Organization Philosophy"
   },
   {
-   "depends_on": "eval:doc.parent_company",
+   "depends_on": "eval:doc.parent_organization",
    "fieldname": "allow_account_creation_against_child_organization",
    "fieldtype": "Select",
    "label": "Allow Account Creation Against Child Organization"
@@ -485,7 +485,7 @@
  "image_field": "organization_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-08-04 18:16:55.011416",
+ "modified": "2021-08-27 17:46:26.560044",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Organization",

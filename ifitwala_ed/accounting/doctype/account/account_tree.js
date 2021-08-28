@@ -21,7 +21,7 @@ frappe.treeview_settings["Account"] = {
 					frappe.throw(__("Please set a Organization"));
 				}
 				frappe.call({
-					method: "ifitwala_ed.accounts.doctype.account.account.get_root_organization",
+					method: "ifitwala_ed.accounting.doctype.account.account.get_root_organization",
 					args: {
 						organization: organization,
 					},
@@ -47,8 +47,8 @@ frappe.treeview_settings["Account"] = {
 		}
 	],
 	root_label: "Accounts",
-	get_tree_nodes: 'ifitwala_ed.accounts.utils.get_children',
-	add_tree_node: 'ifitwala_ed.accounts.utils.add_ac',
+	get_tree_nodes: 'ifitwala_ed.accounting.utils.get_children',
+	add_tree_node: 'ifitwala_ed.accounting.utils.add_ac',
 	menu_items:[
 		{
 			label: __('New Organization'),

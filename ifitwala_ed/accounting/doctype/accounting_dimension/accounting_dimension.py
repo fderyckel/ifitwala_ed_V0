@@ -227,10 +227,6 @@ def get_dimensions(with_cost_center_and_project=False):
 			{
 				'fieldname': 'cost_center',
 				'document_type': 'Cost Center'
-			},
-			{
-				'fieldname': 'project',
-				'document_type': 'Project'
 			}
 		])
 

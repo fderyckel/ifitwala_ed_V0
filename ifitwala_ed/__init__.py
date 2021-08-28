@@ -69,3 +69,26 @@ def is_perpetual_inventory_enabled(organization):
 			organization,  "enable_perpetual_inventory") or 0
 
 	return frappe.local.enable_perpetual_inventory[organization]
+
+def get_default_finance_book(organization=None):
+	if not organization:
+		organization = get_default_organization()
+
+	if not hasattr(frappe.local, 'default_finance_book'):
+		frappe.local.default_finance_book = {}
+
+	if not organization in frappe.local.default_finance_book:
+		frappe.local.default_finance_book[organization] = frappe.get_cached_value('Organization',
+			organization,  "default_finance_book")
+
+	return frappe.local.default_finance_book[organization]
+
+def get_party_account_type(party_type):
+	if not hasattr(frappe.local, 'party_account_types'):
+		frappe.local.party_account_types = {}
+
+	if not party_type in frappe.local.party_account_types:
+		frappe.local.party_account_types[party_type] = frappe.db.get_value("Party Type",
+			party_type, "account_type") or ''
+
+	return frappe.local.party_account_types[party_type]

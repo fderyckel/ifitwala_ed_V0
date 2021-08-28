@@ -10,6 +10,7 @@
   "current_fiscal_year",
   "country",
   "default_distance_unit",
+  "column_break_5",
   "default_currency",
   "hide_currency_symbol",
   "disable_rounded_total",
@@ -71,6 +72,10 @@
    "ignore_user_permissions": 1,
    "label": "Default Organization",
    "options": "Organization"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
   }
  ],
  "icon": "fa fa-cog",
@@ -78,7 +83,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-05-19 14:54:42.514041",
+ "modified": "2021-08-28 11:22:31.361232",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Global Defaults",

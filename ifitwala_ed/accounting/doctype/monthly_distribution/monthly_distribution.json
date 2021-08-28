@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "autoname": "field:distribution_id",
+ "creation": "2021-08-27 18:29:14.090955",
+ "description": "**Monthly Distribution** helps you distribute the Budget/Target across months if you have seasonality in your business.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "distribution_id",
+  "fiscal_year",
+  "percentages"
+ ],
+ "fields": [
+  {
+   "description": "Name of the Monthly Distribution",
+   "fieldname": "distribution_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Distribution Name",
+   "oldfieldname": "distribution_id",
+   "oldfieldtype": "Data",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Fiscal Year",
+   "oldfieldname": "fiscal_year",
+   "oldfieldtype": "Select",
+   "options": "Fiscal Year",
+   "search_index": 1
+  },
+  {
+   "fieldname": "percentages",
+   "fieldtype": "Table",
+   "label": "Monthly Distribution Percentages",
+   "oldfieldname": "budget_distribution_details",
+   "oldfieldtype": "Table",
+   "options": "Monthly Distribution Percentage"
+  }
+ ],
+ "icon": "fa fa-bar-chart",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-08-27 18:29:14.090955",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Monthly Distribution",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 2,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,42 @@
+{
+ "actions": [],
+ "creation": "2021-08-27 21:01:04.083669",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "applicable_on_account",
+  "is_mandatory"
+ ],
+ "fields": [
+  {
+   "fieldname": "applicable_on_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Accounts",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "is_mandatory",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Mandatory"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-08-27 21:01:04.083669",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Applicable On Account",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

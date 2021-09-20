@@ -31,7 +31,7 @@ frappe.ui.form.on('Training Event', {
 		}
 		frm.set_query('employee', 'employees', function () {
 			return {
-				fitlers: {
+				filters: {
 					name: ['NOT IN', emp],
 					status: 'Active'
 				}

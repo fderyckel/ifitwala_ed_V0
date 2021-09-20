@@ -246,3 +246,6 @@ def has_upload_permission(doc, ptype='read', user=None):
 	if get_doc_permissions(doc, user=user, ptype=ptype).get(ptype):
 		return True
 	return doc.user_id == user
+
+def get_employee_emails(employee_doc):
+	return employee_doc.get("user_id") or employee_doc.get("employee_professional_email") or employee_doc.get("employee_personal_email")

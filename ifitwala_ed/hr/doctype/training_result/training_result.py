@@ -19,7 +19,7 @@ class TrainingResult(Document):
 		training_event.status = "Completed"
 		for e in self.employees:
 			for e1 in training_event.employees:
-				if e1.employee = e.employee:
+				if e1.employee == e.employee:
 					e1.status = 'Completed'
 					break
 		training_event.save()

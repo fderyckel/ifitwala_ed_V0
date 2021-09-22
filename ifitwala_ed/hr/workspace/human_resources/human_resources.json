@@ -147,13 +147,13 @@
    "type": "Link"
   }
  ],
- "modified": "2021-09-21 18:10:39.658316",
+ "modified": "2021-09-22 11:06:28.468178",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Human Resources",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 0,
+ "pin_to_top": 1,
  "shortcuts": [
   {
    "color": "Grey",

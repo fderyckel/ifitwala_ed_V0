@@ -2,7 +2,6 @@
 # Copyright (c) 2020, ifitwala and contributors
 # For license information, please see license.txt
 
-from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 from frappe.utils.nestedset import NestedSet
@@ -247,5 +246,17 @@ def has_upload_permission(doc, ptype='read', user=None):
 		return True
 	return doc.user_id == user
 
-def get_employee_emails(employee_doc):
+def get_employee_email(employee_doc):
 	return employee_doc.get("user_id") or employee_doc.get("employee_professional_email") or employee_doc.get("employee_personal_email")
+
+def get_employee_emails(employee_list):
+	'''Return list of employee email based on either user_id or professional_email '''
+	employee_emails = []
+	for employee in employee_list:
+		if not employee:
+			continue
+		user, employee_professional_email = frappe.db.get_value("Employee", employee, ["user_id", "employee_professional_email"])
+		email = user or employee_professional_email
+		if email:
+			employee_emails.append(email)
+	return employee_emails

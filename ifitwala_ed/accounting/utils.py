@@ -220,3 +220,11 @@ def get_coa(doctype, parent, is_root, chart=None):
 	accounts = [d for d in accounts if d['parent_account']==parent]
 
 	return accounts
+
+def validate_fiscal_year(date, fiscal_year, organization, label="Date", doc=None):
+	years = [f[0] for f in get_fiscal_years(date, label=_(label), organization=organization)]
+	if fiscal_year not in years:
+		if doc:
+			doc.fiscal_year = years[0]
+		else:
+			throw(_("{0} '{1}' not in Fiscal Year {2}").format(label, formatdate(date), fiscal_year))

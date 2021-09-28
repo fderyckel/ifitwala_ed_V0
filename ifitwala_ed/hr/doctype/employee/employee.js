@@ -2,8 +2,8 @@
 // For license information, please see license.txt
 
 frappe.provide('ifitwala_ed.hr');
-ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
-	setup: function() {
+ifitwala_ed.hr.EmployeeController = class EmployeeController extends frappe.ui.form.Controller {
+	setup() {
 		this.frm.fields_dict.user_id.get_query = function(doc, cdt, cdn) {
 			return {
 				query: 'frappe.core.doctype.user.user.user_query',
@@ -13,9 +13,9 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 		this.frm.fields_dict.reports_to.get_query = function(doc, cdt, cdn) {
 			return { query: 'ifitwala_ed.controllers.queries.employee_query'}
 		}
-	},
+	}
 
-	employee_salutation: function() {
+	employee_salutation() {
 		if(this.frm.doc.employee_salutation) {
 			this.frm.set_value("employee_gender", {
 				"Mr": "Male",
@@ -26,9 +26,9 @@ ifitwala_ed.hr.EmployeeController = frappe.ui.form.Controller.extend({
 				"Madam": "Female"
 			}[this.frm.doc.employee_salutation]);
 		}
-	},
+	}
 
-});
+};
 
 frappe.ui.form.on('Employee', {
 	onload: function(frm) {
@@ -77,7 +77,7 @@ frappe.ui.form.on('Employee', {
 					let values = {
 						'organization': data.message.organization
 					};
-					frm.set_value(values); 
+					frm.set_value(values);
 				}
 			});
 		}

@@ -1,0 +1,76 @@
+.erpnext-footer {
+	margin: 11px auto;
+	text-align: center;
+}
+
+.show-all-reports {
+	margin-top: 5px;
+	font-size: 11px;
+}
+
+/* toolbar */
+.toolbar-splash {
+	width: 32px;
+	height: 32px;
+	margin: -10px auto;
+}
+
+.ifitwala_ed-icon {
+	width: 24px;
+	margin-right: 0px;
+	margin-top: -3px;
+}
+
+.app-icon-svg {
+	display: inline-block;
+	margin: auto;
+	text-align: center;
+	border-radius: 16px;
+	cursor: pointer;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.app-icon-svg .hub-icon {
+	height: 72px;
+	width: 72px;
+}
+
+.dashboard-list-item {
+	background-color: inherit;
+	border-bottom: 1px solid var(--border-color);
+	font-size: var(--text-md);
+	color: var(--text-color);
+}
+
+#page-stock-balance .dashboard-list-item {
+	padding: 5px 15px;
+}
+
+.dashboard-list-item:last-child {
+	border-bottom: none;
+}
+
+// assessment tool
+.frappe-control[data-fieldname='result_html'] {
+	overflow: scroll;
+}
+.assessment-result-tool {
+	table-layout: fixed;
+
+	input {
+		width: 100%;
+		border: 0;
+		outline: none;
+		text-align: right;
+	}
+
+	th {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.total-score, .grade, .score {
+		text-align: right;
+	}
+}

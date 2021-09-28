@@ -351,15 +351,21 @@ def replace_abbr(organization, old, new):
 			frappe.rename_doc(dt, doc[0], parts[0] + " - " + new, force=True)
 
 	def _rename_records(dt):
-		# rename is expensive so let's be economical with memory usage
 		doc = (d for d in frappe.db.sql("""SELECT name FROM `tab%s` WHERE organization=%s""" % (dt, '%s'), organization))
 		for d in doc:
 			_rename_record(d)
 
-	for dt in ["Location", "Account", "Cost Center", "Team", "Sales Taxes and Charges Template"]:
-		_rename_records(dt)
-		frappe.db.commit()
+	try:
+		frappe.db.auto_commit_on_many_writes = 1
+		for dt in ["Location", "Account", "Cost Center", "Team", "Sales Taxes and Charges Template", "Purchase Taxes and Charges Template"]:
+			_rename_records(dt)
+			frappe.db.commit()
+		frappe.db.set_value("Company", company, "abbr", new)
 
+	except Exception:
+		frappe.log_error(title=_('Abbreviation Rename Error'))
+	finally:
+		frappe.db.auto_commit_on_many_writes = 0
 
 def get_name_with_abbr(name, organization):
 	organization_abbr = frappe.get_cached_value('Organization',  organization,  "abbr")

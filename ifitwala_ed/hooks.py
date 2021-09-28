@@ -16,7 +16,7 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_js = "/assets/js/ifitwala_ed.min.js"
+app_include_js = "ifitwala_ed.bundle.js"
 app_include_css = "/assets/css/ifitwala_ed.css"
 
 # include js, css files in header of web template
@@ -34,6 +34,9 @@ after_install = "ifitwala_ed.setup.setup.setup_education"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+	"Contact": "public/js/contact.js"
+}
 doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}

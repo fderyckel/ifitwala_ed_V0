@@ -3,11 +3,13 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
+from collections import defaultdict
+import json
+
 import frappe
 from frappe.desk.reportview import get_match_cond, get_filters_cond
-from frappe.utils import nowdate, getdate
-from collections import defaultdict
-from frappe.utils import unique
+from frappe import scrub
+from frappe.utils import nowdate, getdate, unique
 import ifitwala_ed
 
 # searches for active employees
@@ -18,7 +20,7 @@ def employee_query(doctype, txt, searchfield, start, page_len, filters):
 	fields = get_fields("Employee", ["name", "employee_full_name"])
 
 	return frappe.db.sql("""select {fields} from `tabEmployee`
-		where status = 'Active'
+		where status in ('Active', 'Suspended')
 			and docstatus < 2
 			and ({key} like %(txt)s
 				or employee_full_name like %(txt)s)
@@ -51,3 +53,50 @@ def get_fields(doctype, fields=[]):
 		fields.insert(1, meta.title_field.strip())
 
 	return unique(fields)
+
+
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def tax_account_query(doctype, txt, searchfield, start, page_len, filters):
+	organization_currency = ifitwala_ed.get_organization_currency(filters.get('organization'))
+
+	def get_accounts(with_account_type_filter):
+		account_type_condition = ''
+		if with_account_type_filter:
+			account_type_condition = "AND account_type in %(account_types)s"
+
+		accounts = frappe.db.sql("""
+			SELECT name, parent_account
+			FROM `tabAccount`
+			WHERE `tabAccount`.docstatus!=2
+				{account_type_condition}
+				AND is_group = 0
+				AND organization = %(organization)s
+				AND account_currency = %(currency)s
+				AND `{searchfield}` LIKE %(txt)s
+				{mcond}
+			ORDER BY idx DESC, name
+			LIMIT %(offset)s, %(limit)s
+		""".format(
+				account_type_condition=account_type_condition,
+				searchfield=searchfield,
+				mcond=get_match_cond(doctype)
+			),
+			dict(
+				account_types=filters.get("account_type"),
+				ifitwala_ed=filters.get("ifitwala_ed"),
+				currency=organization_currency,
+				txt="%{}%".format(txt),
+				offset=start,
+				limit=page_len
+			)
+		)
+
+		return accounts
+
+	tax_accounts = get_accounts(True)
+
+	if not tax_accounts:
+		tax_accounts = get_accounts(False)
+
+	return tax_accounts

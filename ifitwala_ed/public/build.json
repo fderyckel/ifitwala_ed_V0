@@ -1,6 +1,7 @@
 {
 	"css/ifitwala_ed.css": [
-		"public/less/ifitwala_ed.less"
+		"public/less/ifitwala_ed.less",
+		"public/scss/hierarchy_chart.scss"
 	],
 	"js/ifitwala_ed-web.min.js": [
 		"public/js/website_utils.js"

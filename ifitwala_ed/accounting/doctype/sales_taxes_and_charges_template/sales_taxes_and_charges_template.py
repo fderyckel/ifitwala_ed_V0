@@ -7,7 +7,7 @@ import frappe
 from frappe import _
 from frappe.utils import flt
 from frappe.model.document import Document
-from ifitwala_ed.controllers.accounts_controller import validate_taxes_and_charges, validate_inclusive_tax
+from ifitwala_ed.controllers.accounts_controller import (validate_account_head, validate_cost_center, validate_inclusive_tax, validate_taxes_and_charges)
 
 class SalesTaxesandChargesTemplate(Document):
 	def validate(self):
@@ -24,7 +24,6 @@ class SalesTaxesandChargesTemplate(Document):
 				data.rate = frappe.db.get_value('Account', data.account_head, 'tax_rate')
 
 def validate_taxes_and_charges_template(doc):
-
 	if doc.is_default == 1:
 		frappe.db.sql("""UPDATE `tab{0}` SET is_default = 0 WHERE is_default = 1 AND name != %s AND organization = %s""".format(doc.doctype), (doc.name, doc.organization))
 
@@ -35,6 +34,8 @@ def validate_taxes_and_charges_template(doc):
 
 	for tax in doc.get("taxes"):
 		validate_taxes_and_charges(tax)
+		validate_account_head(tax, doc)
+		validate_cost_center(tax, doc)
 		validate_inclusive_tax(tax, doc)
 
 def validate_disabled(doc):

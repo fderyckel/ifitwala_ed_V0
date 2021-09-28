@@ -6,14 +6,15 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils.nestedset import NestedSet
 from frappe.utils import getdate
-from frappe import _
-from frappe.utils import getdate, validate_email_address, today, add_years, format_datetime, cstr
+from frappe import _, scrub
+from frappe.utils import getdate, validate_email_address, today, add_years, cstr
 from frappe.permissions import add_user_permission, remove_user_permission, set_user_permission_if_allowed, has_permission, get_doc_permissions
 from frappe.contacts.address_and_contact import load_address_and_contact
+
 from ifitwala_ed.utilities.transaction_base import delete_events
 
 class EmployeeUserDisabledError(frappe.ValidationError): pass
-class EmployeeLeftValidationError(frappe.ValidationError): pass
+class InactiveEmployeeStatusError(frappe.ValidationError): pass
 
 class Employee(NestedSet):
 	nsm_parent_field = 'reports_to'
@@ -23,7 +24,7 @@ class Employee(NestedSet):
 
 	def validate(self):
 		from ifitwala_ed.controllers.status_updater import validate_status
-		validate_status(self.status, ["Active", "Temporary Leave", "Left"])
+		validate_status(self.status, ["Active", "Temporary Leave", "Left", "Suspended"])
 
 		self.employee = self.name
 		self.employee_full_name = " ".join(filter(None, [self.employee_first_name, self.employee_middle_name, self.employee_last_name]))
@@ -41,13 +42,16 @@ class Employee(NestedSet):
 	def after_rename(self, old, new, merge):
 		self.db_set("employee", new)
 
+	def update_nsm_model(self):
+		frappe.utils.nestedset.update_nsm(self)
+
 	def on_update(self):
+		self.update_nsm_model()
 		if self.user_id:
 			self.update_user()
 			self.update_user_permissions()
-
-	def update_nsm_model(self):
-		frappe.utils.nestedset.update_nsm(self)
+		self.reset_employee_emails_cache()
+		self.update_approver_role()
 
 	def on_trash(self):
 		self.update_nsm_model()
@@ -82,7 +86,7 @@ class Employee(NestedSet):
 				message += "<br><br><ul><li>" + "</li><li>".join(link_to_employees)
 				message += "</li></ul><br>"
 				message += _("Please make sure the employees above report to another Active employee.")
-				frappe.throw(message, EmployeeLeftValidationError, _("Cannot Relieve Employee"))
+				frappe.throw(message, InactiveEmployeeStatusError, _("Cannot Relieve Employee"))
 			if not self.relieving_date:
 				frappe.throw(_("Please enter relieving date."))
 
@@ -94,7 +98,7 @@ class Employee(NestedSet):
 	# call on validate.  Check that if there is already a user, a few more checks to do.
 	def validate_user_details(self):
 		data = frappe.db.get_value('User', self.user_id, ['enabled', 'user_image'], as_dict=1)
-		if data.get("user_image"):
+		if data.get("user_image") and self.employee_image == "":
 			self.employee_image = data.get("user_image")
 		self.validate_for_enabled_user_id(data.get("enabled", 0))
 		self.validate_duplicate_user_id()
@@ -115,7 +119,7 @@ class Employee(NestedSet):
 		if employee:
 			frappe.throw(_("User {0} is already assigned to Employee {1}").format(self.user_id, employee[0]), frappe.DuplicateEntryError)
 
-
+	# to update the user fields when employee fields are changing
 	def update_user(self):
 		# add employee role if missing
 		user = frappe.get_doc("User", self.user_id)
@@ -163,6 +167,25 @@ class Employee(NestedSet):
 
 		add_user_permission("Employee", self.name, self.user_id)
 		set_user_permission_if_allowed("Organization", self.organization, self.user_id)
+
+	def reset_employee_emails_cache(self):
+		prev_doc = self.get_doc_before_save() or {}
+		cell_number = cstr(self.get("employee_mobile_phone"))
+		prev_number = cstr(self.prev_doc("employee_mobile_phone"))
+		if (cell_number != prev_number or self.get("user_id") != self.pre_doc("user_id")):
+			frappe.cache().hdel("employees_with_number", cell_number)
+			frappe.cache().hdel("employees_with_number", prev_number)
+
+	def update_approver_role(self):
+		if self.leave_approver:
+			user = frappe.get_doc("User", self.leave_approver)
+			user.flags.ignore_permissions = True
+			user.add_roles("Leave Approver")
+
+		if self.expense_approver:
+			user = frappe.get_doc("User", self.expense_approver)
+			user.flags.ignore_permissions = True
+			user.add_roles("Expense Approver")
 
 
 
@@ -260,3 +283,10 @@ def get_employee_emails(employee_list):
 		if email:
 			employee_emails.append(email)
 	return employee_emails
+
+def get_holiday_list_for_employee(employee, raise_exception=True):
+	if employee:
+		holiday_list, organization = frappe.db.get_value("Employee", employee, ["current_holiday_list", "organization"])
+	else:
+		holiday_list = ""
+		organization = frappe.db.get_value("Global Defaults", "None", "default_organization")

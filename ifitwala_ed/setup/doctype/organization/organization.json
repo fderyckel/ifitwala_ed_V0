@@ -19,6 +19,8 @@
   "change_abbr",
   "date_of_commencement",
   "contact_html",
+  "default_values_section",
+  "default_staff_calendar",
   "mission_vision_values_section",
   "organization_philosophy",
   "stock_settings_section",
@@ -59,14 +61,14 @@
   "exchange_gain_loss_account",
   "round_off_cost_center",
   "expenses_included_in_valuation",
-  "lft",
-  "rgt",
-  "old_parent",
   "accumulated_depreciation_account",
   "depreciation_expense_account",
   "capital_work_in_progress_account",
   "asset_received_but_not_billed",
-  "expenses_included_in_asset_valuation"
+  "expenses_included_in_asset_valuation",
+  "rgt",
+  "lft",
+  "old_parent"
  ],
  "fields": [
   {
@@ -479,13 +481,24 @@
    "label": "Address  HTML",
    "no_copy": 1,
    "print_hide": 1
+  },
+  {
+   "fieldname": "default_values_section",
+   "fieldtype": "Section Break",
+   "label": "Default Values"
+  },
+  {
+   "fieldname": "default_staff_calendar",
+   "fieldtype": "Link",
+   "label": "Default Staff Calendar",
+   "options": "Staff Calendar"
   }
  ],
  "icon": "fa fa-building",
  "image_field": "organization_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2021-08-27 17:46:26.560044",
+ "modified": "2021-09-23 14:20:15.167339",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Organization",

@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "creation": "2021-09-29 16:08:55.793354",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "account",
+  "party_type",
+  "party",
+  "column_break_2",
+  "account_currency",
+  "balance_in_account_currency",
+  "balances",
+  "current_exchange_rate",
+  "balance_in_base_currency",
+  "column_break_9",
+  "new_exchange_rate",
+  "new_balance_in_base_currency",
+  "gain_loss"
+ ],
+ "fields": [
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_currency",
+   "fieldtype": "Link",
+   "label": "Account Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balance_in_account_currency",
+   "fieldtype": "Currency",
+   "label": "Balance In Account Currency",
+   "options": "account_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balances",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "current_exchange_rate",
+   "fieldtype": "Float",
+   "label": "Current Exchange Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balance_in_base_currency",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Balance In Base Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "new_exchange_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "New Exchange Rate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "new_balance_in_base_currency",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "New Balance In Base Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gain_loss",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Gain/Loss",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2021-09-29 16:08:55.793354",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Exchange Rate Revaluation Account",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

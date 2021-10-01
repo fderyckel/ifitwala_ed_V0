@@ -7,7 +7,7 @@ import frappe, ifitwala_ed
 from frappe import _
 import frappe.defaults
 from frappe.utils import nowdate, cstr, flt, cint, now, getdate
-from frappe.utils import formatdate, get_number_format_info
+from frappe.utils import formatdate, get_number_format_info, get_number_format_info
 from frappe.model.meta import get_field_precision
 # imported to enable ifitwala_ed.accounting.utils.get_account_currency
 from ifitwala_ed.accounting.doctype.account.account import get_account_currency
@@ -19,6 +19,85 @@ class FiscalYearError(frappe.ValidationError): pass
 @frappe.whitelist()
 def get_fiscal_year(date=None, fiscal_year=None, label="Date", verbose=1, organization=None, as_dict=False):
 	return get_fiscal_years(date, fiscal_year, label, verbose, organization, as_dict=as_dict)[0]
+
+def get_fiscal_years(transaction_date=None, fiscal_year=None, label="Date", verbose=1, organization=None, as_dict=False):
+	fiscal_years = frappe.cache().hget("fiscal_years", organization) or []
+
+	if not fiscal_years:
+		# if year start date is 2012-04-01, year end date should be 2013-03-31 (hence subdate)
+		cond = ""
+		if fiscal_year:
+			cond += " and fy.name = {0}".format(frappe.db.escape(fiscal_year))
+		if organization:
+			cond += """
+				AND (not exists (select name
+					from `tabFiscal Year Organization` fyc
+					where fyc.parent = fy.name)
+				OR exists(select organization
+					from `tabFiscal Year Organization` fyc
+					where fyc.parent = fy.name
+					and fyc.organization=%(organization)s)
+				)
+			"""
+
+		fiscal_years = frappe.db.sql("""
+			SELECT
+				fy.name, fy.year_start_date, fy.year_end_date
+			FROM
+				`tabFiscal Year` fy
+			WHERE
+				disabled = 0 {0}
+			ORDER BY
+				fy.year_start_date desc""".format(cond), {
+				"organization": organization
+			}, as_dict=True)
+
+		frappe.cache().hset("fiscal_years", organization, fiscal_years)
+
+	if not transaction_date and not fiscal_year:
+		return fiscal_years
+
+	if transaction_date:
+		transaction_date = getdate(transaction_date)
+
+	for fy in fiscal_years:
+		matched = False
+		if fiscal_year and fy.name == fiscal_year:
+			matched = True
+
+		if (transaction_date and getdate(fy.year_start_date) <= transaction_date
+			and getdate(fy.year_end_date) >= transaction_date):
+			matched = True
+
+		if matched:
+			if as_dict:
+				return (fy,)
+			else:
+				return ((fy.name, fy.year_start_date, fy.year_end_date),)
+
+	error_msg = _("""{0} {1} is not in any active Fiscal Year""").format(label, formatdate(transaction_date))
+	if organization:
+		error_msg = _("""{0} for {1}""").format(error_msg, frappe.bold(organization))
+
+	if verbose==1: frappe.msgprint(error_msg)
+	raise FiscalYearError(error_msg)
+
+@frappe.whitelist()
+def get_fiscal_year_filter_field(organization=None):
+	field = {
+		"fieldtype": "Select",
+		"options": [],
+		"operator": "Between",
+		"query_value": True
+	}
+	fiscal_years = get_fiscal_years(organization=organization)
+	for fiscal_year in fiscal_years:
+		field["options"].append({
+			"label": fiscal_year.name,
+			"value": fiscal_year.name,
+			"query_value": [fiscal_year.year_start_date.strftime("%Y-%m-%d"), fiscal_year.year_end_date.strftime("%Y-%m-%d")]
+		})
+	return field
 
 def validate_field_number(doctype_name, docname, number_value, organization, field_name):
 	''' Validate if the number entered isn't already assigned to some other document. '''
@@ -138,6 +217,88 @@ def get_balance_on(account=None, date=None, party_type=None, party=None, organiz
 
 		# if bal is None, return 0
 		return flt(bal)
+
+def get_count_on(account, fieldname, date):
+	cond = ["is_cancelled=0"]
+	if date:
+		cond.append("posting_date <= %s" % frappe.db.escape(cstr(date)))
+	else:
+		# get balance of all entries that exist
+		date = nowdate()
+
+	try:
+		year_start_date = get_fiscal_year(date, verbose=0)[1]
+	except FiscalYearError:
+		if getdate(date) > getdate(nowdate()):
+			# if fiscal year not found and the date is greater than today
+			# get fiscal year for today's date and its corresponding year start date
+			year_start_date = get_fiscal_year(nowdate(), verbose=1)[1]
+		else:
+			# this indicates that it is a date older than any existing fiscal year.
+			# hence, assuming balance as 0.0
+			return 0.0
+
+	if account:
+		acc = frappe.get_doc("Account", account)
+
+		if not frappe.flags.ignore_account_permission:
+			acc.check_permission("read")
+
+		# for pl accounts, get balance within a fiscal year
+		if acc.report_type == 'Profit and Loss':
+			cond.append("posting_date >= '%s' and voucher_type != 'Period Closing Voucher'" \
+				% year_start_date)
+
+		# different filter for group and ledger - improved performance
+		if acc.is_group:
+			cond.append("""exists (
+				select name from `tabAccount` ac where ac.name = gle.account
+				and ac.lft >= %s and ac.rgt <= %s
+			)""" % (acc.lft, acc.rgt))
+		else:
+			cond.append("""gle.account = %s """ % (frappe.db.escape(account, percent=False), ))
+
+		entries = frappe.db.sql("""
+			SELECT name, posting_date, account, party_type, party,debit,credit,
+				voucher_type, voucher_no, against_voucher_type, against_voucher
+			FROM `tabGL Entry` gle
+			WHERE {0}""".format(" and ".join(cond)), as_dict=True)
+
+		count = 0
+		for gle in entries:
+			if fieldname not in ('invoiced_amount','payables'):
+				count += 1
+			else:
+				dr_or_cr = "debit" if fieldname == "invoiced_amount" else "credit"
+				cr_or_dr = "credit" if fieldname == "invoiced_amount" else "debit"
+				select_fields = "ifnull(sum(credit-debit),0)" \
+					if fieldname == "invoiced_amount" else "ifnull(sum(debit-credit),0)"
+
+				if ((not gle.against_voucher) or (gle.against_voucher_type in ["Sales Order", "Purchase Order"]) or
+				(gle.against_voucher==gle.voucher_no and gle.get(dr_or_cr) > 0)):
+					payment_amount = frappe.db.sql("""
+						SELECT {0}
+						FROM `tabGL Entry` gle
+						WHERE docstatus < 2 and posting_date <= %(date)s and against_voucher = %(voucher_no)s
+						and party = %(party)s and name != %(name)s"""
+						.format(select_fields),
+						{"date": date, "voucher_no": gle.voucher_no,
+							"party": gle.party, "name": gle.name})[0][0]
+
+					outstanding_amount = flt(gle.get(dr_or_cr)) - flt(gle.get(cr_or_dr)) - payment_amount
+					currency_precision = get_currency_precision() or 2
+					if abs(flt(outstanding_amount)) > 0.1/10**currency_precision:
+						count += 1
+
+		return count
+
+def get_currency_precision():
+	precision = cint(frappe.db.get_default("currency_precision"))
+	if not precision:
+		number_format = frappe.db.get_default("number_format") or "#,###.##"
+		precision = get_number_format_info(number_format)[2]
+
+	return precision
 
 @frappe.whitelist()
 def add_ac(args=None):

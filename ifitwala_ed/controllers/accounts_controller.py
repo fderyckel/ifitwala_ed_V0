@@ -39,19 +39,18 @@ class AccountsController(TransactionBase):
 		return print_setting_fields
 
 	@property
-	def company_currency(self):
-		if not hasattr(self, "__company_currency"):
-			self.__company_currency = ifitwala_ed.get_company_currency(self.company)
+	def organization_currency(self):
+		if not hasattr(self, "__organization_currency"):
+			self.__organization_currency = ifitwala_ed.get_organization_currency(self.organization)
 
-		return self.__company_currency
+		return self.__organization_currency
 
 	def onload(self):
 		self.set_onload("make_payment_via_journal_entry",
 			frappe.db.get_single_value('Accounts Settings', 'make_payment_via_journal_entry'))
 
 		if self.is_new():
-			relevant_docs = ("Quotation", "Purchase Order", "Sales Order",
-							 "Purchase Invoice", "Sales Invoice")
+			relevant_docs = ("Quotation", "Purchase Order", "Sales Order", "Purchase Invoice", "Sales Invoice")
 			if self.doctype in relevant_docs:
 				self.set_payment_schedule()
 
@@ -82,7 +81,7 @@ class AccountsController(TransactionBase):
 			party_type, party = self.get_party()
 
 			if party_type and party:
-				party_account_currency = get_party_account_currency(party_type, party, self.company)
+				party_account_currency = get_party_account_currency(party_type, party, self.organization)
 
 		posting_date = self.get("bill_date") or self.get("posting_date") or self.get("transaction_date")
 		date = self.get("due_date")
@@ -98,7 +97,7 @@ class AccountsController(TransactionBase):
 			automatically_fetch_payment_terms = cint(frappe.db.get_single_value('Accounts Settings', 'automatically_fetch_payment_terms'))
 
 		if self.get("total_advance"):
-			if party_account_currency == self.company_currency:
+			if party_account_currency == self.organization_currency:
 				base_grand_total -= self.get("total_advance")
 				grand_total = flt(base_grand_total / self.get("conversion_rate"), self.precision("grand_total"))
 			else:
@@ -177,4 +176,4 @@ def validate_cost_center(tax, doc):
 	organization = frappe.get_cached_value("Cost Center", tax.cost_center, "Organization")
 
 	if organization != doc.organization:
-		frappe.throw(_("Row {0}: Cost Center {1} does not belong to Company {2}. Please adjust.").format(tax.idx, frappe.bold(tax.cost_center), frappe.bold(doc.organization)), title=_("Invalid Cost Center"))
+		frappe.throw(_("Row {0}: Cost Center {1} does not belong to Organization {2}. Please adjust.").format(tax.idx, frappe.bold(tax.cost_center), frappe.bold(doc.organization)), title=_("Invalid Cost Center"))

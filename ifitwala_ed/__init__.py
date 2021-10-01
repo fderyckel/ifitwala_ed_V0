@@ -92,3 +92,30 @@ def get_party_account_type(party_type):
 			party_type, "account_type") or ''
 
 	return frappe.local.party_account_types[party_type]
+
+def get_region(organization=None):
+	'''Return the default country based on flag, organization or global settings
+	You can also set global organization flag in `frappe.flags.organization`
+	'''
+	if organization or frappe.flags.organization:
+		return frappe.get_cached_value('Organization', organization or frappe.flags.organization, 'country')
+	elif frappe.flags.country:
+		return frappe.flags.country
+	else:
+		return frappe.get_system_settings('country')
+
+def allow_regional(fn):
+	'''Decorator to make a function regionally overridable
+	Example:
+	@erpnext.allow_regional
+	def myfunction():
+	  pass'''
+	def caller(*args, **kwargs):
+		region = get_region()
+		fn_name = inspect.getmodule(fn).__name__ + '.' + fn.__name__
+		if region in regional_overrides and fn_name in regional_overrides[region]:
+			return frappe.get_attr(regional_overrides[region][fn_name])(*args, **kwargs)
+		else:
+			return fn(*args, **kwargs)
+
+	return

@@ -59,6 +59,7 @@ class Organization(NestedSet):
 				self.create_default_school()
 
 		if frappe.flags.country_change:
+			install_country_fixtures(self.name, self.country)
 			self.create_default_tax_template()
 
 		if not frappe.db.get_value("Cost Center", {"is_group": 0, "organization": self.name}):
@@ -83,31 +84,41 @@ class Organization(NestedSet):
 		clear_defaults_cache()
 
 	def on_trash(self):
+		"""
+			Trash accounts and cost centers for this organization if no gl entry exists
+		"""
 		NestedSet.validate_if_child_exists(self)
 		frappe.utils.nestedset.update_nsm(self)
-
-		rec = frappe.db.sql("""SELECT name FROM `tabGL Entry` WHERE organization = %s""", self.name)
+		rec = frappe.db.sql("SELECT name FROM `tabGL Entry` WHERE organization = %s", self.name)
 		if not rec:
-			for doctype in ["Account", "Cost Center"]:
-				frappe.db.sql("""DELETE FROM `tab{0}` WHERE organization = %s""".format(doctype), self.name)
-
+			frappe.db.sql("""DELETE FROM `tabBudget Account` WHERE exists(select name from tabBudget
+					where name=`tabBudget Account`.parent and organization = %s)""", self.name)
+			for doctype in ["Account", "Cost Center", "Budget", "Party Account"]:
+				frappe.db.sql("DELETE from `tab{0}` where organization = %s".format(doctype), self.name)
 		if not frappe.db.get_value("Stock Ledger Entry", {"organization": self.name}):
 			frappe.db.sql("""DELETE FROM `tabLocation` WHERE organization=%s""", self.name)
-
 		frappe.defaults.clear_default("organization", value=self.name)
-		for doctype in ["Mode of Payment Account"]:
-			frappe.db.sql("""DELETE FROM `tab{0}` WHERE organization = %s""".format(doctype), self.name)
-
-		# clear default accounts, locations from item
-		locations = frappe.db.sql_list("""SELECT name FROM tabLocation WHERE organization=%s""", self.name)
+		for doctype in ["Mode of Payment Account", "Item Default"]:
+			frappe.db.sql("DELETE FROM `tab{0}` WHERE organization = %s".format(doctype), self.name)
+		# clear default accounts, warehouses from item
+		locations = frappe.db.sql_list("SELECT name FROM tabLocation WHERE organization=%s", self.name)
 		if locations:
 			frappe.db.sql("""DELETE FROM `tabItem Reorder` WHERE location IN (%s)""" % ', '.join(['%s']*len(locations)), tuple(locations))
-
 		# reset default organization
-		frappe.db.sql("""UPDATE `tabSingles` SET value="" WHERE doctype='Global Defaults' AND field='default_organization' AND value=%s""", self.name)
+		frappe.db.sql("""UPDATE `tabSingles` set value="" WHERE doctype='Global Defaults' AND field='default_organization' AND value=%s""", self.name)
+		# reset default organization
+		frappe.db.sql("""UPDATE `tabSingles` set value="" WHERE doctype='Chart of Accounts Importer' AND field='organization' AND value=%s""", self.name)
+		# delete BOMs
+		frappe.db.sql("DELETE FROM tabEmployee where organization=%s", self.name)
+		frappe.db.sql("DELETE FROM `tabTax Withholding Account` WHERE organization=%s", self.name)
+		# delete tax templates
+		frappe.db.sql("DELETE FROM `tabSales Taxes and Charges Template` WHERE organization=%s", self.name)
+		frappe.db.sql("DELETE FROM `tabPurchase Taxes and Charges Template` WHERE organization=%s", self.name)
+		frappe.db.sql("DELETE FROM `tabItem Tax Template` WHERE organization=%s", self.name)
 
-		frappe.db.sql("delete from tabEmployee where organization=%s", self.name)
-		frappe.db.sql("delete from tabTeam where organization=%s", self.name)
+		# delete Process Deferred Accounts if no GL Entry found
+		if not frappe.db.get_value('GL Entry', {'organization': self.name}):
+			frappe.db.sql("delete from `tabProcess Deferred Accounting` where organization=%s", self.name)
 
 
 ##########################################
@@ -360,7 +371,7 @@ def replace_abbr(organization, old, new):
 		for dt in ["Location", "Account", "Cost Center", "Team", "Sales Taxes and Charges Template", "Purchase Taxes and Charges Template"]:
 			_rename_records(dt)
 			frappe.db.commit()
-		frappe.db.set_value("Company", company, "abbr", new)
+		frappe.db.set_value("Organization", organization, "abbr", new)
 
 	except Exception:
 		frappe.log_error(title=_('Abbreviation Rename Error'))
@@ -375,6 +386,16 @@ def get_name_with_abbr(name, organization):
 		parts.append(organization_abbr)
 
 	return " - ".join(parts)
+
+def install_country_fixtures(organization, country):
+	path = frappe.get_app_path('ifitwala_ed', 'regional', frappe.scrub(country))
+	if os.path.exists(path.encode("utf-8")):
+		try:
+			module_name = "ifitwala_ed.regional.{0}.setup.setup".format(frappe.scrub(country))
+			frappe.get_attr(module_name)(organization, False)
+		except Exception as e:
+			frappe.log_error()
+			frappe.throw(_("Failed to setup defaults for country {0}. Please contact support@erpnext.com").format(frappe.bold(country)))
 
 @frappe.whitelist()
 def get_children(doctype, parent=None, organization=None, is_root=False):

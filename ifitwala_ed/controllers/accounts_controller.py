@@ -11,8 +11,8 @@ from six import text_type
 from frappe import _
 from frappe.utils import (today, flt, cint, fmt_money, formatdate, getdate, add_days, add_months, get_last_day, nowdate, get_link_to_form)
 
-from ifitwala_ed.accounts.doctype.accounting_dimension.accounting_dimension import get_accounting_dimensions
-from ifitwala_ed.accounts.utils import get_account_currency, get_fiscal_years, validate_fiscal_year
+from ifitwala_ed.accounting.doctype.accounting_dimension.accounting_dimension import get_accounting_dimensions
+from ifitwala_ed.accounting.utils import get_account_currency, get_fiscal_years, validate_fiscal_year
 from ifitwala_ed.utilities.transaction_base import TransactionBase
 
 

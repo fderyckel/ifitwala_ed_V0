@@ -127,7 +127,7 @@ var get_payment_mode_account = function(frm, mode_of_payment, callback) {
 	}
 
 	return  frappe.call({
-		method: "ifitwala_ed.accounts.doctype.sales_invoice.sales_invoice.get_bank_cash_account",
+		method: "ifitwala_ed.accounting.doctype.sales_invoice.sales_invoice.get_bank_cash_account",
 		args: {
 			"mode_of_payment": mode_of_payment,
 			"organization": frm.doc.organization

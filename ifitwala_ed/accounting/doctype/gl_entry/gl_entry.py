@@ -176,7 +176,7 @@ class GLEntry(Document):
 		validate_party_frozen_disabled(self.party_type, self.party)
 
 	def validate_currency(self):
-		organization_currency = erpnext.get_organization_currency(self.organization)
+		organization_currency = ifitwala_ed.get_organization_currency(self.organization)
 		account_currency = get_account_currency(self.account)
 
 		if not self.account_currency:
@@ -276,7 +276,7 @@ def update_against_account(voucher_type, voucher_no):
 
 	if not entries:
 		return
-	organization_currency = erpnext.get_organization_currency(entries[0].organization)
+	organization_currency = ifitwala_ed.get_organization_currency(entries[0].organization)
 	precision = get_field_precision(frappe.get_meta("GL Entry")
 			.get_field("debit"), organization_currency)
 

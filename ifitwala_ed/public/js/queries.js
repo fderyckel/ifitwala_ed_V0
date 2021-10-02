@@ -13,7 +13,7 @@ $.extend(ifitwala_ed.queries, {
 	},
 
 	supplier: function() {
-		return { query: "erpnext.controllers.queries.supplier_query" };
+		return { query: "ifitwala_ed.controllers.queries.supplier_query" };
 	},
 
 	customer_filter: function(doc) {

@@ -26,7 +26,7 @@ frappe.ui.form.on('Bank', {
 		}
 		if (frm.doc.plaid_access_token) {
 			frm.add_custom_button(__('Refresh Plaid Link'), () => {
-				new erpnext.integrations.refreshPlaidLink(frm.doc.plaid_access_token);
+				new ifitwala_ed.integrations.refreshPlaidLink(frm.doc.plaid_access_token);
 			});
 		}
 	}

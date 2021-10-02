@@ -39,79 +39,79 @@ from ifitwala_ed.exceptions import InvalidAccountCurrency, PartyDisabled, PartyF
 class DuplicatePartyAccountError(frappe.ValidationError): pass
 
 @frappe.whitelist()
-def get_party_account(party_type, party, company=None):
+def get_party_account(party_type, party, organization=None):
 	"""Returns the account for the given `party`.
 		Will first search in party (Customer / Supplier) record, if not found,
 		will search in group (Customer Group / Supplier Group),
 		finally will return default."""
-	if not company:
-		frappe.throw(_("Please select a Company"))
+	if not organization:
+		frappe.throw(_("Please select a Organization"))
 
 	if not party:
 		return
 
 	account = frappe.db.get_value("Party Account",
-		{"parenttype": party_type, "parent": party, "company": company}, "account")
+		{"parenttype": party_type, "parent": party, "organization": organization}, "account")
 
 	if not account and party_type in ['Customer', 'Supplier']:
 		party_group_doctype = "Customer Group" if party_type=="Customer" else "Supplier Group"
 		group = frappe.get_cached_value(party_type, party, scrub(party_group_doctype))
 		account = frappe.db.get_value("Party Account",
-			{"parenttype": party_group_doctype, "parent": group, "company": company}, "account")
+			{"parenttype": party_group_doctype, "parent": group, "organization": organization}, "account")
 
 	if not account and party_type in ['Customer', 'Supplier']:
 		default_account_name = "default_receivable_account" \
 			if party_type=="Customer" else "default_payable_account"
-		account = frappe.get_cached_value('Company',  company,  default_account_name)
+		account = frappe.get_cached_value('Organization',  organization,  default_account_name)
 
-	existing_gle_currency = get_party_gle_currency(party_type, party, company)
+	existing_gle_currency = get_party_gle_currency(party_type, party, organization)
 	if existing_gle_currency:
 		if account:
 			account_currency = frappe.db.get_value("Account", account, "account_currency", cache=True)
 		if (account and account_currency != existing_gle_currency) or not account:
-				account = get_party_gle_account(party_type, party, company)
+				account = get_party_gle_account(party_type, party, organization)
 
 	return account
 
-def get_party_account_currency(party_type, party, company):
+def get_party_account_currency(party_type, party, organization):
 	def generator():
-		party_account = get_party_account(party_type, party, company)
+		party_account = get_party_account(party_type, party, organization)
 		return frappe.db.get_value("Account", party_account, "account_currency", cache=True)
 
-	return frappe.local_cache("party_account_currency", (party_type, party, company), generator)
+	return frappe.local_cache("party_account_currency", (party_type, party, organization), generator)
 
-def get_party_gle_currency(party_type, party, company):
+def get_party_gle_currency(party_type, party, organization):
 	def generator():
 		existing_gle_currency = frappe.db.sql("""select account_currency from `tabGL Entry`
-			where docstatus=1 and company=%(company)s and party_type=%(party_type)s and party=%(party)s
-			limit 1""", { "company": company, "party_type": party_type, "party": party })
+			where docstatus=1 and organization=%(organization)s and party_type=%(party_type)s and party=%(party)s
+			limit 1""", { "organization": organization, "party_type": party_type, "party": party })
 
 		return existing_gle_currency[0][0] if existing_gle_currency else None
 
-	return frappe.local_cache("party_gle_currency", (party_type, party, company), generator,
+	return frappe.local_cache("party_gle_currency", (party_type, party, organization), generator,
 		regenerate_if_none=True)
 
-def get_party_gle_account(party_type, party, company):
+def get_party_gle_account(party_type, party, organization):
 	def generator():
 		existing_gle_account = frappe.db.sql("""select account from `tabGL Entry`
-			where docstatus=1 and company=%(company)s and party_type=%(party_type)s and party=%(party)s
-			limit 1""", { "company": company, "party_type": party_type, "party": party })
+			where docstatus=1 and organization=%(organization)s and party_type=%(party_type)s and party=%(party)s
+			limit 1""", { "organization": organization, "party_type": party_type, "party": party })
 
 		return existing_gle_account[0][0] if existing_gle_account else None
 
-	return frappe.local_cache("party_gle_account", (party_type, party, company), generator,
+	return frappe.local_cache("party_gle_account", (party_type, party, organization), generator,
 		regenerate_if_none=True)
 
-def validate_party_gle_currency(party_type, party, company, party_account_currency=None):
+def validate_party_gle_currency(party_type, party, organization, party_account_currency=None):
 	"""Validate party account currency with existing GL Entry's currency"""
 	if not party_account_currency:
-		party_account_currency = get_party_account_currency(party_type, party, company)
+		party_account_currency = get_party_account_currency(party_type, party, organization)
 
-	existing_gle_currency = get_party_gle_currency(party_type, party, company)
+	existing_gle_currency = get_party_gle_currency(party_type, party, organization)
 
 	if existing_gle_currency and party_account_currency != existing_gle_currency:
-		frappe.throw(_("{0} {1} has accounting entries in currency {2} for company {3}. Please select a receivable or payable account with currency {2}.")
-			.format(frappe.bold(party_type), frappe.bold(party), frappe.bold(existing_gle_currency), frappe.bold(company)), InvalidAccountCurrency)
+		frappe.throw(_("{0} {1} has accounting entries in currency {2} for organization {3}. Please select a receivable or payable account with currency {2}.")
+			.format(frappe.bold(party_type), frappe.bold(party), frappe.bold(existing_gle_currency), frappe.bold(organization)), InvalidAccountCurrency)
 
 
 

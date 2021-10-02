@@ -5,7 +5,7 @@ frappe.ui.form.on("Contact", {
 				query: "frappe.contacts.address_and_contact.filter_dynamic_link_doctypes",
 				filters: {
 					fieldtype: ["in", ["HTML", "Text Editor"]],
-					fieldname: ["in", ["contact_html", "company_description"]],
+					fieldname: ["in", ["contact_html", "organization_description"]],
 				}
 			};
 		});

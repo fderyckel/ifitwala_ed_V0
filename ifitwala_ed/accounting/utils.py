@@ -12,7 +12,7 @@ from frappe.model.meta import get_field_precision
 
 # imported to enable ifitwala_ed.accounting.utils.get_account_currency
 from ifitwala_ed.accounting.doctype.account.account import get_account_currency
-from ifitwala_ed.stock import get_warehouse_account_map
+from ifitwala_ed.stock import get_location_account_map
 from ifitwala_ed.stock.utils import get_stock_value_on
 
 class StockValueAndAccountBalanceOutOfSync(frappe.ValidationError): pass

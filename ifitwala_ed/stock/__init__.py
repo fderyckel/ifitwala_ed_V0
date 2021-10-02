@@ -6,6 +6,49 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 
+from __future__ import unicode_literals
+
+import frappe
+from frappe import _
+
+install_docs = [
+	{"doctype":"Role", "role_name":"Stock Manager", "name":"Stock Manager"},
+	{"doctype":"Role", "role_name":"Item Manager", "name":"Item Manager"},
+	{"doctype":"Role", "role_name":"Stock User", "name":"Stock User"},
+	{"doctype":"Role", "role_name":"Quality Manager", "name":"Quality Manager"},
+	{"doctype":"Item Group", "item_group_name":"All Item Groups", "is_group": 1},
+	{"doctype":"Item Group", "item_group_name":"Default",
+		"parent_item_group":"All Item Groups", "is_group": 0},
+]
+
+def get_location_account_map(organization=None):
+	organization_location_account_map = organization and frappe.flags.setdefault('location_account_map', {}).get(organization)
+	location_account_map = frappe.flags.location_account_map
+
+	if not location_account_map or not organization_location_account_map or frappe.flags.in_test:
+		location_account = frappe._dict()
+
+		filters = {}
+		if organization:
+			filters['organization'] = organization
+			frappe.flags.setdefault('location_account_map', {}).setdefault(organization, {})
+
+		for d in frappe.get_all('Location',
+			fields = ["name", "account", "parent_location", "organization", "is_group"],
+			filters = filters,
+			order_by="lft, rgt"):
+			if not d.account:
+				d.account = get_location_account(d, location_account)
+
+			if d.account:
+				d.account_currency = frappe.db.get_value('Account', d.account, 'account_currency', cache=True)
+				location_account.setdefault(d.name, d)
+		if organization:
+			frappe.flags.location_account_map[organization] = location_account
+		else:
+			frappe.flags.location_account_map = location_account
+
+	return frappe.flags.location_account_map.get(organization) or frappe.flags.location_account_map
 
 def get_location_account(location, location_account=None):
 	account = location.account

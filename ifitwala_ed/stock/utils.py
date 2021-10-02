@@ -3,9 +3,16 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
+import json
+from six import string_types
+
 import frappe
 from frappe import _
 from frappe.utils import flt, cstr, nowdate, nowtime, get_link_to_form
+
+import ifitwala_ed
+
+class InvalidLocationOrganization(frappe.ValidationError): pass
 
 def get_stock_value_from_bin(location=None, item_code=None):
 	values = {}
@@ -31,6 +38,44 @@ def get_stock_value_from_bin(location=None, item_code=None):
 	stock_value = frappe.db.sql(query, values)
 
 	return stock_value
+
+def get_stock_value_on(location=None, posting_date=None, item_code=None):
+	if not posting_date: posting_date = nowdate()
+
+	values, condition = [posting_date], ""
+
+	if location:
+
+		lft, rgt, is_group = frappe.db.get_value("Location", location, ["lft", "rgt", "is_group"])
+
+		if is_group:
+			values.extend([lft, rgt])
+			condition += "and exists (\
+				select name from `tabLocation` wh where wh.name = sle.location\
+				and wh.lft >= %s and wh.rgt <= %s)"
+
+		else:
+			values.append(location)
+			condition += " AND location = %s"
+
+	if item_code:
+		values.append(item_code)
+		condition += " AND item_code = %s"
+
+	stock_ledger_entries = frappe.db.sql("""
+		SELECT item_code, stock_value, name, location
+		FROM `tabStock Ledger Entry` sle
+		WHERE posting_date <= %s {0}
+			and is_cancelled = 0
+		ORDER BY timestamp(posting_date, posting_time) DESC, creation DESC
+	""".format(condition), values, as_dict=1)
+
+	sle_map = {}
+	for sle in stock_ledger_entries:
+		if not (sle.item_code, sle.location) in sle_map:
+			sle_map[(sle.item_code, sle.location)] = flt(sle.stock_value)
+
+	return sum(sle_map.values())
 
 def get_bin(item_code, location):
 	bin = frappe.db.get_value("Bin", {"item_code": item_code, "location": location})

@@ -62,7 +62,7 @@ frappe.ui.form.on('Chart of Accounts Importer', {
 				}
 
 				open_url_post(
-					'/api/method/erpnext.accounts.doctype.chart_of_accounts_importer.chart_of_accounts_importer.download_template',
+					'/api/method/ifitwla_ed.accounting.doctype.chart_of_accounts_importer.chart_of_accounts_importer.download_template',
 					{
 						file_type: data.file_type,
 						template_type: data.template_type
@@ -89,7 +89,7 @@ frappe.ui.form.on('Chart of Accounts Importer', {
 		if (frm.doc.organization) {
 			// validate that no Gl Entry record for the organization exists.
 			frappe.call({
-				method: "erpnext.accounts.doctype.chart_of_accounts_importer.chart_of_accounts_importer.validate_organization",
+				method: "ifitwala_ed.accounting.doctype.chart_of_accounts_importer.chart_of_accounts_importer.validate_organization",
 				args: {
 					organization: frm.doc.organization
 				},
@@ -145,7 +145,7 @@ var generate_tree_preview = function(frm) {
 			parent: $(frm.fields_dict['chart_tree'].wrapper),
 			label: parent,
 			expandable: true,
-			method: 'erpnext.accounts.doctype.chart_of_accounts_importer.chart_of_accounts_importer.get_coa',
+			method: 'ifitwala_ed.accounting.doctype.chart_of_accounts_importer.chart_of_accounts_importer.get_coa',
 			args: {
 				file_name: frm.doc.import_file,
 				parent: parent,

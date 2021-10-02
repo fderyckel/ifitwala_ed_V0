@@ -1,0 +1,93 @@
+{
+ "actions": [],
+ "creation": "2021-10-02 13:43:07.766562",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "column_break_2",
+  "automatic_sync",
+  "section_break_4",
+  "plaid_client_id",
+  "plaid_secret",
+  "column_break_7",
+  "plaid_env",
+  "enable_european_access"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "enabled",
+   "fieldname": "automatic_sync",
+   "fieldtype": "Check",
+   "label": "Synchronize all accounts every hour"
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "plaid_client_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plaid Client ID"
+  },
+  {
+   "fieldname": "plaid_secret",
+   "fieldtype": "Password",
+   "in_list_view": 1,
+   "label": "Plaid Secret"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "plaid_env",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Plaid Environment",
+   "options": "sandbox\ndevelopment\nproduction"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_european_access",
+   "fieldtype": "Check",
+   "label": "Enable European Access"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-10-02 13:43:07.766562",
+ "modified_by": "Administrator",
+ "module": "Ifitwala Integration",
+ "name": "Plaid Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

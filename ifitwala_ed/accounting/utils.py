@@ -3,6 +3,9 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
+from json import loads
+from six import string_types
+
 import frappe, ifitwala_ed
 from frappe import _
 import frappe.defaults
@@ -360,15 +363,27 @@ def get_children(doctype, parent, organization, is_root=False):
 
 	if doctype == 'Account':
 		sort_accounts(acc, is_root, key="value")
-		organization_currency = frappe.get_cached_value('Organization',  organization,  "default_currency")
-		for each in acc:
-			each["organization_currency"] = organization_currency
-			each["balance"] = flt(get_balance_on(each.get("value"), in_account_currency=False, organization=organization))
-
-			if each.account_currency != organization_currency:
-				each["balance_in_account_currency"] = flt(get_balance_on(each.get("value"), organization=organization))
 
 	return acc
+
+@frappe.whitelist()
+def get_account_balances(accounts, organization):
+
+	if isinstance(accounts, string_types):
+		accounts = loads(accounts)
+
+	if not accounts:
+		return []
+
+	organization_currency = frappe.get_cached_value("Organization",  organization,  "default_currency")
+
+	for account in accounts:
+		account["organization_currency"] = organization_currency
+		account["balance"] = flt(get_balance_on(account["value"], in_account_currency=False, organization=organization))
+		if account["account_currency"] and account["account_currency"] != organization_currency:
+			account["balance_in_account_currency"] = flt(get_balance_on(account["value"], organization=organization))
+
+	return accounts
 
 @frappe.whitelist()
 def get_coa(doctype, parent, is_root, chart=None):

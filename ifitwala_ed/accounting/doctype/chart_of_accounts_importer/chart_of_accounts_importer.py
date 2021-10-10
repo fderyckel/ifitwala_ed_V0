@@ -22,7 +22,10 @@ from ifitwala_ed.accounting.doctype.account.chart_of_accounts.chart_of_accounts 
 	create_charts,
 )
 
-class ChartofAccountsImporter(Document): pass
+class ChartofAccountsImporter(Document):
+	def validate(self):
+		if self.import_file:
+			get_coa('Chart of Accounts Importer', 'All Accounts', file_name=self.import_file, for_validate=1)
 
 def validate_columns(data):
 	if not data:
@@ -31,7 +34,7 @@ def validate_columns(data):
 	no_of_columns = max([len(d) for d in data])
 
 	if no_of_columns > 7:
-		frappe.throw(_('More columns found than expected. Please compare the uploaded file with standard template'))
+		frappe.throw(_('More columns found than expected. Please compare the uploaded file with standard template'), title=(_("Wrong Template")))
 
 @frappe.whitelist()
 def validate_organization(organization):
@@ -60,6 +63,7 @@ def import_coa(file_name, organization):
 	else:
 		data = generate_data_from_excel(file_doc, extension)
 
+	frappe.local.flags.ignore_root_organizatiion_validation = True
 	forest = build_forest(data)
 	create_charts(organization, custom_chart=forest)
 
@@ -124,7 +128,7 @@ def generate_data_from_excel(file_doc, extension, as_dict=False):
 	return data
 
 @frappe.whitelist()
-def get_coa(doctype, parent, is_root=False, file_name=None):
+def get_coa(doctype, parent, is_root=False, file_name=None, for_validate=0):
 	''' called by tree view (to fetch node's children) '''
 
 	file_doc, extension = get_file(file_name)
@@ -136,14 +140,20 @@ def get_coa(doctype, parent, is_root=False, file_name=None):
 		data = generate_data_from_excel(file_doc, extension)
 
 	validate_columns(data)
-	validate_accounts(data)
-	forest = build_forest(data)
-	accounts = build_tree_from_json("", chart_data=forest) # returns alist of dict in a tree render-able form
+	validate_accounts(file_doc, extension)
 
-	# filter out to show data for the selected node only
-	accounts = [d for d in accounts if d['parent_account']==parent]
+	if not for_validate:
+		forest = build_forest(data)
+		accounts = build_tree_from_json("", chart_data=forest) # returns a list of dict in a tree render-able form
 
-	return accounts
+		# filter out to show data for the selected node only
+		accounts = [d for d in accounts if d['parent_account']==parent]
+
+		return accounts
+	else:
+		return {
+			'show_import_button': 1
+		}
 
 def build_forest(data):
 	'''
@@ -300,10 +310,7 @@ def get_sample_template(writer):
 
 
 @frappe.whitelist()
-def validate_accounts(file_name):
-
-	file_doc, extension = get_file(file_name)
-
+def validate_accounts(file_doc, extension):
 	if extension  == 'csv':
 		accounts = generate_data_from_csv(file_doc, as_dict=True)
 	else:
@@ -322,8 +329,6 @@ def validate_accounts(file_name):
 
 	validate_root(accounts_dict)
 
-	validate_account_types(accounts_dict)
-
 	return [True, len(accounts)]
 
 def validate_root(accounts):
@@ -336,8 +341,18 @@ def validate_root(accounts):
 		elif account.get("root_type") not in get_root_types() and account.get("account_name"):
 			error_messages.append(_("Root Type for {0} must be one of the Asset, Liability, Income, Expense and Equity").format(account.get("account_name")))
 
+	validate_missing_roots(roots)
+
 	if error_messages:
 		frappe.throw("<br>".join(error_messages))
+
+def validate_missing_roots(roots):
+	root_types_added = set(d.get('root_type') for d in roots)
+
+	missing = list(set(get_root_types()) - root_types_added)
+
+	if missing:
+		frappe.throw(_("Please add Root Account for - {0}").format(' , '.join(missing)))
 
 def get_root_types():
 	return ('Asset', 'Liability', 'Expense', 'Income', 'Equity')

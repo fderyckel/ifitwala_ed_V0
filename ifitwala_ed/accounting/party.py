@@ -8,7 +8,6 @@ import frappe
 from frappe import _, msgprint, scrub
 from frappe.contacts.doctype.address.address import (
 	get_address_display,
-	get_organization_address,
 	get_default_address,
 )
 from frappe.contacts.doctype.contact.contact import get_contact_details
@@ -32,6 +31,7 @@ from six import iteritems
 
 import ifitwala_ed
 from ifitwala_ed import get_organization_currency
+from ifitwala_ed.setup.doctype.organization.organization import get_organization_address
 from ifitwala_ed.accounting.utils import get_fiscal_year
 from ifitwala_ed.exceptions import InvalidAccountCurrency, PartyDisabled, PartyFrozen
 

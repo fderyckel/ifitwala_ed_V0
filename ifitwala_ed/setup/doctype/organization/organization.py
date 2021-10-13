@@ -340,6 +340,12 @@ class Organization(NestedSet):
 		setup_taxes_and_charges(self.name, self.country)
 
 
+def get_organization_address(organization):
+	ret = frappe._dict()
+	ret.organization_address = get_default_address('Organization', organization)
+	ret.organization_address_display = get_address_display(ret.organization_address)
+
+	return ret
 
 @frappe.whitelist()
 def enqueue_replace_abbr(organization, old, new):

@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2021-10-14 14:30:10.705465",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "program",
+  "student_cohort",
+  "total_students"
+ ],
+ "fields": [
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Program",
+   "options": "Program",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_cohort",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Cohort",
+   "options": "Student Cohort",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_students",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Total Students",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-10-14 14:30:10.705465",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Fee Schedule Program",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

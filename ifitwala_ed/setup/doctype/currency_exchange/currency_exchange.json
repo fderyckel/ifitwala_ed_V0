@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "creation": "2021-10-16 16:26:38.502254",
+ "description": "Specify Exchange Rate to convert one currency into another",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "from_currency",
+  "to_currency",
+  "exchange_rate",
+  "column_break_5",
+  "for_buying",
+  "for_selling"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1,
+   "width": "5"
+  },
+  {
+   "fieldname": "from_currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "From Currency",
+   "options": "Currency",
+   "reqd": 1,
+   "width": "3"
+  },
+  {
+   "fieldname": "to_currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "To Currency",
+   "options": "Currency",
+   "reqd": 1,
+   "width": "3"
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Exchange Rate",
+   "precision": "9",
+   "reqd": 1,
+   "width": "3"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "for_buying",
+   "fieldtype": "Check",
+   "label": "For Buying"
+  },
+  {
+   "default": "1",
+   "fieldname": "for_selling",
+   "fieldtype": "Check",
+   "label": "For Selling"
+  }
+ ],
+ "icon": "fa fa-exchange",
+ "links": [],
+ "modified": "2021-10-16 16:26:38.502254",
+ "modified_by": "Administrator",
+ "module": "Setup",
+ "name": "Currency Exchange",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase User"
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "name",
+ "sort_order": "DESC"
+}

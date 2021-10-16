@@ -14,7 +14,7 @@
   "account_subtype",
   "column_break_7",
   "is_default",
-  "is_company_account",
+  "is_organization_account",
   "organization",
   "section_break_11",
   "party_type",
@@ -51,7 +51,7 @@
    "fieldname": "account",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Company Account",
+   "label": "Organization Account",
    "options": "Account"
   },
   {
@@ -85,14 +85,7 @@
    "label": "Is Default Account"
   },
   {
-   "default": "0",
-   "description": "Setting the account as a Company Account is necessary for Bank Reconciliation",
-   "fieldname": "is_company_account",
-   "fieldtype": "Check",
-   "label": "Is Company Account"
-  },
-  {
-   "depends_on": "is_company_account",
+   "depends_on": "is_organization_account",
    "fieldname": "organization",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -101,7 +94,7 @@
    "options": "Organization"
   },
   {
-   "depends_on": "eval:!doc.is_company_account",
+   "depends_on": "eval:!doc.is_organization_account",
    "fieldname": "section_break_11",
    "fieldtype": "Section Break",
    "label": "Party Details"
@@ -205,10 +198,17 @@
    "fieldtype": "Data",
    "label": "Mask",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Setting the account as an Organization Account is necessary for Bank Reconciliation",
+   "fieldname": "is_organization_account",
+   "fieldtype": "Check",
+   "label": "Is Organization Account"
   }
  ],
  "links": [],
- "modified": "2021-09-29 16:20:43.448605",
+ "modified": "2021-10-16 16:08:52.924359",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Bank Account",

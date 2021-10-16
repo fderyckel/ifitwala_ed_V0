@@ -29,7 +29,7 @@
    "label": "Download Template"
   },
   {
-   "depends_on": "company",
+   "depends_on": "organization",
    "fieldname": "import_file",
    "fieldtype": "Attach",
    "label": "Attach custom Chart of Accounts file"
@@ -50,7 +50,7 @@
  "in_create": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-09-28 14:28:16.070376",
+ "modified": "2021-10-16 16:09:58.992139",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Chart of Accounts Importer",

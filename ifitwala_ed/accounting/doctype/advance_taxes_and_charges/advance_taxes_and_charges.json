@@ -94,7 +94,7 @@
    "label": "Accounting Dimensions"
   },
   {
-   "default": ":Company",
+   "default": ":Organization",
    "fieldname": "cost_center",
    "fieldtype": "Link",
    "label": "Cost Center",
@@ -161,7 +161,7 @@
   {
    "fieldname": "base_tax_amount",
    "fieldtype": "Currency",
-   "label": "Amount (Company Currency)",
+   "label": "Amount (Organization Currency)",
    "oldfieldname": "tax_amount",
    "oldfieldtype": "Currency",
    "options": "Organization:organization:default_currency",
@@ -170,7 +170,7 @@
   {
    "fieldname": "base_total",
    "fieldtype": "Currency",
-   "label": "Total (Company Currency)",
+   "label": "Total (Organization Currency)",
    "oldfieldname": "total",
    "oldfieldtype": "Currency",
    "options": "Organization:organization:default_currency",
@@ -179,14 +179,14 @@
   {
    "fieldname": "base_allocated_amount",
    "fieldtype": "Currency",
-   "label": "Allocated Amount (Company Currency)",
+   "label": "Allocated Amount (Organization Currency)",
    "options": "Organization:organization:default_currency"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-09-29 16:04:21.968045",
+ "modified": "2021-10-16 16:06:12.740908",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Advance Taxes and Charges",

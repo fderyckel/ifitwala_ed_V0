@@ -1,0 +1,349 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "OPP-.YYYY.-.######",
+ "creation": "2021-10-16 10:07:57.055704",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "email_append_to": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_lead",
+  "section_break_2",
+  "opportunity_name",
+  "company_name",
+  "email_id",
+  "opportunity_source",
+  "column_break_6",
+  "status",
+  "salutation",
+  "designation",
+  "gender",
+  "image",
+  "contact_by",
+  "follow_up_section",
+  "column_break_15",
+  "next_contact_date",
+  "ends_on",
+  "notes_section",
+  "notes",
+  "address_info",
+  "address_html",
+  "address_type",
+  "address_title",
+  "address_line_1",
+  "address_line_2",
+  "citytown",
+  "column_break_25",
+  "contact_html",
+  "state_column",
+  "country",
+  "pincode",
+  "phone",
+  "mobile_no",
+  "website",
+  "more_information_section",
+  "organization",
+  "language",
+  "column_break_38",
+  "blog_subscriber",
+  "unsubscribed",
+  "title"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "company_lead",
+   "fieldtype": "Check",
+   "label": "Lead is a Company"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Address",
+   "options": "Email",
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "blog_subscriber",
+   "fieldtype": "Check",
+   "label": "Blog Subscriber"
+  },
+  {
+   "default": "0",
+   "fieldname": "unsubscribed",
+   "fieldtype": "Check",
+   "label": "Unsubscribed"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Lead\nOpen\nReplied\nOpportunity\nInterested\nConverted\nDo Not Contact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "opportunity_source",
+   "fieldtype": "Link",
+   "label": "Opportunity Source",
+   "options": "Opportunity Source"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "contact_by",
+   "fieldtype": "Link",
+   "label": "Next Contact By",
+   "options": "User"
+  },
+  {
+   "fieldname": "follow_up_section",
+   "fieldtype": "Section Break",
+   "label": "Follow up"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_contact_date",
+   "fieldtype": "Datetime",
+   "label": "Next Contact Date"
+  },
+  {
+   "bold": 1,
+   "fieldname": "ends_on",
+   "fieldtype": "Datetime",
+   "label": "Ends on",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "address_info",
+   "fieldtype": "Section Break",
+   "label": "Address & Contact"
+  },
+  {
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "address_title",
+   "fieldtype": "Data",
+   "label": "Address Title"
+  },
+  {
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1",
+   "mandatory_depends_on": "eval: doc.address_title && doc.address_type"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Billing",
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "address_type",
+   "fieldtype": "Select",
+   "label": "Address Type",
+   "options": "Billing\nShipping\nOffice\nPersonal\nPlant\nPostal\nShop\nSubsidiary\nWarehouse\nCurrent\nPermanent\nOther"
+  },
+  {
+   "depends_on": "eval: doc.__islocal\n",
+   "fieldname": "citytown",
+   "fieldtype": "Data",
+   "label": "City/Town",
+   "mandatory_depends_on": "eval: doc.address_title && doc.address_type"
+  },
+  {
+   "fieldname": "contact_html",
+   "fieldtype": "Data",
+   "label": "Contact HTML"
+  },
+  {
+   "depends_on": "eval: doc.__islocal\n",
+   "fieldname": "state_column",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "depends_on": "eval: doc.__islocal\n",
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "mandatory_depends_on": "eval: doc.address_title && doc.address_type",
+   "options": "Country"
+  },
+  {
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone"
+  },
+  {
+   "depends_on": "eval: doc.__islocal",
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No.",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "more_information_section",
+   "fieldtype": "Section Break",
+   "label": "More information"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Print Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "opportunity_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Person Name",
+   "search_index": 1
+  }
+ ],
+ "icon": "fa fa-user",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-10-16 11:08:55.991465",
+ "modified_by": "Administrator",
+ "module": "Students",
+ "name": "Opportunity",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academic Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admission Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "opportunity_name, status",
+ "sender_field": "email_id",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "subject_field": "title",
+ "title_field": "title",
+ "track_changes": 1
+}

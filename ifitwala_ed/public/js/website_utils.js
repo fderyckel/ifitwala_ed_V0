@@ -3,6 +3,16 @@
 
 if(!window.ifitwala_ed) window.ifitwala_ed = {};
 
+frappe.send_message = function(opts, btn) {
+	return frappe.call({
+		type: "POST",
+		method: "ifitwala_ed.templates.utils.send_message",
+		btn: btn,
+		args: opts,
+		callback: opts.callback
+	});
+};
+
 ifitwala_ed.subscribe_to_newsletter = function(opts, btn) {
 	return frappe.call({
 		type: "POST",

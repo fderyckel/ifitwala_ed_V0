@@ -6,3 +6,9 @@ from frappe.model.document import Document
 
 class HRSettings(Document):
 	pass
+
+@frappe.whitelist()
+def set_proceed_with_frequency_change():
+	'''Enables proceed with frequency change'''
+	global PROCEED_WITH_FREQUENCY_CHANGE
+	PROCEED_WITH_FREQUENCY_CHANGE = True

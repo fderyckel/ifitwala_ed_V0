@@ -6,7 +6,7 @@ def get_filters_config():
 	filters_config = {
 		"fiscal year": {
 			"label": "Fiscal Year",
-			"get_field": "erpnext.accounting.utils.get_fiscal_year_filter_field",
+			"get_field": "ifitwala_ed.accounting.utils.get_fiscal_year_filter_field",
 			"valid_for_fieldtypes": ["Date", "Datetime", "DateRange"],
 			"depends_on": "organization",
 		}

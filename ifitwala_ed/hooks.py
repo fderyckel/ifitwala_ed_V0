@@ -17,17 +17,19 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 app_include_js = "ifitwala_ed.bundle.js"
-app_include_css = "/assets/css/ifitwala_ed.css"
+app_include_css = "ifitwala_ed.bundle.css"
 
 # include js, css files in header of web template
-web_include_css = "/assets/css/ifitwala_ed-web.css"
-web_include_js = "/assets/js/ifitwala_ed-web.min.js"
+web_include_css = "ifitwala_ed-web.bundle.css"
+web_include_js = "ifitwala_ed-web.bundle.js"
 
 # setup wizard
 #setup_wizard_requires = "assets/ifitwala_ed/js/setup_wizard.js"
 #setup_wizard_stages = "ifitwala_ed.setup.setup_wizard.setup_wizard.get_setup_stages"
 #before_install = "ifitwala_ed.setup.install.check_setup_wizard_not_completed"
 after_install = "ifitwala_ed.setup.setup.setup_education"
+
+filters_config = "ifitwala_ed.startup.filters.get_filters_config"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}

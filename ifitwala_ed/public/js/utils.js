@@ -91,7 +91,7 @@ $.extend(ifitwala_ed, {
 		frappe.call({
 			method: 'ifitwala_ed.hr.doctype.hr_settings.hr_settings.set_proceed_with_frequency_change',
 			callback: () => {
-				cur_frm.save();
+				frm.save();
 			}
 		});
 	}
@@ -356,14 +356,21 @@ ifitwala_ed.utils.map_current_doc = function(opts) {
 			setters: opts.setters,
 			get_query: opts.get_query,
 			add_filters_group: 1,
+			allow_child_item_selection: opts.allow_child_item_selection,
+			child_fieldname: opts.child_fielname,
+			child_columns: opts.child_columns,
+			size: opts.size,
 			action: function(selections, args) {
 				let values = selections;
-				if(values.length === 0){
+				if (values.length === 0) {
 					frappe.msgprint(__("Please select {0}", [opts.source_doctype]))
 					return;
 				}
 				opts.source_name = values;
-				opts.setters = args;
+				if (opts.allow_child_item_selection) {
+					// args contains filtered child docnames
+					opts.args = args;
+				}
 				d.dialog.hide();
 				_map();
 			},

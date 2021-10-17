@@ -118,7 +118,7 @@ frappe.ui.form.on('Chart of Accounts Importer', {
 var create_import_button = function(frm) {
 	frm.page.set_primary_action(__("Import"), function () {
 		return frappe.call({
-			method: "erpnext.accounts.doctype.chart_of_accounts_importer.chart_of_accounts_importer.import_coa",
+			method: "ifitwala_ed.accounting.doctype.chart_of_accounts_importer.chart_of_accounts_importer.import_coa",
 			args: {
 				file_name: frm.doc.import_file,
 				organization: frm.doc.organization

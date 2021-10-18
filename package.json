@@ -1,0 +1,19 @@
+{
+  "name": "ifitwala_ed",
+  "description": "Open Source ERP System for school powered by the Frappe Framework",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fderyckel/ifitwala_ed.git"
+  },
+  "homepage": "https://ifitwala.com",
+  "author": "Me, Myself andn I",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/fderyckel/ifitwala_ed/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "html2canvas": "^1.1.4",
+    "onscan.js": "^1.5.2"
+  }
+}

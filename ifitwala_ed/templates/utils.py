@@ -1,6 +1,8 @@
 # Copyright (c) 2021, ifitwala and contributors
 # For license information, please see license.txt
 
+from __future__ import unicode_literals
+
 import frappe
 
 @frappe.whitelist(allow_guest=True)

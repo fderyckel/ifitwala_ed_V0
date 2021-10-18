@@ -3,5 +3,12 @@
 *.egg-info
 *.swp
 tags
+__pycache__
+node_modules/
+.backportrc.json
+conf.py
+locale
+latest_updates.json
+.wnf-lang-status
 ifitwala_ed/docs/current
 ifitwala_ed/hr/doctype/employee/.Rhistory

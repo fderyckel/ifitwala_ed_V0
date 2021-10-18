@@ -9,10 +9,10 @@
  "email_append_to": 1,
  "engine": "InnoDB",
  "field_order": [
-  "company_lead",
+  "organization_lead",
   "section_break_2",
   "opportunity_name",
-  "company_name",
+  "organization_name",
   "email_id",
   "opportunity_source",
   "column_break_6",
@@ -54,7 +54,7 @@
  "fields": [
   {
    "default": "0",
-   "fieldname": "company_lead",
+   "fieldname": "organization_lead",
    "fieldtype": "Check",
    "label": "Lead is a Company"
   },
@@ -63,7 +63,7 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "company_name",
+   "fieldname": "organization_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Company Name"
@@ -295,7 +295,7 @@
  "icon": "fa fa-user",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-16 11:08:55.991465",
+ "modified": "2021-10-17 11:08:55.991465",
  "modified_by": "Administrator",
  "module": "Students",
  "name": "Opportunity",

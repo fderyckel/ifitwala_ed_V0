@@ -47,7 +47,7 @@
    "reqd": 1
   },
   {
-   "depends_on": "is_company_account",
+   "depends_on": "is_organization_account",
    "fieldname": "account",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -208,7 +208,7 @@
   }
  ],
  "links": [],
- "modified": "2021-10-16 16:08:52.924359",
+ "modified": "2021-10-17 16:08:52.924359",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Bank Account",

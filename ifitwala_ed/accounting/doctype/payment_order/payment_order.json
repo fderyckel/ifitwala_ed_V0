@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "company",
+  "organization",
   "payment_order_type",
   "party",
   "column_break_2",
@@ -30,9 +30,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "company",
+   "fieldname": "organization",
    "fieldtype": "Link",
-   "label": "Company",
+   "label": "Organization",
    "options": "Organization",
    "reqd": 1
   },
@@ -64,8 +64,8 @@
    "label": "Posting Date"
   },
   {
-   "depends_on": "company_bank_account",
-   "fetch_from": "company_bank_account.account",
+   "depends_on": "organization_bank_account",
+   "fetch_from": "organization_bank_account.account",
    "fieldname": "account",
    "fieldtype": "Data",
    "label": "Account"
@@ -118,7 +118,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-10-16 16:03:26.220302",
+ "modified": "2021-10-17 16:03:26.220302",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Payment Order",

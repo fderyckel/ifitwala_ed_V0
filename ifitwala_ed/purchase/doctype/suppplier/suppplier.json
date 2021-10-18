@@ -229,13 +229,13 @@
    "read_only": 1
   },
   {
-   "depends_on": "represents_company",
+   "depends_on": "represents_organization",
    "fieldname": "allowed_to_transact_section",
    "fieldtype": "Section Break",
    "label": "Allowed To Transact With"
   },
   {
-   "depends_on": "represents_company",
+   "depends_on": "represents_organization",
    "fieldname": "companies",
    "fieldtype": "Table",
    "label": "Allowed To Transact With",
@@ -431,7 +431,7 @@
  "icon": "fa fa-user",
  "image_field": "image",
  "links": [],
- "modified": "2021-10-10 07:39:46.339056",
+ "modified": "2021-10-17 07:39:46.339056",
  "modified_by": "Administrator",
  "module": "Purchase",
  "name": "Suppplier",

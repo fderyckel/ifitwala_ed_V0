@@ -221,7 +221,7 @@ class Organization(NestedSet):
 
 			if not frappe.db.exists("Location", "{0} - {1}".format(loc_detail["location_name"], self.abbr)):
 				location = frappe.get_doc({
-					"doctype":"Location",
+					"doctype": "Location",
 					"location_name": loc_detail["location_name"],
 					"is_group": loc_detail["is_group"],
 					"organization": self.name,

@@ -431,10 +431,10 @@
  "icon": "fa fa-user",
  "image_field": "image",
  "links": [],
- "modified": "2021-10-17 07:39:46.339056",
+ "modified": "2021-10-18 07:39:46.339056",
  "modified_by": "Administrator",
  "module": "Purchase",
- "name": "Suppplier",
+ "name": "Supplier",
  "name_case": "Title Case",
  "owner": "Administrator",
  "permissions": [

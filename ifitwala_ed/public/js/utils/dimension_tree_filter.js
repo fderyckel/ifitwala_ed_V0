@@ -1,6 +1,6 @@
-frappe.provide('ifitwala_ed.accounts');
+frappe.provide('ifitwala_ed.accounting');
 
-ifitwala_ed.accounts.dimensions = {
+ifitwala_ed.accounting.dimensions = {
 	setup_dimension_filters(frm, doctype) {
 		this.accounting_dimensions = [];
 		this.default_dimensions = {};

@@ -40,8 +40,9 @@ class GlobalDefaults(Document):
 		if self.default_currency:
 			frappe.db.set_value("Currency", self.default_currency, "enabled", 1)
 
-		self.toggle_rounded_total()
-		self.toggle_in_words()
+		# I am commenting these as I do not have yet deliver note, purchase order, etc.
+		#self.toggle_rounded_total()
+		#self.toggle_in_words()
 
 		# clear cache
 		frappe.clear_cache()
@@ -54,7 +55,7 @@ class GlobalDefaults(Document):
 		self.disable_rounded_total = cint(self.disable_rounded_total)
 
 		# Make property setters to hide rounded total fields
-		for doctype in ("Delivery Note", "Purchase Order", "Purchase Invoice", "Purchase Receipt"):
+		for doctype in ("Lending Note"): #("Delivery Note", "Purchase Order", "Purchase Invoice", "Purchase Receipt"):
 			make_property_setter(doctype, "base_rounded_total", "hidden", self.disable_rounded_total, "Check", validate_fields_for_doctype=False)
 			make_property_setter(doctype, "base_rounded_total", "print_hide", 1, "Check", validate_fields_for_doctype=False)
 

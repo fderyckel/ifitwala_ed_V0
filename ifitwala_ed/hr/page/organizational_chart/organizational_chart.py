@@ -6,7 +6,7 @@ import frappe
 @frappe.whitelist()
 def get_children(parent=None, organization=None, exclude_node=None):
 	filters = [['status', '!=', 'Left']]
-	if organization and organization != 'All Companies':
+	if organization and organization != 'All Organizations':
 		filters.append(['organization', '=', organization])
 
 	if parent and organization and parent != organization:

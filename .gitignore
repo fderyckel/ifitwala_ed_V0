@@ -1,5 +1,6 @@
 .DS_Store
 *.pyc
+*.cpython-38.pyc
 *.egg-info
 *.swp
 tags

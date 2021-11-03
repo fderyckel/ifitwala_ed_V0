@@ -1,12 +1,12 @@
 // Copyright (c) 2021, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.provide('ifitwala_ed.accounting.dimensions')
+frappe.provide('ifitwala_ed.accounting.dimensions');
 
 frappe.ui.form.on('Fee Structure', {
 	setup: function(frm) {
 		frm.add_fetch('Organization', 'default_receivable_account', 'receivable_account');
-		frm.add_fetch('Organization', 'default_payable_account', 'payable_account');
+		frm.add_fetch('Organization', 'default_income_account', 'income_account');
 		frm.add_fetch('Organization', 'default_cost_center', 'cost_center');
 	},
 
@@ -57,7 +57,7 @@ frappe.ui.form.on('Fee Structure', {
 			method: ifitwala_ed.accounting.doctype.fee_structure.fee_structure.make_fee_schedule,
 			frm: frm
 		});
-	},
+	}
 });
 
 frappe.ui.form.on('Fee Component', {

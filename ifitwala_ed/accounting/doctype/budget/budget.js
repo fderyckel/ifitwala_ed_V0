@@ -1,7 +1,7 @@
 // Copyright (c) 2021, ifitwala and contributors
 // For license information, please see license.txt
 
-frappe.provide("erpnext.accounts.dimensions");
+frappe.provide("ifitwala_ed.accounting.dimensions");
 
 frappe.ui.form.on('Budget', {
 	onload: function(frm) {

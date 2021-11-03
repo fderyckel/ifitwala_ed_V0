@@ -70,12 +70,12 @@
    "fieldname": "message_examples",
    "fieldtype": "HTML",
    "label": "Message Examples",
-   "options": "<pre><h5>Message Example</h5>\n\n&lt;p&gt; Thank You for being a part of {{ doc.company }}! We hope you are enjoying the service.&lt;/p&gt;\n\n&lt;p&gt; Please find enclosed the E Bill statement. The outstanding amount is {{ doc.grand_total }}.&lt;/p&gt;\n\n&lt;p&gt; We don't want you to be spending time running around in order to pay for your Bill.<br>After all, life is beautiful and the time you have in hand should be spent to enjoy it!<br>So here are our little ways to help you get more time for life! &lt;/p&gt;\n\n&lt;a href=\"{{ payment_url }}\"&gt; click here to pay &lt;/a&gt;\n\n</pre>\n"
+   "options": "<pre><h5>Message Example</h5>\n\n&lt;p&gt; Thank You for being a part of {{ doc.organization }}! We hope you are enjoying the service.&lt;/p&gt;\n\n&lt;p&gt; Please find enclosed the E Bill statement. The outstanding amount is {{ doc.grand_total }}.&lt;/p&gt;\n\n&lt;p&gt; We don't want you to be spending time running around in order to pay for your Bill.<br>After all, life is beautiful and the time you have in hand should be spent to enjoy it!<br>So here are our little ways to help you get more time for life! &lt;/p&gt;\n\n&lt;a href=\"{{ payment_url }}\"&gt; click here to pay &lt;/a&gt;\n\n</pre>\n"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-09-29 16:31:18.694228",
+ "modified": "2021-11-03 13:51:02.909676",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Payment Gateway Account",

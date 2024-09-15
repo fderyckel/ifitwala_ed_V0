@@ -8,3 +8,5 @@ from frappe.model.document import Document
 
 class StudentAttendanceCode(Document):
 	pass
+
+# add a comment? 
